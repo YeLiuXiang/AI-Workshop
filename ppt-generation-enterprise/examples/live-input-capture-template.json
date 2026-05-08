@@ -14,6 +14,18 @@
     "expected_value": "待补充：客户最想看到的业务结果",
     "prototype_preference": "待补充：客户更接受的原型形态"
   },
+  "mvp_spec": {
+    "prototype_mode": "待补充：前端壳子优先 / 可扩展到简单交互",
+    "primary_user": "待补充：原型主要使用者",
+    "core_task": "待补充：用户在原型里最核心的一件事",
+    "screens": [],
+    "modules": [],
+    "key_actions": [],
+    "sample_data": [],
+    "style_keywords": [],
+    "tech_stack_preference": "待补充：如 Next.js + Tailwind CSS",
+    "out_of_scope": []
+  },
   "current_process": [],
   "detected_cards": {
     "business_scenario": [],

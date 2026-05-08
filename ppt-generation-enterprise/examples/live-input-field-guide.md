@@ -1,6 +1,6 @@
 # Live Workshop Input Field Guide
 
-Use this guide when collecting sparse live input before running `scripts/compose_workshop_assets.py`.
+Use this guide when collecting sparse live input before running `scripts/generate_workshop_package.py` or `scripts/compose_workshop_assets.py`.
 
 ## Collection Goal
 
@@ -17,6 +17,7 @@ If these three are clear, the asset-first workflow can safely select and tailor 
 Start from `examples/live-input-capture-template.json`.
 
 Keep the structure unchanged. Fill values into the existing fields rather than adding ad hoc fields.
+The template now includes an optional `mvp_spec` block used to generate `需求PRD.md` and `方案设计.md` for a frontend-shell prototype.
 
 ## Field Rules
 
@@ -68,6 +69,66 @@ Keep the structure unchanged. Fill values into the existing fields rather than a
 - Prefer patterns such as `工作台`, `控制塔`, `助手`, `中枢`, `门户`, `看板`.
 - If unknown, leave a short neutral placeholder such as `运营工作台` rather than a long explanation.
 
+`mvp_spec.prototype_mode`
+
+- Optional.
+- Recommended default is `前端壳子优先`.
+- Use this field when you want the generated spec package to explicitly stay lightweight and demo-oriented.
+
+`mvp_spec.primary_user`
+
+- Optional.
+- Fill the person who will actually click through the prototype, such as `营销负责人` or `供应链负责人`.
+- If omitted, the generator will fall back to the scenario target user.
+
+`mvp_spec.core_task`
+
+- Optional.
+- Describe the single most important thing the prototype should help the user finish.
+- Good example: `在一个页面中完成客群查看、文案生成和活动动作判断。`
+
+`mvp_spec.screens`
+
+- Optional.
+- Add 3 to 5 page names only.
+- Good examples: `首页总览`, `洞察分析页`, `生成结果页`, `动作建议页`.
+
+`mvp_spec.modules`
+
+- Optional.
+- Add the main visible modules the page shell must contain.
+- Good examples: `客群卡片`, `趋势图`, `推荐动作列表`, `内容生成面板`.
+
+`mvp_spec.key_actions`
+
+- Optional.
+- Record the 3 to 5 click paths or demo actions you want available in the shell.
+- Good examples: `切换客群`, `查看 AI 洞察`, `生成页面草稿`, `打开动作建议抽屉`.
+
+`mvp_spec.sample_data`
+
+- Optional.
+- Use this when the future prototype should preload realistic fake data.
+- Good examples: `客户画像样例`, `活动结果样例`, `高风险客户清单`.
+
+`mvp_spec.style_keywords`
+
+- Optional.
+- Use 2 to 4 short style keywords only.
+- Good examples: `企业级`, `简洁`, `卡片式布局`, `深色运营看板`.
+
+`mvp_spec.tech_stack_preference`
+
+- Optional.
+- Use this if the team already prefers a frontend stack.
+- Good example: `Next.js + Tailwind CSS`.
+
+`mvp_spec.out_of_scope`
+
+- Optional.
+- Use this to explicitly mark what the first prototype should not do.
+- Good examples: `不接真实后端接口`, `不做真实权限`, `不实现自动提交动作`.
+
 `current_process`
 
 - Optional.
@@ -99,6 +160,15 @@ If time is tight, collect these six fields first:
 
 This is the minimum set needed for reliable lane selection and case matching.
 
+If you also want a better prototype document package, add these fields when time allows:
+
+- `mvp_spec.primary_user`
+- `mvp_spec.core_task`
+- `mvp_spec.screens`
+- `mvp_spec.modules`
+- `mvp_spec.key_actions`
+- `mvp_spec.style_keywords`
+
 ## Recommended Writing Pattern
 
 When facilitating live workshops, collect the fields in this order:
@@ -110,6 +180,7 @@ When facilitating live workshops, collect the fields in this order:
 5. expected value
 6. prototype preference
 7. detected cards
+8. MVP spec fields when the customer clearly wants a prototype shell
 
 This order follows the way `compose_workshop_assets.py` selects lanes and scores reference cases.
 
@@ -120,6 +191,7 @@ This order follows the way `compose_workshop_assets.py` selects lanes and scores
 - Do not mix customer request, solution idea, and KPI target into one field.
 - Do not create new keys unless the scripts are updated to consume them.
 - Do not use generic labels like `AI 赋能` as the only business description.
+- Do not write `mvp_spec` as a full technical design. Keep it short and demo-oriented.
 
 ## Quick Check Before Running
 
@@ -128,5 +200,6 @@ Before running composition, confirm:
 1. one clear lane is visible from `customer_type`
 2. one clear problem family is visible from `scenario_summary` and `current_pain_point`
 3. one usable prototype direction is visible from `prototype_preference`
+4. if a frontend shell is expected, one clear demo path is visible from `mvp_spec.core_task` or `mvp_spec.key_actions`
 
-If any of these three are missing, improve the input first instead of forcing generation.
+If any of these signals are missing, improve the input first instead of forcing generation.

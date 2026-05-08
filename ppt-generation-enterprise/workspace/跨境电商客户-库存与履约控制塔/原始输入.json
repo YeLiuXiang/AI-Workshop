@@ -1,0 +1,88 @@
+{
+  "workshop": {
+    "title": "AI Discovery Card Workshop",
+    "customer": "跨境电商客户",
+    "industry": "跨境电商",
+    "group_name": "现场共创组",
+    "date": "2026-05-08"
+  },
+  "event_input": {
+    "customer_type": "跨界电商",
+    "scenario_summary": "希望针对跨区域订单、库存和履约异常协同场景，设计一个能联动补货、调拨和仓配建议的 AI 控制塔流程。",
+    "target_role": "供应链负责人",
+    "current_pain_point": "跨区域订单、库存和履约异常缺少统一判断与联动，补货调拨仍依赖人工拼表。",
+    "expected_value": "希望先验证 AI 对缺货、积压和履约风险识别及协同建议的价值。",
+    "prototype_preference": "库存与履约控制塔"
+  },
+  "mvp_spec": {
+    "prototype_mode": "前端壳子优先",
+    "primary_user": "供应链负责人",
+    "core_task": "在一个控制塔界面里完成库存履约风险判断、建议查看和协同任务触发。",
+    "screens": [
+      "全局风险总览",
+      "区域库存与订单分析页",
+      "补货调拨建议页",
+      "协同任务与复盘页"
+    ],
+    "modules": [
+      "区域风险地图",
+      "缺货与积压预警卡片",
+      "履约异常解释区",
+      "补货调拨建议列表",
+      "协同任务面板"
+    ],
+    "key_actions": [
+      "切换区域查看库存与订单风险",
+      "查看 AI 给出的补货调拨建议",
+      "触发区域协同任务",
+      "回看执行结果与复盘口径"
+    ],
+    "sample_data": [
+      "区域库存样例",
+      "订单波动样例",
+      "退货原因样例",
+      "履约异常样例"
+    ],
+    "style_keywords": [
+      "企业级",
+      "控制塔",
+      "运营看板"
+    ],
+    "tech_stack_preference": "Next.js + Tailwind CSS",
+    "out_of_scope": [
+      "不接真实 ERP 或 WMS 接口",
+      "不直接执行自动补货下单",
+      "不实现正式权限体系"
+    ]
+  },
+  "current_process": [
+    "订单和库存持续变化",
+    "汇总库存、订单、退货和仓配数据",
+    "AI 判断缺货、积压和履约风险",
+    "生成补货、调拨和仓配建议",
+    "触发区域协同和运营任务",
+    "结果回写控制塔与复盘口径"
+  ],
+  "detected_cards": {
+    "business_scenario": [
+      "数据和预测分析中偏业务目标的卡片"
+    ],
+    "input_perception": [
+      "表单理解"
+    ],
+    "understanding_analysis": [
+      "数据分析",
+      "风险预测",
+      "异常检测"
+    ],
+    "generation_interaction": [
+      "文本生成"
+    ],
+    "execution_closure": [
+      "流程优化",
+      "自动履行",
+      "决策制定"
+    ]
+  },
+  "card_photo_paths": []
+}

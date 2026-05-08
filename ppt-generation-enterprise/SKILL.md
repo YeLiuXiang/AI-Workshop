@@ -17,7 +17,7 @@ This skill is a portable enterprise-focused fork of a PPT generation workflow. I
 - conversion from a structured outline into a reusable intermediate plan
 - template filling via inventory and replacement map
 
-For AI Discovery Card Workshop scenarios, this skill should use a workshop-specific route rather than the generic Markdown outline route. The deck must reflect the SOP goal: convert the customer's co-created business scenario into a clear AI Flow, prototype direction, business value summary, and POC next-step deck.
+For AI Discovery Card Workshop scenarios, this skill should use a workshop-specific route rather than the generic Markdown outline route. The default output should be a customer-ready package: workshop deck plus lightweight MVP spec docs for fast frontend-shell prototyping.
 
 The current workshop workflow is asset-first. Sparse现场输入 should select and tailor prebuilt assets instead of forcing the model to generate most of the deck content from scratch.
 
@@ -51,7 +51,8 @@ Use this route when the source material comes from the workshop SOP, card photos
 3. Let the pipeline create `Workspace/<客户名-场景名>/` automatically
 4. For sparse input, let `scripts/compose_workshop_assets.py` select outline packs, reference cases, and content snippets
 5. Generate `presentation-plan.json` with `scripts/workshop_to_plan.py`
-6. Build `replacement-map.json` with the workshop-aware layout map or render directly with the PPTX writer
+6. Generate `需求PRD.md` and `方案设计.md` with `scripts/workshop_to_mvp_docs.py`
+7. Build `replacement-map.json` with the workshop-aware layout map or render directly with the PPTX writer
 
 The canonical live capture template is `examples/live-input-capture-template.json`. The simplest operator-facing guide is `WORKSHOP-INPUT-PLAYBOOK.md`.
 
@@ -89,6 +90,14 @@ Sparse live event input may also start from a lighter schema with:
 - `event_input.current_pain_point`
 - `event_input.expected_value`
 - `event_input.prototype_preference`
+- optional `mvp_spec.prototype_mode`
+- optional `mvp_spec.primary_user`
+- optional `mvp_spec.core_task`
+- optional `mvp_spec.screens`
+- optional `mvp_spec.modules`
+- optional `mvp_spec.key_actions`
+- optional `mvp_spec.style_keywords`
+- optional `mvp_spec.tech_stack_preference`
 - `detected_cards`
 - optional `card_photo_paths`
 
@@ -121,6 +130,8 @@ The default artifact set is:
 - `Workspace/<客户名称-场景名称>/组合场景.json` when the source is sparse live input
 - `Workspace/<客户名称-场景名称>/演示文稿方案.json`
 - `Workspace/<客户名称-场景名称>/替换映射.json`
+- `Workspace/<客户名称-场景名称>/需求PRD.md`
+- `Workspace/<客户名称-场景名称>/方案设计.md`
 - `Workspace/<客户名称-场景名称>/<客户名称-场景名称>方案.pptx`
 
 ## Supported Slide Types
@@ -169,6 +180,7 @@ For AI Discovery Workshop decks, the default slide order should be:
 - Prefer template-driven generation for enterprise decks.
 - Prefer the workshop route for all SOP-derived workshop scenarios.
 - Prefer `scripts/generate_workshop_package.py` over manually chaining individual scripts for workshop delivery.
+- Prefer the generated Markdown docs to stay lightweight and prototype-oriented instead of expanding into a full implementation specification.
 - When rendering directly to PPTX, prefer centered content within background blocks and use a consistent small-radius rounded rectangle treatment.
 - Keep themes and template geometry separate.
 - Store only relative paths so the package can be moved into another project without edits.

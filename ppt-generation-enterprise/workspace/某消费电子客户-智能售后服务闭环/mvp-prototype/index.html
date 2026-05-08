@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>智能售后服务工作台 MVP</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./script.js"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">AI AFTER-SALES SERVICE LOOP</p>
+          <h1>智能售后服务工作台</h1>
+          <p class="hero-copy">
+            把设备状态、历史工单、FAQ 与服务动作拉到同一个工作台里，帮助一线客服更快识别问题、生成回复、升级复杂工单并沉淀知识闭环。
+          </p>
+        </div>
+        <div class="hero-actions">
+          <div class="signal-card">
+            <span class="signal-label">当前演示链路</span>
+            <strong>报修接单 -> AI 诊断 -> 回复建议 -> 升级联动 -> 知识回写</strong>
+          </div>
+          <button id="next-case-button" class="primary-button" type="button">切换下一条报修</button>
+        </div>
+      </header>
+
+      <section class="kpi-strip" id="kpi-strip"></section>
+
+      <main class="dashboard-layout">
+        <aside class="panel case-panel">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">服务队列</p>
+              <h2>待处理报修</h2>
+            </div>
+            <span class="badge">3 条样例</span>
+          </div>
+          <div class="chip-row" id="filter-row"></div>
+          <div class="case-list" id="case-list"></div>
+        </aside>
+
+        <section class="panel workspace-panel">
+          <div class="panel-header workspace-head">
+            <div>
+              <p class="panel-kicker">统一上下文</p>
+              <h2 id="workspace-title"></h2>
+            </div>
+            <div class="priority-block">
+              <span class="priority-label">优先级</span>
+              <strong id="priority-value"></strong>
+            </div>
+          </div>
+
+          <div class="workspace-grid">
+            <section class="subpanel context-panel">
+              <h3>设备状态与客户上下文</h3>
+              <div class="device-hero">
+                <div>
+                  <p class="device-name" id="device-name"></p>
+                  <p class="device-meta" id="device-meta"></p>
+                </div>
+                <span class="status-pill" id="device-status"></span>
+              </div>
+              <div class="stats-grid" id="device-stats"></div>
+              <div class="timeline-block">
+                <div class="subpanel-title-row">
+                  <h4>历史工单与异常轨迹</h4>
+                  <span id="history-count"></span>
+                </div>
+                <ul class="timeline-list" id="history-timeline"></ul>
+              </div>
+            </section>
+
+            <section class="subpanel diagnosis-panel">
+              <div class="subpanel-title-row">
+                <h3>AI 诊断与知识召回</h3>
+                <span class="badge" id="diagnosis-confidence"></span>
+              </div>
+              <div class="diagnosis-highlight">
+                <div>
+                  <p class="mini-label">问题类型</p>
+                  <strong id="diagnosis-type"></strong>
+                </div>
+                <div>
+                  <p class="mini-label">根因判断</p>
+                  <strong id="diagnosis-root-cause"></strong>
+                </div>
+              </div>
+              <p class="summary-text" id="diagnosis-summary"></p>
+              <div class="tab-row" id="tab-row">
+                <button class="tab-button is-active" data-tab="knowledge" type="button">知识依据</button>
+                <button class="tab-button" data-tab="reply" type="button">回复建议</button>
+                <button class="tab-button" data-tab="actions" type="button">建议动作</button>
+              </div>
+              <div class="tab-card" id="tab-content"></div>
+            </section>
+
+            <section class="subpanel action-panel">
+              <div class="subpanel-title-row">
+                <h3>回复与工单动作</h3>
+                <span class="badge">一键演示</span>
+              </div>
+              <div class="response-card">
+                <p class="mini-label">面向客户的建议回复</p>
+                <p id="reply-preview"></p>
+              </div>
+              <div class="action-buttons">
+                <button class="action-button primary-action" data-action="send-reply" type="button">发送回复建议</button>
+                <button class="action-button" data-action="escalate" type="button">升级二线工单</button>
+                <button class="action-button" data-action="create-task" type="button">创建上门排障任务</button>
+              </div>
+              <div class="execution-card">
+                <p class="mini-label">当前执行状态</p>
+                <strong id="execution-status"></strong>
+                <ul class="execution-list" id="execution-list"></ul>
+              </div>
+            </section>
+          </div>
+        </section>
+      </main>
+
+      <section class="panel closure-panel">
+        <div class="panel-header">
+          <div>
+            <p class="panel-kicker">闭环结果</p>
+            <h2>知识回写与服务闭环</h2>
+          </div>
+          <span class="badge">MVP 演示态</span>
+        </div>
+        <div class="closure-grid">
+          <div class="closure-card emphasis-card">
+            <p class="mini-label">本次工单沉淀</p>
+            <strong id="closure-title"></strong>
+            <p id="closure-summary"></p>
+          </div>
+          <div class="closure-card">
+            <p class="mini-label">建议回写内容</p>
+            <ul id="closure-points" class="bullet-list"></ul>
+          </div>
+          <div class="closure-card">
+            <p class="mini-label">下一阶段可扩展</p>
+            <ul class="bullet-list">
+              <li>接入真实工单系统与设备遥测接口</li>
+              <li>引入多轮客服对话与知识召回评分</li>
+              <li>增加专家协同与服务质量分析看板</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

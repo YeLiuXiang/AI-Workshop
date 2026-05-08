@@ -5,6 +5,8 @@ from pathlib import Path
 from build_replacement_map import build_replacement_map
 from compose_workshop_assets import compose_payload
 from plan_to_pptx import write_pptx
+from workshop_fast_path import normalize_fast_payload
+from workshop_to_mvp_docs import generate_docs
 from workshop_to_plan import build_workshop_plan
 
 
@@ -80,7 +82,10 @@ def generate_package(args) -> Path:
     workspace_root = Path(args.workspace_root)
 
     if is_sparse_workshop_input(source):
-        scenario_payload = compose_payload(source, Path(args.assets_dir))
+        if args.fast:
+            scenario_payload = normalize_fast_payload(source)
+        else:
+            scenario_payload = compose_payload(source, Path(args.assets_dir))
         input_file_name = "原始输入.json"
         normalized_file_name = "组合场景.json"
     else:
@@ -103,7 +108,7 @@ def generate_package(args) -> Path:
 
     theme = load_json(str(resolve_theme_file(args)))
 
-    if not args.skip_replacement_map:
+    if not args.skip_replacement_map and not args.fast:
         inventory_path = resolve_inventory_file(args)
         layout_map_path = resolve_layout_map_file(args)
         if inventory_path.exists() and layout_map_path.exists():
@@ -115,6 +120,8 @@ def generate_package(args) -> Path:
     ppt_file_name = sanitize_name(f"{customer_name}-{scenario_name}方案", "客户方案", max_length=80) + ".pptx"
     ppt_path = case_dir / ppt_file_name
     write_pptx(plan, theme, str(ppt_path))
+
+    generate_docs(scenario_payload, case_dir, "需求PRD.md", "方案设计.md")
     return case_dir
 
 
@@ -132,6 +139,7 @@ def main() -> None:
     parser.add_argument("--inventory", help="Optional template inventory JSON path")
     parser.add_argument("--layout-map", help="Optional layout map JSON path")
     parser.add_argument("--skip-replacement-map", action="store_true", help="Skip replacement map generation")
+    parser.add_argument("--fast", action="store_true", help="Use the 5-minute workshop path: deterministic sparse-input normalization and skip replacement map generation")
     args = parser.parse_args()
 
     case_dir = generate_package(args)

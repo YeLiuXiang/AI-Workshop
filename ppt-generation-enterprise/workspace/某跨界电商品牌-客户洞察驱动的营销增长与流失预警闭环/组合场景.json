@@ -36,21 +36,15 @@
     "流失预警和客户保留动作不够及时"
   ],
   "selected_cards": {
-    "understanding_analysis": [
-      "客户洞察",
-      "数据分析",
-      "风险预测",
-      "预测客户流失"
+    "business_scenario": [
+      "内容生成中偏营销、网页、内容生产的卡片",
+      "了解客户",
+      "个性化营销"
     ],
     "input_perception": [
       "表单理解",
       "文本输入",
       "数据输入"
-    ],
-    "business_scenario": [
-      "内容生成中偏营销、网页、内容生产的卡片",
-      "了解客户",
-      "个性化营销"
     ],
     "generation_interaction": [
       "文本生成",
@@ -63,6 +57,12 @@
       "自动履行",
       "决策制定",
       "人机交互"
+    ],
+    "understanding_analysis": [
+      "客户洞察",
+      "数据分析",
+      "风险预测",
+      "预测客户流失"
     ]
   },
   "ai_flow": {
@@ -158,6 +158,7 @@
       "输出原型范围和验证口径"
     ]
   },
+  "mvp_spec": {},
   "selected_assets": {
     "industry_lane": "cross-border-ecommerce",
     "outline_pack": "opportunity-prototype-deck",

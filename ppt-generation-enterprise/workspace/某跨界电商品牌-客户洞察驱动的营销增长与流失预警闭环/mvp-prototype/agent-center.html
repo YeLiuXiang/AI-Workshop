@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>营销场景 Agent 中心 MVP</title>
+    <link rel="stylesheet" href="./agent-center.css" />
+    <script defer src="./agent-center.js"></script>
+  </head>
+  <body>
+    <div class="agent-shell">
+      <nav class="page-nav">
+        <div class="nav-context">
+          <span class="nav-label">场景原型包</span>
+          <strong>某跨界电商品牌 / 客户洞察驱动的营销增长与流失预警闭环</strong>
+        </div>
+        <div class="nav-links">
+          <a class="nav-link" href="./index.html">业务工作台</a>
+          <a class="nav-link is-active" href="./agent-center.html">Agent 中心</a>
+        </div>
+      </nav>
+
+      <header class="hero-banner">
+        <div class="hero-copy-block">
+          <p class="eyebrow">AGENT LANDSCAPE FOR GROWTH OPS</p>
+          <h1>营销场景 Agent 智能体中心</h1>
+          <p class="hero-copy">
+            展示在“客户洞察驱动的营销增长与流失预警闭环”中可能会用到的多个 Agent 智能体。这里不是可执行控制台，而是一个面向汇报和方案说明的能力配置页原型。
+          </p>
+          <div class="hero-tags">
+            <span>多 Agent 协同</span>
+            <span>能力配置展示</span>
+            <span>业务场景映射</span>
+            <span>非执行态</span>
+          </div>
+          <div class="hero-actions">
+            <a class="ghost-link-button" href="./index.html">返回业务工作台</a>
+          </div>
+        </div>
+
+        <div class="hero-status-card">
+          <p class="eyebrow">当前业务链路</p>
+          <strong id="hero-chain"></strong>
+          <div class="hero-stat-grid">
+            <article>
+              <span>候选 Agent</span>
+              <strong id="agent-count"></strong>
+            </article>
+            <article>
+              <span>业务域</span>
+              <strong id="domain-count"></strong>
+            </article>
+            <article>
+              <span>展示模式</span>
+              <strong>能力配置页</strong>
+            </article>
+          </div>
+        </div>
+      </header>
+
+      <section class="signal-strip" id="signal-strip"></section>
+
+      <main class="agent-layout">
+        <aside class="panel roster-panel">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">智能体目录</p>
+              <h2>候选 Agent 列表</h2>
+            </div>
+            <span class="badge">点击查看详情</span>
+          </div>
+
+          <div class="filter-row" id="filter-row"></div>
+          <div class="agent-card-list" id="agent-card-list"></div>
+        </aside>
+
+        <section class="panel detail-panel">
+          <div class="detail-header">
+            <div>
+              <p class="panel-kicker">能力配置页</p>
+              <h2 id="agent-name"></h2>
+              <p class="detail-summary" id="agent-summary"></p>
+            </div>
+            <div class="priority-card">
+              <p class="mini-label">业务角色</p>
+              <strong id="agent-owner"></strong>
+              <span id="agent-stage"></span>
+            </div>
+          </div>
+
+          <nav class="detail-tabs" id="detail-tabs">
+            <button class="tab-button is-active" data-tab="capability" type="button">能力说明</button>
+            <button class="tab-button" data-tab="config" type="button">配置视图</button>
+            <button class="tab-button" data-tab="collaboration" type="button">协同关系</button>
+          </nav>
+
+          <section class="tab-stage">
+            <article class="tab-panel is-active" data-tab-panel="capability">
+              <div class="detail-grid capability-grid">
+                <section class="subpanel accent-surface">
+                  <div class="subheading-row">
+                    <h3>Agent 定位</h3>
+                    <span class="badge badge-soft" id="agent-domain"></span>
+                  </div>
+                  <div class="headline-matrix">
+                    <div>
+                      <p class="mini-label">核心价值</p>
+                      <strong id="agent-value"></strong>
+                    </div>
+                    <div>
+                      <p class="mini-label">主要触发</p>
+                      <strong id="agent-trigger"></strong>
+                    </div>
+                  </div>
+                  <p class="paragraph" id="agent-positioning"></p>
+                </section>
+
+                <section class="subpanel">
+                  <div class="subheading-row">
+                    <h3>输入与输出</h3>
+                    <span class="badge">展示态</span>
+                  </div>
+                  <div class="io-grid">
+                    <div>
+                      <p class="mini-label">核心输入</p>
+                      <ul class="bullet-list" id="agent-inputs"></ul>
+                    </div>
+                    <div>
+                      <p class="mini-label">主要输出</p>
+                      <ul class="bullet-list" id="agent-outputs"></ul>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </article>
+
+            <article class="tab-panel" data-tab-panel="config">
+              <div class="detail-grid config-grid">
+                <section class="subpanel">
+                  <div class="subheading-row">
+                    <h3>配置字段</h3>
+                    <span class="badge badge-warm">Mock Config</span>
+                  </div>
+                  <div class="config-list" id="config-list"></div>
+                </section>
+
+                <section class="subpanel accent-surface-light">
+                  <div class="subheading-row">
+                    <h3>工具与护栏</h3>
+                    <span class="badge">架构建议</span>
+                  </div>
+                  <div class="stack-block">
+                    <div>
+                      <p class="mini-label">可能调用的工具</p>
+                      <ul class="bullet-list" id="tool-list"></ul>
+                    </div>
+                    <div>
+                      <p class="mini-label">主要护栏</p>
+                      <ul class="bullet-list" id="guardrail-list"></ul>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </article>
+
+            <article class="tab-panel" data-tab-panel="collaboration">
+              <div class="detail-grid collaboration-grid">
+                <section class="subpanel">
+                  <div class="subheading-row">
+                    <h3>上下游协同</h3>
+                    <span class="badge badge-soft">Hand-off</span>
+                  </div>
+                  <div class="flow-steps" id="handoff-list"></div>
+                </section>
+
+                <section class="subpanel">
+                  <div class="subheading-row">
+                    <h3>不在当前范围</h3>
+                    <span class="badge badge-warm">Out of Scope</span>
+                  </div>
+                  <ul class="bullet-list" id="out-of-scope-list"></ul>
+                  <div class="narrative-card" id="collab-note"></div>
+                </section>
+              </div>
+            </article>
+          </section>
+        </section>
+      </main>
+
+      <section class="panel chain-panel">
+        <div class="panel-header">
+          <div>
+            <p class="panel-kicker">多 Agent 协同图</p>
+            <h2>当前业务场景的推荐协同链</h2>
+          </div>
+          <button id="next-agent-button" class="primary-button" type="button">切换下一个 Agent</button>
+        </div>
+        <div class="chain-grid" id="chain-grid"></div>
+      </section>
+    </div>
+  </body>
+</html>

@@ -1,6 +1,12 @@
 # Workshop Input Playbook
 
-这份文档只解决一件事：现场怎么整理输入，才能稳定命中已有资产并生成 PPT。
+这份文档只解决一件事：现场怎么整理输入，才能稳定命中已有资产并生成 PPT 与轻量原型规格包。
+
+现在默认交付已经从“只生成 PPT”扩展为“PPT + 轻量原型规格包”。也就是说，同一份客户输入会默认生成：
+
+- 方案 PPT
+- `需求PRD.md`
+- `方案设计.md`
 
 ## 文档怎么用
 
@@ -14,6 +20,29 @@
    看现场输入怎么写，以及直接可用的示例。
 
 如果只是现场采集输入，优先看这份文档，不需要先读完整个 `README.md`。
+
+## 5 分钟现场模式
+
+如果你的目标是在现场 5 分钟内直接出一版可讲解的 PPT、`需求PRD.md` 和 `方案设计.md`，优先使用快速模式，不要先走 asset-first 补全。
+
+推荐命令：
+
+```powershell
+python scripts/generate_workshop_package.py `
+  --input examples/live-fast-template.json `
+  --workspace-root Workspace `
+  --fast
+```
+
+这个模式只保留最短路径：
+
+- 现场输入
+- 直接标准化成场景 JSON
+- 生成 PPT
+- 生成 `需求PRD.md`
+- 生成 `方案设计.md`
+
+默认不会再生成 `替换映射.json`，也不会去匹配 reference case，目的就是现场稳定出结果，而不是追求最复杂的自动补全。
 
 ## 标准输出目录规则
 
@@ -41,6 +70,8 @@ Workspace/
     组合场景.json
     演示文稿方案.json
     替换映射.json
+    需求PRD.md
+    方案设计.md
     客户名称-场景名称方案.pptx
 ```
 
@@ -56,6 +87,8 @@ Workspace/
 
 只要这三件事足够清楚，系统就能用已有 reference case 补全大部分内容。
 
+如果客户明确希望“除了 PPT，还要有一个可快速搭出来的原型壳子”，再额外补少量 `mvp_spec` 字段即可，不需要在现场写完整技术方案。
+
 ## 最小输入字段
 
 最少收这 6 个字段：
@@ -66,6 +99,20 @@ Workspace/
 - `current_pain_point`
 - `expected_value`
 - `prototype_preference`
+
+如果要顺带生成更可用的原型文档，建议再补这 5 个字段：
+
+- `mvp_spec.primary_user`
+- `mvp_spec.core_task`
+- `mvp_spec.screens`
+- `mvp_spec.modules`
+- `mvp_spec.key_actions`
+
+如果是 5 分钟现场模式，再额外补这 1 个字段最有帮助：
+
+- `current_process`
+
+也就是把现场卡片链路直接整理成 5 到 6 行步骤，系统就可以直接拿这条链路去生成 `目标 AI Flow` 和 PRD/方案设计文档。
 
 建议写法：
 
@@ -94,6 +141,18 @@ Workspace/
     "current_pain_point": "待补充：当前最急的一个问题",
     "expected_value": "待补充：客户最想看到的业务结果",
     "prototype_preference": "待补充：客户更接受的原型形态"
+  },
+  "mvp_spec": {
+    "prototype_mode": "待补充：前端壳子优先 / 可扩展到简单交互",
+    "primary_user": "待补充：原型主要使用者",
+    "core_task": "待补充：用户在原型里最核心的一件事",
+    "screens": [],
+    "modules": [],
+    "key_actions": [],
+    "sample_data": [],
+    "style_keywords": [],
+    "tech_stack_preference": "待补充：如 Next.js + Tailwind CSS",
+    "out_of_scope": []
   },
   "current_process": [],
   "detected_cards": {

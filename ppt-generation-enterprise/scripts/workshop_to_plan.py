@@ -2,6 +2,8 @@ import argparse
 import json
 from pathlib import Path
 
+from workshop_to_mvp_docs import normalize_mvp_spec
+
 
 def load_json(path: str) -> dict:
     return json.loads(Path(path).read_text(encoding="utf-8"))
@@ -146,6 +148,7 @@ def build_workshop_plan(payload: dict, template: str, theme: str, aspect_ratio: 
     business_value = payload.get("business_value", {}) if isinstance(payload.get("business_value"), dict) else {}
     poc = payload.get("poc", {}) if isinstance(payload.get("poc"), dict) else {}
     selected_assets = payload.get("selected_assets", {}) if isinstance(payload.get("selected_assets"), dict) else {}
+    mvp_spec = normalize_mvp_spec(payload)
 
     workshop_title = ensure_text(workshop.get("title"), "Workshop 标题")
     customer = ensure_text(workshop.get("customer"), "客户名称")
@@ -191,6 +194,7 @@ def build_workshop_plan(payload: dict, template: str, theme: str, aspect_ratio: 
 
     mapping_lines = format_mapping_rows(product_mapping)
     deliverable_line = f"现场交付物：{join_cards(value_deliverables, '现场交付物')}"
+    cover_value_line = prototype_value_statement or opportunity_statement or flow_narrative
     cover_title = scenario_name
     cover_subtitle = "AI Discovery Workshop 商机与原型方案"
 
@@ -222,6 +226,8 @@ def build_workshop_plan(payload: dict, template: str, theme: str, aspect_ratio: 
             "fields": {
                 "customer_line": f"客户：{customer} | 行业：{industry}",
                 "group_line": f"小组：{group_name} | 日期：{event_date}",
+                "workshop_line": f"Workshop：{workshop_title}",
+                "cover_value_line": cover_value_line,
             },
         },
         make_slide(
@@ -309,6 +315,48 @@ def build_workshop_plan(payload: dict, template: str, theme: str, aspect_ratio: 
         ),
         make_slide(
             7,
+            "MVP 原型范围",
+            "prototype-concept",
+            "prototype-concept",
+            [
+                f"目标用户：{mvp_spec['primary_user']}",
+                f"核心任务：{mvp_spec['core_task']}",
+                f"非目标范围：{first_or_placeholder(mvp_spec['out_of_scope'], '非目标范围')}",
+            ],
+            fields={
+                "top_labels": ["目标用户", "核心任务", "非目标范围"],
+                "prototype_name_line": f"目标用户：{mvp_spec['primary_user']}",
+                "prototype_surface_line": f"核心任务：{mvp_spec['core_task']}",
+                "prototype_value_line": f"非目标范围：{first_or_placeholder(mvp_spec['out_of_scope'], '非目标范围')}",
+                "flow_title": "页面清单",
+                "scope_title": "关键模块",
+                "prototype_flow_lines": numbered_lines(mvp_spec["screens"], "MVP 页面", limit=4),
+                "prototype_scope_lines": numbered_lines(mvp_spec["modules"], "关键模块", limit=4),
+            },
+        ),
+        make_slide(
+            8,
+            "原型交付与快速开发路径",
+            "prototype-concept",
+            "prototype-concept",
+            [
+                f"交付方式：{mvp_spec['prototype_mode']}；推荐技术栈：{mvp_spec['tech_stack']}",
+                f"核心交付件：{join_cards(mvp_spec['solution_artifacts'][:3], '核心交付件')}",
+                f"架构原则：{join_cards(mvp_spec['architecture_principles'], '架构原则')}",
+            ],
+            fields={
+                "top_labels": ["交付方式", "核心交付件", "架构原则"],
+                "prototype_name_line": f"交付方式：{mvp_spec['prototype_mode']}；推荐技术栈：{mvp_spec['tech_stack']}",
+                "prototype_surface_line": f"核心交付件：{join_cards(mvp_spec['solution_artifacts'][:3], '核心交付件')}",
+                "prototype_value_line": f"架构原则：{join_cards(mvp_spec['architecture_principles'], '架构原则')}",
+                "flow_title": "方案设计与架构设计",
+                "scope_title": "快速开发路径",
+                "prototype_flow_lines": numbered_lines(mvp_spec["solution_artifacts"], "方案设计与架构设计", limit=4),
+                "prototype_scope_lines": numbered_lines(mvp_spec["next_build_steps"], "快速开发路径", limit=4),
+            },
+        ),
+        make_slide(
+            9,
             "能力映射与交付物",
             "product-mapping-table",
             "product-mapping-table",
@@ -324,7 +372,7 @@ def build_workshop_plan(payload: dict, template: str, theme: str, aspect_ratio: 
             },
         ),
         make_slide(
-            8,
+            10,
             "业务价值与验证假设",
             "business-value",
             "business-value",
@@ -340,7 +388,7 @@ def build_workshop_plan(payload: dict, template: str, theme: str, aspect_ratio: 
             },
         ),
         make_slide(
-            9,
+            11,
             "POC 与下一步",
             "poc-next-step",
             "poc-next-step",

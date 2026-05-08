@@ -233,6 +233,43 @@ def build_cover_metadata(slide_data: dict) -> list[str]:
     return metadata[:2]
 
 
+def build_cover_badges(slide_data: dict) -> list[str]:
+    fields = slide_data.get("fields", {})
+    badges = []
+
+    customer_line = fields.get("customer_line", "").strip()
+    if customer_line:
+        badges.append(customer_line)
+
+    group_line = fields.get("group_line", "").strip()
+    if group_line:
+        badges.append(group_line.replace(" | ", " · "))
+
+    workshop_line = fields.get("workshop_line", "").strip()
+    if not workshop_line:
+        slots = slide_data.get("slots", {})
+        workshop_line = slots.get("point_3", "").strip()
+    if workshop_line:
+        badges.append(workshop_line)
+
+    return badges[:3]
+
+
+def build_cover_highlight(slide_data: dict) -> str:
+    fields = slide_data.get("fields", {})
+    highlight = str(fields.get("cover_value_line", "")).strip()
+    if highlight:
+        return highlight
+
+    notes = slide_data.get("speaker_notes", [])
+    if notes:
+        first_note = str(notes[0]).strip()
+        if first_note:
+            return first_note
+
+    return str(slide_data.get("subtitle", "")).strip()
+
+
 def draw_arrow(slide, left: float, top: float, width: float, height: float, color: RGBColor) -> None:
     arrow = slide.shapes.add_shape(
         MSO_AUTO_SHAPE_TYPE.RIGHT_ARROW,
@@ -346,12 +383,22 @@ def render_cover(slide, slide_data: dict, tokens: dict) -> None:
         MSO_AUTO_SHAPE_TYPE.RECTANGLE,
         inches(0),
         inches(0),
-        inches(4.2),
+        inches(2.7),
         inches(7.5),
     )
     apply_fill(left_band, tokens["primary"])
 
-    eyebrow = add_textbox(slide, 0.6, 0.65, 3.0, 0.3)
+    top_accent = slide.shapes.add_shape(
+        MSO_AUTO_SHAPE_TYPE.ROUNDED_RECTANGLE,
+        inches(9.55),
+        inches(0.55),
+        inches(2.1),
+        inches(0.54),
+    )
+    apply_fill(top_accent, tokens["panel_alt"])
+    apply_line(top_accent, None)
+
+    eyebrow = add_textbox(slide, 0.5, 0.7, 2.3, 0.3)
     set_frame_text(
         eyebrow.text_frame,
         [slide_data.get("eyebrow", "AI DISCOVERY WORKSHOP")],
@@ -363,23 +410,37 @@ def render_cover(slide, slide_data: dict, tokens: dict) -> None:
         space_after=0,
     )
 
-    title_lines = slide_data.get("title_lines") or [slide_data.get("title", "")]
-    title_box = add_textbox(slide, 0.6, 1.4, 3.1, 2.4)
-    set_frame_text(title_box.text_frame, title_lines, tokens["title_font"], 24, RGBColor(255, 255, 255), bold=True, space_after=8)
-
-    footer = add_textbox(slide, 0.6, 6.6, 3.0, 0.35)
+    footer = add_textbox(slide, 0.5, 6.65, 2.2, 0.35)
     set_frame_text(footer.text_frame, [slide_data.get("footer", "")], tokens["body_font"], 10, RGBColor(255, 255, 255), space_after=0)
 
-    content_box(slide, 4.7, 1.05, 7.8, 5.55, tokens["panel"], tokens["panel_radius"], tokens["panel_border"])
+    content_box(slide, 3.0, 0.88, 8.6, 5.2, tokens["panel"], tokens["panel_radius"], tokens["panel_border"])
+
+    metadata = build_cover_metadata(slide_data)
+    if metadata:
+        add_panel_text(
+            slide,
+            3.38,
+            1.12,
+            7.5,
+            0.28,
+            [" · ".join(metadata)],
+            tokens["body_font"],
+            10.5,
+            tokens["muted"],
+            align=PP_ALIGN.LEFT,
+            vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
+            space_after=0,
+        )
+
     add_panel_text(
         slide,
-        5.1,
-        1.35,
-        6.95,
-        1.0,
+        3.38,
+        1.52,
+        7.45,
+        1.32,
         [slide_data.get("title", "")],
         tokens["title_font"],
-        24,
+        30,
         tokens["primary"],
         bold=True,
         align=PP_ALIGN.LEFT,
@@ -391,37 +452,72 @@ def render_cover(slide, slide_data: dict, tokens: dict) -> None:
     if subtitle:
         add_panel_text(
             slide,
-            5.15,
-            2.35,
-            6.95,
-            0.42,
+            3.4,
+            2.76,
+            6.4,
+            0.34,
             [subtitle],
             tokens["body_font"],
-            13,
+            11.5,
             tokens["muted"],
             align=PP_ALIGN.LEFT,
             vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
         )
 
-    summary_lines = build_cover_metadata(slide_data)
-    add_panel_text(
-        slide,
-        5.1,
-        3.0,
-        6.9,
-        1.15,
-        summary_lines,
-        tokens["body_font"],
-        14,
-        tokens["text"],
-        align=PP_ALIGN.LEFT,
-        vertical_anchor=MSO_VERTICAL_ANCHOR.TOP,
-        space_after=5,
-    )
+    highlight = build_cover_highlight(slide_data)
+    if highlight:
+        content_box(slide, 3.38, 3.2, 7.54, 0.98, tokens["panel_alt"], tokens["panel_radius"], tokens["panel_border"])
+        add_panel_text(
+            slide,
+            3.62,
+            3.46,
+            7.05,
+            0.36,
+            [highlight],
+            tokens["body_font"],
+            14,
+            tokens["text"],
+            align=PP_ALIGN.LEFT,
+            vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
+            space_after=0,
+        )
 
-    note_box = add_textbox(slide, 5.1, 5.15, 6.7, 0.55)
-    note_line = slide_data.get("speaker_notes", [""])[0] if slide_data.get("speaker_notes") else ""
-    set_frame_text(note_box.text_frame, [note_line], tokens["body_font"], 10.5, tokens["muted"], align=PP_ALIGN.LEFT, space_after=0)
+    metadata_specs = [
+        (3.38, 4.52, 3.78, "客户与行业"),
+        (7.34, 4.52, 2.28, "小组与日期"),
+        (9.8, 4.52, 1.12, "Workshop"),
+    ]
+    for index, badge_text in enumerate(build_cover_badges(slide_data)):
+        left, top, width, label = metadata_specs[index]
+        content_box(slide, left, top, width, 0.72, tokens["panel_alt"], tokens["panel_radius"], tokens["panel_border"])
+        add_panel_text(
+            slide,
+            left + 0.18,
+            top + 0.09,
+            width - 0.36,
+            0.14,
+            [label],
+            tokens["accent_font"],
+            8.5,
+            tokens["muted"],
+            align=PP_ALIGN.LEFT,
+            vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
+            space_after=0,
+        )
+        add_panel_text(
+            slide,
+            left + 0.18,
+            top + 0.27,
+            width - 0.36,
+            0.22,
+            [badge_text],
+            tokens["body_font"],
+            10.5,
+            tokens["text"],
+            align=PP_ALIGN.LEFT,
+            vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
+            space_after=0,
+        )
 
 
 def render_three_panels(slide, slide_data: dict, tokens: dict) -> None:
@@ -608,11 +704,12 @@ def render_prototype(slide, slide_data: dict, tokens: dict) -> None:
     set_slide_background(slide, tokens["background"])
     add_header(slide, slide_data.get("title", ""), tokens)
     fields = slide_data.get("fields", {})
+    top_labels = fields.get("top_labels") or ["原型名称", "系统形态", "价值落点"]
 
     top_sections = [
-        ("原型名称", strip_label_prefix(fields.get("prototype_name_line", "")), tokens["panel"]),
-        ("系统形态", strip_label_prefix(fields.get("prototype_surface_line", "")), tokens["panel_alt"]),
-        ("价值落点", strip_label_prefix(fields.get("prototype_value_line", "")), tokens["panel"]),
+        (top_labels[0], strip_label_prefix(fields.get("prototype_name_line", "")), tokens["panel"]),
+        (top_labels[1], strip_label_prefix(fields.get("prototype_surface_line", "")), tokens["panel_alt"]),
+        (top_labels[2], strip_label_prefix(fields.get("prototype_value_line", "")), tokens["panel"]),
     ]
     top_boxes = [
         (0.9, 1.95, 3.6, 2.2),
@@ -635,11 +732,11 @@ def render_prototype(slide, slide_data: dict, tokens: dict) -> None:
         )
 
     content_box(slide, 0.9, 4.48, 5.7, 2.2, tokens["panel_alt"], tokens["panel_radius"], tokens["panel_border"])
-    add_section_title(slide, 1.15, 4.72, 5.1, "核心流程", tokens)
+    add_section_title(slide, 1.15, 4.72, 5.1, fields.get("flow_title", "核心流程"), tokens)
     add_body_text(slide, 1.15, 5.22, 5.1, 1.12, fields.get("prototype_flow_lines", []), tokens, 13.7, space_after=6)
 
     content_box(slide, 6.65, 4.48, 5.7, 2.2, tokens["panel"], tokens["panel_radius"], tokens["panel_border"])
-    add_section_title(slide, 6.9, 4.72, 5.1, "工作台范围", tokens)
+    add_section_title(slide, 6.9, 4.72, 5.1, fields.get("scope_title", "工作台范围"), tokens)
     add_body_text(slide, 6.9, 5.22, 5.1, 1.12, fields.get("prototype_scope_lines", []), tokens, 13.7, space_after=6)
 
 
@@ -684,7 +781,7 @@ def render_next_steps(slide, slide_data: dict, tokens: dict) -> None:
     fields = slide_data.get("fields", {})
 
     content_box(slide, 0.9, 1.9, 11.45, 0.8, tokens["primary"], tokens["panel_radius"], None)
-    add_section_title(slide, 1.2, 2.06, 1.35, "POC 范围", tokens, RGBColor(255, 255, 255))
+    add_section_title(slide, 1.2, 2.06, 1.35, fields.get("scope_title", "POC 范围"), tokens, RGBColor(255, 255, 255))
     add_body_text(
         slide,
         2.3,
@@ -701,11 +798,11 @@ def render_next_steps(slide, slide_data: dict, tokens: dict) -> None:
     )
 
     content_box(slide, 0.9, 3.0, 5.45, 3.7, tokens["panel"], tokens["panel_radius"], tokens["panel_border"])
-    add_section_title(slide, 1.2, 3.25, 4.85, "关键角色", tokens)
+    add_section_title(slide, 1.2, 3.25, 4.85, fields.get("stakeholder_title", "关键角色"), tokens)
     add_body_text(slide, 1.2, 3.8, 4.85, 2.35, fields.get("stakeholder_lines", []), tokens, 14.5, space_after=10)
 
     content_box(slide, 6.9, 3.0, 5.45, 3.7, tokens["panel_alt"], tokens["panel_radius"], tokens["panel_border"])
-    add_section_title(slide, 7.2, 3.25, 4.85, "后续动作", tokens)
+    add_section_title(slide, 7.2, 3.25, 4.85, fields.get("next_action_title", "后续动作"), tokens)
     add_body_text(slide, 7.2, 3.8, 4.85, 2.35, fields.get("next_action_lines", []), tokens, 14.5, space_after=10)
 
 

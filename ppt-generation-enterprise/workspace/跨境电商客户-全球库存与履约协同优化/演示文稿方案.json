@@ -1,0 +1,405 @@
+{
+  "title": "全球库存与履约协同优化",
+  "subtitle": "AI Discovery Workshop 商机与原型方案",
+  "aspect_ratio": "16:9",
+  "template": "enterprise-forum",
+  "theme": "eden-enterprise",
+  "workflow_type": "ai-discovery-workshop",
+  "source_type": "asset-composed-workshop",
+  "selected_assets": {
+    "industry_lane": "cross-border-ecommerce",
+    "outline_pack": "opportunity-prototype-deck",
+    "reference_case": "xbecom-inventory-fulfillment-control-tower",
+    "snippet_pack": "industry-defaults:cross-border-ecommerce",
+    "card_photo_paths": []
+  },
+  "slides": [
+    {
+      "slide_number": 1,
+      "title": "全球库存与履约协同优化",
+      "subtitle": "AI Discovery Workshop 商机与原型方案",
+      "slide_type": "cover-workshop",
+      "layout_key": "cover-workshop",
+      "key_points": [
+        "客户：跨境电商客户 | 行业：跨境电商",
+        "小组：现场共创组 | 日期：2026-05-08",
+        "Workshop：AI Discovery Card Workshop"
+      ],
+      "speaker_notes": [
+        "该场景适合跨界电商客户，因为它能把库存、履约和客户体验的影响直接串成一个可量化的 AI 原型。"
+      ],
+      "summary_lines": [
+        "客户：跨境电商客户 | 行业：跨境电商",
+        "小组：现场共创组 | 日期：2026-05-08"
+      ],
+      "slots": {
+        "point_1": "客户：跨境电商客户 | 行业：跨境电商",
+        "point_2": "小组：现场共创组 | 日期：2026-05-08",
+        "point_3": "Workshop：AI Discovery Card Workshop"
+      },
+      "eyebrow": "AI DISCOVERY WORKSHOP",
+      "title_lines": [
+        "全球库存与履约协同优化",
+        "AI Discovery Workshop 商机与原型方案"
+      ],
+      "footer": "跨境电商客户",
+      "fields": {
+        "customer_line": "客户：跨境电商客户 | 行业：跨境电商",
+        "group_line": "小组：现场共创组 | 日期：2026-05-08"
+      }
+    },
+    {
+      "slide_number": 2,
+      "title": "业务机会与 Why Now",
+      "subtitle": "",
+      "slide_type": "opportunity-summary",
+      "layout_key": "opportunity-summary",
+      "key_points": [
+        "机会判断：对跨界电商客户来说，库存和履约不是后台问题，而是直接影响增长效率、现金占用和客户体验的核心经营切口。",
+        "为什么是现在：订单、仓储和退货数据已经在线化，但通常还缺少一个把预测、履约判断和运营动作串起来的统一工作流。",
+        "价值支撑：多区域库存和订单波动使运营决策越来越复杂"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "机会判断：对跨界电商客户来说，库存和履约不是后台问题，而是直接影响增长效率、现金占用和客户体验的核心经营切口。",
+        "为什么是现在：订单、仓储和退货数据已经在线化，但通常还缺少一个把预测、履约判断和运营动作串起来的统一工作流。"
+      ],
+      "slots": {
+        "point_1": "机会判断：对跨界电商客户来说，库存和履约不是后台问题，而是直接影响增长效率、现金占用和客户体验的核心经营切口。",
+        "point_2": "为什么是现在：订单、仓储和退货数据已经在线化，但通常还缺少一个把预测、履约判断和运营动作串起来的统一工作流。",
+        "point_3": "价值支撑：多区域库存和订单波动使运营决策越来越复杂"
+      },
+      "fields": {
+        "opportunity_line": "机会判断：对跨界电商客户来说，库存和履约不是后台问题，而是直接影响增长效率、现金占用和客户体验的核心经营切口。",
+        "why_now_line": "为什么是现在：订单、仓储和退货数据已经在线化，但通常还缺少一个把预测、履约判断和运营动作串起来的统一工作流。",
+        "proof_line": "价值支撑：多区域库存和订单波动使运营决策越来越复杂"
+      }
+    },
+    {
+      "slide_number": 3,
+      "title": "当前差距与优先痛点",
+      "subtitle": "",
+      "slide_type": "as-is-pain-map",
+      "layout_key": "as-is-pain-map",
+      "key_points": [
+        "现状流程：1. 订单和库存持续变化；2. 汇总库存、订单、退货和仓配数据；3. AI 判断缺货、积压和履约风险；4. 生成补货、调拨和仓配建议",
+        "关键痛点：1. 跨区域订单、库存和履约异常缺少统一判断与联动，补货调拨仍依赖人工拼表。；2. 库存、订单和退货数据分散，判断依赖人工汇总；3. 区域缺货和积压并存，仓配协同效率低",
+        "优先切口：跨区域订单、库存和履约异常缺少统一判断与联动，补货调拨仍依赖人工拼表。"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "现状流程：1. 订单和库存持续变化；2. 汇总库存、订单、退货和仓配数据；3. AI 判断缺货、积压和履约风险；4. 生成补货、调拨和仓配建议",
+        "关键痛点：1. 跨区域订单、库存和履约异常缺少统一判断与联动，补货调拨仍依赖人工拼表。；2. 库存、订单和退货数据分散，判断依赖人工汇总；3. 区域缺货和积压并存，仓配协同效率低"
+      ],
+      "slots": {
+        "point_1": "现状流程：1. 订单和库存持续变化；2. 汇总库存、订单、退货和仓配数据；3. AI 判断缺货、积压和履约风险；4. 生成补货、调拨和仓配建议",
+        "point_2": "关键痛点：1. 跨区域订单、库存和履约异常缺少统一判断与联动，补货调拨仍依赖人工拼表。；2. 库存、订单和退货数据分散，判断依赖人工汇总；3. 区域缺货和积压并存，仓配协同效率低",
+        "point_3": "优先切口：跨区域订单、库存和履约异常缺少统一判断与联动，补货调拨仍依赖人工拼表。"
+      },
+      "fields": {
+        "process_lines": [
+          "1. 订单和库存持续变化",
+          "2. 汇总库存、订单、退货和仓配数据",
+          "3. AI 判断缺货、积压和履约风险",
+          "4. 生成补货、调拨和仓配建议"
+        ],
+        "pain_lines": [
+          "1. 跨区域订单、库存和履约异常缺少统一判断与联动，补货调拨仍依赖人工拼表。",
+          "2. 库存、订单和退货数据分散，判断依赖人工汇总",
+          "3. 区域缺货和积压并存，仓配协同效率低"
+        ],
+        "focus_line": "优先切口：跨区域订单、库存和履约异常缺少统一判断与联动，补货调拨仍依赖人工拼表。"
+      }
+    },
+    {
+      "slide_number": 4,
+      "title": "客户现场卡片流程",
+      "subtitle": "",
+      "slide_type": "capability-selection",
+      "layout_key": "capability-selection",
+      "key_points": [
+        "业务场景 / 输入感知：数据和预测分析中偏业务目标的卡片 / 订单履约 / 表单理解 / 数据输入 / 文本输入",
+        "理解分析：数据分析 / 风险预测 / 异常检测",
+        "生成交互 / 执行闭环：文本生成 / 流程优化 / 自动履行 / 决策制定 / 人机交互"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "业务场景 / 输入感知：数据和预测分析中偏业务目标的卡片 / 订单履约 / 表单理解 / 数据输入 / 文本输入",
+        "理解分析：数据分析 / 风险预测 / 异常检测"
+      ],
+      "slots": {
+        "point_1": "业务场景 / 输入感知：数据和预测分析中偏业务目标的卡片 / 订单履约 / 表单理解 / 数据输入 / 文本输入",
+        "point_2": "理解分析：数据分析 / 风险预测 / 异常检测",
+        "point_3": "生成交互 / 执行闭环：文本生成 / 流程优化 / 自动履行 / 决策制定 / 人机交互"
+      },
+      "fields": {
+        "perception_line": "业务场景 / 输入感知：数据和预测分析中偏业务目标的卡片 / 订单履约 / 表单理解 / 数据输入 / 文本输入",
+        "analysis_line": "理解分析：数据分析 / 风险预测 / 异常检测",
+        "action_line": "生成交互 / 执行闭环：文本生成 / 流程优化 / 自动履行 / 决策制定 / 人机交互"
+      }
+    },
+    {
+      "slide_number": 5,
+      "title": "目标 AI Flow",
+      "subtitle": "",
+      "slide_type": "ai-flow-steps",
+      "layout_key": "ai-flow-steps",
+      "key_points": [
+        "业务触发：系统识别到区域库存、订单需求或履约表现出现明显波动",
+        "核心流程：1. 系统读取库存、订单、退货和仓库运营数据；2. AI 判断缺货、积压和履约异常风险；3. AI 生成补货、调拨、退货治理和仓配建议；4. 高风险区域自动触发运营跟进和协同任务；5. 处理结果回写后沉淀为后续运营策略和预测依据",
+        "业务闭环：形成从库存洞察、履约判断到协同动作的运营闭环"
+      ],
+      "speaker_notes": [
+        "该场景适合跨界电商客户，因为它能把库存、履约和客户体验的影响直接串成一个可量化的 AI 原型。"
+      ],
+      "summary_lines": [
+        "业务触发：系统识别到区域库存、订单需求或履约表现出现明显波动",
+        "核心流程：1. 系统读取库存、订单、退货和仓库运营数据；2. AI 判断缺货、积压和履约异常风险；3. AI 生成补货、调拨、退货治理和仓配建议；4. 高风险区域自动触发运营跟进和协同任务；5. 处理结果回写后沉淀为后续运营策略和预测依据"
+      ],
+      "slots": {
+        "point_1": "业务触发：系统识别到区域库存、订单需求或履约表现出现明显波动",
+        "point_2": "核心流程：1. 系统读取库存、订单、退货和仓库运营数据；2. AI 判断缺货、积压和履约异常风险；3. AI 生成补货、调拨、退货治理和仓配建议；4. 高风险区域自动触发运营跟进和协同任务；5. 处理结果回写后沉淀为后续运营策略和预测依据",
+        "point_3": "业务闭环：形成从库存洞察、履约判断到协同动作的运营闭环"
+      },
+      "fields": {
+        "trigger_line": "业务触发：系统识别到区域库存、订单需求或履约表现出现明显波动",
+        "flow_lines": [
+          "1. 系统读取库存、订单、退货和仓库运营数据",
+          "2. AI 判断缺货、积压和履约异常风险",
+          "3. AI 生成补货、调拨、退货治理和仓配建议",
+          "4. 高风险区域自动触发运营跟进和协同任务",
+          "5. 处理结果回写后沉淀为后续运营策略和预测依据"
+        ],
+        "closure_line": "业务闭环：形成从库存洞察、履约判断到协同动作的运营闭环"
+      }
+    },
+    {
+      "slide_number": 6,
+      "title": "原型方向与系统形态",
+      "subtitle": "",
+      "slide_type": "prototype-concept",
+      "layout_key": "prototype-concept",
+      "key_points": [
+        "原型名称：库存与履约控制塔",
+        "系统形态：库存与履约控制塔；目标：把区域库存、订单波动、履约异常和建议动作集中到一个控制塔工作台中",
+        "价值落点：让运营团队从人工拼表和被动救火，转向在控制塔里统一判断库存、履约和动作优先级。"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "原型名称：库存与履约控制塔",
+        "系统形态：库存与履约控制塔；目标：把区域库存、订单波动、履约异常和建议动作集中到一个控制塔工作台中"
+      ],
+      "slots": {
+        "point_1": "原型名称：库存与履约控制塔",
+        "point_2": "系统形态：库存与履约控制塔；目标：把区域库存、订单波动、履约异常和建议动作集中到一个控制塔工作台中",
+        "point_3": "价值落点：让运营团队从人工拼表和被动救火，转向在控制塔里统一判断库存、履约和动作优先级。"
+      },
+      "fields": {
+        "prototype_name_line": "原型名称：库存与履约控制塔",
+        "prototype_surface_line": "系统形态：库存与履约控制塔；目标：把区域库存、订单波动、履约异常和建议动作集中到一个控制塔工作台中",
+        "prototype_value_line": "价值落点：让运营团队从人工拼表和被动救火，转向在控制塔里统一判断库存、履约和动作优先级。",
+        "prototype_flow_lines": [
+          "1. 查看区域库存和订单风险分布",
+          "2. 读取 AI 给出的补货、调拨和履约建议",
+          "3. 一键触发协同任务、预警通知和复盘动作"
+        ],
+        "prototype_scope_lines": [
+          "1. 库存与订单风险面板",
+          "2. 履约异常与原因解释区",
+          "3. 调拨补货与协同动作区"
+        ]
+      }
+    },
+    {
+      "slide_number": 7,
+      "title": "MVP 原型范围",
+      "subtitle": "",
+      "slide_type": "prototype-concept",
+      "layout_key": "prototype-concept",
+      "key_points": [
+        "目标用户：供应链负责人",
+        "核心任务：在一个控制塔界面里完成库存履约风险判断、建议查看和协同任务触发。",
+        "非目标范围：不接真实 ERP 或 WMS 接口"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "目标用户：供应链负责人",
+        "核心任务：在一个控制塔界面里完成库存履约风险判断、建议查看和协同任务触发。"
+      ],
+      "slots": {
+        "point_1": "目标用户：供应链负责人",
+        "point_2": "核心任务：在一个控制塔界面里完成库存履约风险判断、建议查看和协同任务触发。",
+        "point_3": "非目标范围：不接真实 ERP 或 WMS 接口"
+      },
+      "fields": {
+        "top_labels": [
+          "目标用户",
+          "核心任务",
+          "非目标范围"
+        ],
+        "prototype_name_line": "目标用户：供应链负责人",
+        "prototype_surface_line": "核心任务：在一个控制塔界面里完成库存履约风险判断、建议查看和协同任务触发。",
+        "prototype_value_line": "非目标范围：不接真实 ERP 或 WMS 接口",
+        "flow_title": "页面清单",
+        "scope_title": "关键模块",
+        "prototype_flow_lines": [
+          "1. 全局风险总览",
+          "2. 区域库存与订单分析页",
+          "3. 补货调拨建议页",
+          "4. 协同任务与复盘页"
+        ],
+        "prototype_scope_lines": [
+          "1. 区域风险地图",
+          "2. 缺货与积压预警卡片",
+          "3. 履约异常解释区",
+          "4. 补货调拨建议列表"
+        ]
+      }
+    },
+    {
+      "slide_number": 8,
+      "title": "能力映射与交付物",
+      "subtitle": "",
+      "slide_type": "product-mapping-table",
+      "layout_key": "product-mapping-table",
+      "key_points": [
+        "能力映射：库存与订单数据汇聚 -> Microsoft Fabric, Dynamics 365 Supply Chain Management | 交付：库存订单数据底座；风险预测与运营建议 -> Azure Machine Learning, Azure AI Foundry | 交付：预测分析与运营建议",
+        "优先产品栈：Microsoft Fabric / Dynamics 365 Supply Chain Management / Azure Machine Learning / Azure AI Foundry",
+        "现场交付物：控制塔原型建议 / 库存与履约场景图 / POC 验证范围"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "能力映射：库存与订单数据汇聚 -> Microsoft Fabric, Dynamics 365 Supply Chain Management | 交付：库存订单数据底座；风险预测与运营建议 -> Azure Machine Learning, Azure AI Foundry | 交付：预测分析与运营建议",
+        "优先产品栈：Microsoft Fabric / Dynamics 365 Supply Chain Management / Azure Machine Learning / Azure AI Foundry"
+      ],
+      "slots": {
+        "point_1": "能力映射：库存与订单数据汇聚 -> Microsoft Fabric, Dynamics 365 Supply Chain Management | 交付：库存订单数据底座；风险预测与运营建议 -> Azure Machine Learning, Azure AI Foundry | 交付：预测分析与运营建议",
+        "point_2": "优先产品栈：Microsoft Fabric / Dynamics 365 Supply Chain Management / Azure Machine Learning / Azure AI Foundry",
+        "point_3": "现场交付物：控制塔原型建议 / 库存与履约场景图 / POC 验证范围"
+      },
+      "fields": {
+        "mapping_lines": [
+          "库存与订单数据汇聚 -> Microsoft Fabric, Dynamics 365 Supply Chain Management | 交付：库存订单数据底座",
+          "风险预测与运营建议 -> Azure Machine Learning, Azure AI Foundry | 交付：预测分析与运营建议",
+          "区域履约可视化与协同 -> Azure Maps, Power BI | 交付：控制塔看板与区域协同"
+        ],
+        "platform_line": "优先产品栈：Microsoft Fabric / Dynamics 365 Supply Chain Management / Azure Machine Learning / Azure AI Foundry",
+        "deliverable_line": "现场交付物：控制塔原型建议 / 库存与履约场景图 / POC 验证范围"
+      }
+    },
+    {
+      "slide_number": 9,
+      "title": "业务价值与验证假设",
+      "subtitle": "",
+      "slide_type": "business-value",
+      "layout_key": "business-value",
+      "key_points": [
+        "预期价值：希望先验证 AI 对缺货、积压和履约风险识别及协同建议的价值。 / 降低区域缺货和积压风险 / 提升仓配协同效率和履约稳定性 / 把库存管理从经验决策转向数据驱动运营",
+        "关键指标：库存周转效率提升 20% / 履约异常响应时间缩短 35% / 区域缺货率下降 15%",
+        "POC 聚焦：先验证库存风险识别、履约异常预警和协同动作联动三段闭环；优先验证 风险识别结果对运营判断的帮助程度"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "预期价值：希望先验证 AI 对缺货、积压和履约风险识别及协同建议的价值。 / 降低区域缺货和积压风险 / 提升仓配协同效率和履约稳定性 / 把库存管理从经验决策转向数据驱动运营",
+        "关键指标：库存周转效率提升 20% / 履约异常响应时间缩短 35% / 区域缺货率下降 15%"
+      ],
+      "slots": {
+        "point_1": "预期价值：希望先验证 AI 对缺货、积压和履约风险识别及协同建议的价值。 / 降低区域缺货和积压风险 / 提升仓配协同效率和履约稳定性 / 把库存管理从经验决策转向数据驱动运营",
+        "point_2": "关键指标：库存周转效率提升 20% / 履约异常响应时间缩短 35% / 区域缺货率下降 15%",
+        "point_3": "POC 聚焦：先验证库存风险识别、履约异常预警和协同动作联动三段闭环；优先验证 风险识别结果对运营判断的帮助程度"
+      },
+      "fields": {
+        "value_lines": [
+          "希望先验证 AI 对缺货、积压和履约风险识别及协同建议的价值。",
+          "降低区域缺货和积压风险",
+          "提升仓配协同效率和履约稳定性",
+          "把库存管理从经验决策转向数据驱动运营"
+        ],
+        "kpi_lines": [
+          "库存周转效率提升 20%",
+          "履约异常响应时间缩短 35%",
+          "区域缺货率下降 15%"
+        ],
+        "poc_lines": [
+          "1. 风险识别结果对运营判断的帮助程度",
+          "2. 建议动作对补货和调拨效率的提升效果",
+          "3. 控制塔视图是否支持跨区域统一协同"
+        ]
+      }
+    },
+    {
+      "slide_number": 10,
+      "title": "原型交付与快速开发路径",
+      "subtitle": "",
+      "slide_type": "poc-next-step",
+      "layout_key": "poc-next-step",
+      "key_points": [
+        "交付方式：前端壳子优先；推荐技术栈：Next.js + Tailwind CSS",
+        "交付清单：可演示的前端壳子页面 / 需求PRD.md / 方案设计.md",
+        "快速开发路径：确认试点区域和样本订单库存数据 / 选择一个高波动品类作为试点 / 输出控制塔原型范围和验证口径 / 基于方案设计文档快速搭建静态页面和样例数据"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "交付方式：前端壳子优先；推荐技术栈：Next.js + Tailwind CSS",
+        "交付清单：可演示的前端壳子页面 / 需求PRD.md / 方案设计.md"
+      ],
+      "slots": {
+        "point_1": "交付方式：前端壳子优先；推荐技术栈：Next.js + Tailwind CSS",
+        "point_2": "交付清单：可演示的前端壳子页面 / 需求PRD.md / 方案设计.md",
+        "point_3": "快速开发路径：确认试点区域和样本订单库存数据 / 选择一个高波动品类作为试点 / 输出控制塔原型范围和验证口径 / 基于方案设计文档快速搭建静态页面和样例数据"
+      },
+      "fields": {
+        "scope_title": "交付方式",
+        "stakeholder_title": "交付清单",
+        "next_action_title": "快速开发路径",
+        "scope_line": "交付方式：前端壳子优先；推荐技术栈：Next.js + Tailwind CSS",
+        "stakeholder_lines": [
+          "可演示的前端壳子页面",
+          "需求PRD.md",
+          "方案设计.md"
+        ],
+        "next_action_lines": [
+          "1. 确认试点区域和样本订单库存数据",
+          "2. 选择一个高波动品类作为试点",
+          "3. 输出控制塔原型范围和验证口径",
+          "4. 基于方案设计文档快速搭建静态页面和样例数据"
+        ]
+      }
+    },
+    {
+      "slide_number": 11,
+      "title": "POC 与下一步",
+      "subtitle": "",
+      "slide_type": "poc-next-step",
+      "layout_key": "poc-next-step",
+      "key_points": [
+        "试点范围：先验证库存风险识别、履约异常预警和协同动作联动三段闭环",
+        "关键角色：供应链负责人 / 履约运营负责人 / 区域仓配团队",
+        "后续动作：确认试点区域和样本订单库存数据 / 选择一个高波动品类作为试点 / 输出控制塔原型范围和验证口径 / 确认目标样本数据和试点流程范围 / 选择一个高价值业务流程作为试点 / 输出原型范围和验证口径"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "试点范围：先验证库存风险识别、履约异常预警和协同动作联动三段闭环",
+        "关键角色：供应链负责人 / 履约运营负责人 / 区域仓配团队"
+      ],
+      "slots": {
+        "point_1": "试点范围：先验证库存风险识别、履约异常预警和协同动作联动三段闭环",
+        "point_2": "关键角色：供应链负责人 / 履约运营负责人 / 区域仓配团队",
+        "point_3": "后续动作：确认试点区域和样本订单库存数据 / 选择一个高波动品类作为试点 / 输出控制塔原型范围和验证口径 / 确认目标样本数据和试点流程范围 / 选择一个高价值业务流程作为试点 / 输出原型范围和验证口径"
+      },
+      "fields": {
+        "scope_line": "试点范围：先验证库存风险识别、履约异常预警和协同动作联动三段闭环",
+        "stakeholder_lines": [
+          "供应链负责人",
+          "履约运营负责人",
+          "区域仓配团队"
+        ],
+        "next_action_lines": [
+          "1. 确认试点区域和样本订单库存数据",
+          "2. 选择一个高波动品类作为试点",
+          "3. 输出控制塔原型范围和验证口径"
+        ]
+      }
+    }
+  ]
+}

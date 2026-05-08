@@ -2,7 +2,7 @@
 
 A portable PPT generation skill package for enterprise-style presentations.
 
-This package now includes a workshop-specific route for AI Discovery Card Workshop outputs, where the deck is driven by the SOP and the final goal is a customer-ready opportunity and prototype proposal rather than a generic presentation outline.
+This package now includes a workshop-specific route for AI Discovery Card Workshop outputs, where the default deliverable is a customer-ready package: PPT proposal plus lightweight MVP spec docs for fast frontend-shell prototyping.
 
 ## Doc Map
 
@@ -38,8 +38,40 @@ The package is split into five layers:
    Holds template-specific inventory, slot mapping, and layout rules.
 6. `themes/`
    Holds brand tokens such as colors, fonts, logo, footer, and accent rules.
+7. `workshop_to_mvp_docs.py`
+  Converts a normalized workshop scenario JSON into `需求PRD.md` and `方案设计.md`.
 
 The existing `scripts/generate.py` is included as the image-to-PPTX composer for compatibility. The primary enterprise route is template-driven rather than image-driven.
+
+The current default workshop package should contain:
+
+- a customer-ready PPT proposal
+- `需求PRD.md`
+- `方案设计.md`
+
+The two Markdown files are intentionally lightweight and optimized for quick vibe coding of a frontend-only shell MVP.
+
+## 5-Minute Mode
+
+For live workshops, use the fast route when you need a usable result in under 5 minutes and do not want asset matching or replacement-map generation.
+
+Recommended command:
+
+```powershell
+python scripts/generate_workshop_package.py `
+  --input examples/live-fast-template.json `
+  --workspace-root Workspace `
+  --fast
+```
+
+Fast mode keeps only the essential path:
+
+- sparse input -> deterministic normalized scenario
+- normalized scenario -> PPT plan
+- PPT plan -> PPTX
+- normalized scenario -> `需求PRD.md` + `方案设计.md`
+
+It skips reference-case selection and `替换映射.json` generation by default so现场输出更稳定、更快。
 
 ## Directory Layout
 
@@ -94,7 +126,8 @@ Recommended flow:
 3. For sparse live input, `compose_workshop_assets.py` selects the appropriate outline pack, reference case, and content snippets
 4. `workshop_to_plan.py` generates the workshop deck plan
 5. `build_replacement_map.py` binds the plan to the template inventory
-6. `plan_to_pptx.py` or a downstream PPTX writer renders the final deck
+6. `workshop_to_mvp_docs.py` generates `需求PRD.md` and `方案设计.md`
+7. `plan_to_pptx.py` or a downstream PPTX writer renders the final deck
 
 This route keeps recognition, asset selection, business composition, and template rendering decoupled.
 
@@ -116,6 +149,8 @@ Workspace/
     组合场景.json
     演示文稿方案.json
     替换映射.json
+    需求PRD.md
+    方案设计.md
     客户名称-场景名称方案.pptx
 ```
 
@@ -222,6 +257,19 @@ The normalized workshop scenario input is expected to follow this shape:
 
 For sparse live event input, use a lighter schema such as the examples under `examples/live-sparse-*.json`. That input should contain only the card workflow context and a few short descriptive fields, then be enriched by `compose_workshop_assets.py`.
 
+If you also want a prototype-oriented delivery package, you may include an optional `mvp_spec` block in the input. Recommended fields are:
+
+- `prototype_mode`
+- `primary_user`
+- `core_task`
+- `screens`
+- `modules`
+- `key_actions`
+- `sample_data`
+- `style_keywords`
+- `tech_stack_preference`
+- `out_of_scope`
+
 Use [WORKSHOP-INPUT-PLAYBOOK.md](f:/VsCodeProject/AI-Workshop/ppt-generation-enterprise/WORKSHOP-INPUT-PLAYBOOK.md) as the primary operator guide. Use [examples/live-input-capture-template.json](f:/VsCodeProject/AI-Workshop/ppt-generation-enterprise/examples/live-input-capture-template.json) as the canonical capture file.
 
 Recommended collection rules:
@@ -231,6 +279,7 @@ Recommended collection rules:
 - `current_pain_point` should describe one urgent problem, not a paragraph.
 - `expected_value` should describe the first business result the customer wants.
 - `prototype_preference` should be a short prototype label such as `工作台`, `控制塔`, `助手`, or `中枢`.
+- `mvp_spec` should stay lightweight and prototype-oriented rather than becoming a full technical design.
 
 ## Example Commands
 
@@ -243,6 +292,7 @@ python scripts/generate_workshop_package.py `
 ```
 
 This command will automatically create one Chinese-named subdirectory under `Workspace/` and place the PPT and intermediate artifacts into that subdirectory.
+The same command now also generates `需求PRD.md` and `方案设计.md` for a frontend-shell MVP handoff.
 
 Lower-level commands are still available when you need to debug one stage manually.
 

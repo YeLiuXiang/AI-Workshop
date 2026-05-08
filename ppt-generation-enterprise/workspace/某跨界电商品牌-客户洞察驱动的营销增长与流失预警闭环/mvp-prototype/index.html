@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>营销增长与客户保留工作台 MVP</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./script.js"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <nav class="page-nav">
+        <div class="nav-context">
+          <span class="nav-label">场景原型包</span>
+          <strong>某跨界电商品牌 / 客户洞察驱动的营销增长与流失预警闭环</strong>
+        </div>
+        <div class="nav-links">
+          <a class="nav-link is-active" href="./index.html">业务工作台</a>
+          <a class="nav-link" href="./agent-center.html">Agent 中心</a>
+        </div>
+      </nav>
+
+      <header class="hero-panel">
+        <div class="hero-copy-block">
+          <p class="eyebrow">GROWTH AND RETENTION OPS ROOM</p>
+          <h1>营销增长与客户保留工作台</h1>
+          <p class="hero-copy">
+            把客户洞察、活动生成、效果复盘和流失干预拉到同一个工作台里，让营销负责人在一个演示态原型中快速验证 AI 对增长效率和客户保留的直接价值。
+          </p>
+          <div class="hero-tags">
+            <span>客群洞察</span>
+            <span>营销生成</span>
+            <span>活动复盘</span>
+            <span>流失干预</span>
+          </div>
+        </div>
+
+        <div class="hero-signal-panel">
+          <p class="eyebrow">当前演示链路</p>
+          <strong id="hero-flow"></strong>
+          <p class="hero-brief" id="hero-brief"></p>
+          <div class="hero-actions">
+            <button id="next-segment-button" class="primary-button" type="button">切换下一组客群</button>
+            <button id="trigger-run-button" class="secondary-button" type="button">模拟一次 AI 生成</button>
+            <a class="ghost-link-button" href="./agent-center.html">查看相关 Agent</a>
+          </div>
+        </div>
+      </header>
+
+      <section class="kpi-strip" id="kpi-strip"></section>
+
+      <main class="dashboard-layout">
+        <aside class="panel sidebar-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">试点样例</p>
+              <h2>国家站点与客群</h2>
+            </div>
+            <span class="badge">3 组样例</span>
+          </div>
+
+          <div class="chip-row" id="market-filter-row"></div>
+          <div class="segment-list" id="segment-list"></div>
+
+          <section class="sidebar-block">
+            <div class="subheading-row">
+              <h3>AI 推荐动作</h3>
+              <span class="badge badge-soft">实时 mock</span>
+            </div>
+            <ul class="bullet-list" id="recommended-actions"></ul>
+          </section>
+
+          <section class="sidebar-block accent-block">
+            <p class="mini-label">POC 验证目标</p>
+            <strong id="poc-focus"></strong>
+            <p id="poc-note"></p>
+          </section>
+        </aside>
+
+        <section class="panel workspace-panel">
+          <div class="workspace-header">
+            <div>
+              <p class="panel-kicker">统一工作台</p>
+              <h2 id="workspace-title"></h2>
+              <p class="workspace-subtitle" id="workspace-subtitle"></p>
+            </div>
+            <div class="headline-card">
+              <p class="mini-label">流失风险</p>
+              <strong id="risk-level"></strong>
+              <span id="risk-note"></span>
+            </div>
+          </div>
+
+          <nav class="screen-nav" id="screen-nav">
+            <button class="screen-button is-active" data-screen="insight" type="button">客户洞察</button>
+            <button class="screen-button" data-screen="content" type="button">内容生成</button>
+            <button class="screen-button" data-screen="analysis" type="button">活动复盘</button>
+            <button class="screen-button" data-screen="retention" type="button">流失干预</button>
+          </nav>
+
+          <section class="screen-stage">
+            <article class="screen-panel is-active" data-screen-panel="insight">
+              <div class="screen-grid insight-grid">
+                <section class="subpanel">
+                  <div class="subheading-row">
+                    <h3>客群洞察概览</h3>
+                    <span class="badge" id="segment-score"></span>
+                  </div>
+                  <div class="stat-grid" id="insight-stats"></div>
+                  <div class="timeline-card">
+                    <div class="subheading-row">
+                      <h4>最近信号</h4>
+                      <span id="signal-count"></span>
+                    </div>
+                    <ul class="timeline-list" id="signal-list"></ul>
+                  </div>
+                </section>
+
+                <section class="subpanel">
+                  <div class="subheading-row">
+                    <h3>AI 客群判断</h3>
+                    <span class="badge badge-warm" id="persona-badge"></span>
+                  </div>
+                  <div class="highlight-block">
+                    <div>
+                      <p class="mini-label">增长机会</p>
+                      <strong id="growth-opportunity"></strong>
+                    </div>
+                    <div>
+                      <p class="mini-label">干预风险</p>
+                      <strong id="retention-risk"></strong>
+                    </div>
+                  </div>
+                  <p class="summary-text" id="insight-summary"></p>
+                  <div class="tag-cloud" id="insight-tags"></div>
+                </section>
+              </div>
+            </article>
+
+            <article class="screen-panel" data-screen-panel="content">
+              <div class="screen-grid content-grid">
+                <section class="subpanel">
+                  <div class="subheading-row">
+                    <h3>活动策略与文案方向</h3>
+                    <span class="badge">AI 输出</span>
+                  </div>
+                  <div class="content-card">
+                    <p class="mini-label">主活动主题</p>
+                    <strong id="campaign-theme"></strong>
+                    <p id="campaign-copy"></p>
+                  </div>
+                  <div class="content-card">
+                    <p class="mini-label">首屏标题</p>
+                    <strong id="headline-copy"></strong>
+                    <p id="subhead-copy"></p>
+                  </div>
+                </section>
+
+                <section class="subpanel">
+                  <div class="subheading-row">
+                    <h3>页面与素材建议</h3>
+                    <span class="badge badge-soft">落地页原型</span>
+                  </div>
+                  <div class="landing-preview">
+                    <div class="preview-hero">
+                      <p class="mini-label">页面焦点</p>
+                      <strong id="landing-focus"></strong>
+                      <p id="landing-summary"></p>
+                    </div>
+                    <div class="preview-grid" id="landing-sections"></div>
+                  </div>
+                </section>
+              </div>
+            </article>
+
+            <article class="screen-panel" data-screen-panel="analysis">
+              <div class="screen-grid analysis-grid">
+                <section class="subpanel">
+                  <div class="subheading-row">
+                    <h3>活动效果复盘</h3>
+                    <span class="badge badge-soft">近 7 天</span>
+                  </div>
+                  <div class="metric-columns" id="analysis-metrics"></div>
+                </section>
+
+                <section class="subpanel">
+                  <div class="subheading-row">
+                    <h3>下一轮优化建议</h3>
+                    <span class="badge badge-warm">策略回流</span>
+                  </div>
+                  <ul class="bullet-list" id="analysis-learnings"></ul>
+                  <div class="quote-card" id="optimization-note"></div>
+                </section>
+              </div>
+            </article>
+
+            <article class="screen-panel" data-screen-panel="retention">
+              <div class="screen-grid retention-grid">
+                <section class="subpanel">
+                  <div class="subheading-row">
+                    <h3>高风险客户清单</h3>
+                    <span class="badge badge-warm" id="retention-count"></span>
+                  </div>
+                  <div class="customer-list" id="retention-list"></div>
+                </section>
+
+                <section class="subpanel">
+                  <div class="subheading-row">
+                    <h3>干预动作中心</h3>
+                    <span class="badge">模拟执行</span>
+                  </div>
+                  <div class="action-stack">
+                    <button class="action-button primary-action" data-action="trigger-offer" type="button">触发专属优惠</button>
+                    <button class="action-button" data-action="create-task" type="button">创建 CRM 跟进任务</button>
+                    <button class="action-button" data-action="launch-journey" type="button">加入保留旅程</button>
+                  </div>
+                  <div class="execution-card">
+                    <p class="mini-label">执行状态</p>
+                    <strong id="execution-status"></strong>
+                    <ul class="execution-list" id="execution-list"></ul>
+                  </div>
+                </section>
+              </div>
+            </article>
+          </section>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

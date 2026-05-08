@@ -159,6 +159,7 @@ def compose_payload(source: dict, base_dir: Path) -> dict:
     workshop = source.get("workshop", {}) if isinstance(source.get("workshop"), dict) else {}
     live_input = source.get("event_input", {}) if isinstance(source.get("event_input"), dict) else {}
     detected_cards = source.get("detected_cards", {}) if isinstance(source.get("detected_cards"), dict) else {}
+    mvp_spec = source.get("mvp_spec", {}) if isinstance(source.get("mvp_spec"), dict) else {}
 
     lane = detect_lane(live_input)
     outline_pack = load_json(str(base_dir / "outlines" / "opportunity-prototype-deck.json"))
@@ -227,6 +228,7 @@ def compose_payload(source: dict, base_dir: Path) -> dict:
                 ensure_list(snippet_pack.get("fallback_next_actions"))
             )
         },
+        "mvp_spec": mvp_spec,
         "selected_assets": {
             "industry_lane": lane,
             "outline_pack": outline_pack.get("id", "opportunity-prototype-deck"),
