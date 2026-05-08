@@ -1,0 +1,41 @@
+{
+  "workshop": {
+    "title": "AI Discovery Card Workshop",
+    "customer": "某全球化 IoT 品牌",
+    "industry": "消费电子 IoT",
+    "group_name": "第 6 组",
+    "date": "2026-05-22"
+  },
+  "event_input": {
+    "customer_type": "消费电子 IoT",
+    "scenario_summary": "希望针对设备接入安全场景，设计一个能结合认证日志、证书状态和审计事件的 AI 风险治理流程。",
+    "target_role": "安全负责人",
+    "current_pain_point": "认证失败和越权风险分散在不同区域，安全事件响应效率低。",
+    "expected_value": "希望建立统一的风险识别、研判和自动化响应闭环。",
+    "prototype_preference": "IoT 安全治理中枢"
+  },
+  "detected_cards": {
+    "business_scenario": [
+      "数据和预测分析中偏业务目标的卡片"
+    ],
+    "input_perception": [
+      "环境感知"
+    ],
+    "understanding_analysis": [
+      "异常检测",
+      "风险预测",
+      "数据分析"
+    ],
+    "generation_interaction": [
+      "文本生成"
+    ],
+    "execution_closure": [
+      "流程优化",
+      "自动履行",
+      "安全运营"
+    ]
+  },
+  "card_photo_paths": [
+    "AI WorkFlow.png"
+  ]
+}

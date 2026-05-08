@@ -1,0 +1,21 @@
+{
+  "id": "opportunity-prototype-deck",
+  "name": "Workshop 商机与原型方案 deck",
+  "deck_goal": "将现场 Workshop 结果转化为可带动商机和 POC 的客户版 PPT",
+  "slide_sequence": [
+    "cover",
+    "opportunity",
+    "current-gap",
+    "card-workflow",
+    "target-ai-flow",
+    "prototype-concept",
+    "product-map",
+    "business-value",
+    "next-step"
+  ],
+  "section_prompts": {
+    "opportunity": "解释为什么这个场景值得做，且为什么现在适合启动。",
+    "prototype": "把 AI Flow 收敛成一个适合做 POC 的原型方向，而不是只停留在流程图。",
+    "next_step": "让客户明确下一步验证范围、角色和合作推进方式。"
+  }
+}

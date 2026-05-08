@@ -1,0 +1,35 @@
+{
+  "name": "eden-enterprise",
+  "description": "Corporate forum theme based on Eden-style business presentation patterns.",
+  "fonts": {
+    "title": "Microsoft YaHei",
+    "body": "Microsoft YaHei",
+    "accent": "Arial"
+  },
+  "colors": {
+    "primary": "C62828",
+    "secondary": "E91E63",
+    "text": "555555",
+    "muted": "999999",
+    "panel": "F8F4F4",
+    "panel_alt": "F3EDED",
+    "panel_border": "E9DDDD",
+    "success": "2E7D32",
+    "warning": "EF6C00",
+    "danger": "C62828",
+    "background": "FFFFFF"
+  },
+  "layout": {
+    "aspect_ratio": "16:9",
+    "section_accent_mode": "by-slide-type",
+    "reserve_image_safe_area": true,
+    "preferred_whitespace": "medium",
+    "panel_radius": 0.1,
+    "panel_text_alignment": "center",
+    "panel_vertical_alignment": "middle"
+  },
+  "footer": {
+    "brand_text": "EDEN INFORMATION SERVICE LIMITED",
+    "tagline": "AI+DATA, 无限赋能"
+  }
+}

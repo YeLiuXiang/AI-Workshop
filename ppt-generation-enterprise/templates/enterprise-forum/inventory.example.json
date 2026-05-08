@@ -1,0 +1,101 @@
+{
+  "slide-0": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "text": "FORUM 2026",
+          "font_name": "Arial",
+          "font_size": 11.0,
+          "bold": true,
+          "color": "E91E63"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "text": "Template Cover Title",
+          "font_name": "Arial",
+          "font_size": 36.0,
+          "bold": true,
+          "color": "C62828"
+        },
+        {
+          "text": "Template Cover Subtitle",
+          "font_name": "Arial",
+          "font_size": 36.0,
+          "color": "C62828"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "text": "Summary Line 1",
+          "font_name": "Arial",
+          "font_size": 16.0,
+          "color": "555555"
+        },
+        {
+          "text": "Summary Line 2",
+          "font_name": "Arial",
+          "font_size": 16.0,
+          "color": "555555"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "text": "Footer",
+          "font_name": "Arial",
+          "font_size": 9.0,
+          "color": "999999"
+        }
+      ]
+    }
+  },
+  "slide-1": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "text": "Section Title",
+          "font_name": "Arial",
+          "font_size": 24.0,
+          "bold": true,
+          "color": "C62828"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "text": "Item A",
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "text": "Item B",
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "text": "Item C",
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,333 @@
+{
+  "slide_defaults": {
+    "cover": "cover-basic",
+    "cover-workshop": "cover-workshop",
+    "scenario": "bullets-3",
+    "opportunity-summary": "opportunity-summary",
+    "scenario-summary": "scenario-summary",
+    "as-is-pain-map": "as-is-pain-map",
+    "capability-selection": "capability-selection",
+    "ai-flow-steps": "ai-flow-steps",
+    "prototype-concept": "prototype-concept",
+    "product-mapping-table": "product-mapping-table",
+    "business-value": "business-value",
+    "poc-next-step": "poc-next-step",
+    "comparison": "bullets-3",
+    "conclusion": "bullets-3"
+  },
+  "layouts": {
+    "cover-workshop": {
+      "inventory_slide": "slide-0",
+      "slots": {
+        "eyebrow": {
+          "shape": "shape-0",
+          "source": "eyebrow",
+          "shrink": 0
+        },
+        "title_lines": {
+          "shape": "shape-1",
+          "source": "title_lines",
+          "shrink": 2,
+          "mode": "paragraphs"
+        },
+        "summary_lines": {
+          "shape": "shape-2",
+          "source": "summary_lines",
+          "shrink": 1,
+          "mode": "paragraphs"
+        },
+        "footer": {
+          "shape": "shape-3",
+          "source": "footer",
+          "shrink": 1
+        }
+      }
+    },
+    "cover-basic": {
+      "inventory_slide": "slide-0",
+      "slots": {
+        "eyebrow": {
+          "shape": "shape-0",
+          "source": "eyebrow",
+          "shrink": 0
+        },
+        "title_lines": {
+          "shape": "shape-1",
+          "source": "title_lines",
+          "shrink": 2,
+          "mode": "paragraphs"
+        },
+        "summary_lines": {
+          "shape": "shape-2",
+          "source": "summary_lines",
+          "shrink": 1,
+          "mode": "paragraphs"
+        },
+        "footer": {
+          "shape": "shape-3",
+          "source": "footer",
+          "shrink": 1
+        }
+      }
+    },
+    "scenario-summary": {
+      "inventory_slide": "slide-1",
+      "slots": {
+        "title": {
+          "shape": "shape-0",
+          "source": "title",
+          "shrink": 1
+        },
+        "target_user": {
+          "shape": "shape-1",
+          "source": "fields.target_user_line",
+          "shrink": 0
+        },
+        "business_problem": {
+          "shape": "shape-2",
+          "source": "fields.business_problem_line",
+          "shrink": 0
+        },
+        "improvement_goal": {
+          "shape": "shape-3",
+          "source": "fields.improvement_goal_line",
+          "shrink": 0
+        }
+      }
+    },
+    "opportunity-summary": {
+      "inventory_slide": "slide-1",
+      "slots": {
+        "title": {
+          "shape": "shape-0",
+          "source": "title",
+          "shrink": 1
+        },
+        "opportunity": {
+          "shape": "shape-1",
+          "source": "fields.opportunity_line",
+          "shrink": 0
+        },
+        "why_now": {
+          "shape": "shape-2",
+          "source": "fields.why_now_line",
+          "shrink": 0
+        },
+        "proof": {
+          "shape": "shape-3",
+          "source": "fields.proof_line",
+          "shrink": 0
+        }
+      }
+    },
+    "as-is-pain-map": {
+      "inventory_slide": "slide-1",
+      "slots": {
+        "title": {
+          "shape": "shape-0",
+          "source": "title",
+          "shrink": 1
+        },
+        "process_lines": {
+          "shape": "shape-1",
+          "source": "fields.process_lines",
+          "mode": "paragraphs",
+          "shrink": 1
+        },
+        "pain_lines": {
+          "shape": "shape-2",
+          "source": "fields.pain_lines",
+          "mode": "paragraphs",
+          "shrink": 1
+        },
+        "focus_line": {
+          "shape": "shape-3",
+          "source": "fields.focus_line",
+          "shrink": 0
+        }
+      }
+    },
+    "capability-selection": {
+      "inventory_slide": "slide-1",
+      "slots": {
+        "title": {
+          "shape": "shape-0",
+          "source": "title",
+          "shrink": 1
+        },
+        "perception_line": {
+          "shape": "shape-1",
+          "source": "fields.perception_line",
+          "shrink": 0
+        },
+        "analysis_line": {
+          "shape": "shape-2",
+          "source": "fields.analysis_line",
+          "shrink": 0
+        },
+        "action_line": {
+          "shape": "shape-3",
+          "source": "fields.action_line",
+          "shrink": 0
+        }
+      }
+    },
+    "ai-flow-steps": {
+      "inventory_slide": "slide-1",
+      "slots": {
+        "title": {
+          "shape": "shape-0",
+          "source": "title",
+          "shrink": 1
+        },
+        "trigger_line": {
+          "shape": "shape-1",
+          "source": "fields.trigger_line",
+          "shrink": 0
+        },
+        "flow_lines": {
+          "shape": "shape-2",
+          "source": "fields.flow_lines",
+          "mode": "paragraphs",
+          "shrink": 1
+        },
+        "closure_line": {
+          "shape": "shape-3",
+          "source": "fields.closure_line",
+          "shrink": 0
+        }
+      }
+    },
+    "prototype-concept": {
+      "inventory_slide": "slide-1",
+      "slots": {
+        "title": {
+          "shape": "shape-0",
+          "source": "title",
+          "shrink": 1
+        },
+        "prototype_name": {
+          "shape": "shape-1",
+          "source": "fields.prototype_name_line",
+          "shrink": 0
+        },
+        "prototype_surface": {
+          "shape": "shape-2",
+          "source": "fields.prototype_surface_line",
+          "shrink": 0
+        },
+        "prototype_value": {
+          "shape": "shape-3",
+          "source": "fields.prototype_value_line",
+          "shrink": 0
+        }
+      }
+    },
+    "product-mapping-table": {
+      "inventory_slide": "slide-1",
+      "slots": {
+        "title": {
+          "shape": "shape-0",
+          "source": "title",
+          "shrink": 1
+        },
+        "mapping_lines": {
+          "shape": "shape-1",
+          "source": "fields.mapping_lines",
+          "mode": "paragraphs",
+          "shrink": 1
+        },
+        "platform_line": {
+          "shape": "shape-2",
+          "source": "fields.platform_line",
+          "shrink": 0
+        },
+        "deliverable_line": {
+          "shape": "shape-3",
+          "source": "fields.deliverable_line",
+          "shrink": 0
+        }
+      }
+    },
+    "business-value": {
+      "inventory_slide": "slide-1",
+      "slots": {
+        "title": {
+          "shape": "shape-0",
+          "source": "title",
+          "shrink": 1
+        },
+        "value_lines": {
+          "shape": "shape-1",
+          "source": "fields.value_lines",
+          "mode": "paragraphs",
+          "shrink": 1
+        },
+        "kpi_lines": {
+          "shape": "shape-2",
+          "source": "fields.kpi_lines",
+          "mode": "paragraphs",
+          "shrink": 1
+        },
+        "poc_lines": {
+          "shape": "shape-3",
+          "source": "fields.poc_lines",
+          "mode": "paragraphs",
+          "shrink": 1
+        }
+      }
+    },
+    "poc-next-step": {
+      "inventory_slide": "slide-1",
+      "slots": {
+        "title": {
+          "shape": "shape-0",
+          "source": "title",
+          "shrink": 1
+        },
+        "scope_line": {
+          "shape": "shape-1",
+          "source": "fields.scope_line",
+          "shrink": 0
+        },
+        "stakeholder_lines": {
+          "shape": "shape-2",
+          "source": "fields.stakeholder_lines",
+          "mode": "paragraphs",
+          "shrink": 1
+        },
+        "next_action_lines": {
+          "shape": "shape-3",
+          "source": "fields.next_action_lines",
+          "mode": "paragraphs",
+          "shrink": 1
+        }
+      }
+    },
+    "bullets-3": {
+      "inventory_slide": "slide-1",
+      "slots": {
+        "title": {
+          "shape": "shape-0",
+          "source": "title",
+          "shrink": 1
+        },
+        "point_1": {
+          "shape": "shape-1",
+          "source": "point_1",
+          "shrink": 0
+        },
+        "point_2": {
+          "shape": "shape-2",
+          "source": "point_2",
+          "shrink": 0
+        },
+        "point_3": {
+          "shape": "shape-3",
+          "source": "point_3",
+          "shrink": 0
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "workshop": {
+    "title": "AI Discovery Card Workshop",
+    "customer": "某全球化 IoT 品牌",
+    "industry": "消费电子 IoT",
+    "group_name": "第 6 组",
+    "date": "2026-05-22"
+  },
+  "scenario": {
+    "name": "全球 IoT 安全治理中枢",
+    "target_users": "安全负责人",
+    "business_problem": "认证失败和越权风险分散在不同区域，安全事件响应效率低。",
+    "improvement_goal": "希望建立统一的风险识别、研判和自动化响应闭环。"
+  },
+  "opportunity": {
+    "statement": "IoT 安全治理不是补充能力，而是全球设备规模化运营后决定平台可信度和大客户交付能力的底座。",
+    "why_now": "设备接入面越来越广，但安全日志、审计视图和自动化处置通常仍停留在分区域、分团队的状态。",
+    "supporting_points": [
+      "认证失败、异常重连和证书风险需要统一监控",
+      "跨区域安全事件需要统一事件流和统一优先级判断",
+      "一旦形成闭环，可扩展到审计、合规和自动化风险响应",
+      "希望建立统一的风险识别、研判和自动化响应闭环。"
+    ]
+  },
+  "current_process": [
+    "各区域分别监控认证失败、越权访问和连接异常",
+    "安全团队人工汇总告警并进行事件研判",
+    "重大事件再协调平台和区域团队处置",
+    "审计记录和设备行为分散保存，追溯效率低",
+    "复盘后缺少统一的自动化响应规则"
+  ],
+  "pain_points": [
+    "认证失败和越权风险分散在不同区域，安全事件响应效率低。",
+    "不同区域的安全事件缺少统一视角和事件流",
+    "认证、证书和越权风险发现不及时",
+    "安全处置依赖人工，难以规模化复制"
+  ],
+  "selected_cards": {
+    "execution_closure": [
+      "流程优化",
+      "自动履行",
+      "人机交互"
+    ],
+    "input_perception": [
+      "数据输入",
+      "设备状态数据"
+    ],
+    "generation_interaction": [
+      "文本生成"
+    ],
+    "business_scenario": [
+      "安全治理"
+    ],
+    "understanding_analysis": [
+      "异常检测",
+      "风险预测",
+      "数据分析"
+    ]
+  },
+  "ai_flow": {
+    "trigger": "系统识别到认证失败激增、证书临期、越权访问或可疑控制指令",
+    "steps": [
+      "系统汇聚设备接入日志、审计事件和区域安全告警",
+      "AI 识别异常模式、风险级别和潜在影响范围",
+      "AI 生成处置摘要、根因线索和优先级建议",
+      "高风险事件自动触发封禁、证书提醒、工单或人工升级",
+      "处理结果回写后沉淀为后续安全规则和审计依据"
+    ],
+    "closure": "形成从安全事件识别、风险研判到处置动作的治理闭环",
+    "narrative": "该场景适合展示设备企业如何把接入安全从事后排查升级为全球统一治理能力。"
+  },
+  "prototype": {
+    "name": "IoT 安全治理中枢",
+    "goal": "把区域安全事件、风险解释和响应动作集中到一个统一的治理中枢中",
+    "surface": "IoT 安全治理中枢",
+    "user_flow": [
+      "查看全球安全事件分布和高风险告警",
+      "读取 AI 生成的风险摘要、根因线索和处置建议",
+      "一键触发封禁、通知、工单或人工升级"
+    ],
+    "mock_scope": [
+      "安全事件总览面板",
+      "风险解释与审计线索区",
+      "响应动作与协同处置区"
+    ],
+    "value_statement": "让安全团队从分散监控和人工追事件，转向在统一中枢里完成研判、响应和审计留痕。"
+  },
+  "product_mapping": [
+    {
+      "capability": "设备接入日志与事件汇聚",
+      "products": [
+        "EMQX",
+        "FlowMQ",
+        "DataLayers"
+      ],
+      "delivery": "安全事件流与审计底座"
+    },
+    {
+      "capability": "安全监控与威胁识别",
+      "products": [
+        "Microsoft Sentinel",
+        "Microsoft Security Copilot"
+      ],
+      "delivery": "风险监控与安全研判"
+    },
+    {
+      "capability": "风险总结与响应建议",
+      "products": [
+        "Azure AI Foundry",
+        "Power Automate"
+      ],
+      "delivery": "智能响应建议与动作联动"
+    }
+  ],
+  "business_value": {
+    "outcomes": [
+      "希望建立统一的风险识别、研判和自动化响应闭环。",
+      "降低全球设备规模化后的接入安全风险",
+      "提升跨区域安全事件发现和响应效率",
+      "加强审计、合规和大客户交付可信度"
+    ],
+    "kpis": [
+      "高风险安全事件平均响应时间下降 35%",
+      "证书和认证异常提前发现率达到 80%",
+      "跨区域安全事件协同效率提升 30%"
+    ],
+    "deliverables": [
+      "安全治理场景图",
+      "治理中枢原型建议",
+      "POC 验证范围"
+    ]
+  },
+  "poc": {
+    "scope": "先验证事件汇聚、风险研判和响应动作联动三段闭环",
+    "validation_points": [
+      "风险摘要和根因线索的可信度",
+      "统一视图对安全治理的帮助程度",
+      "响应动作自动化的可执行性"
+    ],
+    "stakeholders": [
+      "安全负责人",
+      "平台治理团队",
+      "区域运维团队"
+    ],
+    "next_actions": [
+      "确认试点区域和安全日志样本范围",
+      "选择一个高频安全事件流程作为试点",
+      "输出治理中枢原型范围和验证口径",
+      "确认试点设备、区域或知识数据范围",
+      "锁定一条高价值业务流程作为试点",
+      "输出原型范围和 POC 验证指标"
+    ]
+  },
+  "selected_assets": {
+    "industry_lane": "consumer-electronics-iot",
+    "outline_pack": "opportunity-prototype-deck",
+    "reference_case": "ce-iot-security-governance-hub",
+    "snippet_pack": "industry-defaults:consumer-electronics-iot",
+    "card_photo_paths": [
+      "AI WorkFlow.png"
+    ]
+  },
+  "source_type": "asset-composed-workshop"
+}

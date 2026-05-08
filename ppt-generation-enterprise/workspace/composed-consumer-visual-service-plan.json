@@ -1,0 +1,322 @@
+{
+  "title": "视觉增强的安装质检与现场诊断",
+  "subtitle": "AI Discovery Workshop 商机与原型方案",
+  "aspect_ratio": "16:9",
+  "template": "enterprise-forum",
+  "theme": "eden-enterprise",
+  "workflow_type": "ai-discovery-workshop",
+  "source_type": "asset-composed-workshop",
+  "selected_assets": {
+    "industry_lane": "consumer-electronics-iot",
+    "outline_pack": "opportunity-prototype-deck",
+    "reference_case": "ce-iot-visual-service-diagnostics",
+    "snippet_pack": "industry-defaults:consumer-electronics-iot",
+    "card_photo_paths": [
+      "AI WorkFlow.png"
+    ]
+  },
+  "slides": [
+    {
+      "slide_number": 1,
+      "title": "视觉增强的安装质检与现场诊断",
+      "subtitle": "AI Discovery Workshop 商机与原型方案",
+      "slide_type": "cover-workshop",
+      "layout_key": "cover-workshop",
+      "key_points": [
+        "客户：某智能家电客户 | 行业：消费电子 IoT",
+        "小组：第 3 组 | 日期：2026-05-22",
+        "Workshop：AI Discovery Card Workshop"
+      ],
+      "speaker_notes": [
+        "该场景适合展示企业如何把非结构化现场资料转成可执行的安装、质检和维修能力。"
+      ],
+      "summary_lines": [
+        "客户：某智能家电客户 | 行业：消费电子 IoT",
+        "小组：第 3 组 | 日期：2026-05-22"
+      ],
+      "slots": {
+        "point_1": "客户：某智能家电客户 | 行业：消费电子 IoT",
+        "point_2": "小组：第 3 组 | 日期：2026-05-22",
+        "point_3": "Workshop：AI Discovery Card Workshop"
+      },
+      "eyebrow": "AI DISCOVERY WORKSHOP",
+      "title_lines": [
+        "视觉增强的安装质检与现场诊断",
+        "AI Discovery Workshop 商机与原型方案"
+      ],
+      "footer": "某智能家电客户",
+      "fields": {
+        "customer_line": "客户：某智能家电客户 | 行业：消费电子 IoT",
+        "group_line": "小组：第 3 组 | 日期：2026-05-22"
+      }
+    },
+    {
+      "slide_number": 2,
+      "title": "业务机会与 Why Now",
+      "subtitle": "",
+      "slide_type": "opportunity-summary",
+      "layout_key": "opportunity-summary",
+      "key_points": [
+        "机会判断：把视觉识别和设备诊断结合起来，是消费电子 IoT 客户最容易在现场服务环节做出可见价值的 AI 原型方向。",
+        "为什么是现在：客户现场已经积累了照片、工单、铭牌和质检单，但这些非结构化资料还没有和设备状态、知识库一起被利用。",
+        "价值支撑：现场服务质量直接影响售后成本和用户口碑"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "机会判断：把视觉识别和设备诊断结合起来，是消费电子 IoT 客户最容易在现场服务环节做出可见价值的 AI 原型方向。",
+        "为什么是现在：客户现场已经积累了照片、工单、铭牌和质检单，但这些非结构化资料还没有和设备状态、知识库一起被利用。"
+      ],
+      "slots": {
+        "point_1": "机会判断：把视觉识别和设备诊断结合起来，是消费电子 IoT 客户最容易在现场服务环节做出可见价值的 AI 原型方向。",
+        "point_2": "为什么是现在：客户现场已经积累了照片、工单、铭牌和质检单，但这些非结构化资料还没有和设备状态、知识库一起被利用。",
+        "point_3": "价值支撑：现场服务质量直接影响售后成本和用户口碑"
+      },
+      "fields": {
+        "opportunity_line": "机会判断：把视觉识别和设备诊断结合起来，是消费电子 IoT 客户最容易在现场服务环节做出可见价值的 AI 原型方向。",
+        "why_now_line": "为什么是现在：客户现场已经积累了照片、工单、铭牌和质检单，但这些非结构化资料还没有和设备状态、知识库一起被利用。",
+        "proof_line": "价值支撑：现场服务质量直接影响售后成本和用户口碑"
+      }
+    },
+    {
+      "slide_number": 3,
+      "title": "当前差距与优先痛点",
+      "subtitle": "",
+      "slide_type": "as-is-pain-map",
+      "layout_key": "as-is-pain-map",
+      "key_points": [
+        "现状流程：1. 现场人员通过照片、视频和纸质记录反馈安装或维修情况；2. 质检或专家人工查看图片、铭牌和维修单判断问题；3. 复杂问题需要远程沟通和反复补信息；4. 处理建议分散在说明书、经验和口头沟通里",
+        "关键痛点：1. 安装质检标准不一致，复杂问题经常需要二次上门。；2. 安装和质检判断标准依赖经验，结果不一致；3. 现场故障定位慢，经常需要二次上门或补拍资料",
+        "优先切口：安装质检标准不一致，复杂问题经常需要二次上门。"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "现状流程：1. 现场人员通过照片、视频和纸质记录反馈安装或维修情况；2. 质检或专家人工查看图片、铭牌和维修单判断问题；3. 复杂问题需要远程沟通和反复补信息；4. 处理建议分散在说明书、经验和口头沟通里",
+        "关键痛点：1. 安装质检标准不一致，复杂问题经常需要二次上门。；2. 安装和质检判断标准依赖经验，结果不一致；3. 现场故障定位慢，经常需要二次上门或补拍资料"
+      ],
+      "slots": {
+        "point_1": "现状流程：1. 现场人员通过照片、视频和纸质记录反馈安装或维修情况；2. 质检或专家人工查看图片、铭牌和维修单判断问题；3. 复杂问题需要远程沟通和反复补信息；4. 处理建议分散在说明书、经验和口头沟通里",
+        "point_2": "关键痛点：1. 安装质检标准不一致，复杂问题经常需要二次上门。；2. 安装和质检判断标准依赖经验，结果不一致；3. 现场故障定位慢，经常需要二次上门或补拍资料",
+        "point_3": "优先切口：安装质检标准不一致，复杂问题经常需要二次上门。"
+      },
+      "fields": {
+        "process_lines": [
+          "1. 现场人员通过照片、视频和纸质记录反馈安装或维修情况",
+          "2. 质检或专家人工查看图片、铭牌和维修单判断问题",
+          "3. 复杂问题需要远程沟通和反复补信息",
+          "4. 处理建议分散在说明书、经验和口头沟通里"
+        ],
+        "pain_lines": [
+          "1. 安装质检标准不一致，复杂问题经常需要二次上门。",
+          "2. 安装和质检判断标准依赖经验，结果不一致",
+          "3. 现场故障定位慢，经常需要二次上门或补拍资料"
+        ],
+        "focus_line": "优先切口：安装质检标准不一致，复杂问题经常需要二次上门。"
+      }
+    },
+    {
+      "slide_number": 4,
+      "title": "客户现场卡片流程",
+      "subtitle": "",
+      "slide_type": "capability-selection",
+      "layout_key": "capability-selection",
+      "key_points": [
+        "业务场景 / 输入感知：现场服务 / 图像输入 / 设备状态数据 / 文档输入",
+        "理解分析：内容理解 / 异常检测 / 数据分析",
+        "生成交互 / 执行闭环：文本生成 / 流程优化 / 自动履行 / 人机交互"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "业务场景 / 输入感知：现场服务 / 图像输入 / 设备状态数据 / 文档输入",
+        "理解分析：内容理解 / 异常检测 / 数据分析"
+      ],
+      "slots": {
+        "point_1": "业务场景 / 输入感知：现场服务 / 图像输入 / 设备状态数据 / 文档输入",
+        "point_2": "理解分析：内容理解 / 异常检测 / 数据分析",
+        "point_3": "生成交互 / 执行闭环：文本生成 / 流程优化 / 自动履行 / 人机交互"
+      },
+      "fields": {
+        "perception_line": "业务场景 / 输入感知：现场服务 / 图像输入 / 设备状态数据 / 文档输入",
+        "analysis_line": "理解分析：内容理解 / 异常检测 / 数据分析",
+        "action_line": "生成交互 / 执行闭环：文本生成 / 流程优化 / 自动履行 / 人机交互"
+      }
+    },
+    {
+      "slide_number": 5,
+      "title": "目标 AI Flow",
+      "subtitle": "",
+      "slide_type": "ai-flow-steps",
+      "layout_key": "ai-flow-steps",
+      "key_points": [
+        "业务触发：现场人员上传安装照片、铭牌信息、质检单或维修单",
+        "核心流程：1. 系统解析图片、文档和设备状态上下文；2. AI 识别异常安装、部件问题或质检风险；3. AI 生成安装校验、维修建议和备件提示；4. 必要时自动创建工单或升级专家支持；5. 处理结果回写为后续现场知识和标准流程依据",
+        "业务闭环：形成从现场资料采集、问题判断到服务动作闭环的诊断流程"
+      ],
+      "speaker_notes": [
+        "该场景适合展示企业如何把非结构化现场资料转成可执行的安装、质检和维修能力。"
+      ],
+      "summary_lines": [
+        "业务触发：现场人员上传安装照片、铭牌信息、质检单或维修单",
+        "核心流程：1. 系统解析图片、文档和设备状态上下文；2. AI 识别异常安装、部件问题或质检风险；3. AI 生成安装校验、维修建议和备件提示；4. 必要时自动创建工单或升级专家支持；5. 处理结果回写为后续现场知识和标准流程依据"
+      ],
+      "slots": {
+        "point_1": "业务触发：现场人员上传安装照片、铭牌信息、质检单或维修单",
+        "point_2": "核心流程：1. 系统解析图片、文档和设备状态上下文；2. AI 识别异常安装、部件问题或质检风险；3. AI 生成安装校验、维修建议和备件提示；4. 必要时自动创建工单或升级专家支持；5. 处理结果回写为后续现场知识和标准流程依据",
+        "point_3": "业务闭环：形成从现场资料采集、问题判断到服务动作闭环的诊断流程"
+      },
+      "fields": {
+        "trigger_line": "业务触发：现场人员上传安装照片、铭牌信息、质检单或维修单",
+        "flow_lines": [
+          "1. 系统解析图片、文档和设备状态上下文",
+          "2. AI 识别异常安装、部件问题或质检风险",
+          "3. AI 生成安装校验、维修建议和备件提示",
+          "4. 必要时自动创建工单或升级专家支持",
+          "5. 处理结果回写为后续现场知识和标准流程依据"
+        ],
+        "closure_line": "业务闭环：形成从现场资料采集、问题判断到服务动作闭环的诊断流程"
+      }
+    },
+    {
+      "slide_number": 6,
+      "title": "原型方向与系统形态",
+      "subtitle": "",
+      "slide_type": "prototype-concept",
+      "layout_key": "prototype-concept",
+      "key_points": [
+        "原型名称：现场安装与诊断助手",
+        "系统形态：现场安装与诊断助手；目标：为现场工程师提供统一的图片识别、知识检索和动作建议入口",
+        "价值落点：让现场团队从靠经验和远程求助，转向在统一助手里完成识别、判断和动作触发。"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "原型名称：现场安装与诊断助手",
+        "系统形态：现场安装与诊断助手；目标：为现场工程师提供统一的图片识别、知识检索和动作建议入口"
+      ],
+      "slots": {
+        "point_1": "原型名称：现场安装与诊断助手",
+        "point_2": "系统形态：现场安装与诊断助手；目标：为现场工程师提供统一的图片识别、知识检索和动作建议入口",
+        "point_3": "价值落点：让现场团队从靠经验和远程求助，转向在统一助手里完成识别、判断和动作触发。"
+      },
+      "fields": {
+        "prototype_name_line": "原型名称：现场安装与诊断助手",
+        "prototype_surface_line": "系统形态：现场安装与诊断助手；目标：为现场工程师提供统一的图片识别、知识检索和动作建议入口",
+        "prototype_value_line": "价值落点：让现场团队从靠经验和远程求助，转向在统一助手里完成识别、判断和动作触发。",
+        "prototype_flow_lines": [
+          "1. 上传照片、铭牌或质检单并自动读取设备上下文",
+          "2. 查看 AI 给出的异常判断、校验项和维修建议",
+          "3. 一键触发工单、备件建议或专家协同"
+        ],
+        "prototype_scope_lines": [
+          "1. 图片与单据识别区",
+          "2. 诊断建议与知识提示区",
+          "3. 现场动作与工单联动区"
+        ]
+      }
+    },
+    {
+      "slide_number": 7,
+      "title": "能力映射与交付物",
+      "subtitle": "",
+      "slide_type": "product-mapping-table",
+      "layout_key": "product-mapping-table",
+      "key_points": [
+        "能力映射：现场图像与文档理解 -> Azure AI Vision, Azure AI Document Intelligence | 交付：图片和单据结构化识别；诊断建议与知识问答 -> Azure AI Foundry, Azure AI Content Understanding | 交付：诊断助手与知识生成",
+        "优先产品栈：Azure AI Vision / Azure AI Document Intelligence / Azure AI Foundry / Azure AI Content Understanding",
+        "现场交付物：现场助手原型建议 / 服务诊断流程图 / POC 验证清单"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "能力映射：现场图像与文档理解 -> Azure AI Vision, Azure AI Document Intelligence | 交付：图片和单据结构化识别；诊断建议与知识问答 -> Azure AI Foundry, Azure AI Content Understanding | 交付：诊断助手与知识生成",
+        "优先产品栈：Azure AI Vision / Azure AI Document Intelligence / Azure AI Foundry / Azure AI Content Understanding"
+      ],
+      "slots": {
+        "point_1": "能力映射：现场图像与文档理解 -> Azure AI Vision, Azure AI Document Intelligence | 交付：图片和单据结构化识别；诊断建议与知识问答 -> Azure AI Foundry, Azure AI Content Understanding | 交付：诊断助手与知识生成",
+        "point_2": "优先产品栈：Azure AI Vision / Azure AI Document Intelligence / Azure AI Foundry / Azure AI Content Understanding",
+        "point_3": "现场交付物：现场助手原型建议 / 服务诊断流程图 / POC 验证清单"
+      },
+      "fields": {
+        "mapping_lines": [
+          "现场图像与文档理解 -> Azure AI Vision, Azure AI Document Intelligence | 交付：图片和单据结构化识别",
+          "诊断建议与知识问答 -> Azure AI Foundry, Azure AI Content Understanding | 交付：诊断助手与知识生成",
+          "设备上下文与服务动作闭环 -> EMQX, Power Automate | 交付：设备状态接入与服务动作流转"
+        ],
+        "platform_line": "优先产品栈：Azure AI Vision / Azure AI Document Intelligence / Azure AI Foundry / Azure AI Content Understanding",
+        "deliverable_line": "现场交付物：现场助手原型建议 / 服务诊断流程图 / POC 验证清单"
+      }
+    },
+    {
+      "slide_number": 8,
+      "title": "业务价值与验证假设",
+      "subtitle": "",
+      "slide_type": "business-value",
+      "layout_key": "business-value",
+      "key_points": [
+        "预期价值：希望提升现场判断效率，并减少远程专家和二次上门依赖。 / 提升安装、验收和维修判断的一致性 / 减少现场二次上门和远程专家依赖 / 把图片和工单里的经验沉淀为可复用资产",
+        "关键指标：现场判断时间下降 40% / 二次上门率下降 20% / 现场质检标准化率提升 30%",
+        "POC 聚焦：先验证图片识别、诊断建议和服务动作联动三段闭环；优先验证 图像和文档识别结果的准确性"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "预期价值：希望提升现场判断效率，并减少远程专家和二次上门依赖。 / 提升安装、验收和维修判断的一致性 / 减少现场二次上门和远程专家依赖 / 把图片和工单里的经验沉淀为可复用资产",
+        "关键指标：现场判断时间下降 40% / 二次上门率下降 20% / 现场质检标准化率提升 30%"
+      ],
+      "slots": {
+        "point_1": "预期价值：希望提升现场判断效率，并减少远程专家和二次上门依赖。 / 提升安装、验收和维修判断的一致性 / 减少现场二次上门和远程专家依赖 / 把图片和工单里的经验沉淀为可复用资产",
+        "point_2": "关键指标：现场判断时间下降 40% / 二次上门率下降 20% / 现场质检标准化率提升 30%",
+        "point_3": "POC 聚焦：先验证图片识别、诊断建议和服务动作联动三段闭环；优先验证 图像和文档识别结果的准确性"
+      },
+      "fields": {
+        "value_lines": [
+          "希望提升现场判断效率，并减少远程专家和二次上门依赖。",
+          "提升安装、验收和维修判断的一致性",
+          "减少现场二次上门和远程专家依赖",
+          "把图片和工单里的经验沉淀为可复用资产"
+        ],
+        "kpi_lines": [
+          "现场判断时间下降 40%",
+          "二次上门率下降 20%",
+          "现场质检标准化率提升 30%"
+        ],
+        "poc_lines": [
+          "1. 图像和文档识别结果的准确性",
+          "2. 诊断建议对一线处理的帮助程度",
+          "3. 工单和专家协同动作的可执行性"
+        ]
+      }
+    },
+    {
+      "slide_number": 9,
+      "title": "POC 与下一步",
+      "subtitle": "",
+      "slide_type": "poc-next-step",
+      "layout_key": "poc-next-step",
+      "key_points": [
+        "试点范围：先验证图片识别、诊断建议和服务动作联动三段闭环",
+        "关键角色：服务交付负责人 / 质检主管 / 现场工程师代表",
+        "后续动作：确认试点安装或维修流程 / 整理样本照片、质检单和维修单 / 输出现场助手原型范围和验证指标 / 确认试点设备范围和样本数据 / 锁定一条高频服务流程作为试点 / 输出原型范围和 POC 验证指标"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "试点范围：先验证图片识别、诊断建议和服务动作联动三段闭环",
+        "关键角色：服务交付负责人 / 质检主管 / 现场工程师代表"
+      ],
+      "slots": {
+        "point_1": "试点范围：先验证图片识别、诊断建议和服务动作联动三段闭环",
+        "point_2": "关键角色：服务交付负责人 / 质检主管 / 现场工程师代表",
+        "point_3": "后续动作：确认试点安装或维修流程 / 整理样本照片、质检单和维修单 / 输出现场助手原型范围和验证指标 / 确认试点设备范围和样本数据 / 锁定一条高频服务流程作为试点 / 输出原型范围和 POC 验证指标"
+      },
+      "fields": {
+        "scope_line": "试点范围：先验证图片识别、诊断建议和服务动作联动三段闭环",
+        "stakeholder_lines": [
+          "服务交付负责人",
+          "质检主管",
+          "现场工程师代表"
+        ],
+        "next_action_lines": [
+          "1. 确认试点安装或维修流程",
+          "2. 整理样本照片、质检单和维修单",
+          "3. 输出现场助手原型范围和验证指标"
+        ]
+      }
+    }
+  ]
+}

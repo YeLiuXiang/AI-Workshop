@@ -1,0 +1,122 @@
+{
+  "workshop": {
+    "title": "AI Discovery Card Workshop",
+    "customer": "某消费电子客户",
+    "industry": "消费电子",
+    "group_name": "第 2 组",
+    "date": "2026-05-07"
+  },
+  "scenario": {
+    "name": "智能客户服务场景",
+    "target_users": "客服团队与终端消费者",
+    "business_problem": "客户咨询响应慢、重复问题处理成本高、复杂问题升级不及时",
+    "improvement_goal": "通过 AI 实现自动识别客户意图、自动回答常见问题，并提升人工客服处理效率"
+  },
+  "current_process": [
+    "客户通过电话、网页或聊天窗口提交问题",
+    "客服人工阅读问题并查询知识库",
+    "人工组织回复并继续跟进追问",
+    "复杂问题升级专家处理",
+    "客服手动记录处理结果"
+  ],
+  "pain_points": [
+    "重复问题处理成本高",
+    "复杂问题升级不及时",
+    "处理结果沉淀不足，无法形成优化闭环"
+  ],
+  "selected_cards": {
+    "business_scenario": [
+      "了解客户"
+    ],
+    "input_perception": [
+      "语音识别",
+      "文本输入"
+    ],
+    "understanding_analysis": [
+      "识别客户意图",
+      "情绪分析",
+      "简化数据分析"
+    ],
+    "generation_interaction": [
+      "生成战略文案",
+      "创建动态网页"
+    ],
+    "execution_closure": [
+      "个性化营销",
+      "预测客户流失"
+    ]
+  },
+  "ai_flow": {
+    "trigger": "客户发起服务咨询或售后请求",
+    "steps": [
+      "AI 将语音转换为文本或读取客户输入内容",
+      "AI 识别客户意图并分析客户情绪",
+      "AI 查询知识库并生成自动回复",
+      "复杂问题自动升级人工客服或专家",
+      "系统记录处理过程并生成服务优化报告"
+    ],
+    "closure": "形成客户服务记录、问题分类和后续优化建议",
+    "narrative": "该场景从客户触发开始，经过输入感知、理解分析、生成交互和执行闭环四个阶段，最终沉淀为服务报告与优化商机。"
+  },
+  "product_mapping": [
+    {
+      "capability": "识别客户意图 / 情绪分析",
+      "products": [
+        "Azure AI Language",
+        "Azure OpenAI"
+      ],
+      "delivery": "客服问答与分类能力"
+    },
+    {
+      "capability": "知识库问答与自动回复",
+      "products": [
+        "Azure AI Search",
+        "Azure OpenAI"
+      ],
+      "delivery": "RAG 问答原型"
+    },
+    {
+      "capability": "复杂问题升级与任务流转",
+      "products": [
+        "Power Automate",
+        "Dynamics 365 Customer Service"
+      ],
+      "delivery": "流程闭环与工单联动"
+    }
+  ],
+  "business_value": {
+    "outcomes": [
+      "缩短客户平均响应时间",
+      "提升常见问题自动化处理比例",
+      "形成高频问题与满意度分析闭环"
+    ],
+    "kpis": [
+      "首响时长下降 30%",
+      "FAQ 自动命中率达到 60%",
+      "复杂问题升级准确率达到 85%"
+    ],
+    "deliverables": [
+      "Workshop 定制化 PPT",
+      "AI Flow 流程图",
+      "POC 规划建议"
+    ]
+  },
+  "poc": {
+    "scope": "先验证客户问题识别、知识库问答和复杂问题升级三段闭环",
+    "validation_points": [
+      "客户问题识别准确率",
+      "知识库命中率与回复质量",
+      "复杂问题升级规则的可执行性"
+    ],
+    "stakeholders": [
+      "客服负责人",
+      "IT / 数字化团队",
+      "业务运营负责人"
+    ],
+    "next_actions": [
+      "会后发送定制 PPT 和 AI Flow",
+      "安排 1 对 1 深度需求访谈",
+      "明确 POC 范围与数据准备清单"
+    ]
+  }
+}

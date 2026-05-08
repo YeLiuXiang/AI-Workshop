@@ -1,0 +1,163 @@
+{
+  "workshop": {
+    "title": "AI Discovery Card Workshop",
+    "customer": "某出海智能硬件客户",
+    "industry": "消费电子 IoT",
+    "group_name": "第 5 组",
+    "date": "2026-05-22"
+  },
+  "scenario": {
+    "name": "全球设备运营指挥台",
+    "target_users": "全球运营负责人",
+    "business_problem": "各区域指标口径不统一，区域异常和固件风险发现不及时。",
+    "improvement_goal": "希望建立统一的全球运营监控和动作协同机制。"
+  },
+  "opportunity": {
+    "statement": "对出海型消费电子 IoT 企业来说，全球运营能力不只是看板，而是决定质量、成本和区域扩张效率的基础能力。",
+    "why_now": "设备和平台已经在线，但指标口径、异常分析和动作联动通常还散落在多个团队和工具里。",
+    "supporting_points": [
+      "全球设备量上来后，人工巡检和区域报表无法支撑精细运营",
+      "连接、能耗、故障和固件异常需要统一视角和优先级判断",
+      "一旦形成闭环，可进一步延展到容量治理、OTA 和区域经营优化",
+      "希望建立统一的全球运营监控和动作协同机制。"
+    ]
+  },
+  "current_process": [
+    "各区域分别统计在线率、连接成功率、故障和能耗指标",
+    "平台团队人工汇总报表并对异常进行排查",
+    "重大异常再由区域团队和总部联动处理",
+    "处理过程依赖经验和临时沟通，缺少统一动作机制",
+    "复盘后知识难以沉淀为持续运营规则"
+  ],
+  "pain_points": [
+    "各区域指标口径不统一，区域异常和固件风险发现不及时。",
+    "全球运营指标分散，口径不统一",
+    "区域异常、固件风险和质量问题发现不及时",
+    "技术指标难以转成管理层可执行的业务判断"
+  ],
+  "selected_cards": {
+    "generation_interaction": [
+      "文本生成"
+    ],
+    "business_scenario": [
+      "设备运营"
+    ],
+    "input_perception": [
+      "设备状态数据",
+      "数据输入"
+    ],
+    "understanding_analysis": [
+      "数据分析",
+      "异常检测",
+      "风险预测"
+    ],
+    "execution_closure": [
+      "流程优化",
+      "自动履行",
+      "人机交互"
+    ]
+  },
+  "ai_flow": {
+    "trigger": "系统识别到区域在线率、连接质量、故障率或固件表现出现明显波动",
+    "steps": [
+      "系统汇聚全球设备连接、故障、能耗和固件指标",
+      "AI 识别异常区域、异常批次和潜在质量风险",
+      "AI 生成异常解释、优先级建议和运营动作",
+      "高风险事件自动触发扩容、限流、OTA 或人工复核",
+      "处理结果回写后持续优化全球运营规则和阈值"
+    ],
+    "closure": "形成从全球指标洞察、异常识别到运营处置的统一闭环",
+    "narrative": "该场景适合展示出海设备企业如何把分散的技术指标转成总部和区域都能执行的运营能力。"
+  },
+  "prototype": {
+    "name": "全球设备运营指挥台",
+    "goal": "把全球设备指标、异常风险和运营动作集中到一个总部和区域共享的指挥台中",
+    "surface": "全球设备运营指挥台",
+    "user_flow": [
+      "查看区域、型号和固件维度的核心指标分布",
+      "读取 AI 生成的异常解释和优先级建议",
+      "一键触发运营动作、区域协同或复盘任务"
+    ],
+    "mock_scope": [
+      "全球指标总览面板",
+      "异常区域与原因解释区",
+      "运营动作与协同任务区"
+    ],
+    "value_statement": "让全球运营团队从人工拼报表和被动排障，转向在统一指挥台里完成发现、判断和动作处置。"
+  },
+  "product_mapping": [
+    {
+      "capability": "全球设备数据接入与聚合",
+      "products": [
+        "EMQX",
+        "DataLayers"
+      ],
+      "delivery": "设备指标与时序数据底座"
+    },
+    {
+      "capability": "全球运营看板与区域分析",
+      "products": [
+        "Microsoft Fabric",
+        "Power BI"
+      ],
+      "delivery": "全球运营指标与可视化"
+    },
+    {
+      "capability": "异常识别与运营建议",
+      "products": [
+        "Azure Machine Learning",
+        "Azure AI Foundry"
+      ],
+      "delivery": "风险识别与处置建议"
+    }
+  ],
+  "business_value": {
+    "outcomes": [
+      "希望建立统一的全球运营监控和动作协同机制。",
+      "把全球设备运营从人工巡检升级为数据驱动经营",
+      "更早识别区域异常、固件风险和质量波动",
+      "提升总部与区域团队的运营协同效率"
+    ],
+    "kpis": [
+      "异常识别响应时间缩短 40%",
+      "区域运营报表准备时间下降 60%",
+      "高风险批次发现提前率达到 70%"
+    ],
+    "deliverables": [
+      "全球运营场景图",
+      "指挥台原型建议",
+      "POC 验证范围"
+    ]
+  },
+  "poc": {
+    "scope": "先验证指标聚合、异常识别和运营动作联动三段闭环",
+    "validation_points": [
+      "异常区域和风险解释的业务可读性",
+      "指挥台视图对总部和区域协同的帮助程度",
+      "运营动作联动的可执行性"
+    ],
+    "stakeholders": [
+      "全球运营负责人",
+      "平台运维团队",
+      "区域运营团队"
+    ],
+    "next_actions": [
+      "确认试点区域和样本设备数据范围",
+      "选择一个核心指标波动明显的场景作为试点",
+      "输出指挥台原型范围和验证口径",
+      "确认试点设备、区域或知识数据范围",
+      "锁定一条高价值业务流程作为试点",
+      "输出原型范围和 POC 验证指标"
+    ]
+  },
+  "selected_assets": {
+    "industry_lane": "consumer-electronics-iot",
+    "outline_pack": "opportunity-prototype-deck",
+    "reference_case": "ce-iot-global-operations-command-center",
+    "snippet_pack": "industry-defaults:consumer-electronics-iot",
+    "card_photo_paths": [
+      "AI WorkFlow.png"
+    ]
+  },
+  "source_type": "asset-composed-workshop"
+}

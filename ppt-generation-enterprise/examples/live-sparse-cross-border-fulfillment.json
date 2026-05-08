@@ -1,0 +1,41 @@
+{
+  "workshop": {
+    "title": "AI Discovery Card Workshop",
+    "customer": "某跨界电商品牌",
+    "industry": "跨界电商",
+    "group_name": "第 4 组",
+    "date": "2026-05-22"
+  },
+  "event_input": {
+    "customer_type": "跨界电商",
+    "scenario_summary": "希望针对跨区域订单履约和库存协同场景，设计一个能结合订单、库存和退货数据的 AI 运营流程。",
+    "target_role": "供应链负责人",
+    "current_pain_point": "不同区域经常同时出现缺货和积压，履约异常发现不及时。",
+    "expected_value": "希望更快完成补货调拨判断，并提升履约稳定性。",
+    "prototype_preference": "库存与履约控制塔"
+  },
+  "detected_cards": {
+    "business_scenario": [
+      "数据和预测分析中偏业务目标的卡片"
+    ],
+    "input_perception": [
+      "表单理解"
+    ],
+    "understanding_analysis": [
+      "数据分析",
+      "风险预测",
+      "异常检测"
+    ],
+    "generation_interaction": [
+      "文本生成"
+    ],
+    "execution_closure": [
+      "流程优化",
+      "自动履行",
+      "决策制定"
+    ]
+  },
+  "card_photo_paths": [
+    "AI WorkFlow.png"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "workshop": {
+    "title": "AI Discovery Card Workshop",
+    "customer": "跨境电商客户",
+    "industry": "跨境电商",
+    "group_name": "现场共创组",
+    "date": "2026-05-08"
+  },
+  "event_input": {
+    "customer_type": "跨境电商",
+    "scenario_summary": "希望围绕客户洞察、个性化营销、营销内容生成、动态页面生成、经营分析和流失预警，设计一个可闭环的 AI 增长流程。",
+    "target_role": "营销与 CRM 负责人",
+    "current_pain_point": "客户洞察、内容生产、活动分析和流失干预分散在多个环节，响应慢且难以规模化。",
+    "expected_value": "希望缩短活动准备周期并更早识别高流失风险客户，提升转化和复购。",
+    "prototype_preference": "营销增长与客户保留工作台"
+  },
+  "current_process": [
+    "汇总客户画像、订单行为和渠道互动数据，了解客户与高价值客群",
+    "基于不同国家、站点和客群制定个性化营销策略",
+    "人工生成营销文本、主视觉素材和活动页面内容",
+    "活动上线后再人工整理经营数据并做复盘分析",
+    "结合经验识别高流失风险客户并安排补救动作"
+  ],
+  "detected_cards": {
+    "business_scenario": [
+      "了解客户",
+      "个性化营销"
+    ],
+    "input_perception": [
+      "数据输入",
+      "文本输入"
+    ],
+    "understanding_analysis": [
+      "简化数据分析",
+      "预测客户流失"
+    ],
+    "generation_interaction": [
+      "生成营销文本",
+      "从文本生成图像",
+      "创建动态网页"
+    ],
+    "execution_closure": [
+      "流程优化",
+      "自动履行"
+    ]
+  },
+  "card_photo_paths": []
+}

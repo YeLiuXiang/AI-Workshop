@@ -1,0 +1,322 @@
+{
+  "title": "非结构化服务知识中台",
+  "subtitle": "AI Discovery Workshop 商机与原型方案",
+  "aspect_ratio": "16:9",
+  "template": "enterprise-forum",
+  "theme": "eden-enterprise",
+  "workflow_type": "ai-discovery-workshop",
+  "source_type": "asset-composed-workshop",
+  "selected_assets": {
+    "industry_lane": "consumer-electronics-iot",
+    "outline_pack": "opportunity-prototype-deck",
+    "reference_case": "ce-iot-ai-knowledge-hub",
+    "snippet_pack": "industry-defaults:consumer-electronics-iot",
+    "card_photo_paths": [
+      "AI WorkFlow.png"
+    ]
+  },
+  "slides": [
+    {
+      "slide_number": 1,
+      "title": "非结构化服务知识中台",
+      "subtitle": "AI Discovery Workshop 商机与原型方案",
+      "slide_type": "cover-workshop",
+      "layout_key": "cover-workshop",
+      "key_points": [
+        "客户：某智能终端企业 | 行业：消费电子 IoT",
+        "小组：第 7 组 | 日期：2026-05-22",
+        "Workshop：AI Discovery Card Workshop"
+      ],
+      "speaker_notes": [
+        "该场景适合展示企业如何把非结构化服务资料转成稳定可复用的知识中台。"
+      ],
+      "summary_lines": [
+        "客户：某智能终端企业 | 行业：消费电子 IoT",
+        "小组：第 7 组 | 日期：2026-05-22"
+      ],
+      "slots": {
+        "point_1": "客户：某智能终端企业 | 行业：消费电子 IoT",
+        "point_2": "小组：第 7 组 | 日期：2026-05-22",
+        "point_3": "Workshop：AI Discovery Card Workshop"
+      },
+      "eyebrow": "AI DISCOVERY WORKSHOP",
+      "title_lines": [
+        "非结构化服务知识中台",
+        "AI Discovery Workshop 商机与原型方案"
+      ],
+      "footer": "某智能终端企业",
+      "fields": {
+        "customer_line": "客户：某智能终端企业 | 行业：消费电子 IoT",
+        "group_line": "小组：第 7 组 | 日期：2026-05-22"
+      }
+    },
+    {
+      "slide_number": 2,
+      "title": "业务机会与 Why Now",
+      "subtitle": "",
+      "slide_type": "opportunity-summary",
+      "layout_key": "opportunity-summary",
+      "key_points": [
+        "机会判断：对设备企业来说，知识中台不是单纯的检索项目，而是把客服、售后、运维和研发经验转成组织资产的关键抓手。",
+        "为什么是现在：企业已经积累了大量说明书、工单、图片和服务记录，但这些非结构化资料还没有成为 AI 可直接利用的统一知识底座。",
+        "价值支撑：同类问题被反复问、反复处理，知识沉淀效率低"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "机会判断：对设备企业来说，知识中台不是单纯的检索项目，而是把客服、售后、运维和研发经验转成组织资产的关键抓手。",
+        "为什么是现在：企业已经积累了大量说明书、工单、图片和服务记录，但这些非结构化资料还没有成为 AI 可直接利用的统一知识底座。"
+      ],
+      "slots": {
+        "point_1": "机会判断：对设备企业来说，知识中台不是单纯的检索项目，而是把客服、售后、运维和研发经验转成组织资产的关键抓手。",
+        "point_2": "为什么是现在：企业已经积累了大量说明书、工单、图片和服务记录，但这些非结构化资料还没有成为 AI 可直接利用的统一知识底座。",
+        "point_3": "价值支撑：同类问题被反复问、反复处理，知识沉淀效率低"
+      },
+      "fields": {
+        "opportunity_line": "机会判断：对设备企业来说，知识中台不是单纯的检索项目，而是把客服、售后、运维和研发经验转成组织资产的关键抓手。",
+        "why_now_line": "为什么是现在：企业已经积累了大量说明书、工单、图片和服务记录，但这些非结构化资料还没有成为 AI 可直接利用的统一知识底座。",
+        "proof_line": "价值支撑：同类问题被反复问、反复处理，知识沉淀效率低"
+      }
+    },
+    {
+      "slide_number": 3,
+      "title": "当前差距与优先痛点",
+      "subtitle": "",
+      "slide_type": "as-is-pain-map",
+      "layout_key": "as-is-pain-map",
+      "key_points": [
+        "现状流程：1. 客服、售后和运维团队分别在不同系统里查找资料；2. 人工阅读说明书、工单、图片和维修报告定位问题；3. 复杂问题依赖少数专家解释和经验传递；4. 知识更新靠人工维护，跨团队共享效率低",
+        "关键痛点：1. 知识沉睡在文档和工单里，同类问题反复处理，客服和售后查资料效率低。；2. 知识沉睡在 PDF、图片、表单和工单中，难以查找和复用；3. 同类问题反复处理，组织经验难以沉淀",
+        "优先切口：知识沉睡在文档和工单里，同类问题反复处理，客服和售后查资料效率低。"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "现状流程：1. 客服、售后和运维团队分别在不同系统里查找资料；2. 人工阅读说明书、工单、图片和维修报告定位问题；3. 复杂问题依赖少数专家解释和经验传递；4. 知识更新靠人工维护，跨团队共享效率低",
+        "关键痛点：1. 知识沉睡在文档和工单里，同类问题反复处理，客服和售后查资料效率低。；2. 知识沉睡在 PDF、图片、表单和工单中，难以查找和复用；3. 同类问题反复处理，组织经验难以沉淀"
+      ],
+      "slots": {
+        "point_1": "现状流程：1. 客服、售后和运维团队分别在不同系统里查找资料；2. 人工阅读说明书、工单、图片和维修报告定位问题；3. 复杂问题依赖少数专家解释和经验传递；4. 知识更新靠人工维护，跨团队共享效率低",
+        "point_2": "关键痛点：1. 知识沉睡在文档和工单里，同类问题反复处理，客服和售后查资料效率低。；2. 知识沉睡在 PDF、图片、表单和工单中，难以查找和复用；3. 同类问题反复处理，组织经验难以沉淀",
+        "point_3": "优先切口：知识沉睡在文档和工单里，同类问题反复处理，客服和售后查资料效率低。"
+      },
+      "fields": {
+        "process_lines": [
+          "1. 客服、售后和运维团队分别在不同系统里查找资料",
+          "2. 人工阅读说明书、工单、图片和维修报告定位问题",
+          "3. 复杂问题依赖少数专家解释和经验传递",
+          "4. 知识更新靠人工维护，跨团队共享效率低"
+        ],
+        "pain_lines": [
+          "1. 知识沉睡在文档和工单里，同类问题反复处理，客服和售后查资料效率低。",
+          "2. 知识沉睡在 PDF、图片、表单和工单中，难以查找和复用",
+          "3. 同类问题反复处理，组织经验难以沉淀"
+        ],
+        "focus_line": "优先切口：知识沉睡在文档和工单里，同类问题反复处理，客服和售后查资料效率低。"
+      }
+    },
+    {
+      "slide_number": 4,
+      "title": "客户现场卡片流程",
+      "subtitle": "",
+      "slide_type": "capability-selection",
+      "layout_key": "capability-selection",
+      "key_points": [
+        "业务场景 / 输入感知：知识管理 / 文档输入 / 图像输入 / 文本输入",
+        "理解分析：内容理解 / 识别客户意图 / 数据分析",
+        "生成交互 / 执行闭环：自动回答 / 文本生成 / 流程优化 / 人机交互"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "业务场景 / 输入感知：知识管理 / 文档输入 / 图像输入 / 文本输入",
+        "理解分析：内容理解 / 识别客户意图 / 数据分析"
+      ],
+      "slots": {
+        "point_1": "业务场景 / 输入感知：知识管理 / 文档输入 / 图像输入 / 文本输入",
+        "point_2": "理解分析：内容理解 / 识别客户意图 / 数据分析",
+        "point_3": "生成交互 / 执行闭环：自动回答 / 文本生成 / 流程优化 / 人机交互"
+      },
+      "fields": {
+        "perception_line": "业务场景 / 输入感知：知识管理 / 文档输入 / 图像输入 / 文本输入",
+        "analysis_line": "理解分析：内容理解 / 识别客户意图 / 数据分析",
+        "action_line": "生成交互 / 执行闭环：自动回答 / 文本生成 / 流程优化 / 人机交互"
+      }
+    },
+    {
+      "slide_number": 5,
+      "title": "目标 AI Flow",
+      "subtitle": "",
+      "slide_type": "ai-flow-steps",
+      "layout_key": "ai-flow-steps",
+      "key_points": [
+        "业务触发：团队需要回答服务问题、复用历史经验或沉淀新的知识资料",
+        "核心流程：1. 系统统一接入说明书、报修单、质检单、图片和维修报告；2. AI 解析结构化字段、文档内容和图像上下文；3. 系统构建统一索引、向量知识和问答入口；4. 客服、售后和研发团队通过 AI 获取回答和处理建议；5. 新处理结果继续回写为后续知识资产和问答依据",
+        "业务闭环：形成从知识接入、结构化理解到跨团队复用的知识闭环"
+      ],
+      "speaker_notes": [
+        "该场景适合展示企业如何把非结构化服务资料转成稳定可复用的知识中台。"
+      ],
+      "summary_lines": [
+        "业务触发：团队需要回答服务问题、复用历史经验或沉淀新的知识资料",
+        "核心流程：1. 系统统一接入说明书、报修单、质检单、图片和维修报告；2. AI 解析结构化字段、文档内容和图像上下文；3. 系统构建统一索引、向量知识和问答入口；4. 客服、售后和研发团队通过 AI 获取回答和处理建议；5. 新处理结果继续回写为后续知识资产和问答依据"
+      ],
+      "slots": {
+        "point_1": "业务触发：团队需要回答服务问题、复用历史经验或沉淀新的知识资料",
+        "point_2": "核心流程：1. 系统统一接入说明书、报修单、质检单、图片和维修报告；2. AI 解析结构化字段、文档内容和图像上下文；3. 系统构建统一索引、向量知识和问答入口；4. 客服、售后和研发团队通过 AI 获取回答和处理建议；5. 新处理结果继续回写为后续知识资产和问答依据",
+        "point_3": "业务闭环：形成从知识接入、结构化理解到跨团队复用的知识闭环"
+      },
+      "fields": {
+        "trigger_line": "业务触发：团队需要回答服务问题、复用历史经验或沉淀新的知识资料",
+        "flow_lines": [
+          "1. 系统统一接入说明书、报修单、质检单、图片和维修报告",
+          "2. AI 解析结构化字段、文档内容和图像上下文",
+          "3. 系统构建统一索引、向量知识和问答入口",
+          "4. 客服、售后和研发团队通过 AI 获取回答和处理建议",
+          "5. 新处理结果继续回写为后续知识资产和问答依据"
+        ],
+        "closure_line": "业务闭环：形成从知识接入、结构化理解到跨团队复用的知识闭环"
+      }
+    },
+    {
+      "slide_number": 6,
+      "title": "原型方向与系统形态",
+      "subtitle": "",
+      "slide_type": "prototype-concept",
+      "layout_key": "prototype-concept",
+      "key_points": [
+        "原型名称：服务知识助手",
+        "系统形态：服务知识助手；目标：把文档解析、图片理解和统一问答整合到一个面向客服和售后的知识助手中",
+        "价值落点：让客服和售后团队从到处找资料、找专家，转向在统一知识助手里完成检索、问答和经验沉淀。"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "原型名称：服务知识助手",
+        "系统形态：服务知识助手；目标：把文档解析、图片理解和统一问答整合到一个面向客服和售后的知识助手中"
+      ],
+      "slots": {
+        "point_1": "原型名称：服务知识助手",
+        "point_2": "系统形态：服务知识助手；目标：把文档解析、图片理解和统一问答整合到一个面向客服和售后的知识助手中",
+        "point_3": "价值落点：让客服和售后团队从到处找资料、找专家，转向在统一知识助手里完成检索、问答和经验沉淀。"
+      },
+      "fields": {
+        "prototype_name_line": "原型名称：服务知识助手",
+        "prototype_surface_line": "系统形态：服务知识助手；目标：把文档解析、图片理解和统一问答整合到一个面向客服和售后的知识助手中",
+        "prototype_value_line": "价值落点：让客服和售后团队从到处找资料、找专家，转向在统一知识助手里完成检索、问答和经验沉淀。",
+        "prototype_flow_lines": [
+          "1. 上传或同步说明书、工单、图片和维修报告",
+          "2. 查看 AI 生成的知识摘要、定位结果和参考答案",
+          "3. 一键引用知识片段或将新处理结果回写知识库"
+        ],
+        "prototype_scope_lines": [
+          "1. 知识接入与解析区",
+          "2. 统一检索与问答区",
+          "3. 知识回写与协同维护区"
+        ]
+      }
+    },
+    {
+      "slide_number": 7,
+      "title": "能力映射与交付物",
+      "subtitle": "",
+      "slide_type": "product-mapping-table",
+      "layout_key": "product-mapping-table",
+      "key_points": [
+        "能力映射：非结构化资料接入与治理 -> DataLayers, Azure AI Document Intelligence, Azure AI Content Understanding | 交付：文档图片结构化与知识底座；统一检索与知识问答 -> Azure AI Search, Azure AI Foundry | 交付：知识检索与问答助手",
+        "优先产品栈：DataLayers / Azure AI Document Intelligence / Azure AI Content Understanding / Azure AI Search",
+        "现场交付物：知识中台场景图 / 服务知识助手原型建议 / POC 验证范围"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "能力映射：非结构化资料接入与治理 -> DataLayers, Azure AI Document Intelligence, Azure AI Content Understanding | 交付：文档图片结构化与知识底座；统一检索与知识问答 -> Azure AI Search, Azure AI Foundry | 交付：知识检索与问答助手",
+        "优先产品栈：DataLayers / Azure AI Document Intelligence / Azure AI Content Understanding / Azure AI Search"
+      ],
+      "slots": {
+        "point_1": "能力映射：非结构化资料接入与治理 -> DataLayers, Azure AI Document Intelligence, Azure AI Content Understanding | 交付：文档图片结构化与知识底座；统一检索与知识问答 -> Azure AI Search, Azure AI Foundry | 交付：知识检索与问答助手",
+        "point_2": "优先产品栈：DataLayers / Azure AI Document Intelligence / Azure AI Content Understanding / Azure AI Search",
+        "point_3": "现场交付物：知识中台场景图 / 服务知识助手原型建议 / POC 验证范围"
+      },
+      "fields": {
+        "mapping_lines": [
+          "非结构化资料接入与治理 -> DataLayers, Azure AI Document Intelligence, Azure AI Content Understanding | 交付：文档图片结构化与知识底座",
+          "统一检索与知识问答 -> Azure AI Search, Azure AI Foundry | 交付：知识检索与问答助手",
+          "多角色复用与知识沉淀 -> Azure AI Language, Power Apps | 交付：跨团队知识门户与协同维护"
+        ],
+        "platform_line": "优先产品栈：DataLayers / Azure AI Document Intelligence / Azure AI Content Understanding / Azure AI Search",
+        "deliverable_line": "现场交付物：知识中台场景图 / 服务知识助手原型建议 / POC 验证范围"
+      }
+    },
+    {
+      "slide_number": 8,
+      "title": "业务价值与验证假设",
+      "subtitle": "",
+      "slide_type": "business-value",
+      "layout_key": "business-value",
+      "key_points": [
+        "预期价值：希望建设跨部门可复用的服务知识中台。 / 把沉睡在文档和工单里的经验转成组织知识资产 / 降低重复处理和知识流失 / 为客服、售后和运维 AI 助手打下统一知识底座",
+        "关键指标：知识检索时间下降 50% / 重复问题处理成本下降 30% / 知识复用率提升 40%",
+        "POC 聚焦：先验证资料接入、知识问答和知识回写三段闭环；优先验证 文档和图片解析结果的可用性"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "预期价值：希望建设跨部门可复用的服务知识中台。 / 把沉睡在文档和工单里的经验转成组织知识资产 / 降低重复处理和知识流失 / 为客服、售后和运维 AI 助手打下统一知识底座",
+        "关键指标：知识检索时间下降 50% / 重复问题处理成本下降 30% / 知识复用率提升 40%"
+      ],
+      "slots": {
+        "point_1": "预期价值：希望建设跨部门可复用的服务知识中台。 / 把沉睡在文档和工单里的经验转成组织知识资产 / 降低重复处理和知识流失 / 为客服、售后和运维 AI 助手打下统一知识底座",
+        "point_2": "关键指标：知识检索时间下降 50% / 重复问题处理成本下降 30% / 知识复用率提升 40%",
+        "point_3": "POC 聚焦：先验证资料接入、知识问答和知识回写三段闭环；优先验证 文档和图片解析结果的可用性"
+      },
+      "fields": {
+        "value_lines": [
+          "希望建设跨部门可复用的服务知识中台。",
+          "把沉睡在文档和工单里的经验转成组织知识资产",
+          "降低重复处理和知识流失",
+          "为客服、售后和运维 AI 助手打下统一知识底座"
+        ],
+        "kpi_lines": [
+          "知识检索时间下降 50%",
+          "重复问题处理成本下降 30%",
+          "知识复用率提升 40%"
+        ],
+        "poc_lines": [
+          "1. 文档和图片解析结果的可用性",
+          "2. 知识问答对客服和售后的帮助程度",
+          "3. 知识回写和持续更新流程的可执行性"
+        ]
+      }
+    },
+    {
+      "slide_number": 9,
+      "title": "POC 与下一步",
+      "subtitle": "",
+      "slide_type": "poc-next-step",
+      "layout_key": "poc-next-step",
+      "key_points": [
+        "试点范围：先验证资料接入、知识问答和知识回写三段闭环",
+        "关键角色：客服负责人 / 售后知识团队 / 运维与研发支持团队",
+        "后续动作：确认试点知识资料范围和典型问答场景 / 选择一个高频服务问题流程作为试点 / 输出知识助手原型范围和验证口径 / 确认试点设备、区域或知识数据范围 / 锁定一条高价值业务流程作为试点 / 输出原型范围和 POC 验证指标"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "试点范围：先验证资料接入、知识问答和知识回写三段闭环",
+        "关键角色：客服负责人 / 售后知识团队 / 运维与研发支持团队"
+      ],
+      "slots": {
+        "point_1": "试点范围：先验证资料接入、知识问答和知识回写三段闭环",
+        "point_2": "关键角色：客服负责人 / 售后知识团队 / 运维与研发支持团队",
+        "point_3": "后续动作：确认试点知识资料范围和典型问答场景 / 选择一个高频服务问题流程作为试点 / 输出知识助手原型范围和验证口径 / 确认试点设备、区域或知识数据范围 / 锁定一条高价值业务流程作为试点 / 输出原型范围和 POC 验证指标"
+      },
+      "fields": {
+        "scope_line": "试点范围：先验证资料接入、知识问答和知识回写三段闭环",
+        "stakeholder_lines": [
+          "客服负责人",
+          "售后知识团队",
+          "运维与研发支持团队"
+        ],
+        "next_action_lines": [
+          "1. 确认试点知识资料范围和典型问答场景",
+          "2. 选择一个高频服务问题流程作为试点",
+          "3. 输出知识助手原型范围和验证口径"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "workshop": {
+    "title": "AI Discovery Card Workshop",
+    "customer": "某智能家电客户",
+    "industry": "消费电子 IoT",
+    "group_name": "第 3 组",
+    "date": "2026-05-22"
+  },
+  "event_input": {
+    "customer_type": "消费电子 IoT",
+    "scenario_summary": "希望针对安装验收和现场维修场景，设计一个能结合图片、质检单和设备状态的 AI 诊断流程。",
+    "target_role": "服务交付负责人",
+    "current_pain_point": "安装质检标准不一致，复杂问题经常需要二次上门。",
+    "expected_value": "希望提升现场判断效率，并减少远程专家和二次上门依赖。",
+    "prototype_preference": "现场安装与诊断助手"
+  },
+  "detected_cards": {
+    "business_scenario": [
+      "智能体类卡片"
+    ],
+    "input_perception": [
+      "图像识别",
+      "OCR",
+      "表单理解"
+    ],
+    "understanding_analysis": [
+      "文本理解",
+      "异常检测"
+    ],
+    "generation_interaction": [
+      "文本生成"
+    ],
+    "execution_closure": [
+      "流程优化",
+      "自动履行",
+      "人机交互"
+    ]
+  },
+  "card_photo_paths": [
+    "AI WorkFlow.png"
+  ]
+}

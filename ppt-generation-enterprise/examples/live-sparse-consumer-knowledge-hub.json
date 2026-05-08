@@ -1,0 +1,43 @@
+{
+  "workshop": {
+    "title": "AI Discovery Card Workshop",
+    "customer": "某智能终端企业",
+    "industry": "消费电子 IoT",
+    "group_name": "第 7 组",
+    "date": "2026-05-22"
+  },
+  "event_input": {
+    "customer_type": "消费电子 IoT",
+    "scenario_summary": "希望针对说明书、报修单和维修图片分散的问题，设计一个能统一沉淀知识并支持问答的 AI 场景。",
+    "target_role": "售后知识团队负责人",
+    "current_pain_point": "知识沉睡在文档和工单里，同类问题反复处理，客服和售后查资料效率低。",
+    "expected_value": "希望建设跨部门可复用的服务知识中台。",
+    "prototype_preference": "服务知识助手"
+  },
+  "detected_cards": {
+    "business_scenario": [
+      "智能体类卡片"
+    ],
+    "input_perception": [
+      "OCR",
+      "表单理解",
+      "图像识别"
+    ],
+    "understanding_analysis": [
+      "文本理解",
+      "用户意图识别"
+    ],
+    "generation_interaction": [
+      "自动回答",
+      "文本生成"
+    ],
+    "execution_closure": [
+      "流程优化",
+      "人机交互",
+      "生产力"
+    ]
+  },
+  "card_photo_paths": [
+    "AI WorkFlow.png"
+  ]
+}

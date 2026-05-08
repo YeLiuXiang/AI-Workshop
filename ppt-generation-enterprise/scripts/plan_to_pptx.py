@@ -1,0 +1,793 @@
+import argparse
+import json
+from pathlib import Path
+
+from pptx import Presentation
+from pptx.dml.color import RGBColor
+from pptx.enum.shapes import MSO_AUTO_SHAPE_TYPE
+from pptx.enum.text import PP_ALIGN, MSO_VERTICAL_ANCHOR
+from pptx.util import Inches, Pt
+
+
+EMU_PER_INCH = 914400
+
+
+def load_json(path: str) -> dict:
+    return json.loads(Path(path).read_text(encoding="utf-8"))
+
+
+def hex_to_rgb(value: str) -> RGBColor:
+    cleaned = value.strip().replace("#", "")
+    return RGBColor.from_string(cleaned)
+
+
+def inches(value: float) -> int:
+    return Inches(value)
+
+
+def apply_fill(shape, color: RGBColor) -> None:
+    fill = shape.fill
+    fill.solid()
+    fill.fore_color.rgb = color
+    shape.line.fill.background()
+
+
+def apply_line(shape, color: RGBColor | None = None, width_pt: float = 0.8) -> None:
+    line = shape.line
+    if color is None:
+        line.fill.background()
+        return
+    line.fill.solid()
+    line.fill.fore_color.rgb = color
+    line.width = Pt(width_pt)
+
+
+def add_textbox(slide, left: float, top: float, width: float, height: float):
+    return slide.shapes.add_textbox(inches(left), inches(top), inches(width), inches(height))
+
+
+def set_frame_text(
+    text_frame,
+    paragraphs: list[str],
+    font_name: str,
+    font_size: float,
+    color: RGBColor,
+    bold: bool = False,
+    level: int = 0,
+    space_after: float = 4,
+    align=PP_ALIGN.LEFT,
+    vertical_anchor=MSO_VERTICAL_ANCHOR.TOP,
+) -> None:
+    text_frame.clear()
+    text_frame.word_wrap = True
+    text_frame.vertical_anchor = vertical_anchor
+
+    for index, line in enumerate(paragraphs):
+        paragraph = text_frame.paragraphs[0] if index == 0 else text_frame.add_paragraph()
+        paragraph.text = line
+        paragraph.level = level
+        paragraph.alignment = align
+        paragraph.space_after = Pt(space_after)
+        run = paragraph.runs[0]
+        run.font.name = font_name
+        run.font.size = Pt(font_size)
+        run.font.color.rgb = color
+        run.font.bold = bold
+
+
+def content_box(
+    slide,
+    left: float,
+    top: float,
+    width: float,
+    height: float,
+    fill_color: RGBColor,
+    radius: float,
+    border_color: RGBColor | None = None,
+):
+    shape = slide.shapes.add_shape(
+        MSO_AUTO_SHAPE_TYPE.ROUNDED_RECTANGLE,
+        inches(left),
+        inches(top),
+        inches(width),
+        inches(height),
+    )
+    apply_fill(shape, fill_color)
+    apply_line(shape, border_color, width_pt=0.8 if border_color else 0)
+    try:
+        if len(shape.adjustments) > 0:
+            shape.adjustments[0] = radius
+    except Exception:
+        pass
+    return shape
+
+
+def add_panel_text(
+    slide,
+    left: float,
+    top: float,
+    width: float,
+    height: float,
+    paragraphs: list[str],
+    font_name: str,
+    font_size: float,
+    color: RGBColor,
+    bold: bool = False,
+    align=PP_ALIGN.CENTER,
+    vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
+    space_after: float = 6,
+):
+    box = add_textbox(slide, left, top, width, height)
+    set_frame_text(
+        box.text_frame,
+        paragraphs,
+        font_name,
+        font_size,
+        color,
+        bold=bold,
+        align=align,
+        vertical_anchor=vertical_anchor,
+        space_after=space_after,
+    )
+    return box
+
+
+def add_section_title(slide, left: float, top: float, width: float, title: str, tokens: dict, color: RGBColor | None = None):
+    return add_panel_text(
+        slide,
+        left,
+        top,
+        width,
+        0.3,
+        [title],
+        tokens["title_font"],
+        16.5,
+        color or tokens["primary"],
+        bold=True,
+        align=PP_ALIGN.LEFT,
+        vertical_anchor=MSO_VERTICAL_ANCHOR.TOP,
+        space_after=0,
+    )
+
+
+def add_body_text(
+    slide,
+    left: float,
+    top: float,
+    width: float,
+    height: float,
+    paragraphs: list[str],
+    tokens: dict,
+    font_size: float = 14.5,
+    color: RGBColor | None = None,
+    bold: bool = False,
+    vertical_anchor=MSO_VERTICAL_ANCHOR.TOP,
+    space_after: float = 8,
+):
+    return add_panel_text(
+        slide,
+        left,
+        top,
+        width,
+        height,
+        paragraphs,
+        tokens["body_font"],
+        font_size,
+        color or tokens["text"],
+        bold=bold,
+        align=PP_ALIGN.LEFT,
+        vertical_anchor=vertical_anchor,
+        space_after=space_after,
+    )
+
+
+def strip_label_prefix(value: str) -> str:
+    if "：" in value:
+        return value.split("：", 1)[1].strip()
+    if ":" in value:
+        return value.split(":", 1)[1].strip()
+    return value.strip()
+
+
+def split_labeled_items(value: str) -> tuple[str, list[str]]:
+    if "：" in value:
+        label, content = value.split("：", 1)
+    elif ":" in value:
+        label, content = value.split(":", 1)
+    else:
+        return value.strip(), []
+
+    items = [item.strip() for item in content.split("/") if item.strip()]
+    return label.strip(), items
+
+
+def sanitize_cover_lines(lines: list[str]) -> list[str]:
+    sanitized = []
+    for line in lines:
+        if "小组：" in line:
+            parts = [part.strip() for part in line.split("|") if "小组：" not in part]
+            cleaned = " | ".join([part for part in parts if part])
+            if cleaned:
+                sanitized.append(cleaned)
+            continue
+        sanitized.append(line)
+    return sanitized
+
+
+def build_cover_metadata(slide_data: dict) -> list[str]:
+    fields = slide_data.get("fields", {})
+    customer_line = fields.get("customer_line", "")
+    group_line = fields.get("group_line", "")
+
+    metadata = []
+    if customer_line:
+        metadata.append(customer_line)
+
+    if group_line:
+        cleaned = group_line.replace("小组：", "").strip()
+        cleaned = cleaned.replace(" | ", " · ")
+        cleaned = cleaned.replace("日期：", "日期 ")
+        if cleaned:
+            metadata.append(cleaned)
+
+    return metadata[:2]
+
+
+def draw_arrow(slide, left: float, top: float, width: float, height: float, color: RGBColor) -> None:
+    arrow = slide.shapes.add_shape(
+        MSO_AUTO_SHAPE_TYPE.RIGHT_ARROW,
+        inches(left),
+        inches(top),
+        inches(width),
+        inches(height),
+    )
+    apply_fill(arrow, color)
+    apply_line(arrow, None)
+
+
+def render_flow_row(slide, top: float, label: str, items: list[str], tokens: dict, fill_color: RGBColor) -> None:
+    label_box = content_box(slide, 0.95, top, 1.15, 0.72, fill_color, tokens["panel_radius"], None)
+    add_panel_text(
+        slide,
+        1.1,
+        top + 0.11,
+        0.82,
+        0.46,
+        [label],
+        tokens["body_font"],
+        12,
+        RGBColor(255, 255, 255),
+        bold=True,
+        space_after=0,
+    )
+
+    count = max(len(items), 1)
+    available_width = 9.85
+    gap = 0.22
+    block_width = min(1.72, (available_width - (count - 1) * gap) / count)
+    start_left = 2.3
+    arrow_width = 0.26
+    for index, item in enumerate(items):
+        left = start_left + index * (block_width + gap)
+        content_box(slide, left, top, block_width, 0.72, tokens["panel"], tokens["panel_radius"], tokens["panel_border"])
+        add_body_text(
+            slide,
+            left + 0.14,
+            top + 0.12,
+            block_width - 0.28,
+            0.42,
+            [item],
+            tokens,
+            font_size=11.5,
+            vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
+            space_after=0,
+        )
+        if index < count - 1:
+            draw_arrow(slide, left + block_width + 0.03, top + 0.2, arrow_width, 0.26, tokens["secondary"])
+
+
+def theme_tokens(theme: dict) -> dict:
+    colors = theme.get("colors", {})
+    fonts = theme.get("fonts", {})
+    layout = theme.get("layout", {})
+    return {
+        "primary": hex_to_rgb(colors.get("primary", "C62828")),
+        "secondary": hex_to_rgb(colors.get("secondary", "E91E63")),
+        "text": hex_to_rgb(colors.get("text", "333333")),
+        "muted": hex_to_rgb(colors.get("muted", "777777")),
+        "background": hex_to_rgb(colors.get("background", "FFFFFF")),
+        "panel": hex_to_rgb(colors.get("panel", "F8F4F4")),
+        "panel_alt": hex_to_rgb(colors.get("panel_alt", "F3EDED")),
+        "panel_border": hex_to_rgb(colors.get("panel_border", "EADDDD")),
+        "title_font": fonts.get("title", "Arial"),
+        "body_font": fonts.get("body", "Arial"),
+        "accent_font": fonts.get("accent", fonts.get("body", "Arial")),
+        "panel_radius": float(layout.get("panel_radius", 0.1)),
+    }
+
+
+def set_slide_background(slide, color: RGBColor) -> None:
+    background = slide.background.fill
+    background.solid()
+    background.fore_color.rgb = color
+
+
+def add_header(slide, title: str, tokens: dict, subtitle: str = "") -> None:
+    accent = slide.shapes.add_shape(
+        MSO_AUTO_SHAPE_TYPE.RECTANGLE,
+        inches(0.6),
+        inches(0.55),
+        inches(0.12),
+        inches(0.9),
+    )
+    apply_fill(accent, tokens["secondary"])
+
+    title_box = add_textbox(slide, 0.9, 0.5, 8.8, 0.7)
+    set_frame_text(title_box.text_frame, [title], tokens["title_font"], 24, tokens["primary"], bold=True, space_after=0)
+
+    if subtitle:
+        subtitle_box = add_textbox(slide, 0.92, 1.08, 10.0, 0.35)
+        set_frame_text(subtitle_box.text_frame, [subtitle], tokens["body_font"], 10.5, tokens["muted"], space_after=0)
+
+    divider = slide.shapes.add_shape(
+        MSO_AUTO_SHAPE_TYPE.RECTANGLE,
+        inches(0.9),
+        inches(1.45),
+        inches(11.5),
+        inches(0.03),
+    )
+    apply_fill(divider, tokens["panel_alt"])
+
+
+def render_cover(slide, slide_data: dict, tokens: dict) -> None:
+    set_slide_background(slide, tokens["background"])
+
+    left_band = slide.shapes.add_shape(
+        MSO_AUTO_SHAPE_TYPE.RECTANGLE,
+        inches(0),
+        inches(0),
+        inches(4.2),
+        inches(7.5),
+    )
+    apply_fill(left_band, tokens["primary"])
+
+    eyebrow = add_textbox(slide, 0.6, 0.65, 3.0, 0.3)
+    set_frame_text(
+        eyebrow.text_frame,
+        [slide_data.get("eyebrow", "AI DISCOVERY WORKSHOP")],
+        tokens["accent_font"],
+        11,
+        RGBColor(255, 255, 255),
+        bold=True,
+        align=PP_ALIGN.LEFT,
+        space_after=0,
+    )
+
+    title_lines = slide_data.get("title_lines") or [slide_data.get("title", "")]
+    title_box = add_textbox(slide, 0.6, 1.4, 3.1, 2.4)
+    set_frame_text(title_box.text_frame, title_lines, tokens["title_font"], 24, RGBColor(255, 255, 255), bold=True, space_after=8)
+
+    footer = add_textbox(slide, 0.6, 6.6, 3.0, 0.35)
+    set_frame_text(footer.text_frame, [slide_data.get("footer", "")], tokens["body_font"], 10, RGBColor(255, 255, 255), space_after=0)
+
+    content_box(slide, 4.7, 1.05, 7.8, 5.55, tokens["panel"], tokens["panel_radius"], tokens["panel_border"])
+    add_panel_text(
+        slide,
+        5.1,
+        1.35,
+        6.95,
+        1.0,
+        [slide_data.get("title", "")],
+        tokens["title_font"],
+        24,
+        tokens["primary"],
+        bold=True,
+        align=PP_ALIGN.LEFT,
+        vertical_anchor=MSO_VERTICAL_ANCHOR.TOP,
+        space_after=0,
+    )
+
+    subtitle = slide_data.get("subtitle", "")
+    if subtitle:
+        add_panel_text(
+            slide,
+            5.15,
+            2.35,
+            6.95,
+            0.42,
+            [subtitle],
+            tokens["body_font"],
+            13,
+            tokens["muted"],
+            align=PP_ALIGN.LEFT,
+            vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
+        )
+
+    summary_lines = build_cover_metadata(slide_data)
+    add_panel_text(
+        slide,
+        5.1,
+        3.0,
+        6.9,
+        1.15,
+        summary_lines,
+        tokens["body_font"],
+        14,
+        tokens["text"],
+        align=PP_ALIGN.LEFT,
+        vertical_anchor=MSO_VERTICAL_ANCHOR.TOP,
+        space_after=5,
+    )
+
+    note_box = add_textbox(slide, 5.1, 5.15, 6.7, 0.55)
+    note_line = slide_data.get("speaker_notes", [""])[0] if slide_data.get("speaker_notes") else ""
+    set_frame_text(note_box.text_frame, [note_line], tokens["body_font"], 10.5, tokens["muted"], align=PP_ALIGN.LEFT, space_after=0)
+
+
+def render_three_panels(slide, slide_data: dict, tokens: dict) -> None:
+    set_slide_background(slide, tokens["background"])
+    add_header(slide, slide_data.get("title", ""), tokens, slide_data.get("subtitle", ""))
+
+    boxes = [
+        (0.9, 1.9, 3.6, 4.85),
+        (4.87, 1.9, 3.6, 4.85),
+        (8.84, 1.9, 3.6, 4.85),
+    ]
+    key_points = slide_data.get("key_points", ["", "", ""])
+    for index, (left, top, width, height) in enumerate(boxes):
+        content_box(
+            slide,
+            left,
+            top,
+            width,
+            height,
+            tokens["panel"] if index != 1 else tokens["panel_alt"],
+            tokens["panel_radius"],
+            tokens["panel_border"],
+        )
+        text = key_points[index] if index < len(key_points) else ""
+        add_panel_text(
+            slide,
+            left + 0.35,
+            top + 0.4,
+            width - 0.7,
+            height - 0.8,
+            [text],
+            tokens["body_font"],
+            16 if index == 0 else 15,
+            tokens["text"],
+            bold=index == 0,
+            align=PP_ALIGN.LEFT,
+            space_after=8,
+        )
+
+
+def render_opportunity(slide, slide_data: dict, tokens: dict) -> None:
+    set_slide_background(slide, tokens["background"])
+    add_header(slide, slide_data.get("title", ""), tokens, slide_data.get("subtitle", ""))
+    fields = slide_data.get("fields", {})
+
+    sections = [
+        ("机会判断", strip_label_prefix(fields.get("opportunity_line", "")), tokens["panel"]),
+        ("为什么是现在", strip_label_prefix(fields.get("why_now_line", "")), tokens["panel_alt"]),
+        ("价值支撑", strip_label_prefix(fields.get("proof_line", "")), tokens["panel"]),
+    ]
+    boxes = [
+        (0.9, 1.95, 3.6, 4.8),
+        (4.87, 1.95, 3.6, 4.8),
+        (8.84, 1.95, 3.51, 4.8),
+    ]
+    for (title, body, fill_color), (left, top, width, height) in zip(sections, boxes):
+        content_box(slide, left, top, width, height, fill_color, tokens["panel_radius"], tokens["panel_border"])
+        add_section_title(slide, left + 0.25, top + 0.25, width - 0.5, title, tokens)
+        add_body_text(
+            slide,
+            left + 0.25,
+            top + 0.9,
+            width - 0.5,
+            height - 1.25,
+            [body],
+            tokens,
+            font_size=14.5,
+            vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
+        )
+
+
+def render_process_and_pain(slide, slide_data: dict, tokens: dict) -> None:
+    set_slide_background(slide, tokens["background"])
+    add_header(slide, slide_data.get("title", ""), tokens)
+    fields = slide_data.get("fields", {})
+
+    content_box(slide, 0.9, 1.9, 5.55, 4.8, tokens["panel"], tokens["panel_radius"], tokens["panel_border"])
+    add_section_title(slide, 1.25, 2.15, 4.85, "现状流程", tokens)
+    add_body_text(
+        slide,
+        1.2,
+        2.7,
+        4.95,
+        3.45,
+        fields.get("process_lines", []),
+        tokens,
+        14.5,
+        space_after=8,
+    )
+
+    content_box(slide, 6.75, 1.9, 5.6, 3.3, tokens["panel_alt"], tokens["panel_radius"], tokens["panel_border"])
+    add_section_title(slide, 7.1, 2.15, 4.9, "关键痛点", tokens)
+    add_body_text(
+        slide,
+        7.0,
+        2.68,
+        5.0,
+        1.95,
+        fields.get("pain_lines", []),
+        tokens,
+        14.5,
+        space_after=8,
+    )
+
+    content_box(slide, 6.75, 5.45, 5.6, 1.25, tokens["primary"], tokens["panel_radius"], None)
+    add_body_text(
+        slide,
+        7.1,
+        5.76,
+        4.9,
+        0.42,
+        [fields.get("focus_line", "")],
+        tokens,
+        font_size=15.2,
+        color=RGBColor(255, 255, 255),
+        bold=True,
+        vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
+        space_after=0,
+    )
+
+
+def render_card_flow(slide, slide_data: dict, tokens: dict) -> None:
+    set_slide_background(slide, tokens["background"])
+    add_header(slide, slide_data.get("title", ""), tokens)
+    fields = slide_data.get("fields", {})
+
+    rows = [
+        split_labeled_items(fields.get("perception_line", "")),
+        split_labeled_items(fields.get("analysis_line", "")),
+        split_labeled_items(fields.get("action_line", "")),
+    ]
+    content_box(slide, 0.9, 1.92, 11.45, 4.95, tokens["panel_alt"], tokens["panel_radius"], tokens["panel_border"])
+
+    render_flow_row(slide, 2.18, rows[0][0] or "业务场景", rows[0][1], tokens, tokens["primary"])
+    render_flow_row(slide, 3.62, rows[1][0] or "理解分析", rows[1][1], tokens, tokens["secondary"])
+    render_flow_row(slide, 5.06, rows[2][0] or "生成交互 / 执行闭环", rows[2][1], tokens, tokens["primary"])
+
+
+def render_flow(slide, slide_data: dict, tokens: dict) -> None:
+    set_slide_background(slide, tokens["background"])
+    add_header(slide, "目标业务闭环", tokens)
+    fields = slide_data.get("fields", {})
+
+    content_box(slide, 0.9, 1.9, 11.45, 0.8, tokens["primary"], tokens["panel_radius"], None)
+    add_section_title(slide, 1.2, 2.06, 1.35, "业务触发", tokens, RGBColor(255, 255, 255))
+    add_body_text(
+        slide,
+        2.3,
+        2.05,
+        8.9,
+        0.42,
+        [strip_label_prefix(fields.get("trigger_line", ""))],
+        tokens,
+        font_size=15.5,
+        color=RGBColor(255, 255, 255),
+        bold=True,
+        vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
+        space_after=0,
+    )
+
+    content_box(slide, 0.9, 2.95, 11.45, 2.95, tokens["panel"], tokens["panel_radius"], tokens["panel_border"])
+    add_section_title(slide, 1.2, 3.18, 10.85, "闭环流程", tokens)
+    add_body_text(slide, 1.15, 3.62, 10.95, 1.95, fields.get("flow_lines", []), tokens, 14.5, space_after=8)
+
+    content_box(slide, 0.9, 6.1, 11.45, 0.65, tokens["secondary"], tokens["panel_radius"], None)
+    add_section_title(slide, 1.2, 6.2, 1.35, "闭环结果", tokens, RGBColor(255, 255, 255))
+    add_body_text(
+        slide,
+        2.3,
+        6.19,
+        8.9,
+        0.28,
+        [strip_label_prefix(fields.get("closure_line", ""))],
+        tokens,
+        font_size=14.2,
+        color=RGBColor(255, 255, 255),
+        bold=True,
+        vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
+        space_after=0,
+    )
+
+
+def render_prototype(slide, slide_data: dict, tokens: dict) -> None:
+    set_slide_background(slide, tokens["background"])
+    add_header(slide, slide_data.get("title", ""), tokens)
+    fields = slide_data.get("fields", {})
+
+    top_sections = [
+        ("原型名称", strip_label_prefix(fields.get("prototype_name_line", "")), tokens["panel"]),
+        ("系统形态", strip_label_prefix(fields.get("prototype_surface_line", "")), tokens["panel_alt"]),
+        ("价值落点", strip_label_prefix(fields.get("prototype_value_line", "")), tokens["panel"]),
+    ]
+    top_boxes = [
+        (0.9, 1.95, 3.6, 2.2),
+        (4.87, 1.95, 3.6, 2.2),
+        (8.84, 1.95, 3.51, 2.2),
+    ]
+    for (title, body, fill_color), (left, top, width, height) in zip(top_sections, top_boxes):
+        content_box(slide, left, top, width, height, fill_color, tokens["panel_radius"], tokens["panel_border"])
+        add_section_title(slide, left + 0.25, top + 0.25, width - 0.5, title, tokens)
+        add_body_text(
+            slide,
+            left + 0.25,
+            top + 0.78,
+            width - 0.5,
+            height - 1.0,
+            [body],
+            tokens,
+            font_size=13.6,
+            vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
+        )
+
+    content_box(slide, 0.9, 4.48, 5.7, 2.2, tokens["panel_alt"], tokens["panel_radius"], tokens["panel_border"])
+    add_section_title(slide, 1.15, 4.72, 5.1, "核心流程", tokens)
+    add_body_text(slide, 1.15, 5.22, 5.1, 1.12, fields.get("prototype_flow_lines", []), tokens, 13.7, space_after=6)
+
+    content_box(slide, 6.65, 4.48, 5.7, 2.2, tokens["panel"], tokens["panel_radius"], tokens["panel_border"])
+    add_section_title(slide, 6.9, 4.72, 5.1, "工作台范围", tokens)
+    add_body_text(slide, 6.9, 5.22, 5.1, 1.12, fields.get("prototype_scope_lines", []), tokens, 13.7, space_after=6)
+
+
+def render_mapping(slide, slide_data: dict, tokens: dict) -> None:
+    set_slide_background(slide, tokens["background"])
+    add_header(slide, slide_data.get("title", ""), tokens)
+    fields = slide_data.get("fields", {})
+
+    content_box(slide, 0.9, 1.9, 7.45, 4.9, tokens["panel"], tokens["panel_radius"], tokens["panel_border"])
+    add_section_title(slide, 1.2, 2.15, 6.85, "能力卡与产品映射", tokens)
+    add_body_text(slide, 1.15, 2.72, 6.95, 3.45, fields.get("mapping_lines", []), tokens, 13.8, space_after=8)
+
+    content_box(slide, 8.7, 1.9, 3.65, 2.1, tokens["panel_alt"], tokens["panel_radius"], tokens["panel_border"])
+    add_section_title(slide, 9.0, 2.14, 3.05, "推荐产品栈", tokens)
+    add_body_text(slide, 9.0, 2.58, 3.05, 1.02, [fields.get("platform_line", "")], tokens, 13.5, space_after=0)
+
+    content_box(slide, 8.7, 4.35, 3.65, 2.45, tokens["primary"], tokens["panel_radius"], None)
+    add_section_title(slide, 9.0, 4.62, 3.05, "现场交付物", tokens, RGBColor(255, 255, 255))
+    add_body_text(slide, 9.0, 5.02, 3.05, 1.3, [fields.get("deliverable_line", "")], tokens, 13.5, RGBColor(255, 255, 255), space_after=0)
+
+
+def render_value(slide, slide_data: dict, tokens: dict) -> None:
+    set_slide_background(slide, tokens["background"])
+    add_header(slide, slide_data.get("title", ""), tokens)
+    fields = slide_data.get("fields", {})
+
+    sections = [
+        ("业务价值", fields.get("value_lines", []), tokens["panel"]),
+        ("关键指标", fields.get("kpi_lines", []), tokens["panel_alt"]),
+        ("POC 验证点", fields.get("poc_lines", []), tokens["panel"]),
+    ]
+    for index, (section_title, lines, fill_color) in enumerate(sections):
+        left = 0.9 + index * 3.98
+        content_box(slide, left, 1.95, 3.55, 4.9, fill_color, tokens["panel_radius"], tokens["panel_border"])
+        add_section_title(slide, left + 0.22, 2.18, 3.1, section_title, tokens)
+        add_body_text(slide, left + 0.22, 2.7, 3.1, 3.55, lines, tokens, 14, space_after=8)
+
+
+def render_next_steps(slide, slide_data: dict, tokens: dict) -> None:
+    set_slide_background(slide, tokens["background"])
+    add_header(slide, slide_data.get("title", ""), tokens)
+    fields = slide_data.get("fields", {})
+
+    content_box(slide, 0.9, 1.9, 11.45, 0.8, tokens["primary"], tokens["panel_radius"], None)
+    add_section_title(slide, 1.2, 2.06, 1.35, "POC 范围", tokens, RGBColor(255, 255, 255))
+    add_body_text(
+        slide,
+        2.3,
+        2.05,
+        8.9,
+        0.42,
+        [strip_label_prefix(fields.get("scope_line", ""))],
+        tokens,
+        15.2,
+        RGBColor(255, 255, 255),
+        bold=True,
+        vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
+        space_after=0,
+    )
+
+    content_box(slide, 0.9, 3.0, 5.45, 3.7, tokens["panel"], tokens["panel_radius"], tokens["panel_border"])
+    add_section_title(slide, 1.2, 3.25, 4.85, "关键角色", tokens)
+    add_body_text(slide, 1.2, 3.8, 4.85, 2.35, fields.get("stakeholder_lines", []), tokens, 14.5, space_after=10)
+
+    content_box(slide, 6.9, 3.0, 5.45, 3.7, tokens["panel_alt"], tokens["panel_radius"], tokens["panel_border"])
+    add_section_title(slide, 7.2, 3.25, 4.85, "后续动作", tokens)
+    add_body_text(slide, 7.2, 3.8, 4.85, 2.35, fields.get("next_action_lines", []), tokens, 14.5, space_after=10)
+
+
+def render_slide(slide, slide_data: dict, tokens: dict) -> None:
+    layout_key = slide_data.get("layout_key") or slide_data.get("slide_type") or ""
+    if layout_key in {"cover-workshop", "cover-basic", "cover"}:
+        render_cover(slide, slide_data, tokens)
+        return
+    if layout_key == "opportunity-summary":
+        render_opportunity(slide, slide_data, tokens)
+        return
+    if layout_key == "as-is-pain-map":
+        render_process_and_pain(slide, slide_data, tokens)
+        return
+    if layout_key == "capability-selection":
+        render_card_flow(slide, slide_data, tokens)
+        return
+    if layout_key == "ai-flow-steps":
+        render_flow(slide, slide_data, tokens)
+        return
+    if layout_key == "prototype-concept":
+        render_prototype(slide, slide_data, tokens)
+        return
+    if layout_key == "product-mapping-table":
+        render_mapping(slide, slide_data, tokens)
+        return
+    if layout_key == "business-value":
+        render_value(slide, slide_data, tokens)
+        return
+    if layout_key == "poc-next-step":
+        render_next_steps(slide, slide_data, tokens)
+        return
+    render_three_panels(slide, slide_data, tokens)
+
+
+def set_notes(slide, slide_data: dict) -> None:
+    notes = []
+    if slide_data.get("title"):
+        notes.append(f"Title: {slide_data['title']}")
+    for line in slide_data.get("speaker_notes", []):
+        notes.append(f"- {line}")
+    if not notes:
+        return
+    notes_frame = slide.notes_slide.notes_text_frame
+    if notes_frame is not None:
+        notes_frame.text = "\n".join(notes)
+
+
+def write_pptx(plan: dict, theme: dict, output_path: str) -> None:
+    presentation = Presentation()
+    aspect_ratio = plan.get("aspect_ratio", "16:9")
+    if aspect_ratio == "4:3":
+        presentation.slide_width = Inches(10)
+        presentation.slide_height = Inches(7.5)
+    else:
+        presentation.slide_width = Inches(13.333)
+        presentation.slide_height = Inches(7.5)
+
+    blank_layout = presentation.slide_layouts[6]
+    tokens = theme_tokens(theme)
+
+    for slide_data in plan.get("slides", []):
+        slide = presentation.slides.add_slide(blank_layout)
+        render_slide(slide, slide_data, tokens)
+        set_notes(slide, slide_data)
+
+    Path(output_path).parent.mkdir(parents=True, exist_ok=True)
+    presentation.save(output_path)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Render a presentation-plan JSON into a simple branded PPTX")
+    parser.add_argument("--plan", required=True, help="Path to presentation-plan.json")
+    parser.add_argument("--theme-file", required=True, help="Path to theme JSON")
+    parser.add_argument("--output", required=True, help="Path to output PPTX")
+    args = parser.parse_args()
+
+    plan = load_json(args.plan)
+    theme = load_json(args.theme_file)
+    write_pptx(plan, theme, args.output)
+    print(args.output)
+
+
+if __name__ == "__main__":
+    main()

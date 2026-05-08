@@ -1,0 +1,26 @@
+{
+  "workshop": {
+    "title": "AI Discovery Card Workshop",
+    "customer": "待补充：客户名称",
+    "industry": "待补充：行业名称",
+    "group_name": "待补充：小组名称",
+    "date": "2026-05-22"
+  },
+  "event_input": {
+    "customer_type": "待补充：消费电子 IoT / 跨界电商",
+    "scenario_summary": "待补充：一句话描述客户希望优化的业务流程或场景",
+    "target_role": "待补充：谁来使用这个原型或流程",
+    "current_pain_point": "待补充：当前最急的一个问题",
+    "expected_value": "待补充：客户最想看到的业务结果",
+    "prototype_preference": "待补充：客户更接受的原型形态"
+  },
+  "current_process": [],
+  "detected_cards": {
+    "business_scenario": [],
+    "input_perception": [],
+    "understanding_analysis": [],
+    "generation_interaction": [],
+    "execution_closure": []
+  },
+  "card_photo_paths": []
+}

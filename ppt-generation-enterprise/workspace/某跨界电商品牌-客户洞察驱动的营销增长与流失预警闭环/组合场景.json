@@ -1,0 +1,171 @@
+{
+  "workshop": {
+    "title": "AI Discovery Card Workshop",
+    "customer": "某跨界电商品牌",
+    "industry": "跨界电商",
+    "group_name": "第 2 组",
+    "date": "2026-05-22"
+  },
+  "scenario": {
+    "name": "客户洞察驱动的营销增长与流失预警闭环",
+    "target_users": "营销负责人",
+    "business_problem": "内容生产和活动复盘周期长，流失预警不及时。",
+    "improvement_goal": "希望更快完成个性化营销和高风险客户干预。"
+  },
+  "opportunity": {
+    "statement": "跨界电商企业最容易快速验证价值的切口，不是重建整个平台，而是先把客户洞察、内容生产和增长动作串起来。",
+    "why_now": "客户数据和营销动作已经在线化，但组织里往往缺少一个把洞察、内容和执行真正打通的 AI 工作流。",
+    "supporting_points": [
+      "增长团队面对多区域、多语言和多渠道内容压力",
+      "活动节奏快，手工生产和分析周期成为瓶颈",
+      "一旦形成闭环，可扩展到自动化营销和 retention 运营",
+      "希望更快完成个性化营销和高风险客户干预。"
+    ]
+  },
+  "current_process": [
+    "团队汇总客户画像、历史活动与渠道表现数据",
+    "人工判断细分客群与营销方向",
+    "分别制作文案、素材和页面内容",
+    "活动上线后人工复盘效果",
+    "高风险流失客户依赖经验判断和补救"
+  ],
+  "pain_points": [
+    "内容生产和活动复盘周期长，流失预警不及时。",
+    "客户洞察、内容制作和活动执行分散在多个环节",
+    "营销活动上线前准备周期长，试错成本高",
+    "流失预警和客户保留动作不够及时"
+  ],
+  "selected_cards": {
+    "understanding_analysis": [
+      "客户洞察",
+      "数据分析",
+      "风险预测",
+      "预测客户流失"
+    ],
+    "input_perception": [
+      "表单理解",
+      "文本输入",
+      "数据输入"
+    ],
+    "business_scenario": [
+      "内容生成中偏营销、网页、内容生产的卡片",
+      "了解客户",
+      "个性化营销"
+    ],
+    "generation_interaction": [
+      "文本生成",
+      "网页生成",
+      "营销内容生成",
+      "图像生成"
+    ],
+    "execution_closure": [
+      "流程优化",
+      "自动履行",
+      "决策制定",
+      "人机交互"
+    ]
+  },
+  "ai_flow": {
+    "trigger": "团队准备针对目标客群发起新一轮跨境营销活动",
+    "steps": [
+      "系统读取客户画像、历史活动和渠道反馈数据",
+      "AI 识别高价值客群、流失风险和活动切入点",
+      "AI 自动生成文案、素材和页面建议",
+      "AI 辅助输出活动复盘与下一步优化建议",
+      "对高风险客户触发 retention 动作和重点跟进"
+    ],
+    "closure": "形成从客户洞察、内容生产到增长复盘与流失干预的营销闭环",
+    "narrative": "该场景适合跨界电商客户，因为它可以用较轻的方式验证 AI 对增长效率和 retention 的直接价值。"
+  },
+  "prototype": {
+    "name": "营销增长与客户保留工作台",
+    "goal": "把客户洞察、内容生成、页面建议和流失预警集中到一个可操作的工作台中",
+    "surface": "营销增长与客户保留工作台",
+    "user_flow": [
+      "选择目标客群或活动目标",
+      "查看 AI 洞察和推荐的营销切入点",
+      "一键生成内容草稿、活动页面建议和 retention 动作"
+    ],
+    "mock_scope": [
+      "客户细分洞察面板",
+      "内容与素材生成区",
+      "流失预警与行动建议区"
+    ],
+    "value_statement": "让营销团队从拆分数据、赶文案和手工复盘，转向在一个界面里完成洞察、生成和行动。"
+  },
+  "product_mapping": [
+    {
+      "capability": "客户洞察与生命周期分析",
+      "products": [
+        "Dynamics 365 Customer Insights",
+        "Microsoft Fabric"
+      ],
+      "delivery": "客户分层与洞察分析"
+    },
+    {
+      "capability": "内容与页面生成",
+      "products": [
+        "Azure OpenAI",
+        "Azure AI Foundry"
+      ],
+      "delivery": "营销内容共创"
+    },
+    {
+      "capability": "活动流程与后续动作",
+      "products": [
+        "Power Automate",
+        "Power Pages"
+      ],
+      "delivery": "活动流程与页面原型"
+    }
+  ],
+  "business_value": {
+    "outcomes": [
+      "希望更快完成个性化营销和高风险客户干预。",
+      "缩短营销活动从洞察到上线的周期",
+      "提升内容生产效率和个性化程度",
+      "更早识别流失风险并支持 retention 动作"
+    ],
+    "kpis": [
+      "营销准备周期缩短 40%",
+      "内容生产效率提升 50%",
+      "高风险客群识别准确率达到 80%"
+    ],
+    "deliverables": [
+      "场景设计图",
+      "增长工作台原型建议",
+      "POC 验证范围"
+    ]
+  },
+  "poc": {
+    "scope": "先验证客户洞察、内容生成和 retention 建议三段闭环",
+    "validation_points": [
+      "客户分层和流失判断的业务可解释性",
+      "内容生成结果的可用性",
+      "推荐动作对活动和保留策略的指导价值"
+    ],
+    "stakeholders": [
+      "营销负责人",
+      "CRM 运营负责人",
+      "数据 / 数字化团队"
+    ],
+    "next_actions": [
+      "确认目标客群和样本活动数据",
+      "选择一个具体营销活动作为试点",
+      "两周内形成工作台原型和验证口径",
+      "确认目标样本数据和试点流程范围",
+      "选择一个高价值业务流程作为试点",
+      "输出原型范围和验证口径"
+    ]
+  },
+  "selected_assets": {
+    "industry_lane": "cross-border-ecommerce",
+    "outline_pack": "opportunity-prototype-deck",
+    "reference_case": "xbecom-growth-retention-loop",
+    "snippet_pack": "industry-defaults:cross-border-ecommerce",
+    "card_photo_paths": [
+      "AI WorkFlow.png"
+    ]
+  },
+  "source_type": "asset-composed-workshop"
+}

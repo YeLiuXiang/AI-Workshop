@@ -1,0 +1,41 @@
+{
+  "workshop": {
+    "title": "AI Discovery Card Workshop",
+    "customer": "某出海智能硬件客户",
+    "industry": "消费电子 IoT",
+    "group_name": "第 5 组",
+    "date": "2026-05-22"
+  },
+  "event_input": {
+    "customer_type": "消费电子 IoT",
+    "scenario_summary": "希望针对全球设备运营场景，设计一个能结合在线率、故障率和固件指标的 AI 运营闭环。",
+    "target_role": "全球运营负责人",
+    "current_pain_point": "各区域指标口径不统一，区域异常和固件风险发现不及时。",
+    "expected_value": "希望建立统一的全球运营监控和动作协同机制。",
+    "prototype_preference": "全球设备运营指挥台"
+  },
+  "detected_cards": {
+    "business_scenario": [
+      "数据和预测分析中偏业务目标的卡片"
+    ],
+    "input_perception": [
+      "环境感知"
+    ],
+    "understanding_analysis": [
+      "数据分析",
+      "异常检测",
+      "风险预测"
+    ],
+    "generation_interaction": [
+      "文本生成"
+    ],
+    "execution_closure": [
+      "流程优化",
+      "自动履行",
+      "决策制定"
+    ]
+  },
+  "card_photo_paths": [
+    "AI WorkFlow.png"
+  ]
+}

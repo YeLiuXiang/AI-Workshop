@@ -1,0 +1,276 @@
+{
+  "title": "客户洞察驱动的个性化营销闭环",
+  "subtitle": "AI Discovery Workshop 定制化场景方案",
+  "aspect_ratio": "16:9",
+  "template": "enterprise-forum",
+  "theme": "eden-enterprise",
+  "workflow_type": "ai-discovery-workshop",
+  "source_type": "normalized-workshop-scenario",
+  "slides": [
+    {
+      "slide_number": 1,
+      "title": "客户洞察驱动的个性化营销闭环",
+      "subtitle": "AI Discovery Workshop 定制化场景方案",
+      "slide_type": "cover-workshop",
+      "layout_key": "cover-workshop",
+      "key_points": [
+        "客户：图片样例客户 | 行业：零售与消费电子",
+        "小组：图片样例场景 | 日期：2026-05-07",
+        "Workshop：AI Discovery Card Workshop"
+      ],
+      "speaker_notes": [
+        "该样例体现了从客户理解到营销执行，再到数据分析与客户保留的完整增长链路，适合用于展示 Workshop 从卡片编排到业务闭环的 PPT 交付。"
+      ],
+      "summary_lines": [
+        "客户：图片样例客户 | 行业：零售与消费电子",
+        "小组：图片样例场景 | 日期：2026-05-07"
+      ],
+      "slots": {
+        "point_1": "客户：图片样例客户 | 行业：零售与消费电子",
+        "point_2": "小组：图片样例场景 | 日期：2026-05-07",
+        "point_3": "Workshop：AI Discovery Card Workshop"
+      },
+      "eyebrow": "AI DISCOVERY WORKSHOP",
+      "title_lines": [
+        "客户洞察驱动的个性化营销闭环",
+        "AI Discovery Workshop 定制化场景方案"
+      ],
+      "footer": "图片样例客户",
+      "fields": {
+        "customer_line": "客户：图片样例客户 | 行业：零售与消费电子",
+        "group_line": "小组：图片样例场景 | 日期：2026-05-07"
+      }
+    },
+    {
+      "slide_number": 2,
+      "title": "场景定义与目标",
+      "subtitle": "",
+      "slide_type": "scenario-summary",
+      "layout_key": "scenario-summary",
+      "key_points": [
+        "目标用户：市场团队、CRM 运营团队、数字化增长团队",
+        "当前问题：客户洞察分散、营销内容生产慢、落地页面搭建耗时，且缺少从分析到流失预测的闭环",
+        "目标改善：通过 AI 串联客户理解、个性化内容生成、动态页面搭建、数据分析与流失预测，提升营销转化效率"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "目标用户：市场团队、CRM 运营团队、数字化增长团队",
+        "当前问题：客户洞察分散、营销内容生产慢、落地页面搭建耗时，且缺少从分析到流失预测的闭环"
+      ],
+      "slots": {
+        "point_1": "目标用户：市场团队、CRM 运营团队、数字化增长团队",
+        "point_2": "当前问题：客户洞察分散、营销内容生产慢、落地页面搭建耗时，且缺少从分析到流失预测的闭环",
+        "point_3": "目标改善：通过 AI 串联客户理解、个性化内容生成、动态页面搭建、数据分析与流失预测，提升营销转化效率"
+      },
+      "fields": {
+        "target_user_line": "目标用户：市场团队、CRM 运营团队、数字化增长团队",
+        "business_problem_line": "当前问题：客户洞察分散、营销内容生产慢、落地页面搭建耗时，且缺少从分析到流失预测的闭环",
+        "improvement_goal_line": "目标改善：通过 AI 串联客户理解、个性化内容生成、动态页面搭建、数据分析与流失预测，提升营销转化效率"
+      }
+    },
+    {
+      "slide_number": 3,
+      "title": "现状流程与痛点",
+      "subtitle": "",
+      "slide_type": "as-is-pain-map",
+      "layout_key": "as-is-pain-map",
+      "key_points": [
+        "现状流程：1. 运营团队汇总客户画像、历史行为和活动数据；2. 市场人员人工制定细分策略与内容方向；3. 团队分别制作文案、素材和落地页；4. 活动上线后人工复盘数据表现",
+        "关键痛点：1. 客户洞察、内容制作和页面搭建彼此割裂；2. 营销创意到上线周期长，无法快速试错；3. 数据分析与流失预测滞后，难以及时干预",
+        "优先改造：客户洞察、内容制作和页面搭建彼此割裂"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "现状流程：1. 运营团队汇总客户画像、历史行为和活动数据；2. 市场人员人工制定细分策略与内容方向；3. 团队分别制作文案、素材和落地页；4. 活动上线后人工复盘数据表现",
+        "关键痛点：1. 客户洞察、内容制作和页面搭建彼此割裂；2. 营销创意到上线周期长，无法快速试错；3. 数据分析与流失预测滞后，难以及时干预"
+      ],
+      "slots": {
+        "point_1": "现状流程：1. 运营团队汇总客户画像、历史行为和活动数据；2. 市场人员人工制定细分策略与内容方向；3. 团队分别制作文案、素材和落地页；4. 活动上线后人工复盘数据表现",
+        "point_2": "关键痛点：1. 客户洞察、内容制作和页面搭建彼此割裂；2. 营销创意到上线周期长，无法快速试错；3. 数据分析与流失预测滞后，难以及时干预",
+        "point_3": "优先改造：客户洞察、内容制作和页面搭建彼此割裂"
+      },
+      "fields": {
+        "process_lines": [
+          "1. 运营团队汇总客户画像、历史行为和活动数据",
+          "2. 市场人员人工制定细分策略与内容方向",
+          "3. 团队分别制作文案、素材和落地页",
+          "4. 活动上线后人工复盘数据表现"
+        ],
+        "pain_lines": [
+          "1. 客户洞察、内容制作和页面搭建彼此割裂",
+          "2. 营销创意到上线周期长，无法快速试错",
+          "3. 数据分析与流失预测滞后，难以及时干预"
+        ],
+        "focus_line": "优先改造：客户洞察、内容制作和页面搭建彼此割裂"
+      }
+    },
+    {
+      "slide_number": 4,
+      "title": "AI 能力卡选择逻辑",
+      "subtitle": "",
+      "slide_type": "capability-selection",
+      "layout_key": "capability-selection",
+      "key_points": [
+        "业务场景 / 输入感知：了解客户 / 个性化营销 / 简化数据分析",
+        "理解分析：预测客户流失",
+        "生成交互 / 执行闭环：生成战略文案文本 / 从文本生成图像 / 创建动态网页 / 个性化营销执行 / 客户流失干预"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "业务场景 / 输入感知：了解客户 / 个性化营销 / 简化数据分析",
+        "理解分析：预测客户流失"
+      ],
+      "slots": {
+        "point_1": "业务场景 / 输入感知：了解客户 / 个性化营销 / 简化数据分析",
+        "point_2": "理解分析：预测客户流失",
+        "point_3": "生成交互 / 执行闭环：生成战略文案文本 / 从文本生成图像 / 创建动态网页 / 个性化营销执行 / 客户流失干预"
+      },
+      "fields": {
+        "perception_line": "业务场景 / 输入感知：了解客户 / 个性化营销 / 简化数据分析",
+        "analysis_line": "理解分析：预测客户流失",
+        "action_line": "生成交互 / 执行闭环：生成战略文案文本 / 从文本生成图像 / 创建动态网页 / 个性化营销执行 / 客户流失干预"
+      }
+    },
+    {
+      "slide_number": 5,
+      "title": "目标 AI Flow",
+      "subtitle": "",
+      "slide_type": "ai-flow-steps",
+      "layout_key": "ai-flow-steps",
+      "key_points": [
+        "业务触发：营销团队准备针对目标客群发起新一轮精细化营销活动",
+        "核心流程：1. AI 汇总客户画像、行为记录和历史活动结果，形成客户洞察；2. AI 基于细分客群生成个性化营销策略与传播主题；3. AI 自动生成营销文案，并进一步生成匹配的视觉素材；4. AI 组合图文内容生成动态活动页面或落地页原型；5. AI 对活动反馈数据做简化分析，并识别潜在流失客户，触发后续干预建议",
+        "业务闭环：形成从客户洞察、内容生成、页面上线到分析复盘与流失预警的增长闭环"
+      ],
+      "speaker_notes": [
+        "该样例体现了从客户理解到营销执行，再到数据分析与客户保留的完整增长链路，适合用于展示 Workshop 从卡片编排到业务闭环的 PPT 交付。"
+      ],
+      "summary_lines": [
+        "业务触发：营销团队准备针对目标客群发起新一轮精细化营销活动",
+        "核心流程：1. AI 汇总客户画像、行为记录和历史活动结果，形成客户洞察；2. AI 基于细分客群生成个性化营销策略与传播主题；3. AI 自动生成营销文案，并进一步生成匹配的视觉素材；4. AI 组合图文内容生成动态活动页面或落地页原型；5. AI 对活动反馈数据做简化分析，并识别潜在流失客户，触发后续干预建议"
+      ],
+      "slots": {
+        "point_1": "业务触发：营销团队准备针对目标客群发起新一轮精细化营销活动",
+        "point_2": "核心流程：1. AI 汇总客户画像、行为记录和历史活动结果，形成客户洞察；2. AI 基于细分客群生成个性化营销策略与传播主题；3. AI 自动生成营销文案，并进一步生成匹配的视觉素材；4. AI 组合图文内容生成动态活动页面或落地页原型；5. AI 对活动反馈数据做简化分析，并识别潜在流失客户，触发后续干预建议",
+        "point_3": "业务闭环：形成从客户洞察、内容生成、页面上线到分析复盘与流失预警的增长闭环"
+      },
+      "fields": {
+        "trigger_line": "业务触发：营销团队准备针对目标客群发起新一轮精细化营销活动",
+        "flow_lines": [
+          "1. AI 汇总客户画像、行为记录和历史活动结果，形成客户洞察",
+          "2. AI 基于细分客群生成个性化营销策略与传播主题",
+          "3. AI 自动生成营销文案，并进一步生成匹配的视觉素材",
+          "4. AI 组合图文内容生成动态活动页面或落地页原型",
+          "5. AI 对活动反馈数据做简化分析，并识别潜在流失客户，触发后续干预建议"
+        ],
+        "closure_line": "业务闭环：形成从客户洞察、内容生成、页面上线到分析复盘与流失预警的增长闭环"
+      }
+    },
+    {
+      "slide_number": 6,
+      "title": "产品映射与交付物",
+      "subtitle": "",
+      "slide_type": "product-mapping-table",
+      "layout_key": "product-mapping-table",
+      "key_points": [
+        "能力映射：客户洞察与细分 -> Dynamics 365 Customer Insights, Microsoft Fabric | 交付：客户画像与细分分析；营销文案与图像生成 -> Azure OpenAI, Azure AI Foundry | 交付：营销内容共创",
+        "优先产品栈：Dynamics 365 Customer Insights / Microsoft Fabric / Azure OpenAI / Azure AI Foundry",
+        "现场交付物：Workshop 定制化 PPT / AI Flow 场景图 / POC 范围建议"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "能力映射：客户洞察与细分 -> Dynamics 365 Customer Insights, Microsoft Fabric | 交付：客户画像与细分分析；营销文案与图像生成 -> Azure OpenAI, Azure AI Foundry | 交付：营销内容共创",
+        "优先产品栈：Dynamics 365 Customer Insights / Microsoft Fabric / Azure OpenAI / Azure AI Foundry"
+      ],
+      "slots": {
+        "point_1": "能力映射：客户洞察与细分 -> Dynamics 365 Customer Insights, Microsoft Fabric | 交付：客户画像与细分分析；营销文案与图像生成 -> Azure OpenAI, Azure AI Foundry | 交付：营销内容共创",
+        "point_2": "优先产品栈：Dynamics 365 Customer Insights / Microsoft Fabric / Azure OpenAI / Azure AI Foundry",
+        "point_3": "现场交付物：Workshop 定制化 PPT / AI Flow 场景图 / POC 范围建议"
+      },
+      "fields": {
+        "mapping_lines": [
+          "客户洞察与细分 -> Dynamics 365 Customer Insights, Microsoft Fabric | 交付：客户画像与细分分析",
+          "营销文案与图像生成 -> Azure OpenAI, Azure AI Foundry | 交付：营销内容共创",
+          "动态网页搭建 -> Power Pages, Azure App Service | 交付：活动页原型",
+          "营销数据分析与流失预测 -> Microsoft Fabric, Azure Machine Learning, Power BI | 交付：分析看板与保留建议"
+        ],
+        "platform_line": "优先产品栈：Dynamics 365 Customer Insights / Microsoft Fabric / Azure OpenAI / Azure AI Foundry",
+        "deliverable_line": "现场交付物：Workshop 定制化 PPT / AI Flow 场景图 / POC 范围建议"
+      }
+    },
+    {
+      "slide_number": 7,
+      "title": "业务价值与 POC 聚焦",
+      "subtitle": "",
+      "slide_type": "business-value",
+      "layout_key": "business-value",
+      "key_points": [
+        "预期价值：缩短营销活动从策划到上线的周期 / 提升个性化内容产出效率与一致性 / 提前识别流失风险并提升客户留存",
+        "关键指标：营销素材生产周期缩短 50% / 活动页面上线准备时间缩短 60% / 高风险流失客户识别准确率达到 80%",
+        "POC 聚焦：优先验证客户洞察、内容生成和流失预测三个关键环节；优先验证 细分客群策略的可解释性"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "预期价值：缩短营销活动从策划到上线的周期 / 提升个性化内容产出效率与一致性 / 提前识别流失风险并提升客户留存",
+        "关键指标：营销素材生产周期缩短 50% / 活动页面上线准备时间缩短 60% / 高风险流失客户识别准确率达到 80%"
+      ],
+      "slots": {
+        "point_1": "预期价值：缩短营销活动从策划到上线的周期 / 提升个性化内容产出效率与一致性 / 提前识别流失风险并提升客户留存",
+        "point_2": "关键指标：营销素材生产周期缩短 50% / 活动页面上线准备时间缩短 60% / 高风险流失客户识别准确率达到 80%",
+        "point_3": "POC 聚焦：优先验证客户洞察、内容生成和流失预测三个关键环节；优先验证 细分客群策略的可解释性"
+      },
+      "fields": {
+        "value_lines": [
+          "缩短营销活动从策划到上线的周期",
+          "提升个性化内容产出效率与一致性",
+          "提前识别流失风险并提升客户留存"
+        ],
+        "kpi_lines": [
+          "营销素材生产周期缩短 50%",
+          "活动页面上线准备时间缩短 60%",
+          "高风险流失客户识别准确率达到 80%"
+        ],
+        "poc_lines": [
+          "1. 细分客群策略的可解释性",
+          "2. AI 生成文案与图片的可用性",
+          "3. 流失预测结果对运营动作的指导价值"
+        ]
+      }
+    },
+    {
+      "slide_number": 8,
+      "title": "下一步建议",
+      "subtitle": "",
+      "slide_type": "poc-next-step",
+      "layout_key": "poc-next-step",
+      "key_points": [
+        "试点范围：优先验证客户洞察、内容生成和流失预测三个关键环节",
+        "关键角色：市场负责人 / CRM / 会员运营团队 / 数字化平台主管",
+        "后续动作：确认目标客群与样本数据范围 / 选择一个营销活动作为试点场景 / 在两周内完成内容生成与分析闭环原型"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "试点范围：优先验证客户洞察、内容生成和流失预测三个关键环节",
+        "关键角色：市场负责人 / CRM / 会员运营团队 / 数字化平台主管"
+      ],
+      "slots": {
+        "point_1": "试点范围：优先验证客户洞察、内容生成和流失预测三个关键环节",
+        "point_2": "关键角色：市场负责人 / CRM / 会员运营团队 / 数字化平台主管",
+        "point_3": "后续动作：确认目标客群与样本数据范围 / 选择一个营销活动作为试点场景 / 在两周内完成内容生成与分析闭环原型"
+      },
+      "fields": {
+        "scope_line": "试点范围：优先验证客户洞察、内容生成和流失预测三个关键环节",
+        "stakeholder_lines": [
+          "市场负责人",
+          "CRM / 会员运营团队",
+          "数字化平台主管"
+        ],
+        "next_action_lines": [
+          "1. 确认目标客群与样本数据范围",
+          "2. 选择一个营销活动作为试点场景",
+          "3. 在两周内完成内容生成与分析闭环原型"
+        ]
+      }
+    }
+  ]
+}
