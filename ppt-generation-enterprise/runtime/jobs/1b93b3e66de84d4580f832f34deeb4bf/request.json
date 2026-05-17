@@ -1,0 +1,110 @@
+{
+  "workshop": {
+    "title": "AI Discovery Card Workshop",
+    "customer": "某零售品牌现场 Demo",
+    "industry": "跨界电商",
+    "group_name": "第 2 组",
+    "date": "2026-05-17"
+  },
+  "event_input": {
+    "customer_type": "跨界电商",
+    "scenario_summary": "围绕会员生命周期运营，构建从客户洞察、个性化内容生成、活动落地到复盘分析与流失预警的一体化 AI 增长闭环。",
+    "target_role": "会员运营负责人",
+    "current_pain_point": "会员分层、营销内容生产、活动落地和流失预警分散在多个系统与团队中，响应慢且协同成本高。",
+    "expected_value": "希望先做出一版可演示的会员增长工作台，快速验证客户洞察、内容生成和保留动作联动的价值。",
+    "prototype_preference": "会员增长与保留运营工作台"
+  },
+  "mvp_spec": {
+    "prototype_mode": "前端壳子优先",
+    "primary_user": "会员运营负责人",
+    "core_task": "查看重点会员客群并联动营销内容与保留动作",
+    "screens": [
+      "会员经营总览页",
+      "客群洞察与分层页",
+      "营销内容与活动页面生成页",
+      "流失预警与保留动作页"
+    ],
+    "modules": [
+      "会员分层看板",
+      "重点客群机会卡片",
+      "营销文案生成面板",
+      "活动配图生成面板",
+      "活动页面编排区",
+      "高流失会员预警与跟进面板"
+    ],
+    "key_actions": [
+      "切换目标会员客群",
+      "生成营销文案",
+      "生成配图与落地页草稿",
+      "查看活动效果分析",
+      "触发会员保留建议"
+    ],
+    "sample_data": [
+      "会员画像样例",
+      "营销活动结果样例",
+      "高流失会员清单",
+      "营销内容示例"
+    ],
+    "style_keywords": [
+      "企业级",
+      "卡片式布局",
+      "增长运营"
+    ],
+    "tech_stack_preference": "Next.js + Tailwind CSS",
+    "out_of_scope": [
+      "不对接真实营销自动化平台",
+      "不直接执行批量触达",
+      "不实现正式权限体系"
+    ]
+  },
+  "current_process": [],
+  "detected_cards": {},
+  "recognized_cards": [
+    {
+      "title": "了解客户",
+      "order_index": 1,
+      "source": "image-example"
+    },
+    {
+      "title": "个性化营销",
+      "order_index": 2,
+      "source": "image-example"
+    },
+    {
+      "title": "生成或增强文本",
+      "order_index": 3,
+      "source": "image-example"
+    },
+    {
+      "title": "从文本生成图像",
+      "order_index": 4,
+      "source": "image-example"
+    },
+    {
+      "title": "创建动态网页",
+      "order_index": 5,
+      "source": "image-example"
+    },
+    {
+      "title": "简化数据分析",
+      "order_index": 6,
+      "source": "image-example"
+    },
+    {
+      "title": "预测客户流失",
+      "order_index": 7,
+      "source": "image-example"
+    }
+  ],
+  "card_photo_paths": [
+    "../AI WorkFlow.png"
+  ],
+  "product_mapping": [],
+  "options": {
+    "mode": "python-fast",
+    "template": "enterprise-forum",
+    "theme": "eden-enterprise",
+    "aspect_ratio": "16:9",
+    "timeout_seconds": 900
+  }
+}

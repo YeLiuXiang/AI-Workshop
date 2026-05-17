@@ -1,0 +1,590 @@
+{
+  "slide-0": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 11.0,
+          "bold": true,
+          "color": "E91E63",
+          "text": "AI DISCOVERY WORKSHOP"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 34.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "会员增长与保留运营工作台"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 34.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "AI Discovery Workshop 商机与原型方案"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 15.0,
+          "color": "555555",
+          "text": "客户：某零售品牌现场 Demo | 行业：跨界电商"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 15.0,
+          "color": "555555",
+          "text": "小组：第 2 组 | 日期：2026-05-17"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 8.0,
+          "color": "999999",
+          "text": "某零售品牌现场 Demo"
+        }
+      ]
+    }
+  },
+  "slide-1": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "当前差距与优先痛点"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "1. 汇总会员画像、历史活动结果和渠道反馈，识别重点会员客群与增长机会"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "2. 会员运营团队基于经验制定活动策略和个性化内容方向"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "3. 人工生成营销文案、配图和活动页面草稿，并在不同团队间反复协调"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "4. 活动上线后再人工整理经营数据做复盘分析"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "1. 会员分层、内容生产、活动执行和流失预警分散在多个系统与团队中，协同效率低"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "2. 营销内容和活动页面准备周期长，影响会员运营节奏和试错效率"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "3. 活动复盘与流失识别滞后，洞察难以及时回流到下一轮增长和保留动作"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "优先切口：会员分层、内容生产、活动执行和流失预警分散在多个系统与团队中，协同效率低"
+        }
+      ]
+    }
+  },
+  "slide-2": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "业务机会与 Why Now"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "机会判断：对跨界电商会员运营来说，先用一个工作台把客户洞察、内容生成和保留动作联动起来，是最适合快速验证业务价值的切入口。"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "为什么是现在：会员数据、活动数据和内容生产需求已经在线化，但从洞察到执行仍高度依赖人工协同，正适合用 AI 在最短路径上验证增长闭环价值。"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "价值支撑：会员生命周期运营涉及分层、内容、活动和保留多个环节，当前链路割裂最影响效率"
+        }
+      ]
+    }
+  },
+  "slide-3": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "客户现场卡片流程"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "业务场景 / 输入感知：了解客户 / 个性化营销"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "理解分析：简化数据分析 / 预测客户流失"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "生成交互 / 执行闭环：生成或增强文本 / 从文本生成图像 / 创建动态网页"
+        }
+      ]
+    }
+  },
+  "slide-4": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "目标 AI Flow"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "业务触发：会员运营团队准备针对重点会员客群发起新一轮增长活动"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "1. 系统读取会员画像、历史活动表现和渠道反馈数据"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "2. AI 识别高价值会员客群、潜在流失会员和活动切入点"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "3. AI 自动生成个性化营销文案、活动配图和页面草稿"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "4. 系统汇总活动结果并输出复盘分析与下一轮优化建议"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "5. 对高流失风险会员触发保留建议和跟进动作"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "业务闭环：形成从会员洞察、内容生成、活动落地、分析复盘到流失干预的增长闭环"
+        }
+      ]
+    }
+  },
+  "slide-5": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "解决方案架构"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "架构主线：该场景聚焦会员运营负责人最关心的三段链路：客群识别、内容执行和会员保留。先通过一个工作台把洞察、生成、复盘和干预串起来，能够快速验证 AI 对增长效率与留存效果的业务价值。"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "架构分层：展示层：页面壳子、看板卡片、列表表格、详情抽屉 / 交互层：筛选切换、建议查看、动作触发、结果回看 / 数据层：样例数据、页面状态配置、Mock 接口返回"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "优先产品栈：Dynamics 365 Customer Insights / Microsoft Fabric / Azure OpenAI / Azure AI Foundry"
+        }
+      ]
+    }
+  },
+  "slide-6": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "能力映射与交付物"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "会员画像整合与客群分层 -> Dynamics 365 Customer Insights, Microsoft Fabric | 交付：会员分层、生命周期洞察与增长机会识别"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "营销文案、配图与活动页面生成 -> Azure OpenAI, Azure AI Foundry, Power Pages | 交付：营销内容共创与活动页面原型"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "活动复盘与流失预警联动 -> Microsoft Fabric, Power BI, Power Automate | 交付：活动分析、会员流失预警与跟进动作闭环"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "优先产品栈：Dynamics 365 Customer Insights / Microsoft Fabric / Azure OpenAI / Azure AI Foundry"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "现场交付物：方案 PPT / 会员增长与保留运营工作台原型建议 / POC 验证范围与里程碑"
+        }
+      ]
+    }
+  },
+  "slide-7": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "业务价值与验证假设"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "缩短从会员洞察到活动上线的准备周期"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "提升营销内容、配图和页面草稿的生成效率"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "让活动分析结果更快回流到下一轮增长与保留动作"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "更早识别高流失风险会员并启动干预"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "活动准备周期缩短 40%"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "内容与页面生产效率提升 50%"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "活动复盘产出时间缩短 60%"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "高流失会员识别准确率达到 80%"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "1. 会员分层和流失判断的业务可解释性"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "2. 营销文案、配图和页面生成结果的可用性"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "3. 活动复盘结果对下一轮增长动作的指导价值"
+        }
+      ]
+    }
+  },
+  "slide-8": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "原型与 MVP 设计"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "原型名称：会员增长与保留运营工作台；目标用户：会员运营负责人"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "系统形态：会员增长与保留运营工作台；目标：把会员洞察、内容生产、活动分析和保留动作集中到一个可操作的工作台中"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "MVP 交付：前端壳子优先；核心任务：查看重点会员客群并联动营销内容与保留动作；技术栈：Next.js + Tailwind CSS"
+        }
+      ]
+    }
+  },
+  "slide-9": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "POC 与下一步"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "试点范围：优先验证会员洞察、营销内容生成、活动复盘和流失预警四段闭环"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "会员运营负责人"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "CRM 运营负责人"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "电商业务负责人"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "数据 / 数字化团队"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "1. 确认一个重点会员客群和一类活动场景作为试点"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "2. 准备会员画像、活动结果和高流失会员样本数据"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "3. 两周内完成工作台原型与验证口径"
+        }
+      ]
+    }
+  }
+}

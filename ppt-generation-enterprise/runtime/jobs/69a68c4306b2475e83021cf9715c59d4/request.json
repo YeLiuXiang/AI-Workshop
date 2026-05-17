@@ -1,0 +1,46 @@
+{
+  "workshop": {
+    "title": "AI Discovery Card Workshop",
+    "customer": "会员增长与保留运营工作台",
+    "group_name": "第2小组",
+    "industry": "跨境电商",
+    "date": "2026-05-17"
+  },
+  "event_input": {
+    "scene_name": "会员增长与保留运营工作台",
+    "customer_type": "跨境电商",
+    "scenario_summary": "围绕会员生命周期运营，构建从客户洞察、个性化内容生成、活动落地到复盘分析与流失预警的一体化 AI 增长闭环。",
+    "target_role": "会员运营负责人",
+    "current_pain_point": "会员分层、营销内容生产、活动落地和流失预警分散在多个系统与团队中，响应慢且协同成本高。",
+    "expected_value": "希望先做出一版可演示的会员增长工作台，快速验证客户洞察、内容生成和保留动作联动的价值。",
+    "prototype_preference": "会员增长与保留运营工作台"
+  },
+  "mvp_spec": {
+    "prototype_mode": "前端壳子优先",
+    "primary_user": "会员运营负责人",
+    "core_task": "希望先做出一版可演示的会员增长工作台，快速验证客户洞察、内容生成和保留动作联动的价值。",
+    "screens": [],
+    "modules": [],
+    "key_actions": [],
+    "sample_data": [],
+    "style_keywords": [
+      "企业级",
+      "卡片式布局"
+    ],
+    "out_of_scope": [],
+    "tech_stack_preference": "Next.js + Tailwind CSS"
+  },
+  "current_process": [],
+  "detected_cards": {},
+  "recognized_cards": [],
+  "card_photo_paths": [],
+  "product_mapping": [],
+  "options": {
+    "mode": "codex-cli",
+    "template": "enterprise-forum",
+    "theme": "eden-enterprise",
+    "aspect_ratio": "16:9",
+    "generate_prototype": false,
+    "timeout_seconds": 900
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "workshop": {
+    "title": "AI Discovery Card Workshop",
+    "customer": "电子产品售后维修问答",
+    "industry": "消费电子",
+    "group_name": "现场共创组",
+    "date": "2026-05-17"
+  },
+  "event_input": {
+    "scene_name": "电子产品售后维修问答",
+    "customer_type": "消费电子",
+    "scenario_summary": "希望通过AI生成产品售后维修问题的检索和处理效率",
+    "target_role": "售后人员",
+    "current_pain_point": "检索问题资料和处理效率慢",
+    "expected_value": "提效",
+    "prototype_preference": "电子产品售后维修问答工作台"
+  },
+  "mvp_spec": {
+    "prototype_mode": "前端壳子优先",
+    "primary_user": "售后人员",
+    "core_task": "提效",
+    "screens": [],
+    "modules": [],
+    "key_actions": [],
+    "sample_data": [],
+    "style_keywords": [
+      "企业级",
+      "卡片式布局"
+    ],
+    "out_of_scope": [],
+    "tech_stack_preference": "Next.js + Tailwind CSS"
+  },
+  "current_process": [],
+  "detected_cards": {},
+  "recognized_cards": [],
+  "card_photo_paths": [],
+  "product_mapping": [],
+  "options": {
+    "mode": "codex-cli",
+    "template": "enterprise-forum",
+    "theme": "eden-enterprise",
+    "aspect_ratio": "16:9",
+    "timeout_seconds": 900
+  }
+}

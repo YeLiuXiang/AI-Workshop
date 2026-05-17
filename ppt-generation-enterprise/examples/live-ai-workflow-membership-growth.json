@@ -2,12 +2,12 @@
   "workshop": {
     "title": "AI Discovery Card Workshop",
     "customer": "某零售品牌现场 Demo",
-    "industry": "跨界电商",
+    "industry": "跨境电商",
     "group_name": "第 2 组",
     "date": "2026-05-17"
   },
   "event_input": {
-    "customer_type": "跨界电商",
+    "customer_type": "跨境电商",
     "scenario_summary": "围绕会员生命周期运营，构建从客户洞察、个性化内容生成、活动落地到复盘分析与流失预警的一体化 AI 增长闭环。",
     "target_role": "会员运营负责人",
     "current_pain_point": "会员分层、营销内容生产、活动落地和流失预警分散在多个系统与团队中，响应慢且协同成本高。",

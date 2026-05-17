@@ -28,6 +28,9 @@ def dedupe(items: list[str]) -> list[str]:
 
 
 def derive_scenario_name(event_input: dict) -> str:
+    scene_name = ensure_text(event_input.get("scene_name"))
+    if scene_name:
+        return scene_name
     prototype_name = ensure_text(event_input.get("prototype_preference"))
     if prototype_name:
         return prototype_name
@@ -106,8 +109,8 @@ def normalize_fast_payload(source: dict) -> dict:
     target_role = ensure_text(event_input.get("target_role"), "待补充：目标角色")
     pain_point = ensure_text(event_input.get("current_pain_point"), "待补充：当前痛点")
     expected_value = ensure_text(event_input.get("expected_value"), "待补充：目标价值")
-    prototype_name = ensure_text(event_input.get("prototype_preference"), "待补充：原型形态")
     scenario_name = derive_scenario_name(event_input)
+    prototype_name = ensure_text(event_input.get("prototype_preference"), f"{scenario_name}工作台")
 
     trigger, ai_steps, closure = derive_ai_flow(current_process, scenario_summary)
     mock_scope = derive_mock_scope(mvp_spec, scenario_name)

@@ -2,6 +2,7 @@ import argparse
 import json
 import os
 import random
+from datetime import datetime, timezone
 from io import BytesIO
 from pathlib import Path
 
@@ -522,8 +523,7 @@ def render_cover(slide, slide_data: dict, tokens: dict) -> None:
     set_slide_background(slide, tokens["background"])
 
     cover_image = choose_accent_image(DEFAULT_ACCENT_IMAGE_DIR)
-    if cover_image is not None:
-        add_cropped_picture(slide, cover_image, 0, 0, 2.7, 7.5)
+    if cover_image is not None and add_cropped_picture(slide, cover_image, 0, 0, 2.7, 7.5):
         image_overlay = slide.shapes.add_shape(
             MSO_AUTO_SHAPE_TYPE.RECTANGLE,
             inches(0),
@@ -532,7 +532,7 @@ def render_cover(slide, slide_data: dict, tokens: dict) -> None:
             inches(7.5),
         )
         apply_fill(image_overlay, tokens["primary"])
-        image_overlay.fill.transparency = 0.28
+        image_overlay.fill.transparency = 0.90
         image_overlay.line.fill.background()
     else:
         left_band = slide.shapes.add_shape(
@@ -928,7 +928,9 @@ def render_architecture(slide, slide_data: dict, tokens: dict) -> None:
     set_slide_background(slide, tokens["background"])
     add_header(slide, slide_data.get("title", ""), tokens)
     fields = slide_data.get("fields", {})
-    layer_lines = fields.get("layer_lines", [])
+    architecture_blocks = fields.get("architecture_blocks", []) or fields.get("layer_lines", [])
+    support_lines = fields.get("support_lines", [])
+    platform_chips = fields.get("platform_chips", [])
     platform_line = strip_label_prefix(fields.get("platform_line", ""))
     closure_line = fields.get("closure_line", "")
 
@@ -948,96 +950,109 @@ def render_architecture(slide, slide_data: dict, tokens: dict) -> None:
         space_after=0,
     )
 
-    content_box(slide, 0.9, 2.95, 11.45, 3.75, tokens["panel_alt"], tokens["panel_radius"], tokens["panel_border"])
+    content_box(slide, 0.9, 2.95, 11.45, 4.18, tokens["panel_alt"], tokens["panel_radius"], tokens["panel_border"])
     add_section_title(slide, 1.18, 3.16, 6.8, fields.get("architecture_title", "方案架构"), tokens)
 
-    lane_colors = [tokens["primary"], tokens["secondary"], tokens["primary"], tokens["secondary"]]
-    lane_fills = [tokens["background"], tokens["panel"], tokens["background"], tokens["panel"]]
-    lane_tops = [3.55, 4.53, 5.51, 6.49]
-    max_layers = min(len(layer_lines), 4)
-    for index, line in enumerate(layer_lines[:4]):
+    cards = architecture_blocks[:4] or [fields.get("architecture_title", "方案架构")]
+    step_colors = [tokens["primary"], tokens["secondary"], tokens["secondary"], tokens["primary"]]
+    card_left = 1.18
+    card_top = 3.62
+    card_width = 2.46
+    card_height = 2.44
+    card_gap = 0.28
+    for index, line in enumerate(cards):
         title, body = split_title_body(line)
-        body_text = body or title
-        top = lane_tops[index]
+        left = card_left + index * (card_width + card_gap)
 
-        bullet = slide.shapes.add_shape(
-            MSO_AUTO_SHAPE_TYPE.OVAL,
-            inches(1.18),
-            inches(top + 0.12),
-            inches(0.42),
-            inches(0.42),
+        content_box(
+            slide,
+            left,
+            card_top,
+            card_width,
+            card_height,
+            tokens["panel"] if index % 2 else tokens["background"],
+            tokens["panel_radius"],
+            tokens["panel_border"],
         )
-        apply_fill(bullet, lane_colors[index])
-        apply_line(bullet, None)
+        content_box(slide, left, card_top, card_width, 0.48, step_colors[index % len(step_colors)], 0.1, None)
         add_panel_text(
             slide,
-            1.24,
-            top + 0.195,
-            0.3,
-            0.08,
-            [str(index + 1)],
+            left + 0.12,
+            card_top + 0.12,
+            card_width - 0.24,
+            0.14,
+            [f"0{index + 1}" if index < 9 else str(index + 1)],
             tokens["accent_font"],
             9.2,
             RGBColor(255, 255, 255),
             bold=True,
-            align=PP_ALIGN.CENTER,
+            align=PP_ALIGN.LEFT,
             vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
             space_after=0,
         )
-
-        content_box(slide, 1.72, top, 2.2, 0.64, lane_colors[index], tokens["panel_radius"], None)
         add_panel_text(
             slide,
-            1.94,
-            top + 0.17,
-            1.75,
-            0.14,
+            left + 0.16,
+            card_top + 0.66,
+            card_width - 0.32,
+            0.28,
             [title],
-            tokens["body_font"],
-            11.8,
-            RGBColor(255, 255, 255),
+            tokens["accent_font"],
+            16.2,
+            tokens["text"],
             bold=True,
-            align=PP_ALIGN.CENTER,
+            align=PP_ALIGN.LEFT,
             vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
             space_after=0,
         )
-
-        content_box(slide, 4.12, top, 6.98, 0.64, lane_fills[index], tokens["panel_radius"], tokens["panel_border"])
         add_body_text(
             slide,
-            4.38,
-            top + 0.12,
-            6.48,
-            0.3,
-            [body_text],
+            left + 0.16,
+            card_top + 1.1,
+            card_width - 0.32,
+            0.96,
+            [body or title],
             tokens,
-            font_size=12.0,
+            font_size=11.2,
+            vertical_anchor=MSO_VERTICAL_ANCHOR.TOP,
+            space_after=0,
+        )
+        if index < len(cards) - 1:
+            draw_arrow(slide, left + card_width + 0.06, card_top + 1.08, 0.16, 0.2, tokens["secondary"])
+
+    content_box(slide, 0.9, 7.28, 11.45, 0.6, tokens["panel"], tokens["panel_radius"], tokens["panel_border"])
+    add_section_title(slide, 1.18, 7.43, 2.0, "落地能力与产品支撑", tokens)
+    for index, line in enumerate(support_lines[:2]):
+        add_body_text(
+            slide,
+            3.05,
+            7.34 + index * 0.19,
+            5.22,
+            0.16,
+            [line],
+            tokens,
+            font_size=10.4,
             vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
             space_after=0,
         )
 
-        if index < max_layers - 1:
-            draw_down_arrow(slide, 6.43, top + 0.63, 0.3, 0.18, tokens["secondary"])
-
-    content_box(slide, 0.9, 6.95, 11.45, 0.9, tokens["panel"], tokens["panel_radius"], tokens["panel_border"])
-    add_section_title(slide, 1.18, 7.17, 1.6, "产品栈", tokens)
-    chips = [item.strip() for item in platform_line.replace("优先产品栈：", "").split("/") if item.strip()] or [platform_line or "待补充"]
-    chip_left = 2.18
-    chip_top = 7.14
-    chip_gap = 0.18
-    chip_width = 2.25
-    for index, item in enumerate(chips[:4]):
+    chips = platform_chips or [item.strip() for item in platform_line.replace("优先产品栈：", "").split("/") if item.strip()] or [platform_line or "待补充"]
+    chip_left = 8.62
+    chip_top = 7.36
+    chip_gap = 0.1
+    chip_width = 1.28
+    for index, item in enumerate(chips[:3]):
         left = chip_left + index * (chip_width + chip_gap)
-        content_box(slide, left, chip_top, chip_width, 0.42, tokens["panel_alt"] if index % 2 else tokens["background"], 0.08, tokens["panel_border"])
+        content_box(slide, left, chip_top, chip_width, 0.34, tokens["panel_alt"] if index % 2 else tokens["background"], 0.08, tokens["panel_border"])
         add_panel_text(
             slide,
-            left + 0.1,
-            chip_top + 0.11,
-            chip_width - 0.2,
-            0.12,
+            left + 0.08,
+            chip_top + 0.09,
+            chip_width - 0.16,
+            0.1,
             [item],
             tokens["body_font"],
-            9.8,
+            8.6,
             tokens["text"],
             align=PP_ALIGN.CENTER,
             vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
@@ -1260,6 +1275,15 @@ def write_pptx(plan: dict, theme: dict, output_path: str) -> None:
         slide = presentation.slides.add_slide(blank_layout)
         render_slide(slide, slide_data, tokens)
         set_notes(slide, slide_data)
+
+    now = datetime.now(timezone.utc)
+    core_properties = presentation.core_properties
+    core_properties.created = now
+    core_properties.modified = now
+    core_properties.author = "AI Workshop Pipeline"
+    core_properties.last_modified_by = "AI Workshop Pipeline"
+    core_properties.title = str(plan.get("title") or Path(output_path).stem)
+    core_properties.subject = str(plan.get("subtitle") or "Workshop generated presentation")
 
     Path(output_path).parent.mkdir(parents=True, exist_ok=True)
     presentation.save(output_path)

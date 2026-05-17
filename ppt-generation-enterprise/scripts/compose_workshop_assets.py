@@ -32,7 +32,10 @@ def keyword_hits(corpus: str, keywords: list[str]) -> int:
     return sum(1 for keyword in keywords if keyword and keyword.lower() in lowered)
 
 
-def choose_scenario_name(live_summary: str, asset_name: str) -> str:
+def choose_scenario_name(scene_name: str, live_summary: str, asset_name: str) -> str:
+    explicit_name = ensure_text(scene_name)
+    if explicit_name:
+        return explicit_name
     summary = ensure_text(live_summary)
     if not summary:
         return asset_name
@@ -53,6 +56,7 @@ def detect_lane(live_input: dict) -> str:
     corpus = " ".join(
         [
             ensure_text(live_input.get("customer_type")),
+            ensure_text(live_input.get("scene_name")),
             ensure_text(live_input.get("scenario_summary")),
             ensure_text(live_input.get("target_role")),
             ensure_text(live_input.get("current_pain_point")),
@@ -111,6 +115,7 @@ def score_case(case_payload: dict, live_input: dict, detected_cards: dict) -> in
     corpus = " ".join(
         [
             ensure_text(live_input.get("customer_type")),
+            ensure_text(live_input.get("scene_name")),
             ensure_text(live_input.get("scenario_summary")),
             ensure_text(live_input.get("target_role")),
             ensure_text(live_input.get("current_pain_point")),
@@ -172,6 +177,7 @@ def compose_payload(source: dict, base_dir: Path) -> dict:
 
     live_problem = ensure_text(live_input.get("current_pain_point"))
     live_value = ensure_text(live_input.get("expected_value"))
+    scene_name = ensure_text(live_input.get("scene_name"))
     scenario_summary = ensure_text(live_input.get("scenario_summary"))
     target_role = ensure_text(live_input.get("target_role"))
     prototype_preference = ensure_text(live_input.get("prototype_preference"))
@@ -191,7 +197,7 @@ def compose_payload(source: dict, base_dir: Path) -> dict:
             "date": ensure_text(workshop.get("date")) or "待补充：活动日期"
         },
         "scenario": {
-            "name": choose_scenario_name(scenario_summary, scenario_asset.get("name", "待补充：业务场景")),
+            "name": choose_scenario_name(scene_name, scenario_summary, scenario_asset.get("name", "待补充：业务场景")),
             "target_users": target_role or scenario_asset.get("target_users", "待补充：目标角色"),
             "business_problem": live_problem or scenario_asset.get("business_problem", "待补充：业务问题"),
             "improvement_goal": live_value or scenario_asset.get("improvement_goal", "待补充：改善目标")

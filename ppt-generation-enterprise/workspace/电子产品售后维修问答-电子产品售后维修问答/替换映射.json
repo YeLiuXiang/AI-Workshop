@@ -1,0 +1,578 @@
+{
+  "slide-0": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 11.0,
+          "bold": true,
+          "color": "E91E63",
+          "text": "AI DISCOVERY WORKSHOP"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 34.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "电子产品售后维修问答"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 34.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "AI Discovery Workshop 商机与原型方案"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 15.0,
+          "color": "555555",
+          "text": "客户：电子产品售后维修问答 | 行业：消费电子"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 15.0,
+          "color": "555555",
+          "text": "小组：现场共创组 | 日期：2026-05-17"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 8.0,
+          "color": "999999",
+          "text": "电子产品售后维修问答"
+        }
+      ]
+    }
+  },
+  "slide-1": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "当前差距与优先痛点"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "1. 用户报修或售后人员接收维修咨询"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "2. 售后人员人工查询产品手册、FAQ 和历史工单"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "3. 根据经验判断问题类型并整理处理建议"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "4. 复杂问题升级给资深工程师或专家支持"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "1. 维修资料和历史案例分散，检索耗时长"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "2. 问题判断依赖个人经验，处理质量不稳定"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "3. 复杂问题升级频繁，影响整体处理效率"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "优先切口：维修资料和历史案例分散，检索耗时长"
+        }
+      ]
+    }
+  },
+  "slide-2": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "业务机会与 Why Now"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "机会判断：电子产品售后维修问答是一个能直接验证 AI 在知识检索、问题判断和服务提效价值的高优先级业务机会。"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "为什么是现在：企业已经积累了维修资料、FAQ 和工单数据，现在最需要把这些分散信息串成可直接服务一线售后人员的智能工作流。"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "价值支撑：售后服务体验直接影响客户满意度和品牌口碑"
+        }
+      ]
+    }
+  },
+  "slide-3": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "客户现场卡片流程"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "业务场景 / 输入感知：智能体类卡片 / OCR / 表单理解"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "理解分析：用户意图识别 / 文本理解 / 异常检测"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "生成交互 / 执行闭环：自动回答 / 自然对话 / 文本生成 / 流程优化 / 自动履行 / 人机交互"
+        }
+      ]
+    }
+  },
+  "slide-4": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "目标 AI Flow"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "业务触发：售后人员收到客户维修咨询或报修请求"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "1. 系统读取产品型号、故障描述、维修手册、FAQ 和历史工单"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "2. AI 识别问题类型、关键信息和处理优先级"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "3. AI 检索相关知识并生成排障建议与回复话术"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "4. 对复杂问题自动推荐升级路径或创建专家协同任务"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "5. 处理结果回写知识库与工单系统，持续优化问答效果"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "业务闭环：形成从问题接收、知识检索、建议生成到结果沉淀的售后维修服务闭环"
+        }
+      ]
+    }
+  },
+  "slide-5": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "解决方案架构"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "架构主线：该场景以售后维修问答为切口，把分散的产品资料、历史工单和处理经验整合为一线售后人员可直接使用的 AI 工作流，优先验证检索提效和处理标准化价值。"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "架构分层：展示层：页面壳子、看板卡片、列表表格、详情抽屉 / 交互层：筛选切换、建议查看、动作触发、结果回看 / 数据层：样例数据、页面状态配置、Mock 接口返回"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "优先产品栈：Azure AI Search / Microsoft Fabric / Azure AI Foundry / Azure OpenAI"
+        }
+      ]
+    }
+  },
+  "slide-6": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "能力映射与交付物"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "维修资料与工单知识整合 -> Azure AI Search, Microsoft Fabric | 交付：统一知识检索与数据汇聚底座"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "维修问答与处理建议生成 -> Azure AI Foundry, Azure OpenAI | 交付：售后维修问答助手与建议生成能力"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "工单流转与协同闭环 -> Power Automate, Dynamics 365 Customer Service | 交付：问题升级、任务流转与处理闭环"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "优先产品栈：Azure AI Search / Microsoft Fabric / Azure AI Foundry / Azure OpenAI"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "现场交付物：Workshop 定制化 PPT / AI Flow 流程方案 / 售后维修问答工作台原型建议"
+        }
+      ]
+    }
+  },
+  "slide-7": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "业务价值与验证假设"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "缩短售后人员查询资料和定位问题的时间"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "提升常见维修问题的标准化处理效率"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "降低对资深专家经验的过度依赖"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "推动维修知识持续沉淀和复用"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "知识检索时间缩短 50%"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "首轮问题响应时间下降 30%"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "常见问题自主处理率提升 40%"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "1. 维修知识召回与答案准确性是否满足一线使用"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "2. AI 生成的处理建议是否具备可执行性"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "3. 复杂问题升级与协同流程是否顺畅可落地"
+        }
+      ]
+    }
+  },
+  "slide-8": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "原型与 MVP 设计"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "原型名称：电子产品售后维修问答工作台；目标用户：售后人员"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "系统形态：售后维修问答工作台；目标：为售后人员提供统一的维修知识检索、问题问答和处理协同入口"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "MVP 交付：前端壳子优先；核心任务：快速检索维修知识并生成可执行的处理建议；技术栈：Next.js + Tailwind CSS"
+        }
+      ]
+    }
+  },
+  "slide-9": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "POC 与下一步"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "试点范围：优先验证维修知识检索、问题问答和复杂问题升级三段闭环，以高频售后问题为试点。"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "售后人员"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "售后负责人"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "IT / 数字化团队"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "1. 确认试点产品范围和高频故障问题清单"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "2. 整理维修手册、FAQ 和历史工单样本"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "3. 两周内完成问答工作台原型和首轮效果验证"
+        }
+      ]
+    }
+  }
+}

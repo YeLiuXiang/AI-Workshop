@@ -111,6 +111,74 @@ def dedupe_items(items: list[str]) -> list[str]:
     return deduped
 
 
+def shorten_text(value: str, limit: int = 28) -> str:
+    text = value.strip()
+    if len(text) <= limit:
+        return text
+    return text[: limit - 1].rstrip() + "…"
+
+
+def build_architecture_blocks(
+    scenario_problem: str,
+    business_cards: list[str],
+    input_cards: list[str],
+    understanding_cards: list[str],
+    generation_cards: list[str],
+    execution_cards: list[str],
+    flow_steps: list[str],
+    flow_closure: str,
+    prototype_name: str,
+    prototype_mock_scope: list[str],
+) -> list[str]:
+    input_summary = " / ".join((business_cards + input_cards)[:3]) or scenario_problem
+    analysis_summary = " / ".join((understanding_cards + generation_cards)[:3]) or "；".join(flow_steps[:2])
+    workspace_summary = prototype_name
+    if prototype_mock_scope:
+        workspace_summary = f"{prototype_name}，覆盖{'、'.join(prototype_mock_scope[:2])}"
+    feedback_summary = " / ".join(execution_cards[:2]) or flow_closure
+
+    return [
+        f"场景输入：{shorten_text(input_summary, 30)}",
+        f"智能分析：{shorten_text(analysis_summary, 30)}",
+        f"业务工作台：{shorten_text(workspace_summary, 30)}",
+        f"闭环反馈：{shorten_text(feedback_summary, 30)}",
+    ]
+
+
+def build_architecture_support_lines(product_mapping: list[dict], mapping_lines: list[str], flow_steps: list[str]) -> list[str]:
+    support_lines = []
+    for row in product_mapping[:3]:
+        if not isinstance(row, dict):
+            continue
+        capability = ensure_text(row.get("capability"), "能力")
+        delivery = ensure_text(row.get("delivery") or row.get("deliverable"), "交付")
+        support_lines.append(f"{capability}：{delivery}")
+    if not support_lines:
+        support_lines = mapping_lines[:3]
+    if flow_steps:
+        support_lines.append(f"关键动作：{'；'.join(flow_steps[:2])}")
+    return support_lines[:4]
+
+
+def build_architecture_chips(product_mapping: list[dict]) -> list[str]:
+    chips = []
+    for row in product_mapping:
+        if not isinstance(row, dict):
+            continue
+        capability = ensure_text(row.get("capability"), "")
+        if capability and capability not in chips:
+            chips.append(capability)
+        products = row.get("products")
+        if isinstance(products, list):
+            for product in products:
+                item = str(product).strip()
+                if item and item not in chips:
+                    chips.append(item)
+        elif isinstance(products, str) and products.strip() and products.strip() not in chips:
+            chips.append(products.strip())
+    return chips[:6]
+
+
 def make_slide(
     slide_number: int,
     title: str,
@@ -202,6 +270,20 @@ def build_workshop_plan(payload: dict, template: str, theme: str, aspect_ratio: 
 
     mapping_lines = format_mapping_rows(product_mapping)
     platform_line = summarize_platforms(product_mapping)
+    architecture_blocks = build_architecture_blocks(
+        scenario_problem,
+        business_cards,
+        input_cards,
+        understanding_cards,
+        generation_cards,
+        execution_cards,
+        flow_steps,
+        flow_closure,
+        prototype_name,
+        prototype_mock_scope,
+    )
+    architecture_support_lines = build_architecture_support_lines(product_mapping, mapping_lines, flow_steps)
+    architecture_chips = build_architecture_chips(product_mapping)
     deliverable_line = f"现场交付物：{join_cards(value_deliverables, '现场交付物')}"
     cover_value_line = prototype_value_statement or opportunity_statement or flow_narrative
     cover_title = scenario_name
@@ -318,7 +400,9 @@ def build_workshop_plan(payload: dict, template: str, theme: str, aspect_ratio: 
             fields={
                 "architecture_title": scenario_name,
                 "layer_lines": numbered_lines(mvp_spec["architecture_layers"], "架构分层", limit=4),
-                "principle_lines": numbered_lines(mvp_spec["architecture_principles"], "架构原则", limit=3),
+                "architecture_blocks": architecture_blocks,
+                "support_lines": architecture_support_lines,
+                "platform_chips": architecture_chips,
                 "platform_line": platform_line,
                 "closure_line": f"闭环目标：{flow_closure}",
             },

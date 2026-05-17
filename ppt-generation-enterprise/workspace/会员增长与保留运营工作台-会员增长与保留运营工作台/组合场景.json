@@ -1,0 +1,130 @@
+{
+  "workshop": {
+    "title": "AI Discovery Card Workshop",
+    "customer": "会员增长与保留运营工作台",
+    "industry": "跨界电商",
+    "group_name": "现场共创组",
+    "date": "2026-05-17"
+  },
+  "scenario": {
+    "name": "会员增长与保留运营工作台",
+    "target_users": "会员运营负责人",
+    "business_problem": "会员分层、内容生产和流失预警分散在多个系统中，协同成本高。",
+    "improvement_goal": "先生成一版可演示方案，用于展示会员增长与保留联动价值。"
+  },
+  "opportunity": {
+    "statement": "对跨界电商客户来说，会员增长与保留运营工作台是一个适合现场快速验证的 AI 切入点。",
+    "why_now": "当前最急的问题集中在“会员分层、内容生产和流失预警分散在多个系统中，协同成本高。”，而客户更容易先接受以会员增长与保留运营工作台为载体的可视化方案。",
+    "supporting_points": [
+      "会员分层、内容生产和流失预警分散在多个系统中，协同成本高。",
+      "先生成一版可演示方案，用于展示会员增长与保留联动价值。",
+      "先完成会员增长与保留运营工作台演示，再决定是否扩展到更完整的系统化建设"
+    ]
+  },
+  "current_process": [],
+  "pain_points": [
+    "会员分层、内容生产和流失预警分散在多个系统中，协同成本高。",
+    "围绕会员增长与保留运营工作台缺少统一判断、建议和协同闭环",
+    "当前决策与执行信息仍分散在多个环节"
+  ],
+  "selected_cards": {
+    "business_scenario": [],
+    "input_perception": [],
+    "understanding_analysis": [],
+    "generation_interaction": [],
+    "execution_closure": []
+  },
+  "ai_flow": {
+    "trigger": "业务进入重点波动或异常处理阶段",
+    "steps": [
+      "汇总与场景相关的业务数据和上下文",
+      "AI 识别关键风险、机会或异常",
+      "生成建议、内容或下一步动作",
+      "触发协同任务或人工确认",
+      "结果回写工作台并沉淀复盘口径"
+    ],
+    "closure": "围绕“围绕会员生命周期运营，打通客户洞察、内容生成、活动落地和流失预警，形成一体化运营闭环。”形成可演示的 AI 闭环",
+    "narrative": "该场景采用快速模式生成，重点是让现场在 5 分钟内拿到一版可讲解的 PPT、PRD 与方案设计文档。"
+  },
+  "prototype": {
+    "name": "会员增长与保留运营工作台",
+    "goal": "先生成一版可演示方案，用于展示会员增长与保留联动价值。",
+    "surface": "会员增长与保留运营工作台",
+    "user_flow": [
+      "查看核心业务风险或机会分布",
+      "读取 AI 给出的判断与建议",
+      "触发协同动作并回看处理结果"
+    ],
+    "mock_scope": [
+      "会员增长与保留运营工作台总览",
+      "分析详情页",
+      "建议与动作页",
+      "协同与复盘页"
+    ],
+    "value_statement": "让会员运营负责人先在会员增长与保留运营工作台里看到 AI 对问题识别、建议生成和协同闭环的价值。"
+  },
+  "product_mapping": [
+    {
+      "capability": "业务数据汇聚",
+      "products": [
+        "Microsoft Fabric"
+      ],
+      "delivery": "统一数据底座"
+    },
+    {
+      "capability": "AI 分析与建议生成",
+      "products": [
+        "Azure AI Foundry",
+        "Azure Machine Learning"
+      ],
+      "delivery": "围绕会员增长与保留运营工作台的风险识别与建议生成"
+    },
+    {
+      "capability": "工作台展示与协同闭环",
+      "products": [
+        "Power BI",
+        "Power Automate"
+      ],
+      "delivery": "看板展示、协同任务和复盘闭环"
+    }
+  ],
+  "business_value": {
+    "outcomes": [
+      "先生成一版可演示方案，用于展示会员增长与保留联动价值。",
+      "缩短人工整理、判断和协同的时间",
+      "形成可用于继续推进 POC 的统一讲解口径"
+    ],
+    "kpis": [
+      "核心判断时间缩短 30%",
+      "协同响应时间缩短 25%",
+      "可通过静态样例完整演示主业务路径"
+    ],
+    "deliverables": [
+      "方案 PPT",
+      "需求PRD.md",
+      "方案设计.md"
+    ]
+  },
+  "poc": {
+    "scope": "围绕会员增长与保留运营工作台优先验证识别、建议和协同三段闭环",
+    "validation_points": [
+      "AI 输出是否能帮助业务更快判断",
+      "原型页面是否能完整讲清业务闭环",
+      "现场方案是否适合作为后续 POC 基础"
+    ],
+    "stakeholders": [
+      "会员运营负责人",
+      "业务负责人",
+      "数字化团队"
+    ],
+    "next_actions": [
+      "确认试点范围和样例数据",
+      "锁定第一版原型页面范围",
+      "输出 POC 验证口径和里程碑"
+    ]
+  },
+  "mvp_spec": {
+    "tech_stack_preference": "Next.js + Tailwind CSS"
+  },
+  "source_type": "fast-workshop-scenario"
+}

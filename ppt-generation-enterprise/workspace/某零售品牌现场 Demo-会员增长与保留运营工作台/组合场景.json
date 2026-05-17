@@ -1,0 +1,232 @@
+{
+  "workshop": {
+    "title": "AI Discovery Card Workshop",
+    "customer": "某零售品牌现场 Demo",
+    "industry": "跨界电商",
+    "group_name": "第 2 组",
+    "date": "2026-05-17"
+  },
+  "scenario": {
+    "name": "会员增长与保留运营工作台",
+    "target_users": "会员运营负责人",
+    "business_problem": "会员分层、营销内容生产、活动落地和流失预警分散在多个系统与团队中，响应慢且协同成本高。",
+    "improvement_goal": "希望先做出一版可演示的会员增长工作台，快速验证客户洞察、内容生成和保留动作联动的价值。"
+  },
+  "opportunity": {
+    "statement": "对跨界电商客户来说，会员增长与保留运营工作台是一个适合现场快速验证的 AI 切入点。",
+    "why_now": "当前最急的问题集中在“会员分层、营销内容生产、活动落地和流失预警分散在多个系统与团队中，响应慢且协同成本高。”，而客户更容易先接受以会员增长与保留运营工作台为载体的可视化方案。",
+    "supporting_points": [
+      "会员分层、营销内容生产、活动落地和流失预警分散在多个系统与团队中，响应慢且协同成本高。",
+      "希望先做出一版可演示的会员增长工作台，快速验证客户洞察、内容生成和保留动作联动的价值。",
+      "先完成会员增长与保留运营工作台演示，再决定是否扩展到更完整的系统化建设"
+    ]
+  },
+  "current_process": [
+    "了解客户",
+    "个性化营销",
+    "生成或增强文本",
+    "从文本生成图像",
+    "创建动态网页",
+    "简化数据分析",
+    "预测客户流失"
+  ],
+  "pain_points": [
+    "会员分层、营销内容生产、活动落地和流失预警分散在多个系统与团队中，响应慢且协同成本高。",
+    "围绕会员增长与保留运营工作台缺少统一判断、建议和协同闭环",
+    "当前决策与执行信息仍分散在多个环节"
+  ],
+  "selected_cards": {
+    "business_scenario": [
+      "了解客户",
+      "个性化营销",
+      "预测客户流失"
+    ],
+    "input_perception": [],
+    "understanding_analysis": [
+      "简化数据分析"
+    ],
+    "generation_interaction": [
+      "生成或增强文本",
+      "从文本生成图像",
+      "创建动态网页"
+    ],
+    "execution_closure": []
+  },
+  "ai_flow": {
+    "trigger": "了解客户",
+    "steps": [
+      "个性化营销",
+      "生成或增强文本",
+      "从文本生成图像",
+      "创建动态网页",
+      "简化数据分析"
+    ],
+    "closure": "预测客户流失",
+    "narrative": "该场景采用快速模式生成，重点是让现场在 5 分钟内拿到一版可讲解的 PPT、PRD 与方案设计文档。"
+  },
+  "prototype": {
+    "name": "会员增长与保留运营工作台",
+    "goal": "希望先做出一版可演示的会员增长工作台，快速验证客户洞察、内容生成和保留动作联动的价值。",
+    "surface": "会员增长与保留运营工作台",
+    "user_flow": [
+      "切换目标会员客群",
+      "生成营销文案",
+      "生成配图与落地页草稿",
+      "查看活动效果分析",
+      "触发会员保留建议"
+    ],
+    "mock_scope": [
+      "会员经营总览页",
+      "客群洞察与分层页",
+      "营销内容与活动页面生成页",
+      "流失预警与保留动作页"
+    ],
+    "value_statement": "让会员运营负责人先在会员增长与保留运营工作台里看到 AI 对问题识别、建议生成和协同闭环的价值。"
+  },
+  "product_mapping": [
+    {
+      "capability": "了解客户",
+      "products": [
+        "Azure Machine Learning",
+        "Azure AI Foundry",
+        "Microsoft Fabric",
+        "Dynamics 365 Customer Insights"
+      ],
+      "delivery": "深入了解客户行为，预测他们的需求，并有效地定制解决方案。"
+    },
+    {
+      "capability": "个性化营销",
+      "products": [
+        "Azure Machine Learning",
+        "Azure AI Search",
+        "Dynamics 365 Customer Insights"
+      ],
+      "delivery": "使用AI通过分析客户数据和预测最佳互动策略来定制营销活动。"
+    },
+    {
+      "capability": "生成或增强文本",
+      "products": [
+        "Azure AI Foundry",
+        "Azure AI Language",
+        "Microsoft 365 Copilot"
+      ],
+      "delivery": "实施高级自然语言理解，以实现更复杂的类似人类的交互。"
+    },
+    {
+      "capability": "从文本生成图像",
+      "products": [
+        "Microsoft 365 Copilot",
+        "Microsoft Designer",
+        "Azure AI Foundry",
+        "Azure AI Content Understanding"
+      ],
+      "delivery": "利用AI从文本描述中创建独特的图像。"
+    },
+    {
+      "capability": "创建动态网页",
+      "products": [
+        "Azure AI Language",
+        "Power Platform:Power Pages",
+        "GitHub Copilot"
+      ],
+      "delivery": "使用AI生成网页的文本、表单和布局，从而简化Web开发。"
+    },
+    {
+      "capability": "简化数据分析",
+      "products": [
+        "Azure AI Language",
+        "Azure AI Foundry",
+        "Copilot for Power BI"
+      ],
+      "delivery": "使用AI通过自然语言创建复杂的数据查询和控制面板，使见解更易于访问。"
+    },
+    {
+      "capability": "预测客户流失",
+      "products": [
+        "Azure Machine Learning",
+        "Microsoft Fabric",
+        "Dynamics 365 Customer Insights"
+      ],
+      "delivery": "使用AI预测客户流失并主动响应以留住他们。"
+    }
+  ],
+  "business_value": {
+    "outcomes": [
+      "希望先做出一版可演示的会员增长工作台，快速验证客户洞察、内容生成和保留动作联动的价值。",
+      "缩短人工整理、判断和协同的时间",
+      "形成可用于继续推进 POC 的统一讲解口径"
+    ],
+    "kpis": [
+      "核心判断时间缩短 30%",
+      "协同响应时间缩短 25%",
+      "可通过静态样例完整演示主业务路径"
+    ],
+    "deliverables": [
+      "方案 PPT",
+      "需求PRD.md",
+      "方案设计.md"
+    ]
+  },
+  "poc": {
+    "scope": "围绕会员增长与保留运营工作台优先验证识别、建议和协同三段闭环",
+    "validation_points": [
+      "AI 输出是否能帮助业务更快判断",
+      "原型页面是否能完整讲清业务闭环",
+      "现场方案是否适合作为后续 POC 基础"
+    ],
+    "stakeholders": [
+      "会员运营负责人",
+      "业务负责人",
+      "数字化团队"
+    ],
+    "next_actions": [
+      "确认试点范围和样例数据",
+      "锁定第一版原型页面范围",
+      "输出 POC 验证口径和里程碑"
+    ]
+  },
+  "mvp_spec": {
+    "prototype_mode": "前端壳子优先",
+    "primary_user": "会员运营负责人",
+    "core_task": "查看重点会员客群并联动营销内容与保留动作",
+    "screens": [
+      "会员经营总览页",
+      "客群洞察与分层页",
+      "营销内容与活动页面生成页",
+      "流失预警与保留动作页"
+    ],
+    "modules": [
+      "会员分层看板",
+      "重点客群机会卡片",
+      "营销文案生成面板",
+      "活动配图生成面板",
+      "活动页面编排区",
+      "高流失会员预警与跟进面板"
+    ],
+    "key_actions": [
+      "切换目标会员客群",
+      "生成营销文案",
+      "生成配图与落地页草稿",
+      "查看活动效果分析",
+      "触发会员保留建议"
+    ],
+    "sample_data": [
+      "会员画像样例",
+      "营销活动结果样例",
+      "高流失会员清单",
+      "营销内容示例"
+    ],
+    "style_keywords": [
+      "企业级",
+      "卡片式布局",
+      "增长运营"
+    ],
+    "tech_stack_preference": "Next.js + Tailwind CSS",
+    "out_of_scope": [
+      "不对接真实营销自动化平台",
+      "不直接执行批量触达",
+      "不实现正式权限体系"
+    ]
+  },
+  "source_type": "fast-workshop-scenario"
+}

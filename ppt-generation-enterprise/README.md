@@ -395,6 +395,26 @@ Run the service:
 python -m workshop_service
 ```
 
+The service will auto-load a project-local `.env` if present. Copy [.env.example](</f:/VsCodeProject/AI-Workshop/ppt-generation-enterprise/.env.example>) to `.env` and keep the same file on Windows and Ubuntu.
+
+Shortcut scripts:
+
+```powershell
+./scripts/start_workshop_service.ps1
+```
+
+```bash
+./scripts/start_workshop_service.sh
+```
+
+For Ubuntu VM deployment, start from [deploy/workshop-service.service.example](</f:/VsCodeProject/AI-Workshop/ppt-generation-enterprise/deploy/workshop-service.service.example>) and only replace the working directory, Python path, and Linux user.
+
+Then open the built-in frontend at the service root:
+
+```text
+http://127.0.0.1:8000/
+```
+
 Main endpoints:
 
 - `GET /healthz`

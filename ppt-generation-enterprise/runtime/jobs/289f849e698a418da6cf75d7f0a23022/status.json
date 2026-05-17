@@ -1,0 +1,18 @@
+{
+  "job_id": "289f849e698a418da6cf75d7f0a23022",
+  "status": "failed",
+  "mode": "codex-cli",
+  "stage": "failed",
+  "stage_label": "任务失败",
+  "created_at": "2026-05-17T14:17:59.127814+00:00",
+  "updated_at": "2026-05-17T14:18:26.630812+00:00",
+  "request_path": "F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\runtime\\jobs\\289f849e698a418da6cf75d7f0a23022\\request.json",
+  "scenario_path": null,
+  "case_dir": null,
+  "artifacts": [],
+  "prototype_status": "not_requested",
+  "prototype_label": "尚未生成",
+  "prototype_error": null,
+  "error": "Codex CLI failed with exit code 1",
+  "logs": {}
+}

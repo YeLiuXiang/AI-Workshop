@@ -59,7 +59,7 @@ def derive_scenario_name(payload: dict) -> str:
         return sanitize_name(scenario.get("name"), "未命名场景")
 
     live_input = payload.get("event_input", {}) if isinstance(payload.get("event_input"), dict) else {}
-    return sanitize_name(live_input.get("scenario_summary"), "未命名场景")
+    return sanitize_name(live_input.get("scene_name") or live_input.get("scenario_summary"), "未命名场景")
 
 
 def build_case_directory_name(customer_name: str, scenario_name: str) -> str:

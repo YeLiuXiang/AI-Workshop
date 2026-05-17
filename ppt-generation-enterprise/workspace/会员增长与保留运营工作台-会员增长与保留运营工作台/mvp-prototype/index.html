@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>会员增长与保留运营工作台</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script id="prototype-data" type="application/json">{
+  "variant": "growth",
+  "theme": "growth",
+  "context": {
+    "customer": "会员增长与保留运营工作台",
+    "industry": "跨境电商",
+    "group_name": "第2小组",
+    "scenario_name": "会员增长与保留运营工作台",
+    "target_user": "会员运营负责人",
+    "prototype_name": "会员增长与保留运营工作台",
+    "hero_label": "GROWTH AND RETENTION OPS ROOM",
+    "nav_label": "场景原型包",
+    "workspace_kicker": "统一增长工作台",
+    "queue_label": "重点经营对象",
+    "status_label": "保留风险",
+    "sidebar_title": "客群与运营样例",
+    "sidebar_badge": "3 组样例",
+    "run_button": "模拟一次 AI 生成",
+    "cycle_button": "切换下一组样例"
+  },
+  "hero": {
+    "goal": "让会员运营负责人在一个可视化工作台内完成客群识别、内容生成、活动联动和流失干预演示。",
+    "brief": "先用前端壳子把会员洞察、内容生产和保留动作联动价值讲清楚，再决定是否扩展到真实系统对接。",
+    "problem": "会员分层、营销内容生产、活动落地和流失预警分散在多个系统与团队中，响应慢且协同成本高。",
+    "flow": "汇总会员画像、历史活动表现、渠道反馈和行为标签 -> AI 识别高价值会员、潜力客群和流失风险会员 -> AI 生成分层运营建议、营销文案和活动页面内容 -> 运营在工作台内确认策略并下发对应渠道触达动作",
+    "tags": [
+      "企业级",
+      "卡片式布局",
+      "增长运营",
+      "数据洞察",
+      "运营首页",
+      "会员洞察页"
+    ]
+  },
+  "tabs": [
+    "客户洞察",
+    "方案编排",
+    "内容生成",
+    "闭环动作"
+  ],
+  "kpis": [
+    {
+      "value": "30%",
+      "label": "活动准备周期缩短",
+      "detail": "演示态业务指标"
+    },
+    {
+      "value": "50%",
+      "label": "高风险会员识别时效提升",
+      "detail": "演示态业务指标"
+    },
+    {
+      "value": "70%",
+      "label": "重点活动个性化内容生成覆盖率达到",
+      "detail": "演示态业务指标"
+    },
+    {
+      "value": "82%",
+      "label": "待确认业务指标",
+      "detail": "演示态业务指标"
+    }
+  ],
+  "work_items": [
+    {
+      "name": "高价值会员客群",
+      "badge": "机会窗口",
+      "owner": "会员运营负责人",
+      "headline": "缩短会员运营从分析到活动落地的准备周期",
+      "summary": "会员分层与高价值客群识别依赖人工分析，判断慢且口径不统一。",
+      "focus": "增长机会高",
+      "signals": [
+        "汇总会员画像、历史活动表现、渠道反馈和行为标签",
+        "提升高价值会员识别和高风险会员干预的及时性",
+        "营销文案、页面内容和触达素材分散生产，活动准备周期长。"
+      ],
+      "journey": [
+        "查看客群洞察与生命周期信号",
+        "生成营销内容与活动页面草稿",
+        "查看结果并触发下一轮干预动作"
+      ],
+      "recommendations": [
+        "优先生成一版活动主题与文案草稿",
+        "联动高流失会员清单生成专属动作",
+        "把复盘结果回流到下一轮客群策略"
+      ],
+      "generated_asset": {
+        "title": "高价值会员客群 经营动作草案",
+        "body": "缩短会员运营从分析到活动落地的准备周期"
+      }
+    },
+    {
+      "name": "沉默复购会员",
+      "badge": "重点跟进",
+      "owner": "会员运营负责人",
+      "headline": "提升高价值会员识别和高风险会员干预的及时性",
+      "summary": "营销文案、页面内容和触达素材分散生产，活动准备周期长。",
+      "focus": "复购潜力待激活",
+      "signals": [
+        "AI 识别高价值会员、潜力客群和流失风险会员",
+        "把内容生产、活动执行和复盘分析整合为统一工作台",
+        "活动结果复盘滞后，无法及时把高风险会员识别和保留动作串起来。"
+      ],
+      "journey": [
+        "查看客群洞察与生命周期信号",
+        "生成营销内容与活动页面草稿",
+        "查看结果并触发下一轮干预动作"
+      ],
+      "recommendations": [
+        "优先生成一版活动主题与文案草稿",
+        "联动高流失会员清单生成专属动作",
+        "把复盘结果回流到下一轮客群策略"
+      ],
+      "generated_asset": {
+        "title": "沉默复购会员 经营动作草案",
+        "body": "提升高价值会员识别和高风险会员干预的及时性"
+      }
+    },
+    {
+      "name": "高流失风险会员",
+      "badge": "高风险",
+      "owner": "会员运营负责人",
+      "headline": "把内容生产、活动执行和复盘分析整合为统一工作台",
+      "summary": "活动结果复盘滞后，无法及时把高风险会员识别和保留动作串起来。",
+      "focus": "需要即时保留动作",
+      "signals": [
+        "AI 生成分层运营建议、营销文案和活动页面内容",
+        "缩短会员运营从分析到活动落地的准备周期",
+        "会员分层与高价值客群识别依赖人工分析，判断慢且口径不统一。"
+      ],
+      "journey": [
+        "查看客群洞察与生命周期信号",
+        "生成营销内容与活动页面草稿",
+        "查看结果并触发下一轮干预动作"
+      ],
+      "recommendations": [
+        "优先生成一版活动主题与文案草稿",
+        "联动高流失会员清单生成专属动作",
+        "把复盘结果回流到下一轮客群策略"
+      ],
+      "generated_asset": {
+        "title": "高流失风险会员 经营动作草案",
+        "body": "把内容生产、活动执行和复盘分析整合为统一工作台"
+      }
+    }
+  ],
+  "active_item_name": "高价值会员客群",
+  "capability_cards": [
+    {
+      "title": "会员洞察与客群分层",
+      "body": "会员分层、价值识别与风险评分能力",
+      "products": [
+        "Microsoft Fabric",
+        "Azure Machine Learning",
+        "Azure OpenAI"
+      ]
+    },
+    {
+      "title": "营销内容与页面生成",
+      "body": "营销文案、页面草案与多版本内容生成",
+      "products": [
+        "Azure OpenAI",
+        "Azure AI Content Understanding"
+      ]
+    },
+    {
+      "title": "工作流协同与动作执行",
+      "body": "活动触发、保留任务编排与结果回写闭环",
+      "products": [
+        "Power Automate",
+        "Dynamics 365 Customer Insights"
+      ]
+    }
+  ],
+  "screen_cards": [
+    {
+      "title": "运营首页",
+      "body": "筛选目标会员客群"
+    },
+    {
+      "title": "会员洞察页",
+      "body": "查看 AI 洞察与风险标签"
+    },
+    {
+      "title": "内容生成页",
+      "body": "生成营销文案和页面内容"
+    },
+    {
+      "title": "保留动作与复盘页",
+      "body": "确认并下发保留动作建议"
+    }
+  ],
+  "overview": {
+    "signals": [
+      "汇总会员画像、历史活动表现、渠道反馈和行为标签",
+      "AI 识别高价值会员、潜力客群和流失风险会员",
+      "AI 生成分层运营建议、营销文案和活动页面内容",
+      "运营在工作台内确认策略并下发对应渠道触达动作",
+      "系统跟踪活动反馈并对重点会员自动推荐保留动作"
+    ],
+    "pain_points": [
+      "会员分层与高价值客群识别依赖人工分析，判断慢且口径不统一。",
+      "营销文案、页面内容和触达素材分散生产，活动准备周期长。",
+      "活动结果复盘滞后，无法及时把高风险会员识别和保留动作串起来。"
+    ],
+    "outcomes": [
+      "缩短会员运营从分析到活动落地的准备周期",
+      "提升高价值会员识别和高风险会员干预的及时性",
+      "把内容生产、活动执行和复盘分析整合为统一工作台"
+    ],
+    "validation_points": [
+      "会员分层和流失风险识别结果是否能支持运营决策",
+      "营销内容生成是否能明显缩短活动准备时间",
+      "保留动作推荐是否能支撑重点会员跟进和复盘分析"
+    ],
+    "next_actions": [
+      "明确首批会员数据与活动样例范围",
+      "确定 MVP 页面结构与演示样例数据",
+      "启动 2 到 4 周 POC，验证洞察、生成与保留联动效果"
+    ],
+    "stakeholders": [
+      "会员运营负责人",
+      "增长营销团队",
+      "CRM / 数据团队",
+      "数字化产品团队"
+    ],
+    "selected_cards": [
+      "内容生成中偏营销、网页、内容生产的卡片",
+      "客户洞察",
+      "数据分析",
+      "风险预测",
+      "文本生成",
+      "网页生成",
+      "营销内容生成"
+    ],
+    "modules": [
+      "会员分层总览卡片",
+      "高价值会员与流失风险榜单",
+      "活动策略与文案生成区",
+      "页面内容预览区",
+      "保留动作推荐区",
+      "活动效果复盘区"
+    ],
+    "actions": [
+      "筛选目标会员客群",
+      "查看 AI 洞察与风险标签",
+      "生成营销文案和页面内容",
+      "确认并下发保留动作建议",
+      "查看活动反馈与复盘结果"
+    ],
+    "sample_data": [
+      "会员分层标签与价值评分样例",
+      "历史活动效果与渠道反馈样例",
+      "流失风险会员名单样例",
+      "AI 生成营销文案与页面草案样例"
+    ],
+    "scope": "优先验证会员洞察、内容生成和保留动作推荐三段核心闭环",
+    "why_now": "当前增长压力与留存压力同时存在，客户又明确希望先看可演示原型，现在是用轻量工作台快速验证价值的合适时点。",
+    "deliverables": [
+      "会员增长与保留运营工作台方案 PPT",
+      "目标 AI Flow 讲解页",
+      "轻量原型规格文档与 POC 范围建议"
+    ]
+  },
+  "actions": [
+    "触发专属优惠",
+    "生成活动落地页",
+    "创建 CRM 跟进任务"
+  ]
+}</script>
+    <script defer src="./script.js"></script>
+  </head>
+  <body data-theme="growth">
+    <div class="page-shell">
+      <nav class="page-nav">
+        <div class="nav-context">
+          <span class="nav-label">场景原型包</span>
+          <strong>会员增长与保留运营工作台 / 会员增长与保留运营工作台</strong>
+        </div>
+        <div class="nav-badges">
+          <span>跨境电商</span>
+          <span>第2小组</span>
+        </div>
+      </nav>
+
+      <header class="hero-panel">
+        <div class="hero-copy-block">
+          <p class="eyebrow">GROWTH AND RETENTION OPS ROOM</p>
+          <h1 id="hero-title"></h1>
+          <p class="hero-copy" id="hero-brief"></p>
+          <div class="hero-tags" id="hero-tags"></div>
+        </div>
+
+        <div class="hero-signal-panel">
+          <p class="eyebrow">当前演示链路</p>
+          <strong id="hero-flow"></strong>
+          <p class="hero-brief" id="hero-problem"></p>
+          <div class="hero-actions">
+            <button id="cycle-item-button" class="primary-button" type="button">切换下一组样例</button>
+            <button id="simulate-run-button" class="secondary-button" type="button">模拟一次 AI 生成</button>
+          </div>
+        </div>
+      </header>
+
+      <section class="kpi-strip" id="kpi-strip"></section>
+
+      <main class="dashboard-layout">
+        <aside class="panel sidebar-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">重点经营对象</p>
+              <h2>客群与运营样例</h2>
+            </div>
+            <span class="badge">3 组样例</span>
+          </div>
+
+          <div class="chip-row" id="card-chip-row"></div>
+          <div class="work-item-list" id="work-item-list"></div>
+
+          <section class="sidebar-block">
+            <div class="subheading-row">
+              <h3>Copilot 推荐动作</h3>
+              <span class="badge badge-soft">演示态</span>
+            </div>
+            <ul class="bullet-list" id="recommended-actions"></ul>
+          </section>
+
+          <section class="sidebar-block accent-block">
+            <p class="mini-label">POC 验证范围</p>
+            <strong id="poc-focus"></strong>
+            <p id="poc-note"></p>
+          </section>
+        </aside>
+
+        <section class="panel workspace-panel">
+          <div class="workspace-header">
+            <div>
+              <p class="panel-kicker">统一增长工作台</p>
+              <h2 id="workspace-title"></h2>
+              <p class="workspace-subtitle" id="workspace-subtitle"></p>
+            </div>
+            <div class="headline-card">
+              <p class="mini-label">保留风险</p>
+              <strong id="status-title"></strong>
+              <span id="status-note"></span>
+            </div>
+          </div>
+
+          <nav class="screen-nav" id="screen-nav">
+            <button class="screen-button is-active" data-screen="overview" type="button">客户洞察</button>
+            <button class="screen-button" data-screen="design" type="button">方案编排</button>
+            <button class="screen-button" data-screen="generate" type="button">内容生成</button>
+            <button class="screen-button" data-screen="closure" type="button">闭环动作</button>
+          </nav>
+
+          <section class="screen-stage">
+            <article class="screen-panel is-active" data-screen-panel="overview">
+              <div class="screen-grid two-up-grid">
+                <section class="subpanel">
+                  <div class="subheading-row">
+                    <h3>业务信号概览</h3>
+                    <span class="badge" id="active-owner"></span>
+                  </div>
+                  <div class="stat-grid" id="overview-stats"></div>
+                  <div class="timeline-card">
+                    <div class="subheading-row">
+                      <h4>当前关键流程</h4>
+                      <span id="signal-count"></span>
+                    </div>
+                    <ul class="timeline-list" id="signal-list"></ul>
+                  </div>
+                </section>
+
+                <section class="subpanel">
+                  <div class="subheading-row">
+                    <h3>当前重点问题</h3>
+                    <span class="badge badge-warm" id="focus-badge"></span>
+                  </div>
+                  <div class="highlight-block">
+                    <div>
+                      <p class="mini-label">本轮目标</p>
+                      <strong id="goal-title"></strong>
+                    </div>
+                    <div>
+                      <p class="mini-label">关键角色</p>
+                      <strong id="target-user"></strong>
+                    </div>
+                  </div>
+                  <p class="summary-text" id="problem-summary"></p>
+                  <div class="tag-cloud" id="stakeholder-tags"></div>
+                </section>
+              </div>
+            </article>
+
+            <article class="screen-panel" data-screen-panel="design">
+              <div class="screen-grid two-up-grid">
+                <section class="subpanel">
+                  <div class="subheading-row">
+                    <h3>方案路径与业务编排</h3>
+                    <span class="badge">方案结构</span>
+                  </div>
+                  <div class="journey-stack" id="journey-stack"></div>
+                </section>
+
+                <section class="subpanel">
+                  <div class="subheading-row">
+                    <h3>能力与产品承接</h3>
+                    <span class="badge badge-soft">MVP 范围</span>
+                  </div>
+                  <div class="capability-grid" id="capability-grid"></div>
+                </section>
+              </div>
+            </article>
+
+            <article class="screen-panel" data-screen-panel="generate">
+              <div class="screen-grid two-up-grid">
+                <section class="subpanel">
+                  <div class="subheading-row">
+                    <h3>当前生成结果</h3>
+                    <span class="badge">工作台输出</span>
+                  </div>
+                  <div class="content-card">
+                    <p class="mini-label">主输出</p>
+                    <strong id="generated-title"></strong>
+                    <p id="generated-body"></p>
+                  </div>
+                  <div class="action-stack" id="action-stack"></div>
+                </section>
+
+                <section class="subpanel">
+                  <div class="subheading-row">
+                    <h3>原型页面结构</h3>
+                    <span class="badge badge-soft">可演示</span>
+                  </div>
+                  <div class="preview-grid" id="screen-card-grid"></div>
+                  <div class="mock-data-card">
+                    <p class="mini-label">样例数据</p>
+                    <div class="chip-row" id="sample-data-row"></div>
+                  </div>
+                </section>
+              </div>
+            </article>
+
+            <article class="screen-panel" data-screen-panel="closure">
+              <div class="screen-grid two-up-grid">
+                <section class="subpanel">
+                  <div class="subheading-row">
+                    <h3>验证点与业务结果</h3>
+                    <span class="badge badge-warm">POC</span>
+                  </div>
+                  <div class="closure-columns">
+                    <div>
+                      <p class="mini-label">预期结果</p>
+                      <ul class="bullet-list" id="outcome-list"></ul>
+                    </div>
+                    <div>
+                      <p class="mini-label">验证重点</p>
+                      <ul class="bullet-list" id="validation-list"></ul>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="subpanel">
+                  <div class="subheading-row">
+                    <h3>下一步动作与运行日志</h3>
+                    <span class="badge">实时 mock</span>
+                  </div>
+                  <ul class="bullet-list" id="next-action-list"></ul>
+                  <div class="execution-card">
+                    <p class="mini-label">运行日志</p>
+                    <strong id="execution-status"></strong>
+                    <ul class="execution-list" id="execution-list"></ul>
+                  </div>
+                </section>
+              </div>
+            </article>
+          </section>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workshop 方案生成器</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script defer src="/static/app.js"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero-panel">
+        <div class="hero-copy">
+          <p class="eyebrow">WORKSHOP PPT</p>
+          <h1>
+            <span class="hero-line">上传工作坊照片</span>
+            <span class="hero-line">与业务场景描述</span>
+            <span class="hero-line hero-line-wide">生成业务方案 PPT</span>
+          </h1>
+          <p class="hero-text">
+            填写场景信息并上传现场照片后，系统会自动整理内容，先生成一份可下载的业务方案 PPT，并可继续生成演示原型页面。
+          </p>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <article class="hero-card hero-card-photo">
+            <span>现场照片</span>
+            <strong>工作坊输入</strong>
+          </article>
+          <article class="hero-card hero-card-scene">
+            <span>业务场景</span>
+            <strong>需求整理</strong>
+          </article>
+          <article class="hero-card hero-card-output">
+            <span>方案输出</span>
+            <strong>PPT + 原型</strong>
+          </article>
+          <div class="hero-ring">
+            <span>内容整理</span>
+            <strong>方案编排</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="layout-grid">
+        <section class="panel form-panel">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">输入表单</p>
+              <h2>Workshop 场景信息</h2>
+            </div>
+            <button id="load-sample-button" class="ghost-button" type="button">切换示例</button>
+          </div>
+
+          <form id="job-form" class="form-grid">
+            <label class="field">
+              <span>第 xx 小组</span>
+              <input id="group_name" name="group_name" type="text" placeholder="例如：第1小组" required />
+            </label>
+
+            <label class="field">
+              <span>场景名称</span>
+              <input id="scene_name" name="scene_name" type="text" placeholder="例如：会员增长与保留运营工作台" required />
+            </label>
+
+            <label class="field">
+              <span>行业</span>
+              <input id="industry" name="industry" type="text" placeholder="例如：跨境电商 / 消费电子 IoT" required />
+            </label>
+
+            <label class="field field-wide">
+              <span>场景描述</span>
+              <textarea id="scenario_summary" name="scenario_summary" rows="4" placeholder="例如：希望围绕会员经营，打通客户洞察、内容生成、活动落地和流失预警，形成一体化运营闭环。" required></textarea>
+            </label>
+
+            <label class="field">
+              <span>目标角色</span>
+              <input id="target_role" name="target_role" type="text" placeholder="例如：会员运营负责人" required />
+            </label>
+
+            <label class="field field-wide">
+              <span>当前痛点</span>
+              <textarea id="current_pain_point" name="current_pain_point" rows="3" placeholder="当前最急的一个问题" required></textarea>
+            </label>
+
+            <label class="field field-wide">
+              <span>目标价值</span>
+              <textarea id="expected_value" name="expected_value" rows="3" placeholder="客户最想先看到的业务结果" required></textarea>
+            </label>
+
+            <div class="field field-wide">
+              <span>上传工作坊照片</span>
+              <input id="files" name="files" class="sr-only" type="file" accept=".png,.jpg,.jpeg,.webp" multiple />
+              <label id="dropzone" class="dropzone" for="files">
+                <strong>拖拽或点击上传图片</strong>
+                <span>支持 jpg / png / webp，可一次选择多张图片</span>
+              </label>
+              <div id="file-list" class="file-list"></div>
+              <small class="field-hint">支持手机拍照后直接上传，也支持电脑端拖拽图片到上传框。</small>
+            </div>
+
+            <div class="form-actions field-wide">
+              <button class="primary-button" type="submit">生成方案</button>
+              <button id="reset-button" class="secondary-button" type="button">清空重填</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="panel result-panel">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">任务状态</p>
+              <h2>生成过程与结果</h2>
+            </div>
+            <span id="status-badge" class="badge">未开始</span>
+          </div>
+
+          <div class="status-card">
+            <p class="mini-label">当前阶段</p>
+            <strong id="stage-label">等待提交</strong>
+            <p id="job-id-text">任务编号：-</p>
+          </div>
+
+          <div id="error-card" class="notice-card is-hidden"></div>
+
+          <div class="artifact-section">
+            <div class="subsection-head">
+              <h3>当前执行阶段</h3>
+            </div>
+            <div id="timeline" class="timeline"></div>
+          </div>
+
+          <div class="artifact-section">
+            <div class="subsection-head">
+              <h3>结果访问</h3>
+            </div>
+            <div class="product-grid">
+              <article class="product-card">
+                <div class="product-head">
+                  <div>
+                    <strong>方案 PPT</strong>
+                    <p class="mini-label product-subtitle">业务方案</p>
+                  </div>
+                  <span id="ppt-state" class="product-state">等待生成</span>
+                </div>
+                <p class="product-text">生成完成后可直接打开或下载业务方案 PPT。</p>
+                <div id="ppt-actions" class="artifact-actions"></div>
+              </article>
+
+              <article class="product-card">
+                <div class="product-head">
+                  <div>
+                    <strong>演示原型</strong>
+                    <p class="mini-label product-subtitle">HTML 页面</p>
+                  </div>
+                  <span id="prototype-state" class="product-state">等待生成</span>
+                </div>
+                <p class="product-text">原型页面会在方案生成后继续补齐，完成后可直接访问。</p>
+                <button id="prototype-generate-button" class="secondary-button" type="button">生成演示原型</button>
+                <div id="prototype-actions" class="artifact-actions"></div>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

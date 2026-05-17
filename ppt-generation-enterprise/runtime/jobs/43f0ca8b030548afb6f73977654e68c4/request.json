@@ -1,0 +1,34 @@
+{
+  "workshop": {
+    "customer": "会员增长与保留运营工作台",
+    "industry": "跨界电商",
+    "title": "AI Discovery Card Workshop",
+    "group_name": "现场共创组",
+    "date": "2026-05-17"
+  },
+  "event_input": {
+    "scene_name": "会员增长与保留运营工作台",
+    "scenario_summary": "围绕会员生命周期运营，打通客户洞察、内容生成、活动落地和流失预警，形成一体化运营闭环。",
+    "target_role": "会员运营负责人",
+    "current_pain_point": "会员分层、内容生产和流失预警分散在多个系统中，协同成本高。",
+    "expected_value": "先生成一版可演示方案，用于展示会员增长与保留联动价值。",
+    "prototype_preference": "会员增长与保留运营工作台",
+    "customer_type": "跨界电商"
+  },
+  "mvp_spec": {
+    "tech_stack_preference": "Next.js + Tailwind CSS"
+  },
+  "current_process": [],
+  "detected_cards": {},
+  "recognized_cards": [],
+  "card_photo_paths": [],
+  "product_mapping": [],
+  "options": {
+    "mode": "python-fast",
+    "template": "enterprise-forum",
+    "theme": "eden-enterprise",
+    "aspect_ratio": "16:9",
+    "generate_prototype": false,
+    "timeout_seconds": 900
+  }
+}

@@ -1,0 +1,16 @@
+[Unit]
+Description=Workshop Generation Service
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/ai-workshop/ppt-generation-enterprise
+EnvironmentFile=/opt/ai-workshop/ppt-generation-enterprise/.env
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/usr/bin/python3 -m workshop_service
+Restart=always
+RestartSec=5
+User=azureuser
+
+[Install]
+WantedBy=multi-user.target

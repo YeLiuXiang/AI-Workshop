@@ -2,15 +2,18 @@ from __future__ import annotations
 
 import json
 import os
+import shutil
 import subprocess
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
+from collections.abc import Callable
 
 from workshop_service.codex_cli import CodexCliRunner
 from workshop_service.config import Settings
-from workshop_service.models import ArtifactRecord, JobMode, JobRecord, JobStatus, WorkshopJobRequest
+from workshop_service.models import ArtifactRecord, JobMode, JobRecord, WorkshopJobRequest
 from workshop_service.prompting import build_codex_prompt
+from workshop_service.prototype_builder import write_prototype
 
 
 @dataclass
@@ -31,9 +34,11 @@ class WorkshopPipeline:
         job: JobRecord,
         request: WorkshopJobRequest,
         job_dir: Path,
+        progress_callback: Callable[[str, str], None] | None = None,
     ) -> PipelineRunResult:
         request_path = Path(job.request_path)
         mode = request.options.mode or JobMode(self.settings.codex_default_mode)
+        options = request.options.model_dump()
         logs: dict[str, str] = {}
         scenario_path: Path | None = None
         before_dirs = {
@@ -43,6 +48,8 @@ class WorkshopPipeline:
         } if self.settings.output_root.exists() else set()
 
         if mode == JobMode.codex_cli:
+            if progress_callback:
+                progress_callback("codex-normalization", "Copilot 正在整理场景与图片输入")
             scenario_path = job_dir / "normalized-scenario.json"
             image_paths = self._resolve_image_paths(request, request_path, job_dir)
             prompt = build_codex_prompt(
@@ -75,10 +82,12 @@ class WorkshopPipeline:
             input_path = request_path
             fast_mode = mode == JobMode.python_fast
 
+        if progress_callback:
+            progress_callback("artifact-generation", "正在生成 PPT、PRD 和方案设计")
         generator_result = self._run_generator(
             input_path=input_path,
             fast_mode=fast_mode,
-            options=request.options.model_dump(),
+            options=options,
             timeout_seconds=request.options.timeout_seconds,
         )
         logs["generator_stdout"] = generator_result.stdout
@@ -90,6 +99,15 @@ class WorkshopPipeline:
             )
 
         case_dir = self._extract_case_dir(generator_result.stdout, before_dirs)
+        prototype_dir = case_dir / "mvp-prototype"
+        if options.get("generate_prototype"):
+            scenario_payload = self._load_scenario_payload(case_dir, scenario_path)
+            if progress_callback:
+                progress_callback("prototype-generation", "正在生成演示原型页面")
+            if scenario_payload:
+                write_prototype(scenario_payload, case_dir)
+        elif prototype_dir.exists():
+            shutil.rmtree(prototype_dir, ignore_errors=True)
         artifacts = self._collect_artifacts(case_dir)
         return PipelineRunResult(
             case_dir=case_dir,
@@ -203,6 +221,28 @@ class WorkshopPipeline:
                 )
             )
         return artifacts
+
+    def _load_scenario_payload(self, case_dir: Path, scenario_path: Path | None) -> dict | None:
+        candidates = []
+        if scenario_path and scenario_path.exists():
+            candidates.append(scenario_path)
+        candidates.extend(
+            [
+                case_dir / "场景输入.json",
+                case_dir / "组合场景.json",
+            ]
+        )
+        for path in candidates:
+            if path.exists():
+                return json.loads(path.read_text(encoding="utf-8"))
+        return None
+
+    def generate_prototype(self, case_dir: Path, scenario_path: Path | None = None) -> list[ArtifactRecord]:
+        scenario_payload = self._load_scenario_payload(case_dir, scenario_path)
+        if not scenario_payload:
+            raise RuntimeError("Unable to locate scenario payload for prototype generation")
+        write_prototype(scenario_payload, case_dir)
+        return self._collect_artifacts(case_dir)
 
 
 def write_request_json(request: WorkshopJobRequest, path: Path) -> None:

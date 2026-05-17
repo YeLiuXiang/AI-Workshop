@@ -23,6 +23,7 @@ class JobStore:
                 job_id=job_id,
                 status=JobStatus.queued,
                 mode=mode,
+                stage_label="等待执行",
                 created_at=utc_now_iso(),
                 updated_at=utc_now_iso(),
                 request_path=str(request_path),

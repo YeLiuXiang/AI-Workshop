@@ -35,6 +35,11 @@ Expected top-level sections:
 - optional `prototype`
 - optional `mvp_spec`
 
+Input compatibility note:
+
+- if `event_input.scene_name` exists, treat it as the preferred scenario title
+- `event_input.scenario_summary` should remain the business description or workflow description
+
 The `opportunity` section is required. Use this shape:
 
 ```json

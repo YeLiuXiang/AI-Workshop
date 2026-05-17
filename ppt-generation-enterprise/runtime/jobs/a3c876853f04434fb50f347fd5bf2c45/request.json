@@ -1,0 +1,46 @@
+{
+  "workshop": {
+    "title": "AI Discovery Card Workshop",
+    "customer": "企业知识问答与培训助手",
+    "industry": "专业服务",
+    "group_name": "现场共创组",
+    "date": "2026-05-17"
+  },
+  "event_input": {
+    "scene_name": "企业知识问答与培训助手",
+    "customer_type": "专业服务",
+    "scenario_summary": "围绕内部知识沉淀与培训场景，连接制度文档、项目案例和常见问答，帮助员工快速获取答案和培训内容。",
+    "target_role": "培训与知识管理负责人",
+    "current_pain_point": "知识分散在文档、群聊和个人经验中，新员工培训周期长，重复性答疑占用大量专家时间。",
+    "expected_value": "先生成一版知识问答与培训方案，验证统一入口、问答推荐和培训内容整理的价值。",
+    "prototype_preference": "企业知识问答与培训助手工作台"
+  },
+  "mvp_spec": {
+    "prototype_mode": "前端壳子优先",
+    "primary_user": "培训与知识管理负责人",
+    "core_task": "先生成一版知识问答与培训方案，验证统一入口、问答推荐和培训内容整理的价值。",
+    "screens": [],
+    "modules": [],
+    "key_actions": [],
+    "sample_data": [],
+    "style_keywords": [
+      "企业级",
+      "卡片式布局"
+    ],
+    "out_of_scope": [],
+    "tech_stack_preference": "Next.js + Tailwind CSS"
+  },
+  "current_process": [],
+  "detected_cards": {},
+  "recognized_cards": [],
+  "card_photo_paths": [],
+  "product_mapping": [],
+  "options": {
+    "mode": "codex-cli",
+    "template": "enterprise-forum",
+    "theme": "eden-enterprise",
+    "aspect_ratio": "16:9",
+    "generate_prototype": false,
+    "timeout_seconds": 900
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "job_id": "2b1ed2865cbf4ae9a82e368d3bdb27de",
+  "status": "succeeded",
+  "mode": "python-fast",
+  "stage": "completed",
+  "stage_label": "已完成，结果可下载",
+  "created_at": "2026-05-17T09:55:37.939136+00:00",
+  "updated_at": "2026-05-17T09:55:39.217749+00:00",
+  "request_path": "F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\runtime\\jobs\\2b1ed2865cbf4ae9a82e368d3bdb27de\\request.json",
+  "scenario_path": null,
+  "case_dir": "F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\workspace\\会员增长与保留运营工作台-会员增长与保留运营工作台",
+  "artifacts": [
+    {
+      "name": "mvp-prototype/app.js",
+      "path": "F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\workspace\\会员增长与保留运营工作台-会员增长与保留运营工作台\\mvp-prototype\\app.js",
+      "size_bytes": 1339
+    },
+    {
+      "name": "mvp-prototype/index.html",
+      "path": "F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\workspace\\会员增长与保留运营工作台-会员增长与保留运营工作台\\mvp-prototype\\index.html",
+      "size_bytes": 5570
+    },
+    {
+      "name": "mvp-prototype/scenario.json",
+      "path": "F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\workspace\\会员增长与保留运营工作台-会员增长与保留运营工作台\\mvp-prototype\\scenario.json",
+      "size_bytes": 8044
+    },
+    {
+      "name": "mvp-prototype/styles.css",
+      "path": "F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\workspace\\会员增长与保留运营工作台-会员增长与保留运营工作台\\mvp-prototype\\styles.css",
+      "size_bytes": 4154
+    },
+    {
+      "name": "会员增长与保留运营工作台-会员增长与保留运营工作台方案.pptx",
+      "path": "F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\workspace\\会员增长与保留运营工作台-会员增长与保留运营工作台\\会员增长与保留运营工作台-会员增长与保留运营工作台方案.pptx",
+      "size_bytes": 3508276
+    },
+    {
+      "name": "原始输入.json",
+      "path": "F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\workspace\\会员增长与保留运营工作台-会员增长与保留运营工作台\\原始输入.json",
+      "size_bytes": 1264
+    },
+    {
+      "name": "场景输入.json",
+      "path": "F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\workspace\\会员增长与保留运营工作台-会员增长与保留运营工作台\\场景输入.json",
+      "size_bytes": 8044
+    },
+    {
+      "name": "方案设计.md",
+      "path": "F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\workspace\\会员增长与保留运营工作台-会员增长与保留运营工作台\\方案设计.md",
+      "size_bytes": 2965
+    },
+    {
+      "name": "替换映射.json",
+      "path": "F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\workspace\\会员增长与保留运营工作台-会员增长与保留运营工作台\\替换映射.json",
+      "size_bytes": 16913
+    },
+    {
+      "name": "演示文稿方案.json",
+      "path": "F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\workspace\\会员增长与保留运营工作台-会员增长与保留运营工作台\\演示文稿方案.json",
+      "size_bytes": 23365
+    },
+    {
+      "name": "组合场景.json",
+      "path": "F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\workspace\\会员增长与保留运营工作台-会员增长与保留运营工作台\\组合场景.json",
+      "size_bytes": 5143
+    },
+    {
+      "name": "需求PRD.md",
+      "path": "F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\workspace\\会员增长与保留运营工作台-会员增长与保留运营工作台\\需求PRD.md",
+      "size_bytes": 2068
+    }
+  ],
+  "prototype_status": "succeeded",
+  "prototype_label": "原型已完成",
+  "prototype_error": null,
+  "error": null,
+  "logs": {
+    "generator_stdout": "F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\workspace\\会员增长与保留运营工作台-会员增长与保留运营工作台\n",
+    "generator_stderr": "",
+    "generator_command": "python scripts/generate_workshop_package.py --input F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\runtime\\jobs\\2b1ed2865cbf4ae9a82e368d3bdb27de\\request.json --workspace-root F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\workspace --template enterprise-forum --theme eden-enterprise --aspect-ratio 16:9 --fast"
+  }
+}

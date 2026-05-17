@@ -1,0 +1,572 @@
+{
+  "slide-0": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 11.0,
+          "bold": true,
+          "color": "E91E63",
+          "text": "AI DISCOVERY WORKSHOP"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 34.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "企业知识问答与培训助手"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 34.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "AI Discovery Workshop 商机与原型方案"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 15.0,
+          "color": "555555",
+          "text": "客户：企业知识问答与培训助手 | 行业：专业服务"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 15.0,
+          "color": "555555",
+          "text": "小组：现场共创组 | 日期：2026-05-17"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 8.0,
+          "color": "999999",
+          "text": "企业知识问答与培训助手"
+        }
+      ]
+    }
+  },
+  "slide-1": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "当前差距与优先痛点"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "1. 员工在文档库、群聊和同事经验中分散查找制度与项目知识"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "2. 培训负责人手动整理培训材料和常见问答"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "3. 员工遇到复杂问题时重复向专家或老员工求助"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "4. 专家人工回答后缺少标准化沉淀与复用"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "1. 知识分散在多个载体中，查找成本高且答案口径不一致"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "2. 新员工培训依赖人工整理和专家带教，周期长、效率低"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "3. 重复性答疑无法有效沉淀为可复用的培训资产和知识资产"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "优先切口：知识分散在多个载体中，查找成本高且答案口径不一致"
+        }
+      ]
+    }
+  },
+  "slide-2": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "业务机会与 Why Now"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "机会判断：企业知识问答与培训助手是一个适合优先验证的业务机会，因为它能同时解决知识复用效率和培训交付效率两个高频问题。"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "为什么是现在：企业已经积累了大量制度文档、项目案例和常见问答，现在具备条件把分散知识转成可检索、可问答、可培训的统一入口。"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "价值支撑：新员工培训和日常答疑都依赖少数专家，边际成本高"
+        }
+      ]
+    }
+  },
+  "slide-3": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "客户现场卡片流程"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "业务场景 / 输入感知：智能体类卡片 / OCR / 表单理解"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "理解分析：文本理解 / 用户意图识别 / 数据分析"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "生成交互 / 执行闭环：自动回答 / 自然对话 / 文本生成 / 流程优化 / 生产力 / 人机交互"
+        }
+      ]
+    }
+  },
+  "slide-4": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "目标 AI Flow"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "业务触发：员工发起知识查询、培训学习或业务答疑请求"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "1. 系统接入制度文档、项目案例、FAQ 和培训资料并完成解析整理"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "2. AI 识别用户问题意图、角色背景和所需知识范围"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "3. 系统基于统一知识库检索相关内容并生成问答结果与学习建议"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "4. AI 自动整理培训要点、推荐学习路径和可复用材料"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "5. 用户反馈与专家补充内容回写知识库，持续优化问答与培训内容"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "业务闭环：形成统一的知识问答、培训推荐和内容沉淀闭环"
+        }
+      ]
+    }
+  },
+  "slide-5": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "解决方案架构"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "架构主线：该场景围绕内部知识沉淀与培训场景，连接制度文档、项目案例和常见问答，帮助员工快速获取答案和培训内容，同时把答疑过程持续沉淀为组织知识资产。"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "架构分层：展示层：页面壳子、看板卡片、列表表格、详情抽屉 / 交互层：筛选切换、建议查看、动作触发、结果回看 / 数据层：样例数据、页面状态配置、Mock 接口返回"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "优先产品栈：Azure AI Document Intelligence / Microsoft Graph / Azure AI Search / Azure OpenAI"
+        }
+      ]
+    }
+  },
+  "slide-6": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "能力映射与交付物"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "多源文档接入与结构化解析 -> Azure AI Document Intelligence, Microsoft Graph | 交付：文档解析与知识入库底座"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "统一检索与知识问答 -> Azure AI Search, Azure OpenAI | 交付：RAG 问答与知识推荐助手"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "培训内容生成与工作台协同 -> Azure OpenAI, Power Apps | 交付：培训工作台与内容整理原型"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "优先产品栈：Azure AI Document Intelligence / Microsoft Graph / Azure AI Search / Azure OpenAI"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "现场交付物：Workshop 定制化 PPT / 知识问答与培训 AI Flow / POC 验证范围与原型规格"
+        }
+      ]
+    }
+  },
+  "slide-7": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "业务价值与验证假设"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "缩短员工获取知识和培训内容的时间"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "降低专家重复答疑投入，提升知识复用率"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "把答疑记录和培训材料持续沉淀为可运营的企业知识资产"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "知识检索时间下降 50%"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "重复性答疑量下降 30%"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "新员工培训准备周期下降 40%"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "1. 知识问答命中率和回答可用性"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "2. 培训内容整理与推荐是否显著降低人工整理成本"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "3. 专家补充与知识回写流程是否可持续运行"
+        }
+      ]
+    }
+  },
+  "slide-8": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "原型与 MVP 设计"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "原型名称：企业知识问答与培训助手工作台；目标用户：培训与知识管理负责人"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "系统形态：企业知识问答与培训助手工作台；目标：把知识检索、智能问答、培训内容整理和知识回写整合到一个统一工作台中"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "MVP 交付：前端壳子优先；核心任务：快速生成一版知识问答与培训方案，验证统一入口、问答推荐和培训内容整理的价值。；技术栈：Next.js + Tailwind CSS"
+        }
+      ]
+    }
+  },
+  "slide-9": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "POC 与下一步"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "试点范围：先验证知识接入整理、统一问答推荐和培训内容生成三段闭环"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "培训与知识管理负责人"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "业务专家"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "IT / 数字化团队"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "1. 确认首批接入的制度文档、项目案例和 FAQ 范围"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "2. 选择一个高频培训主题和一类典型答疑问题作为试点"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "3. 输出工作台原型范围、样例数据和 POC 验证口径"
+        }
+      ]
+    }
+  }
+}
