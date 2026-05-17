@@ -1,0 +1,147 @@
+﻿分类,标题,描述,详细说明,产品,使用区,卡片分组
+Content creation,个性化营销,使用AI通过分析客户数据和预测最佳互动策略来定制营销活动。,"有针对性的营销活动-根据行为和偏好对客户进行细分以使用AI开展有影响力的营销活动。
+内容改进-利用AI建议增强营销内容，与目标受众的兴趣保持一致。","Azure Machine Learning, Azure AI Search, Dynamics 365 Customer Insights",1业务场景区,Original_Card
+数据和预测分析,了解客户,深入了解客户行为，预测他们的需求，并有效地定制解决方案。,"零售-根据客户过去的购买情况推荐产品。
+营销-根据客户与品牌的互动来个性化营销活动。","Azure Machine Learning, Azure AI Foundry, Microsoft Fabric, Dynamics 365 Customer Insights",1业务场景区,Original_Card
+数据和预测分析,预测客户流失,使用AI预测客户流失并主动响应以留住他们。,"订阅服务-根据客户使用模式预测可能的取消。
+营销-为面临流失风险的客户提供个性化激励。","Azure Machine Learning, Microsoft Fabric, Dynamics 365 Customer Insights",1业务场景区,Original_Card
+数据和预测分析,预测和规划需求,使用AI分析销售数据、识别模式并准确预测需求。,"销售分析历史销售数据以确定模式和季节性。
+库存管理-根据预测的需求规划库存，以避免缺货和积压。","Azure Machine Learning, Microsoft Fabric, Azure AI Foundry, Dynamics 365 Supply Chain Management",1业务场景区,Original_Card
+数据和预测分析,预测风险或欺诈,使用AI检测可疑活动并实时预测潜在威胁。,"银行业务-识别交易中的可疑模式以检测潜在的欺诈行为。
+网络安全-实时预测威胁以防止数据泄露。","Microsoft Fabric, Azure AI Foundry, Azure Sentinel, Azure Machine Learning, Dynamics 365 Fraud Protection",1业务场景区,Original_Card
+数据和预测分析,获得市场洞察,利用AI了解市场趋势、预测和评估竞争对手的行为。,"零售-分析数据点以了解市场趋势并为战略决策提供信息
+营销-跟踪竞争对手的数字足迹以了解他们的策略和绩效","Azure Machine Learning, Azure AI Foundry, Azure AI Language, Azure Maps, Bing Search API, Power BI",1业务场景区,Original_Card
+智能体,流程优化,智能体式人工智能通过自主协调、分配和调度复杂工作流中的任务，提升运营效率。,"制造业-预测性维护智能体持续监控设备健康状况，并在故障发生前安排维修。
+零售业-库存优化智能体预测需求，并动态调整多个地点的库存水平。","Azure AI Foundry, Microsoft 365 Copilot, Agent Service",1业务场景区,Original_Card
+智能体,生产力,人工智能体通过处理重复性任务，简化行政与知识类工作，为高价值活动腾出时间。,"企业运营-会议总结智能体参与虚拟会议，提取行动项并发送跟进信息。
+法律运营-合同审查智能体分析法律文件，标记风险并建议修改方案。","Azure AI Foundry, Microsoft 365 Copilot, Agent Service",1业务场景区,Original_Card
+智能体,客户服务,人工智能体简化客户互动、收集信息并处理请求，为人工工作人员提供支持。,"零售业-智能体处理咨询、跟踪物流并发起退货，减少等待时间并提升客户满意度。
+电信业-人工智能监控服务中断情况，主动联系受影响客户，并在无需人工干预的情况下安排技术人员上门。","Azure AI Foundry, Microsoft 365 Copilot, Agent Service",1业务场景区,Original_Card
+智能体,安全运营,智能体式人工智能通过规模化自动化威胁检测、情报整理和漏洞响应，强化安全团队能力。,"威胁情报-智能体为组织的风险概况整理实时、特定场景的威胁简报。
+漏洞管理-智能体识别、优先处理并指导跨系统漏洞的修复工作。","Microsoft 365 Copilot, Azure AI Foundry, Microsoft Security Copilot, Agent Service",1业务场景区,Original_Card
+智能体,决策制定,人工智能体通过解读上下文并基于自然语言指令执行操作实现自主决策。,"多智能体系统-协调智能体根据其他智能体的能力与预期结果分配任务。
+客户支持-服务智能体解读客户消息，并选择最佳回复或解决路径。","Microsoft 365 Copilot, Azure AI Foundry, Agent Service",1业务场景区,Original_Card
+智能体,零售与营销,智能体式人工智能通过自动化个性化、调研和营销活动洞察，支持客户互动与营销执行。,"零售业-个人购物智能体为用户整理产品推荐并代完成购买。
+市场营销-调研智能体收集并总结竞品情报与市场趋势，助力活动规划。","Microsoft 365 Copilot, Azure AI Foundry, Agent Service, Dynamics 365",1业务场景区,Original_Card
+智能体,软件开发,人工智能体通过自动化代码生成、审查和项目搭建，协助开发者加快交付速度并提升质量。,"DevOps-应用构建智能体选择框架、生成代码，并与GitHub集成以实现CI/CD自动化。
+工程领域-代码审查智能体扫描拉取请求中的漏洞、安全问题与最佳实践，并提供可操作建议。","Azure AI Foundry, Microsoft 365 Copilot, Agent Service, GitHub",1业务场景区,Original_Card
+智能体,路径规划与物流,人工智能体做出实时决策，优化货物、人员和资源的移动提升配送速度与服务可靠性。,"制造业-供应链路径规划智能体根据延误、天气或需求波动重新规划运输路线。
+交通运输业-车队调度智能体根据配送紧急程度和交通状况分配车辆与路线。","Microsoft 365 Copilot, Azure AI Foundry, Agent Service",1业务场景区,Original_Card
+时序数据与AI数据底座,全球客户洞察与精细化运营,将设备活跃度、功能使用、故障频率、地域分布、订阅服务状态和售后记录转化为客户经营数据，支撑客户分群、流失预测、增购推荐、服务续费和区域市场策略。,"客户分群与触达:企业按区域、型号、渠道、使用频率和故障体验识别高价值客户、沉默客户和流失风险客户，并生成运营触达建议。
+订阅与增值服务:系统结合设备使用强度、故障风险和历史服务记录，预测续费概率、增购可能性和服务套餐推荐方向。","Azure Machine Learning, Azure AI Foundry, DataLayers, EMQX, Dynamics 365 Supply Chain Management",1业务场景区,ISV_Card
+时序数据与AI数据底座,全球备件、库存与履约优化,基于设备故障码、使用时长、区域分布、维修次数和高风险部件状态，预测备件需求、区域维修负载和库存缺口，并联动供应链系统优化采购、仓储和履约计划。,"备件需求预测:当某个国家、渠道或设备批次出现高频部件故障时，系统提前预测备件消耗趋势，减少海外缺货和紧急调拨。
+服务资源规划:售后团队按区域故障趋势、维修周期和库存状态规划服务网点、工程师排班和履约优先级。","Microsoft Fabric, Azure Machine Learning, DataLayers, EMQX, Dynamics 365 Supply Chain Management",1业务场景区,ISV_Card
+语音识别,使用关键字激活,使用特定关键字个性化AI助手或loT设备的激活。,"AI助手-允许用户使用首选标语激活助手。
+汽车行业-通过自定义语音命令激活改善驾驶体验。","Azure AI Language, Azure AI Foundry, Azure loT Edge",2输入感知区,Original_Card
+语音识别,了解特殊上下文,针对特定上下文、口音或行业定制语音合成和识别。,"电信-培训语音助手理解行业特定的行话和口音。
+医疗保健行业-使医疗应用程序能够理解和生成医学术语。","Azure AI Language, Azure AI Foundry",2输入感知区,Original_Card
+语音识别,启用语音命令,免提与设备或应用程序交互，以实现便利性和可访问性。,"医疗保健行业-协助医疗专业人员免提访问信息或控制设备。
+智能家电-通过语音命令控制灯或恒温器等家用电器。","Azure AI Foundry, Azure AI Language",2输入感知区,Original_Card
+语音识别,将语音转换为文本,使用AI将口语转录为文本，并支持进一步基于文本的使用。,"转录服务-自动转录采访、会议或讲座。
+语音助手-将语音命令转换为文本进行处理。",Azure AI Foundry,2输入感知区,Original_Card
+语音识别,识别声音,使用独特的语音特征来增强安全性和个性化。,"客户服务-识别呼叫者以进行个性化互动和快速验证。
+智能家居设备-通过识别不同家庭成员的声音来定制用户体验。",Azure AI Foundry,2输入感知区,Original_Card
+视觉感知,生成图像元数据,使用AI创建有关图像的结构化数据，从而增强可搜索性和管理能力。,"数字档案-通过为每个图像生成详细的元数据，促进大型图像档案中的搜索和检索。
+摄影-通过为每张照片创建元数据（包括位置、主题、相机设置等详细信息），帮助摄影师管理他们的作品集。","Azure Machine Learning, Azure AI Foundry, Azure AI Vision",2输入感知区,Original_Card
+视觉感知,了解环境,使用AI来解释不同位置或空间之间的关系、模式和趋势。,"零售-分析商店内的客户移动和互动以了解行为。
+城市规划-通过分析人口密度或交通模式等空间数据来优化基础设施和服务。","Azure AI Vision, Azure Digital Twins, Azure Maps, Azure AI Foundry",2输入感知区,Original_Card
+视觉感知,创建图像字幕,使用AI生成图像的文本描述，在没有视觉感知的情况下增强理解。,"辅助功能-通过网站或应用程序上图像的文本描述，提高视障用户的辅助功能。
+教育-通过为教育图像或图表提供详细的标题来帮助学习。","Azure AI Foundry, Azure AI Vision",2输入感知区,Original_Card
+视觉感知,分析图像,利用AI来理解、解释视觉数据并从中获得见解。,"农业-通过分析无人机捕获的农田图像来协助农民进行作物监测，以寻找疾病或痛苦的迹象。
+交通控制-通过分析实时道路图像来识别拥堵、事故或违规行为，从而管理交通。","Azure AI Vision, Azure AI Foundry, Azure Machine Learning, Azure AI Content Understanding, Bing Search API",2输入感知区,Original_Card
+视觉感知,识别人脸,使用AI通过比较和分析基于面部轮廓的模式来识别或验证一个人的身份。,"安全系统-通过使系统能够识别授权的个人以进行访问控制来增强安全性。
+社交媒体-启用社交媒体平台中的个人自动标记。","Azure AI Vision, Azure AI Foundry, Azure AI Face service",2输入感知区,Original_Card
+视觉感知,识别和理解表单,使用AI从各种形式（如收据、发票和标准政府或商业文件）中提取数据。,"手写文本-AI可以识别手写文本和印刷文本。
+自定义模型-训练自定义AI模型以识别特定类型的表单和文档。","Azure AI Document Intelligence, Azure AI Foundry, Azure AI Content Understanding, Power Platform :A Builder",2输入感知区,Original_Card
+视觉感知,标识对象,使用AI创建针对特定需求和应用的自定义图像识别模型,"辅助功能-帮助视障用户描述环境。
+零售-自动识别和编目图像中的产品，以简化库存管理。","Azure Machine Learning, Azure AI Vision, Azure AI Foundry, Azure AI Content Understanding",2输入感知区,Original_Card
+视觉感知,对图像进行分类,使用AI根据图像的内容标记图像，从而简化视觉数据的管理和检索。,"数字资产管理-通过标记图像以便于检索，简化大型图像库的管理。
+电子商务-通过标记产品图片来增强客户体验，使客户能够搜索类似产品。","Azure AI Vision, Azure AI Foundry, Azure Machine Learning, Azure AI Content Understanding",2输入感知区,Original_Card
+视觉感知,将图像转换为文本,使用AI将各种类型的文档转换为可编辑和可搜索的数据。,"管理-将打印的文档转换为数字文本，以便于搜索和检索。
+教育-将印刷教科书转换为数字格式，促进远程学习。","Bing Search API, Power Platform: AI Builder, Azure AI Vision",2输入感知区,Original_Card
+设备接入与数据治理,设备安全接入,通过标准MQTT、TLS加密、认证授权、ACL 和连接治理，将海量设备安全、稳定地接入云端，为后续数据处理、AI分析和业务闭环提供统一入口。,"智能终端企业:设备通过MQTT接入EMQX，统一上报遥测、状态、事件和错误码，并按产品线、区域、租户进行Topic隔离。
+全球化设备运营:不同国家和区域的设备使用统一身份规范接入，平台持续监控连接成功率、在线率、异常重连和认证失败情况。","DataLayers, Microsoft Sentinel, EMQX",2输入感知区,ISV_Card
+Kafka与实时消息流,Kafka生态与企业数据平台集成,通过FlowMQ兼容Kafka协议和消费模型，让已有Kafka应用、实时计算任务、数据平台和AI管道可以直接消费loT 数据，降低从设备消息到数据平台的集成成本，并减少为不同系统重复建设连接器、桥接程序和数据管道的总体拥有成本。,"Kafka应用复用:企业已有Kafka消费程序、数据处理任务和数据治理流程，无需重写为MQTT消费逻辑即可接入设备数据，降低迁移成本和团队学习成本。
+AI数据管道:设备事件以Kafka流形式进入特征工程、异常检测、模型训练或智能体上下文构建流程，减少为AI场景单独维护一套实时数据抽取链路。","FlowMQ, EMQX, Microsoft Fabric, Azure Machine Learning",2输入感知区,ISV_Card
+设备接入与数据治理,loT接入安全审计与风险治理,采集认证失败、异常连接、Topic越权、证书风险、异常重连和可疑指令等事件，形成loT接入安全监控、审计和处置闭环。,"接入风险监控:平台持续识别异常连接来源、暴力认证、异常Topic访问和可疑设备行为。
+安全运营辅助:安全团队通过MicrosoftSentinel 和SecurityCopilot汇总loT接入风险，生成事件摘要、影响范围和处置建议。","EMQX, Microsoft Security Copilot, DataLayers, Microsoft Sentinel",2输入感知区,ISV_Card
+时序数据与AI数据底座,视觉增强的安装、质检与现场诊断,将安装现场照片、设备铭牌、质检图片、维修单和票据等非结构化资料与设备实时状态、历史故障和知识库关联起来，支持安装验收、现场诊断、质检复核和维修建议。,"安装验收:工程师上传现场照片和设备铭牌，系统识别设备型号、安装环境和异常外观，并结合EMQX上报的实时状态判断是否满足交付条件。
+现场诊断:售后人员上传维修单、部件照片或错误截图，AI结合DataLayers中的相似案例、设备日志和产品手册生成排查路径。","EMQX, Azure AI Foundry, Azure AI Vision, DataLayers, Azure AI Document Intelligence",2输入感知区,ISV_Card
+设备接入与数据治理,规则引擎可与实时数据预处理,通过EMQX规则引擎对设备消息与生命周期事件进行规则触发、过滤、筛选、转换、富化和预处理，再集成到时序数据库、消息流、AI分析、告警或业务系统。,"设备运营平台:正常遥测进入DataLayers做时序分析，设备上下线、认证失败、异常事件进入告警链路，高价值事件进入AI分析流程。
+多团队数据消费:运维、数据、客服和产品团队使用同一套设备数据入口，但通过规则引擎获得不同粒度和不同字段的数据视图。","EMQX, FlowMQ, DataLayers, Microsoft Fabric",2输入感知区,ISV_Card
+时序数据与AI数据底座,设备日志、故障码与AI数据检索,将设备日志、故障码、维修记录、产品手册、FAQ、安装指南、客服记录、质检单和工单沉淀为AI可用的数据资产，并结合DataLayers的全文检索、向量检索和结构化过滤支撑RAG、相似事件召回、AI问答与故障解释。,"售后知识助手:客服输入设备型号和错误码后，系统结合历史维修记录、产品手册和当前设备状态返回处理建议。
+知识中台:运维人员查询某个异常模式时，系统按设备型号、批次、固件、错误码和日志片段召回相似故障、维修报告和产品文档，辅助定位根因。","Azure AI Foundry, DataLayers, Azure AI Search",2输入感知区,ISV_Card
+Kafka与实时消息流,Kafka实时数据流,通过FlowMQ提供以Kafka为核心的实时数据流能力，让loT遥测流、告警流、业务流和工单流可以进入Kafka消费生态，支撑实时计算、数据湖仓、AI特征管道和下游业务系统解耦，同时减少自研MQTT到 Kafka 桥接带来的开发、运维和长期维护成本。,"IoT与数据平台贯通:设备继续使用MQTT上报数据，数据团队以Kafka语义消费实时流，供实时计算、数据建模和AI分析使用。
+实时流式分析:设备遥测、告警、运营事件和工单状态以Kafka主题形式提供给MicrosoftFabric或其他数据平台，减少自研桥接和重复管道建设，让团队把投入更多放在数据建模与业务分析上。","Microsoft Fabric, Dynamics 365, EMQX, FlowMQ",2输入感知区,ISV_Card
+Kafka与实时消息流,多协议与多消息模式统一,在Kafka主链路之外，FlowMQ进一步统一MQTT、Kafka、AMQP以及发布订阅、流、队列等消息模式，让设备事件、数据流、告警流、工单流和业务事件可以在同一消息底座中互通，减少多套broker、bridge和点对点集成的长期维护成本，从TCO角度降低平台碎片化带来的运维、人力和排障成本。,"企业系统解耦:设备侧使用MQTT，数据侧使用Kafka，业务侧通过AMQP或应用接口接收事件，不同团队可以沿用熟悉的协议和消费模式。MQTT Broker、Kafka、
+消息平台整合:原本分散在AMQP和桥接服务中的消息链路收敛到统一平台，降低运维复杂度和跨团队协作成本。","Microsoft Copilot Studio, Dynamics 365, EMQX, FlowMQ",2输入感知区,ISV_Card
+设备接入与数据治理,Topic、Schema与设备数据规范治理,通过Topic规范、设备身份、消息字段、时间戳、单位、错误码、事件类型和 Schema 验证，对输入消息进行结构校验和语义治理，让不同型号、区域和业务线的设备数据具备统一语义。,"多产品线设备平台:空调、储能设备、机器人等不同产品统一使用遥测、事件、命令和回执主题规范，降低后续分析和运维复杂度。
+数据平台建设:EMQX对输入消息进行Schema验证、字段标准化和质量过滤，DataLayers承接统一后的设备数据，供MicrosoftFabric 建模分析。","Microsoft Fabric, DataLayers, EMQX",2输入感知区,ISV_Card
+设备接入与数据治理,跨域集群与主题级数据互通,通过EMQX Cluster Linking和跨域集群能力，让多个国家、地区或业务域的EMQX集群按指定主题实现数据互通，在保持区域自治的同时支持全球设备运营协同。,"全球化设备运营:中国、欧洲、北美等区域分别部署本地EMQX集群，关键运营指标和告警主题按需同步到总部平台。
+区域合规与全局洞察:原始敏感数据留在本地，跨域同步脱敏、聚合或特定主题数据，用于全球看板、AI分析和安全治理。","EMQX, DataLayers, Microsoft Fabric, Microsoft Sentinel",2输入感知区,ISV_Card
+数据和预测分析,识别数据模式,使用AI检测数据中的模式、连接和关联。,"交通-使用AI分析交通数据，以确定拥堵时间和事故高发区域
+医疗保健-使用AI分析大量医疗保健数据，以检测癌症或阿尔茨海默病等疾病的早期迹象","Microsoft Fabric, Copilot for Power BI, Azure Machine Learning, Azure AI Search",3理解分析区,Original_Card
+数据和预测分析,简化数据分析,使用AI通过自然语言创建复杂的数据查询和控制面板，使见解更易于访问。,"Sales-通过描述分析目标生成用于趋势分析的表达式。
+客户服务-使用自然语言查询构建一个汇总客户反馈的控制面板。","Azure AI Language, Azure AI Foundry, Copilot for Power BI",3理解分析区,Original_Card
+数据和预测分析,可视化数据,利用AI自动可视化和解释数据关系。,"销售-使用AI生成视觉对象和报告，识别客户趋势和购买模式
+业务分析-使用AI快速进行性能报告和可视化数据安排","Azure AI Foundry, Microsoft Fabric, Azure Machine Learning, Microsoft 365 Copilot for Sales",3理解分析区,Original_Card
+数据和预测分析,预测事件和结果,使用AI根据历史数据预测未来场景和结果。,"项目管理-根据过去的绩效数据估算项目完成时间。
+金融-预测市场趋势以制定投资策略。","Microsoft Fabric, Azure Machine Learning",3理解分析区,Original_Card
+数据和预测分析,分析情绪,利用AI检测和分析文本和图像中的情绪。,"客户服务-使用AI从反馈或产品评论中衡量客户情绪
+营销-使用AI分析社交媒体评论，以评估公众对品牌或事件的看法","Azure AI Foundry, Azure Machine Learning, Azure AI Language, Power Platform: AI Builder, Azure AI Custom Vision",3理解分析区,Original_Card
+数据和预测分析,检测异常,使用AI识别数据流或图像数据中的异常模式。,"银行业务-检测可能表明欺诈的可疑信用卡活动
+网络安全-发现登录数据中的异常流量模式，以检测潜在的网络攻击。","Azure Machine Learning, Azure Sentinel, Azure AI Custom Vision",3理解分析区,Original_Card
+文本处理,汇总文本,使用AI从大型文本数据中提取关键点，帮助快速理解和高效检索信息。,"业务报告-使用AI将冗长的业务报告总结为关键见解，从而实现快速决策。
+NewsDigest-使用AI将新闻文章总结成关键点，使读者能够快速掌握主要信息。","Azure AI Language, Azure AI Foundry, Microsoft Copilot Studio, Microsoft Teams Premium, Microsoft 365 Agents SDK",3理解分析区,Original_Card
+文本处理,分析情绪和情绪,使用AI从文本中检测和分析用户情绪，帮助改进服务和客户交互。,"客户支持-使用AI分析客户反馈或投诉，识别负面情绪以确定行动的优先级并提高满意度。
+市场研究-从社交媒体帖子或产品评论中了解客户情绪，从而深入了解公众舆论和品牌认知度。","Azure AI Foundry, Microsoft Copilot Studio, Azure AI Language, Microsoft 365 Agents SDK, Azure Machine Learning",3理解分析区,Original_Card
+交流,了解用户意图,解释人类语言以识别用户的特定意图和上下文。,"客户服务-了解客户请求并提供准确的支持。
+聊天机器人-使聊天机器人能够理解查询并提供相关响应。","Azure AI Bot Service, Azure AI Foundry, Azure AI Language, Microsoft Copilot Studio, Microsoft 365 Agents SDK",3理解分析区,Original_Card
+时序数据与AI数据底座,时序数据沉淀与运营分析,通过DataLayers承接设备遥测、日志、事件、告警和运行指标，提供面向loT的时序数据库能力，支持高吞吐写入、低延迟查询、时间窗口聚合、多维标签过滤、长期留存和运营分析，并按热、温、冷、知识数据分层服务实时控制、运营分析、合规追溯和AI助手。,"设备健康分析:按设备型号、区域、批次、固件版本和时间窗口分析在线率、能耗、故障率和延迟趋势。
+经营指标看板:将DataLayers 中的热数据、历史聚合数据和长期留存数据接入MicrosoftFabric 和Power BI，形成区域、产品线和客户维度的运营看板。","DataLayers, Microsoft Fabric, Power BI",3理解分析区,ISV_Card
+时序数据与AI数据底座,实时异常检测与预测性维护,基于EMQX实时消息、FlowMQKafka数据流、DataLayers时序历史和运行指标，结合机器学习识别异常模式、预测故障风险，并生成告警分级和维护建议。,"预测性维护:系统根据温度、电流、振动、错误码和历史维修记录预测未来一段时间内的故障风险。
+智能告警降噪:通过历史基线和异常检测模型识别真正需要处理的告警，减少固定阈值带来的误报和告警疲劳。","Azure Machine Learning, DataLayers, Azure AI Foundry, FlowMQ, EMQX",3理解分析区,ISV_Card
+Content creation,从文本生成图像,利用AI从文本描述中创建独特的图像。,"娱乐与媒体-从文本描述中创建独特的电影或游戏角色和场景。
+广告-根据文本描述的主题或概念为广告活动生成视觉对象。","Microsoft 365 Copilot, Microsoft Designer, Azure AI Foundry, Azure AI Content Understanding",4生成交互区,Original_Card
+Content creation,创建动态网页,使用AI生成网页的文本、表单和布局，从而简化Web开发。,"表单创建-使用AI自动生成活动注册的详细表单。
+动态布局-使用AI为产品目录创建动态网页布局。","Azure AI Language, Power Platform:Power Pages, GitHub Copilot",4生成交互区,Original_Card
+Content creation,生成或增强文本,实施高级自然语言理解，以实现更复杂的类似人类的交互。,"内容创建-为博客、文章或社交媒体帖子生成高质量的文本，从而提高工作效率。
+数据分析-从大量文本数据中提取见解，从而做出明智的业务决策。","Azure AI Foundry, Azure AI Language, Microsoft 365 Copilot",4生成交互区,Original_Card
+Content creation,生成合成数据,创建模拟真实数据的合成数据，以便在不影响隐私的情况下进行强大的模型训练。,"财务-模拟财务场景以测试模型，在不泄露敏感数据的情况下增强风险管理。
+零售-生成合成客户行为数据，以优化销售策略，同时保护客户隐私。","Microsoft Fabric, Azure Machine Learning, Azure AI Foundry",4生成交互区,Original_Card
+语音识别,模拟特定声部,创建逼真的合成语音，以反映个人的声音特征,"娱乐行业-为动画角色或数字影响者创建逼真的画外音。
+辅助功能-开发辅助技术，以熟悉的声音为有特殊需要的用户说话。","Azure AI Foundry, Azure AI Language",4生成交互区,Original_Card
+文本处理,翻译文本,使用AI进行多种语言的翻译，促进全球交流并打破语言障碍。,"国际商务-使用AI即时翻译商业文档或电子邮件，实现跨国公司的顺畅沟通。
+教育-使用AI翻译教育材料，提供对各种学习资源的访问，并协助多语言教育。","Microsoft Copilot Studio, Azure AI Foundry, Azure AI Translator, Microsoft Teams Premium",4生成交互区,Original_Card
+文本处理,生成上下文文本,使用AI生成上下文相关的个性化文本，从而增强用户体验和工作效率。,"内容创建-使用AI为文章、博客或社交媒体帖子创建草稿，以帮助创建和策展。
+电子邮件撰写-根据过去与AI的交互建议电子邮件回复或草稿电子邮件，从而节省时间和精力。","Azure AI Foundry, Azure AI Language, Microsoft Copilot Studio, Microsoft 365 Agents SDK, Microsoft 365 Copilot",4生成交互区,Original_Card
+交流,即时翻译语音,支持口语的即时翻译，实现无缝通信。,"客户支持-在多语言客户交互中提供实时翻译。
+旅行与旅游-通过即时翻译当地语言，为旅行者提供便利。","Azure AI Language, Microsoft 365 Copilot, Azure AI Foundry",4生成交互区,Original_Card
+交流,自动回答,通过即时、准确的响应快速解决查询。,"零售-通过聊天机器人处理客户对产品的查询。
+旅行-回答机场乘客关于服务和导航的询问。","Azure AI Search, Azure AI Foundry, Azure AI Bot Service, Microsoft Copilot Studio, Microsoft 365 Agents SDK",4生成交互区,Original_Card
+交流,通过头像进行交流,使用音频和视频虚拟形象创建引人入胜的体验，以实现沉浸式游戏和个人助理。,"游戏行业-使用独特的配音角色增强用户沉浸感。
+虚拟助手-通过逼真、富有表现力的声音提高用户参与度。",Azure AI Foundry,4生成交互区,Original_Card
+交流,进行自然对话,使用AI促进自然且引人入胜的对话，从而增强用户体验和交互。,"客户支持-通过AI驱动的聊天机器人以自然语言理解和响应用户查询。
+语音助手-与用户进行基于语音的交互，使用AI进行免提作。","Azure AI Bot Service, Azure AI Foundry, Azure AI Translator, Microsoft Copilot Studio, Microsoft 365 Agents SDK",4生成交互区,Original_Card
+交流,将文本转换为语音,使用AI将文本转换为逼真的语音，从而增强辅助功能和用户体验。,"辅助功能-使用AI为视觉障碍用户阅读文章、书籍或文档。
+语音助手-使用AI在应用程序或设备中提供基于语音的响应或指令。","Azure AI Foundry, Azure AI Language",4生成交互区,Original_Card
+时序数据与AI数据底座,AI诊断与运维助手,基于实时状态、历史趋势、设备知识库和工单上下文，由AI生成故障解释、处理建议、风险摘要和下一步动作。,"设备故障诊断:运维助手结合EMQX实时消息、DataLayers历史数据和知识库，解释某类设备频繁重连的可能原因。
+自动化处置建议:系统根据异常等级、影响范围和历史处理经验，建议是否创建工单、通知客服、下发配置或安排维护。","EMQX, Azure AI Foundry, DataLayers, Microsoft Copilot Studio",4生成交互区,ISV_Card
+时序数据与AI数据底座,自然语言设备运营分析,让架构师、运维和业务人员使用自然语言查询设备在线率、故障率、能耗、区域分布、活跃度和健康趋势，降低数据分析门槛。,"运营分析:业务人员询问“最近7天欧洲区域故障率最高的设备型号”，系统返回分析结果和可视化图表。
+运维排查:运维人员询问“哪些固件版本的离线率异常升高”，系统结合时序数据和BI模型给出候选原因。","Copilot for Power BI, Power BI, Microsoft Fabric, DataLayers",4生成交互区,ISV_Card
+导航与控制,自动化家庭运营,AI控制的家庭自动化和机器人技术,"照明和温度-根据用户偏好和一天中的时间控制家的照明和温度。
+清洁-作家居清洁机器人，保持清洁的生活环境。","Azure AI Foundry, Azure Digital Twins, Azure loT Operations",5执行闭环区,Original_Card
+导航与控制,人机交互,使用AI为机器人提供支持，使其能够安全地与人交互或协作。,"客户服务-作能够理解和响应客户查询的机器人。
+制造-对协作机器人（cobot）进行编程，使其在工厂中安全地与人类一起工作。","Azure Digital Twins, Azure AI Foundry, Azure loT Operations",5执行闭环区,Original_Card
+导航与控制,导航,使用AI引导人员、地面、空中和水上车辆自主导航。,"灾难响应-作行走机器人在灾难现场导航以进行救援行动。
+农业-驾驶可以自主在农场中导航的车辆，以执行播种或收割等任务。","Azure AI Foundry, Azure Digital Twins, Azure loT Operations, Azure Maps, Azure loT Edge",5执行闭环区,Original_Card
+导航与控制,自动履行,使用AI驱动仓库和超市系统，并控制机器人以实现高效的订单履行。,仓库-使用编程机器人自动拣选订单，以有效地导航布局。FulfillmentCenter-作机器人根据订单信息对货物进行分类、包装和调度。,"Azure loT Operations, Azure Digital Twins, Azure AI Foundry, Dynamics 365 Supply Chain Management",5执行闭环区,Original_Card
+产品开发模块,构建跨品牌的场景智能生态互联（A2A生态协作）,打破智能硬件品牌孤岛，通过Agent-to-Agent（A2A）协议实现跨厂商设备自动发现与自主协同，打造场景智能体验。,全屋智能联动:买一个设备等于接入整个智能生态。例如，通过分布式智能体网络，一键触发“离家模式”，自动联动不同品牌安防、灯光、空调、窗帘、扫地机。,"EMQ Device Agent A2A, Azure loT Operations, Azure Digital Twins",5执行闭环区,ISV_Card
+设备接入与数据治理,全球统一运维与自动化处置,将认证链、ACL、Topic规范、规则、连接器、监控指标和告警阈值沉淀为区域模板，并持续监控连接数、吞吐、消息延迟、认证失败、重连风暴、消费者积压和桥接失败，支撑跨区域统一运维与自动化处置。,"区域复制与标准化运维:新市场上线时复用统一接入规范、规则模板、安全策略和监控指标，减少每个区域重新设计平台治理体系的成本。
+自动化故障处置:当出现证书过期风险、异常重连、连接器失败或消费者积压时，系统生成扩容、限流、证书轮换、连接器重启、灰度回滚或工单创建建议。","FlowMQ, EMQX, DataLayers, Microsoft Security Copilt, Azure AI Foundry, Microsoft Sentinel",5执行闭环区,ISV_Card
+产品开发模块,简化智能设备应用与智能体开发,通过自然语言定义设备能力，利用AI将复杂的代码编写转化为“所见即所得”的配置，大幅缩短智能家居硬件的上市周期。,"智能家电研发:开发者用自然语言描述“空调、灯光、窗帘、门锁，支持开关、状态上报、远程控制”，系统即可自动生成设备规格、端侧SDK以及手机端App或小程序。
+敏捷迭代:将原本需要3-6个月的软硬件开发及测试周期缩短至3天，产品经理的想法第二天即可在在线模拟器中验证，试错成本趋近于零。","Azure AI Foundry, Azure AI Language, EMQ Device Agent Studio",5执行闭环区,ISV_Card
+设备接入与数据治理,对话式智能终端闭环,将用户自然语言指令、设备实时状态、历史上下文和控制权限连接起来，形成从意图理解、权限校验、指令下发到执行反馈的闭环，让智能终端不只是“听懂指令”，而是能判断设备当前能不能执行、是否应该执行以及执行是否成功。,"智能家电与终端设备:用户通过语音或对话入口提出控制请求，AI结合设备状态、用户权限和历史使用习惯生成动作建议，再由EMQX 按Topic、ACL 和设备能力安全下发。
+可审计的AI控制链路:设备执行结果、失败原因和回执事件回到EMQX与DataLayers，供后续客服排查、用户体验分析和AI策略优化使用。","DataLayers, Azure AI Foundry, Azure AI Speech, Microsoft Copilot Studio, EMQX",5执行闭环区,ISV_Card
+Kafka与实时消息流,告警、工单与业务系统闭环,将设备异常、告警和运营事件从loT数据链路传递到工单、客服、运营或供应链系统，并将处理结果回写到消息流或设备控制链路。,"售后闭环:设备异常触发工单，客服和维修人员在业务系统中处理后，结果回写到设备事件流和知识库。
+供应链联动:某区域设备高频出现部件故障时，系统联动备件、库存和服务团队，提前规划补货和维修资源。","FlowMQ, EMQX, Dynamics 365, Microsoft Teams, Microsoft Copilot Studio",5执行闭环区,ISV_Card

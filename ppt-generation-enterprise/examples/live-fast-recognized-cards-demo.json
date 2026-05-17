@@ -1,0 +1,41 @@
+{
+  "workshop": {
+    "title": "AI Discovery Card Workshop",
+    "customer": "某客户现场 Demo",
+    "industry": "消费电子 IoT",
+    "group_name": "第 1 组",
+    "date": "2026-05-11"
+  },
+  "event_input": {
+    "customer_type": "消费电子 IoT",
+    "scenario_summary": "希望围绕客户运营与内容生成链路，快速搭建一个可讲解的 AI Flow。",
+    "target_role": "业务与数字化负责人",
+    "current_pain_point": "客户洞察、营销动作和内容生成链路分散，缺少统一流程表达。",
+    "expected_value": "希望快速形成一版可讲清业务闭环的 AI 场景方案。",
+    "prototype_preference": "客户运营与内容生成工作台"
+  },
+  "mvp_spec": {
+    "prototype_mode": "前端壳子优先",
+    "primary_user": "业务与数字化负责人",
+    "core_task": "查看客户洞察并联动营销与内容生成动作",
+    "screens": [],
+    "modules": [],
+    "key_actions": [],
+    "sample_data": [],
+    "style_keywords": ["企业级", "卡片式布局"],
+    "tech_stack_preference": "Next.js + Tailwind CSS",
+    "out_of_scope": []
+  },
+  "recognized_cards": [
+    {"title": "了解客户", "order_index": 1, "source": "ocr-demo"},
+    {"title": "个性化营销", "order_index": 2, "source": "ocr-demo"},
+    {"title": "生成或增强文本", "order_index": 3, "source": "ocr-demo"},
+    {"title": "从文本生成图像", "order_index": 4, "source": "ocr-demo"},
+    {"title": "创建动态网页", "order_index": 5, "source": "ocr-demo"},
+    {"title": "简化数据分析", "order_index": 6, "source": "ocr-demo"},
+    {"title": "预测客户流失", "order_index": 7, "source": "ocr-demo"}
+  ],
+  "card_photo_paths": [
+    "demo-card-flow.png"
+  ]
+}

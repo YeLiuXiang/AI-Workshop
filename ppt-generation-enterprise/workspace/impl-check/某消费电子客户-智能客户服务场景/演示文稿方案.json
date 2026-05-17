@@ -1,0 +1,415 @@
+{
+  "title": "智能客户服务场景",
+  "subtitle": "AI Discovery Workshop 商机与原型方案",
+  "aspect_ratio": "16:9",
+  "template": "enterprise-forum",
+  "theme": "eden-enterprise",
+  "workflow_type": "ai-discovery-workshop",
+  "source_type": "normalized-workshop-scenario",
+  "selected_assets": {},
+  "slides": [
+    {
+      "slide_number": 1,
+      "title": "智能客户服务场景",
+      "subtitle": "AI Discovery Workshop 商机与原型方案",
+      "slide_type": "cover-workshop",
+      "layout_key": "cover-workshop",
+      "key_points": [
+        "客户：某消费电子客户 | 行业：消费电子",
+        "小组：第 2 组 | 日期：2026-05-07",
+        "Workshop：AI Discovery Card Workshop"
+      ],
+      "speaker_notes": [
+        "该场景从客户触发开始，经过输入感知、理解分析、生成交互和执行闭环四个阶段，最终沉淀为服务报告与优化商机。"
+      ],
+      "summary_lines": [
+        "客户：某消费电子客户 | 行业：消费电子",
+        "小组：第 2 组 | 日期：2026-05-07"
+      ],
+      "slots": {
+        "point_1": "客户：某消费电子客户 | 行业：消费电子",
+        "point_2": "小组：第 2 组 | 日期：2026-05-07",
+        "point_3": "Workshop：AI Discovery Card Workshop"
+      },
+      "eyebrow": "AI DISCOVERY WORKSHOP",
+      "title_lines": [
+        "智能客户服务场景",
+        "AI Discovery Workshop 商机与原型方案"
+      ],
+      "footer": "某消费电子客户",
+      "fields": {
+        "customer_line": "客户：某消费电子客户 | 行业：消费电子",
+        "group_line": "小组：第 2 组 | 日期：2026-05-07",
+        "workshop_line": "Workshop：AI Discovery Card Workshop",
+        "cover_value_line": "待补充：原型价值"
+      }
+    },
+    {
+      "slide_number": 2,
+      "title": "当前差距与优先痛点",
+      "subtitle": "",
+      "slide_type": "as-is-pain-map",
+      "layout_key": "as-is-pain-map",
+      "key_points": [
+        "现状流程：1. 客户通过电话、网页或聊天窗口提交问题；2. 客服人工阅读问题并查询知识库；3. 人工组织回复并继续跟进追问；4. 复杂问题升级专家处理",
+        "关键痛点：1. 重复问题处理成本高；2. 复杂问题升级不及时；3. 处理结果沉淀不足，无法形成优化闭环",
+        "优先切口：重复问题处理成本高"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "现状流程：1. 客户通过电话、网页或聊天窗口提交问题；2. 客服人工阅读问题并查询知识库；3. 人工组织回复并继续跟进追问；4. 复杂问题升级专家处理",
+        "关键痛点：1. 重复问题处理成本高；2. 复杂问题升级不及时；3. 处理结果沉淀不足，无法形成优化闭环"
+      ],
+      "slots": {
+        "point_1": "现状流程：1. 客户通过电话、网页或聊天窗口提交问题；2. 客服人工阅读问题并查询知识库；3. 人工组织回复并继续跟进追问；4. 复杂问题升级专家处理",
+        "point_2": "关键痛点：1. 重复问题处理成本高；2. 复杂问题升级不及时；3. 处理结果沉淀不足，无法形成优化闭环",
+        "point_3": "优先切口：重复问题处理成本高"
+      },
+      "fields": {
+        "process_lines": [
+          "1. 客户通过电话、网页或聊天窗口提交问题",
+          "2. 客服人工阅读问题并查询知识库",
+          "3. 人工组织回复并继续跟进追问",
+          "4. 复杂问题升级专家处理"
+        ],
+        "pain_lines": [
+          "1. 重复问题处理成本高",
+          "2. 复杂问题升级不及时",
+          "3. 处理结果沉淀不足，无法形成优化闭环"
+        ],
+        "focus_line": "优先切口：重复问题处理成本高"
+      }
+    },
+    {
+      "slide_number": 3,
+      "title": "业务机会与 Why Now",
+      "subtitle": "",
+      "slide_type": "opportunity-summary",
+      "layout_key": "opportunity-summary",
+      "key_points": [
+        "机会判断：待补充：业务机会",
+        "为什么是现在：待补充：Why Now",
+        "价值支撑：待补充：价值支撑点"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "机会判断：待补充：业务机会",
+        "为什么是现在：待补充：Why Now"
+      ],
+      "slots": {
+        "point_1": "机会判断：待补充：业务机会",
+        "point_2": "为什么是现在：待补充：Why Now",
+        "point_3": "价值支撑：待补充：价值支撑点"
+      },
+      "fields": {
+        "opportunity_line": "机会判断：待补充：业务机会",
+        "why_now_line": "为什么是现在：待补充：Why Now",
+        "proof_line": "价值支撑：待补充：价值支撑点",
+        "accent_image": {
+          "enabled": true,
+          "left": 10.0,
+          "top": 2.0,
+          "width": 2.1,
+          "height": 4.7
+        }
+      }
+    },
+    {
+      "slide_number": 4,
+      "title": "客户现场卡片流程",
+      "subtitle": "",
+      "slide_type": "capability-selection",
+      "layout_key": "capability-selection",
+      "key_points": [
+        "业务场景 / 输入感知：了解客户 / 语音识别 / 文本输入",
+        "理解分析：识别客户意图 / 情绪分析 / 简化数据分析",
+        "生成交互 / 执行闭环：生成战略文案 / 创建动态网页 / 个性化营销 / 预测客户流失"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "业务场景 / 输入感知：了解客户 / 语音识别 / 文本输入",
+        "理解分析：识别客户意图 / 情绪分析 / 简化数据分析"
+      ],
+      "slots": {
+        "point_1": "业务场景 / 输入感知：了解客户 / 语音识别 / 文本输入",
+        "point_2": "理解分析：识别客户意图 / 情绪分析 / 简化数据分析",
+        "point_3": "生成交互 / 执行闭环：生成战略文案 / 创建动态网页 / 个性化营销 / 预测客户流失"
+      },
+      "fields": {
+        "perception_line": "业务场景 / 输入感知：了解客户 / 语音识别 / 文本输入",
+        "analysis_line": "理解分析：识别客户意图 / 情绪分析 / 简化数据分析",
+        "action_line": "生成交互 / 执行闭环：生成战略文案 / 创建动态网页 / 个性化营销 / 预测客户流失"
+      }
+    },
+    {
+      "slide_number": 5,
+      "title": "目标 AI Flow",
+      "subtitle": "",
+      "slide_type": "ai-flow-steps",
+      "layout_key": "ai-flow-steps",
+      "key_points": [
+        "业务触发：客户发起服务咨询或售后请求",
+        "核心流程：1. AI 将语音转换为文本或读取客户输入内容；2. AI 识别客户意图并分析客户情绪；3. AI 查询知识库并生成自动回复；4. 复杂问题自动升级人工客服或专家；5. 系统记录处理过程并生成服务优化报告",
+        "业务闭环：形成客户服务记录、问题分类和后续优化建议"
+      ],
+      "speaker_notes": [
+        "该场景从客户触发开始，经过输入感知、理解分析、生成交互和执行闭环四个阶段，最终沉淀为服务报告与优化商机。"
+      ],
+      "summary_lines": [
+        "业务触发：客户发起服务咨询或售后请求",
+        "核心流程：1. AI 将语音转换为文本或读取客户输入内容；2. AI 识别客户意图并分析客户情绪；3. AI 查询知识库并生成自动回复；4. 复杂问题自动升级人工客服或专家；5. 系统记录处理过程并生成服务优化报告"
+      ],
+      "slots": {
+        "point_1": "业务触发：客户发起服务咨询或售后请求",
+        "point_2": "核心流程：1. AI 将语音转换为文本或读取客户输入内容；2. AI 识别客户意图并分析客户情绪；3. AI 查询知识库并生成自动回复；4. 复杂问题自动升级人工客服或专家；5. 系统记录处理过程并生成服务优化报告",
+        "point_3": "业务闭环：形成客户服务记录、问题分类和后续优化建议"
+      },
+      "fields": {
+        "trigger_line": "业务触发：客户发起服务咨询或售后请求",
+        "flow_lines": [
+          "1. AI 将语音转换为文本或读取客户输入内容",
+          "2. AI 识别客户意图并分析客户情绪",
+          "3. AI 查询知识库并生成自动回复",
+          "4. 复杂问题自动升级人工客服或专家",
+          "5. 系统记录处理过程并生成服务优化报告"
+        ],
+        "closure_line": "业务闭环：形成客户服务记录、问题分类和后续优化建议"
+      }
+    },
+    {
+      "slide_number": 6,
+      "title": "解决方案架构",
+      "subtitle": "",
+      "slide_type": "architecture-diagram",
+      "layout_key": "architecture-diagram",
+      "key_points": [
+        "架构主线：该场景从客户触发开始，经过输入感知、理解分析、生成交互和执行闭环四个阶段，最终沉淀为服务报告与优化商机。",
+        "架构分层：展示层：页面壳子、看板卡片、列表表格、详情抽屉 / 交互层：筛选切换、建议查看、动作触发、结果回看 / 数据层：样例数据、页面状态配置、Mock 接口返回",
+        "优先产品栈：Azure AI Language / Azure OpenAI / Azure AI Search / Power Automate"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "架构主线：该场景从客户触发开始，经过输入感知、理解分析、生成交互和执行闭环四个阶段，最终沉淀为服务报告与优化商机。",
+        "架构分层：展示层：页面壳子、看板卡片、列表表格、详情抽屉 / 交互层：筛选切换、建议查看、动作触发、结果回看 / 数据层：样例数据、页面状态配置、Mock 接口返回"
+      ],
+      "slots": {
+        "point_1": "架构主线：该场景从客户触发开始，经过输入感知、理解分析、生成交互和执行闭环四个阶段，最终沉淀为服务报告与优化商机。",
+        "point_2": "架构分层：展示层：页面壳子、看板卡片、列表表格、详情抽屉 / 交互层：筛选切换、建议查看、动作触发、结果回看 / 数据层：样例数据、页面状态配置、Mock 接口返回",
+        "point_3": "优先产品栈：Azure AI Language / Azure OpenAI / Azure AI Search / Power Automate"
+      },
+      "fields": {
+        "architecture_title": "智能客户服务场景",
+        "layer_lines": [
+          "1. 展示层：页面壳子、看板卡片、列表表格、详情抽屉",
+          "2. 交互层：筛选切换、建议查看、动作触发、结果回看",
+          "3. 数据层：样例数据、页面状态配置、Mock 接口返回"
+        ],
+        "principle_lines": [
+          "1. 页面壳子优先，先保证关键业务路径可演示",
+          "2. 模块分层组织，页面、组件、样例数据分开维护",
+          "3. Mock 数据驱动，先不接真实系统接口"
+        ],
+        "platform_line": "优先产品栈：Azure AI Language / Azure OpenAI / Azure AI Search / Power Automate",
+        "closure_line": "闭环目标：形成客户服务记录、问题分类和后续优化建议"
+      }
+    },
+    {
+      "slide_number": 7,
+      "title": "能力映射与交付物",
+      "subtitle": "",
+      "slide_type": "product-mapping-table",
+      "layout_key": "product-mapping-table",
+      "key_points": [
+        "能力映射：识别客户意图 / 情绪分析 -> Azure AI Language, Azure OpenAI | 交付：客服问答与分类能力；知识库问答与自动回复 -> Azure AI Search, Azure OpenAI | 交付：RAG 问答原型",
+        "优先产品栈：Azure AI Language / Azure OpenAI / Azure AI Search / Power Automate",
+        "现场交付物：Workshop 定制化 PPT / AI Flow 流程图 / POC 规划建议"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "能力映射：识别客户意图 / 情绪分析 -> Azure AI Language, Azure OpenAI | 交付：客服问答与分类能力；知识库问答与自动回复 -> Azure AI Search, Azure OpenAI | 交付：RAG 问答原型",
+        "优先产品栈：Azure AI Language / Azure OpenAI / Azure AI Search / Power Automate"
+      ],
+      "slots": {
+        "point_1": "能力映射：识别客户意图 / 情绪分析 -> Azure AI Language, Azure OpenAI | 交付：客服问答与分类能力；知识库问答与自动回复 -> Azure AI Search, Azure OpenAI | 交付：RAG 问答原型",
+        "point_2": "优先产品栈：Azure AI Language / Azure OpenAI / Azure AI Search / Power Automate",
+        "point_3": "现场交付物：Workshop 定制化 PPT / AI Flow 流程图 / POC 规划建议"
+      },
+      "fields": {
+        "mapping_lines": [
+          "识别客户意图 / 情绪分析 -> Azure AI Language, Azure OpenAI | 交付：客服问答与分类能力",
+          "知识库问答与自动回复 -> Azure AI Search, Azure OpenAI | 交付：RAG 问答原型",
+          "复杂问题升级与任务流转 -> Power Automate, Dynamics 365 Customer Service | 交付：流程闭环与工单联动"
+        ],
+        "platform_line": "优先产品栈：Azure AI Language / Azure OpenAI / Azure AI Search / Power Automate",
+        "deliverable_line": "现场交付物：Workshop 定制化 PPT / AI Flow 流程图 / POC 规划建议"
+      }
+    },
+    {
+      "slide_number": 8,
+      "title": "业务价值与验证假设",
+      "subtitle": "",
+      "slide_type": "business-value",
+      "layout_key": "business-value",
+      "key_points": [
+        "预期价值：缩短客户平均响应时间 / 提升常见问题自动化处理比例 / 形成高频问题与满意度分析闭环",
+        "关键指标：首响时长下降 30% / FAQ 自动命中率达到 60% / 复杂问题升级准确率达到 85%",
+        "POC 聚焦：先验证客户问题识别、知识库问答和复杂问题升级三段闭环；优先验证 客户问题识别准确率"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "预期价值：缩短客户平均响应时间 / 提升常见问题自动化处理比例 / 形成高频问题与满意度分析闭环",
+        "关键指标：首响时长下降 30% / FAQ 自动命中率达到 60% / 复杂问题升级准确率达到 85%"
+      ],
+      "slots": {
+        "point_1": "预期价值：缩短客户平均响应时间 / 提升常见问题自动化处理比例 / 形成高频问题与满意度分析闭环",
+        "point_2": "关键指标：首响时长下降 30% / FAQ 自动命中率达到 60% / 复杂问题升级准确率达到 85%",
+        "point_3": "POC 聚焦：先验证客户问题识别、知识库问答和复杂问题升级三段闭环；优先验证 客户问题识别准确率"
+      },
+      "fields": {
+        "value_lines": [
+          "缩短客户平均响应时间",
+          "提升常见问题自动化处理比例",
+          "形成高频问题与满意度分析闭环"
+        ],
+        "kpi_lines": [
+          "首响时长下降 30%",
+          "FAQ 自动命中率达到 60%",
+          "复杂问题升级准确率达到 85%"
+        ],
+        "poc_lines": [
+          "1. 客户问题识别准确率",
+          "2. 知识库命中率与回复质量",
+          "3. 复杂问题升级规则的可执行性"
+        ]
+      }
+    },
+    {
+      "slide_number": 9,
+      "title": "原型方向与系统形态",
+      "subtitle": "",
+      "slide_type": "prototype-concept",
+      "layout_key": "prototype-concept",
+      "key_points": [
+        "原型名称：待补充：原型名称",
+        "系统形态：待补充：原型形态；目标：待补充：原型目标",
+        "价值落点：待补充：原型价值"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "原型名称：待补充：原型名称",
+        "系统形态：待补充：原型形态；目标：待补充：原型目标"
+      ],
+      "slots": {
+        "point_1": "原型名称：待补充：原型名称",
+        "point_2": "系统形态：待补充：原型形态；目标：待补充：原型目标",
+        "point_3": "价值落点：待补充：原型价值"
+      },
+      "fields": {
+        "prototype_name_line": "原型名称：待补充：原型名称",
+        "prototype_surface_line": "系统形态：待补充：原型形态；目标：待补充：原型目标",
+        "prototype_value_line": "价值落点：待补充：原型价值",
+        "prototype_flow_lines": [
+          "1. 待补充：原型用户流程"
+        ],
+        "prototype_scope_lines": [
+          "1. 待补充：原型界面范围"
+        ],
+        "accent_image": {
+          "enabled": true,
+          "left": 9.8,
+          "top": 2.0,
+          "width": 2.3,
+          "height": 4.7
+        }
+      }
+    },
+    {
+      "slide_number": 10,
+      "title": "MVP 原型范围",
+      "subtitle": "",
+      "slide_type": "prototype-concept",
+      "layout_key": "prototype-concept",
+      "key_points": [
+        "目标用户：客服团队与终端消费者",
+        "核心任务：通过 AI 实现自动识别客户意图、自动回答常见问题，并提升人工客服处理效率",
+        "非目标范围：不接真实后端接口"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "目标用户：客服团队与终端消费者",
+        "核心任务：通过 AI 实现自动识别客户意图、自动回答常见问题，并提升人工客服处理效率"
+      ],
+      "slots": {
+        "point_1": "目标用户：客服团队与终端消费者",
+        "point_2": "核心任务：通过 AI 实现自动识别客户意图、自动回答常见问题，并提升人工客服处理效率",
+        "point_3": "非目标范围：不接真实后端接口"
+      },
+      "fields": {
+        "top_labels": [
+          "目标用户",
+          "核心任务",
+          "非目标范围"
+        ],
+        "prototype_name_line": "目标用户：客服团队与终端消费者",
+        "prototype_surface_line": "核心任务：通过 AI 实现自动识别客户意图、自动回答常见问题，并提升人工客服处理效率",
+        "prototype_value_line": "交付方式：前端壳子优先；推荐技术栈：Next.js + Tailwind CSS",
+        "flow_title": "页面清单",
+        "scope_title": "快速开发路径",
+        "prototype_flow_lines": [
+          "1. 客户通过电话、网页或聊天窗口提交问题 页面",
+          "2. 客服人工阅读问题并查询知识库 页面",
+          "3. 人工组织回复并继续跟进追问 页面",
+          "4. 复杂问题升级专家处理 页面"
+        ],
+        "prototype_scope_lines": [
+          "1. 会后发送定制 PPT 和 AI Flow",
+          "2. 安排 1 对 1 深度需求访谈",
+          "3. 明确 POC 范围与数据准备清单",
+          "4. 基于方案设计文档快速搭建静态页面和样例数据"
+        ]
+      }
+    },
+    {
+      "slide_number": 11,
+      "title": "POC 与下一步",
+      "subtitle": "",
+      "slide_type": "poc-next-step",
+      "layout_key": "poc-next-step",
+      "key_points": [
+        "试点范围：先验证客户问题识别、知识库问答和复杂问题升级三段闭环",
+        "关键角色：客服负责人 / IT / 数字化团队 / 业务运营负责人",
+        "后续动作：会后发送定制 PPT 和 AI Flow / 安排 1 对 1 深度需求访谈 / 明确 POC 范围与数据准备清单"
+      ],
+      "speaker_notes": [],
+      "summary_lines": [
+        "试点范围：先验证客户问题识别、知识库问答和复杂问题升级三段闭环",
+        "关键角色：客服负责人 / IT / 数字化团队 / 业务运营负责人"
+      ],
+      "slots": {
+        "point_1": "试点范围：先验证客户问题识别、知识库问答和复杂问题升级三段闭环",
+        "point_2": "关键角色：客服负责人 / IT / 数字化团队 / 业务运营负责人",
+        "point_3": "后续动作：会后发送定制 PPT 和 AI Flow / 安排 1 对 1 深度需求访谈 / 明确 POC 范围与数据准备清单"
+      },
+      "fields": {
+        "scope_line": "试点范围：先验证客户问题识别、知识库问答和复杂问题升级三段闭环",
+        "stakeholder_lines": [
+          "客服负责人",
+          "IT / 数字化团队",
+          "业务运营负责人"
+        ],
+        "next_action_lines": [
+          "1. 会后发送定制 PPT 和 AI Flow",
+          "2. 安排 1 对 1 深度需求访谈",
+          "3. 明确 POC 范围与数据准备清单"
+        ],
+        "accent_image": {
+          "enabled": true,
+          "left": 9.95,
+          "top": 3.0,
+          "width": 2.15,
+          "height": 3.7
+        }
+      }
+    }
+  ]
+}

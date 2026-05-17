@@ -1,0 +1,221 @@
+{
+  "workshop": {
+    "title": "AI Discovery Card Workshop",
+    "customer": "某客户现场 Demo",
+    "industry": "消费电子 IoT",
+    "group_name": "第 1 组",
+    "date": "2026-05-11"
+  },
+  "scenario": {
+    "name": "客户洞察驱动的客户运营与内容生成闭环",
+    "target_users": "业务与数字化负责人",
+    "business_problem": "客户洞察、营销动作和内容生成链路分散，缺少统一流程表达，导致客户运营判断、内容生产和后续保留动作难以形成闭环。",
+    "improvement_goal": "快速形成一版可讲清业务闭环的 AI 场景方案，并先通过工作台原型验证客户洞察、内容生成和客户运营协同的直接价值。"
+  },
+  "current_process": [
+    "基于客户数据了解客户特征和分层",
+    "围绕目标客群策划个性化营销动作",
+    "生成或增强营销文本内容",
+    "根据文本生成配图素材",
+    "创建动态网页承载活动内容",
+    "汇总活动数据并简化数据分析",
+    "识别高风险客户并预测客户流失"
+  ],
+  "pain_points": [
+    "客户洞察、营销动作和内容生产分散在多个环节，缺少统一工作流表达",
+    "文本、图片和页面内容需要多次人工协同，内容生产效率不稳定",
+    "活动分析和流失预警回流偏慢，难以及时支撑下一轮客户运营动作"
+  ],
+  "selected_cards": {
+    "business_scenario": [
+      "了解客户",
+      "个性化营销",
+      "预测客户流失"
+    ],
+    "input_perception": [],
+    "understanding_analysis": [
+      "简化数据分析"
+    ],
+    "generation_interaction": [
+      "生成或增强文本",
+      "从文本生成图像",
+      "创建动态网页"
+    ],
+    "execution_closure": []
+  },
+  "ai_flow": {
+    "trigger": "业务团队准备围绕目标客群发起客户运营和营销内容动作",
+    "steps": [
+      "系统读取客户画像、历史互动和活动结果，形成客户洞察与分层建议",
+      "AI 结合目标客群自动生成营销文本、图像素材和页面内容建议",
+      "团队在工作台中查看并调整活动方案，快速完成内容编排和发布准备",
+      "系统自动汇总活动表现并输出数据分析结果与优化建议",
+      "对高风险客户触发保留跟进建议，形成下一轮运营动作"
+    ],
+    "closure": "形成从客户洞察、内容生成、页面承载、活动分析到流失预警的客户运营闭环",
+    "narrative": "该场景把现场识别到的卡片链路整理为一条可讲解的 AI Flow，核心不是单点内容生成，而是把客户理解、营销生成、页面承载、数据复盘和客户保留串成一个统一工作台，便于业务与数字化负责人快速评估落地价值。"
+  },
+  "product_mapping": [
+    {
+      "capability": "客户洞察与客户分层",
+      "products": [
+        "Dynamics 365 Customer Insights",
+        "Microsoft Fabric",
+        "Azure Machine Learning",
+        "Azure AI Foundry"
+      ],
+      "delivery": "客户画像整合、分群分析与运营机会识别"
+    },
+    {
+      "capability": "个性化营销策略生成",
+      "products": [
+        "Dynamics 365 Customer Insights",
+        "Azure Machine Learning",
+        "Azure AI Search"
+      ],
+      "delivery": "面向目标客群的营销策略和触达建议"
+    },
+    {
+      "capability": "营销文本生成与增强",
+      "products": [
+        "Azure AI Foundry",
+        "Azure AI Language",
+        "Microsoft 365 Copilot"
+      ],
+      "delivery": "营销文案、活动说明和内容草稿生成"
+    },
+    {
+      "capability": "营销配图生成",
+      "products": [
+        "Azure AI Foundry",
+        "Microsoft Designer",
+        "Azure AI Content Understanding"
+      ],
+      "delivery": "活动视觉素材和创意配图生成"
+    },
+    {
+      "capability": "活动页面快速生成",
+      "products": [
+        "Power Pages",
+        "Azure AI Language",
+        "GitHub Copilot"
+      ],
+      "delivery": "动态活动页面原型与表单内容生成"
+    },
+    {
+      "capability": "活动分析与经营复盘",
+      "products": [
+        "Microsoft Fabric",
+        "Power BI",
+        "Azure AI Foundry"
+      ],
+      "delivery": "活动效果分析、自然语言洞察与复盘看板"
+    },
+    {
+      "capability": "客户流失预测与保留建议",
+      "products": [
+        "Azure Machine Learning",
+        "Microsoft Fabric",
+        "Dynamics 365 Customer Insights"
+      ],
+      "delivery": "高风险客户识别与保留动作建议"
+    }
+  ],
+  "business_value": {
+    "outcomes": [
+      "把客户洞察、内容生成和客户运营动作整合到一个可讲解的 AI 工作流中",
+      "缩短从客群分析到内容准备和页面生成的周期",
+      "让活动分析结果更快回流到下一轮运营和客户保留动作"
+    ],
+    "kpis": [
+      "营销内容准备周期缩短 40%",
+      "内容与页面协同效率提升 50%",
+      "活动复盘输出时间缩短 60%",
+      "高流失风险客户识别准确率达到 80%"
+    ],
+    "deliverables": [
+      "方案 PPT",
+      "客户运营与内容生成工作台原型建议",
+      "POC 验证范围与里程碑建议"
+    ]
+  },
+  "poc": {
+    "scope": "优先验证客户洞察、营销内容生成、动态页面原型和客户流失预警四段闭环",
+    "validation_points": [
+      "客户分层和运营洞察是否具备业务可解释性",
+      "文本、图片和页面生成结果是否足以支撑业务讲解与评审",
+      "活动分析与流失预警是否能对下一轮运营动作形成明确指导"
+    ],
+    "stakeholders": [
+      "业务与数字化负责人",
+      "营销负责人",
+      "客户运营负责人",
+      "数据 / 数字化团队"
+    ],
+    "next_actions": [
+      "确认一个重点客群和一类典型活动作为试点",
+      "准备客户画像、活动结果和流失样本数据",
+      "两周内完成工作台原型与主流程演示",
+      "四周内完成首轮 POC 复盘与扩展建议"
+    ]
+  },
+  "prototype": {
+    "name": "客户运营与内容生成工作台",
+    "goal": "把客户洞察、营销内容生成、页面承载、活动复盘和流失预警集中到一个工作台中进行演示和协同",
+    "surface": "客户运营与内容生成工作台",
+    "user_flow": [
+      "查看客户洞察并识别重点客群",
+      "联动生成营销文本、图片和页面内容",
+      "查看活动分析结果并触发客户保留建议"
+    ],
+    "mock_scope": [
+      "客户洞察与客群分层总览",
+      "营销文本与图片生成区",
+      "动态页面内容编排区",
+      "活动分析与流失预警行动区"
+    ],
+    "value_statement": "让业务与数字化负责人在一个工作台里看到从客户理解到内容生成再到客户保留的完整 AI 闭环。"
+  },
+  "mvp_spec": {
+    "prototype_mode": "前端壳子优先",
+    "primary_user": "业务与数字化负责人",
+    "core_task": "查看客户洞察并联动营销与内容生成动作",
+    "screens": [
+      "客户洞察与客群分层总览",
+      "营销文本与图片生成页",
+      "动态页面编排页",
+      "活动分析与流失预警页"
+    ],
+    "modules": [
+      "客户分层与运营机会卡片",
+      "营销文案生成面板",
+      "营销配图生成面板",
+      "动态页面预览与编辑区",
+      "活动效果分析图区",
+      "高风险客户预警与跟进行动面板"
+    ],
+    "key_actions": [
+      "切换目标客群查看客户洞察",
+      "生成营销文本和配图建议",
+      "组合页面内容并预览活动页",
+      "查看活动分析结果和下一轮优化建议",
+      "触发高风险客户保留动作建议"
+    ],
+    "sample_data": [
+      "客户画像样例",
+      "历史活动结果样例",
+      "营销文案样例",
+      "高风险客户清单"
+    ],
+    "style_keywords": [
+      "企业级",
+      "卡片式布局"
+    ],
+    "tech_stack_preference": "Next.js + Tailwind CSS",
+    "out_of_scope": [
+      "不接真实营销自动化平台",
+      "不直接执行批量消息触达",
+      "不实现正式权限体系"
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "job_id": "a8f0c89daa684d21a57e297386d92d27",
+  "status": "succeeded",
+  "mode": "python-fast",
+  "created_at": "2026-05-17T07:03:58.019611+00:00",
+  "updated_at": "2026-05-17T07:03:58.779437+00:00",
+  "request_path": "F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\runtime\\jobs\\a8f0c89daa684d21a57e297386d92d27\\request.json",
+  "scenario_path": null,
+  "case_dir": "F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\workspace\\某客户现场 Demo-客户运营与内容生成工作台",
+  "artifacts": [
+    {
+      "name": "原始输入.json",
+      "path": "F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\workspace\\某客户现场 Demo-客户运营与内容生成工作台\\原始输入.json",
+      "size_bytes": 2242
+    },
+    {
+      "name": "方案设计.md",
+      "path": "F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\workspace\\某客户现场 Demo-客户运营与内容生成工作台\\方案设计.md",
+      "size_bytes": 2839
+    },
+    {
+      "name": "某客户现场 Demo-客户运营与内容生成工作台方案.pptx",
+      "path": "F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\workspace\\某客户现场 Demo-客户运营与内容生成工作台\\某客户现场 Demo-客户运营与内容生成工作台方案.pptx",
+      "size_bytes": 63469
+    },
+    {
+      "name": "演示文稿方案.json",
+      "path": "F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\workspace\\某客户现场 Demo-客户运营与内容生成工作台\\演示文稿方案.json",
+      "size_bytes": 22979
+    },
+    {
+      "name": "组合场景.json",
+      "path": "F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\workspace\\某客户现场 Demo-客户运营与内容生成工作台\\组合场景.json",
+      "size_bytes": 6994
+    },
+    {
+      "name": "需求PRD.md",
+      "path": "F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\workspace\\某客户现场 Demo-客户运营与内容生成工作台\\需求PRD.md",
+      "size_bytes": 1868
+    }
+  ],
+  "error": null,
+  "logs": {
+    "generator_stdout": "F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\workspace\\某客户现场 Demo-客户运营与内容生成工作台\n",
+    "generator_stderr": "",
+    "generator_command": "python scripts/generate_workshop_package.py --input F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\runtime\\jobs\\a8f0c89daa684d21a57e297386d92d27\\request.json --workspace-root F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\workspace --template enterprise-forum --theme eden-enterprise --aspect-ratio 16:9 --fast"
+  }
+}

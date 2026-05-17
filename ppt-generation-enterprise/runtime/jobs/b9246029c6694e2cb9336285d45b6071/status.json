@@ -1,0 +1,13 @@
+{
+  "job_id": "b9246029c6694e2cb9336285d45b6071",
+  "status": "queued",
+  "mode": "python-fast",
+  "created_at": "2026-05-17T07:03:27.147255+00:00",
+  "updated_at": "2026-05-17T07:03:27.166812+00:00",
+  "request_path": "F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\runtime\\jobs\\b9246029c6694e2cb9336285d45b6071\\request.json",
+  "scenario_path": null,
+  "case_dir": null,
+  "artifacts": [],
+  "error": null,
+  "logs": {}
+}

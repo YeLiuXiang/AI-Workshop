@@ -103,6 +103,14 @@ def first_or_placeholder(items: list[str], placeholder: str) -> str:
     return f"待补充：{placeholder}"
 
 
+def dedupe_items(items: list[str]) -> list[str]:
+    deduped = []
+    for item in items:
+        if item and item not in deduped:
+            deduped.append(item)
+    return deduped
+
+
 def make_slide(
     slide_number: int,
     title: str,
@@ -193,6 +201,7 @@ def build_workshop_plan(payload: dict, template: str, theme: str, aspect_ratio: 
     poc_next_actions = ensure_list(poc.get("next_actions"))
 
     mapping_lines = format_mapping_rows(product_mapping)
+    platform_line = summarize_platforms(product_mapping)
     deliverable_line = f"现场交付物：{join_cards(value_deliverables, '现场交付物')}"
     cover_value_line = prototype_value_statement or opportunity_statement or flow_narrative
     cover_title = scenario_name
@@ -232,22 +241,6 @@ def build_workshop_plan(payload: dict, template: str, theme: str, aspect_ratio: 
         },
         make_slide(
             2,
-            "业务机会与 Why Now",
-            "opportunity-summary",
-            "opportunity-summary",
-            [
-                f"机会判断：{opportunity_statement}",
-                f"为什么是现在：{opportunity_why_now}",
-                f"价值支撑：{first_or_placeholder(opportunity_supporting_points, '价值支撑点')}",
-            ],
-            fields={
-                "opportunity_line": f"机会判断：{opportunity_statement}",
-                "why_now_line": f"为什么是现在：{opportunity_why_now}",
-                "proof_line": f"价值支撑：{first_or_placeholder(opportunity_supporting_points, '价值支撑点')}",
-            },
-        ),
-        make_slide(
-            3,
             "当前差距与优先痛点",
             "as-is-pain-map",
             "as-is-pain-map",
@@ -260,6 +253,23 @@ def build_workshop_plan(payload: dict, template: str, theme: str, aspect_ratio: 
                 "process_lines": numbered_lines(current_process, "现状流程", limit=4),
                 "pain_lines": numbered_lines(pain_points, "关键痛点", limit=3),
                 "focus_line": f"优先切口：{first_or_placeholder(pain_points, '优先改造环节')}",
+            },
+        ),
+        make_slide(
+            3,
+            "业务机会与 Why Now",
+            "opportunity-summary",
+            "opportunity-summary",
+            [
+                f"机会判断：{opportunity_statement}",
+                f"为什么是现在：{opportunity_why_now}",
+                f"价值支撑：{first_or_placeholder(opportunity_supporting_points, '价值支撑点')}",
+            ],
+            fields={
+                "opportunity_line": f"机会判断：{opportunity_statement}",
+                "why_now_line": f"为什么是现在：{opportunity_why_now}",
+                "proof_line": f"价值支撑：{first_or_placeholder(opportunity_supporting_points, '价值支撑点')}",
+                "accent_image": {"enabled": True, "left": 10.0, "top": 2.0, "width": 2.1, "height": 4.7},
             },
         ),
         make_slide(
@@ -297,82 +307,40 @@ def build_workshop_plan(payload: dict, template: str, theme: str, aspect_ratio: 
         ),
         make_slide(
             6,
-            "原型方向与系统形态",
-            "prototype-concept",
-            "prototype-concept",
+            "解决方案架构",
+            "architecture-diagram",
+            "architecture-diagram",
             [
-                f"原型名称：{prototype_name}",
-                f"系统形态：{prototype_surface}；目标：{prototype_goal}",
-                f"价值落点：{prototype_value_statement}",
+                f"架构主线：{flow_narrative}",
+                f"架构分层：{join_cards(mvp_spec['architecture_layers'], '架构分层')}",
+                platform_line,
             ],
             fields={
-                "prototype_name_line": f"原型名称：{prototype_name}",
-                "prototype_surface_line": f"系统形态：{prototype_surface}；目标：{prototype_goal}",
-                "prototype_value_line": f"价值落点：{prototype_value_statement}",
-                "prototype_flow_lines": numbered_lines(prototype_user_flow, "原型用户流程", limit=3),
-                "prototype_scope_lines": numbered_lines(prototype_mock_scope, "原型界面范围", limit=3),
+                "architecture_title": scenario_name,
+                "layer_lines": numbered_lines(mvp_spec["architecture_layers"], "架构分层", limit=4),
+                "principle_lines": numbered_lines(mvp_spec["architecture_principles"], "架构原则", limit=3),
+                "platform_line": platform_line,
+                "closure_line": f"闭环目标：{flow_closure}",
             },
         ),
         make_slide(
             7,
-            "MVP 原型范围",
-            "prototype-concept",
-            "prototype-concept",
-            [
-                f"目标用户：{mvp_spec['primary_user']}",
-                f"核心任务：{mvp_spec['core_task']}",
-                f"非目标范围：{first_or_placeholder(mvp_spec['out_of_scope'], '非目标范围')}",
-            ],
-            fields={
-                "top_labels": ["目标用户", "核心任务", "非目标范围"],
-                "prototype_name_line": f"目标用户：{mvp_spec['primary_user']}",
-                "prototype_surface_line": f"核心任务：{mvp_spec['core_task']}",
-                "prototype_value_line": f"非目标范围：{first_or_placeholder(mvp_spec['out_of_scope'], '非目标范围')}",
-                "flow_title": "页面清单",
-                "scope_title": "关键模块",
-                "prototype_flow_lines": numbered_lines(mvp_spec["screens"], "MVP 页面", limit=4),
-                "prototype_scope_lines": numbered_lines(mvp_spec["modules"], "关键模块", limit=4),
-            },
-        ),
-        make_slide(
-            8,
-            "原型交付与快速开发路径",
-            "prototype-concept",
-            "prototype-concept",
-            [
-                f"交付方式：{mvp_spec['prototype_mode']}；推荐技术栈：{mvp_spec['tech_stack']}",
-                f"核心交付件：{join_cards(mvp_spec['solution_artifacts'][:3], '核心交付件')}",
-                f"架构原则：{join_cards(mvp_spec['architecture_principles'], '架构原则')}",
-            ],
-            fields={
-                "top_labels": ["交付方式", "核心交付件", "架构原则"],
-                "prototype_name_line": f"交付方式：{mvp_spec['prototype_mode']}；推荐技术栈：{mvp_spec['tech_stack']}",
-                "prototype_surface_line": f"核心交付件：{join_cards(mvp_spec['solution_artifacts'][:3], '核心交付件')}",
-                "prototype_value_line": f"架构原则：{join_cards(mvp_spec['architecture_principles'], '架构原则')}",
-                "flow_title": "方案设计与架构设计",
-                "scope_title": "快速开发路径",
-                "prototype_flow_lines": numbered_lines(mvp_spec["solution_artifacts"], "方案设计与架构设计", limit=4),
-                "prototype_scope_lines": numbered_lines(mvp_spec["next_build_steps"], "快速开发路径", limit=4),
-            },
-        ),
-        make_slide(
-            9,
             "能力映射与交付物",
             "product-mapping-table",
             "product-mapping-table",
             [
                 f"能力映射：{'；'.join(mapping_lines[:2])}",
-                summarize_platforms(product_mapping),
+                platform_line,
                 deliverable_line,
             ],
             fields={
                 "mapping_lines": mapping_lines,
-                "platform_line": summarize_platforms(product_mapping),
+                "platform_line": platform_line,
                 "deliverable_line": deliverable_line,
             },
         ),
         make_slide(
-            10,
+            8,
             "业务价值与验证假设",
             "business-value",
             "business-value",
@@ -388,7 +356,29 @@ def build_workshop_plan(payload: dict, template: str, theme: str, aspect_ratio: 
             },
         ),
         make_slide(
-            11,
+            9,
+            "原型与 MVP 设计",
+            "prototype-concept",
+            "prototype-concept",
+            [
+                f"原型名称：{prototype_name}",
+                f"系统形态：{prototype_surface}；目标：{prototype_goal}",
+                f"MVP 交付：{mvp_spec['prototype_mode']}；核心任务：{mvp_spec['core_task']}",
+            ],
+            fields={
+                "top_labels": ["原型名称", "系统形态", "MVP 交付"],
+                "prototype_name_line": f"原型名称：{prototype_name}；目标用户：{mvp_spec['primary_user']}",
+                "prototype_surface_line": f"系统形态：{prototype_surface}；目标：{prototype_goal}",
+                "prototype_value_line": f"MVP 交付：{mvp_spec['prototype_mode']}；核心任务：{mvp_spec['core_task']}；技术栈：{mvp_spec['tech_stack']}",
+                "flow_title": "MVP 页面范围",
+                "scope_title": "快速开发路径",
+                "prototype_flow_lines": numbered_lines(dedupe_items(mvp_spec["screens"] + prototype_mock_scope + prototype_user_flow), "MVP 页面", limit=4),
+                "prototype_scope_lines": numbered_lines(dedupe_items(mvp_spec["next_build_steps"] + [prototype_value_statement]), "快速开发路径", limit=4),
+                "accent_image": {"enabled": True, "left": 9.8, "top": 2.0, "width": 2.3, "height": 4.7},
+            },
+        ),
+        make_slide(
+            10,
             "POC 与下一步",
             "poc-next-step",
             "poc-next-step",
@@ -401,6 +391,7 @@ def build_workshop_plan(payload: dict, template: str, theme: str, aspect_ratio: 
                 "scope_line": f"试点范围：{poc_scope}",
                 "stakeholder_lines": poc_stakeholders or ["待补充：关键角色"],
                 "next_action_lines": numbered_lines(poc_next_actions, "后续动作", limit=3),
+                "accent_image": {"enabled": True, "left": 9.95, "top": 3.0, "width": 2.15, "height": 3.7},
             },
         ),
     ]

@@ -371,3 +371,58 @@ python scripts/build_replacement_map.py `
 3. Add workshop-specific table and flow geometries to the real template.
 4. Add a direct PPTX writer that fills textboxes from the replacement map.
 5. Add regression fixtures using real workshop scenarios from different industries.
+
+## Service Layer
+
+The repository now includes a cross-platform service wrapper under `workshop_service/`.
+
+Use this when you want to:
+
+- call the workshop pipeline from a frontend form
+- keep the current Python generation chain
+- optionally let Codex CLI normalize sparse input before PPT generation
+- run the same codebase on Windows now and Linux VM later
+
+Install dependencies:
+
+```powershell
+python -m pip install -r requirements.txt
+```
+
+Run the service:
+
+```powershell
+python -m workshop_service
+```
+
+Main endpoints:
+
+- `GET /healthz`
+- `POST /api/jobs/json`
+- `POST /api/jobs/form`
+- `GET /api/jobs/{job_id}`
+- `GET /api/jobs/{job_id}/artifacts`
+- `GET /api/jobs/{job_id}/artifacts/{artifact_name}`
+
+Recommended runtime modes:
+
+- `python-fast`
+  Directly runs the existing fast workshop path.
+- `python-assets`
+  Uses the existing asset composition path without Codex CLI.
+- `codex-cli`
+  Runs `codex exec` first to produce a normalized scenario JSON, then hands that JSON to the Python generator.
+
+Recommended environment variables:
+
+- `WORKSHOP_PROJECT_ROOT`
+- `WORKSHOP_OUTPUT_ROOT`
+- `WORKSHOP_JOB_ROOT`
+- `WORKSHOP_DEFAULT_MODE`
+- `CODEX_CLI_BIN`
+- `CODEX_MODEL`
+- `CODEX_REASONING_EFFORT`
+- `CODEX_SANDBOX`
+- `CODEX_APPROVAL_POLICY`
+- `CODEX_USE_EPHEMERAL`
+- `PPT_ACCENT_IMAGE_DIR`

@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 
 from build_replacement_map import build_replacement_map
+from card_catalog import enrich_source_with_recognized_cards
 from compose_workshop_assets import compose_payload
 from plan_to_pptx import write_pptx
 from workshop_fast_path import normalize_fast_payload
@@ -79,17 +80,18 @@ def resolve_layout_map_file(args) -> Path:
 
 def generate_package(args) -> Path:
     source = load_json(args.input)
+    prepared_source = enrich_source_with_recognized_cards(source)
     workspace_root = Path(args.workspace_root)
 
-    if is_sparse_workshop_input(source):
+    if is_sparse_workshop_input(prepared_source):
         if args.fast:
-            scenario_payload = normalize_fast_payload(source)
+            scenario_payload = normalize_fast_payload(prepared_source)
         else:
-            scenario_payload = compose_payload(source, Path(args.assets_dir))
+            scenario_payload = compose_payload(prepared_source, Path(args.assets_dir))
         input_file_name = "原始输入.json"
         normalized_file_name = "组合场景.json"
     else:
-        scenario_payload = source
+        scenario_payload = prepared_source
         input_file_name = "场景输入.json"
         normalized_file_name = None
 

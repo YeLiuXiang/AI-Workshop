@@ -7,17 +7,17 @@
     "accent": "Arial"
   },
   "colors": {
-    "primary": "C62828",
-    "secondary": "E91E63",
-    "text": "555555",
-    "muted": "999999",
-    "panel": "F8F4F4",
-    "panel_alt": "F3EDED",
-    "panel_border": "E9DDDD",
+    "primary": "A63A2B",
+    "secondary": "D97A43",
+    "text": "4E433D",
+    "muted": "8A7D75",
+    "panel": "FBF7F3",
+    "panel_alt": "F3E7DE",
+    "panel_border": "DCCBBE",
     "success": "2E7D32",
     "warning": "EF6C00",
-    "danger": "C62828",
-    "background": "FFFFFF"
+    "danger": "A63A2B",
+    "background": "F6F1EC"
   },
   "layout": {
     "aspect_ratio": "16:9",

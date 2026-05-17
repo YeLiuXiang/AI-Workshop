@@ -2,6 +2,13 @@
 
 Use this guide when collecting sparse live input before running `scripts/generate_workshop_package.py` or `scripts/compose_workshop_assets.py`.
 
+The current collection mode can be either:
+
+- a manually edited JSON file
+- a form submission exported into the canonical JSON structure
+
+The generator does not require a dedicated PWA at this stage.
+
 ## Collection Goal
 
 The live input is not expected to describe the full solution. Its job is to do three things well:
@@ -142,10 +149,19 @@ The template now includes an optional `mvp_spec` block used to generate `需求P
 - The card names inside those buckets must come from the SOP card-type lists, not ad hoc scenario labels.
 - A small but accurate card set is better than a large guessed card set.
 
+`recognized_cards`
+
+- Optional.
+- Use this when OCR or manual整理已经拿到了卡牌标题，但还没来得及手工分 bucket。
+- The generator will match titles against the workspace card CSV and enrich `detected_cards`, `product_mapping`, and `current_process`.
+- Prefer object items with `title` and `order_index` when the card order matters.
+- A plain string array is also supported for quick input.
+
 `card_photo_paths`
 
 - Optional.
 - Only store relative or local file names that the operator can map back to the workshop image source.
+- If the image comes from a form upload flow, store the exported local file name, relative path, or resolved upload path after the file is saved locally.
 
 ## Minimum Required Set
 
@@ -159,6 +175,8 @@ If time is tight, collect these six fields first:
 - `event_input.prototype_preference`
 
 This is the minimum set needed for reliable lane selection and case matching.
+
+If现场已经拿到了 OCR 卡牌结果，额外补一个 `recognized_cards` 即可，不必先手工维护 `detected_cards`。
 
 If you also want a better prototype document package, add these fields when time allows:
 
@@ -179,7 +197,7 @@ When facilitating live workshops, collect the fields in this order:
 4. current pain point
 5. expected value
 6. prototype preference
-7. detected cards
+7. recognized cards or detected cards
 8. MVP spec fields when the customer clearly wants a prototype shell
 
 This order follows the way `compose_workshop_assets.py` selects lanes and scores reference cases.
@@ -203,3 +221,21 @@ Before running composition, confirm:
 4. if a frontend shell is expected, one clear demo path is visible from `mvp_spec.core_task` or `mvp_spec.key_actions`
 
 If any of these signals are missing, improve the input first instead of forcing generation.
+
+## `recognized_cards` Examples
+
+Object form:
+
+```json
+[
+	{"title": "了解客户", "order_index": 1},
+	{"title": "个性化营销", "order_index": 2},
+	{"title": "生成或增强文本", "order_index": 3}
+]
+```
+
+String form:
+
+```json
+["了解客户", "个性化营销", "生成或增强文本"]
+```

@@ -1,0 +1,596 @@
+{
+  "slide-0": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 11.0,
+          "bold": true,
+          "color": "E91E63",
+          "text": "AI DISCOVERY WORKSHOP"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 34.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "设备运行异常预警、故障诊断与维修建议"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 34.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "AI Discovery Workshop 商机与原型方案"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 15.0,
+          "color": "555555",
+          "text": "客户：某消费电子客户 | 行业：消费电子 IoT"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 15.0,
+          "color": "555555",
+          "text": "小组：第 1 组 | 日期：2026-05-11"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 8.0,
+          "color": "999999",
+          "text": "某消费电子客户"
+        }
+      ]
+    }
+  },
+  "slide-1": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "当前差距与优先痛点"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "1. 设备运行异常主要依赖用户投诉、客服报修或人工巡检发现"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "2. 工程师人工查看设备日志、功耗波动、温度曲线和历史维修记录"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "3. 根据经验判断是否属于死机前兆、器件老化或硬件故障"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "4. 人工检索维修手册和类似案例，形成排查步骤"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "1. 异常发现滞后，高风险设备无法提前预警"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "2. 日志、功耗和温感数据割裂，故障定位时间长"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "3. 诊断与维修建议依赖资深工程师经验，标准化不足"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "优先切口：异常发现滞后，高风险设备无法提前预警"
+        }
+      ]
+    }
+  },
+  "slide-2": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "业务机会与 Why Now"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "机会判断：对消费电子企业来说，围绕设备运行异常做预警和诊断，是最容易同时证明 AI 能降低售后成本、减少停机损失并提升客户体验的高价值切口。"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "为什么是现在：客户已经具备设备联网、日志采集和售后工单基础，但缺少把运行数据、维修知识和服务动作真正串起来的智能决策闭环。"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "价值支撑：设备日志、功耗和温感数据已经具备形成健康评分与异常识别的基础"
+        }
+      ]
+    }
+  },
+  "slide-3": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "客户现场卡片流程"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "业务场景 / 输入感知：设备维护 / 设备状态数据 / 数据输入"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "理解分析：数据分析 / 异常检测 / 风险预测"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "生成交互 / 执行闭环：文本生成 / 自动回答 / 流程优化 / 自动履行 / 人机交互"
+        }
+      ]
+    }
+  },
+  "slide-4": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "目标 AI Flow"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "业务触发：系统识别到设备日志异常、功耗突变、温度持续升高或健康评分下降"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "1. 接入并汇总设备运行日志、功耗、温感、告警记录和历史维修工单"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "2. AI 对多源数据进行异常检测、趋势分析和风险评分，判断死机、老化或故障概率"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "3. 结合知识库、维修手册和历史案例，生成故障诊断思路与排查路径"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "4. 输出维修建议、备件建议、服务优先级和客户沟通话术"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "5. 对高风险设备自动触发预警通知、创建工单或升级人工复核"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "业务闭环：形成从设备健康识别、风险预警、故障诊断到维修执行的主动服务闭环"
+        }
+      ]
+    }
+  },
+  "slide-5": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "解决方案架构"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "架构主线：该场景适合向客户展示消费电子企业如何利用 AI 将 IoT 设备遥测数据转化为可执行的预警、诊断和维修决策能力。"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "架构分层：展示层：页面壳子、看板卡片、列表表格、详情抽屉 / 交互层：筛选切换、建议查看、动作触发、结果回看 / 数据层：样例数据、页面状态配置、Mock 接口返回"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "优先产品栈：EMQX / DataLayers / Azure Machine Learning / Azure AI Foundry"
+        }
+      ]
+    }
+  },
+  "slide-6": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "能力映射与交付物"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "设备遥测、日志与状态底座 -> EMQX, DataLayers | 交付：设备连接、日志接入与时序状态底座"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "异常检测、风险评分与寿命预测 -> Azure Machine Learning, Azure AI Foundry | 交付：高风险识别模型与预警引擎"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "诊断建议与维修知识问答 -> Azure AI Search, Azure AI Foundry | 交付：RAG 诊断助手与维修建议生成能力"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "工单联动与现场服务执行 -> Dynamics 365 Field Service, Power Automate | 交付：派工、回访和维修流程闭环"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "优先产品栈：EMQX / DataLayers / Azure Machine Learning / Azure AI Foundry"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "现场交付物：客户定制化 PPT 方案 / AI Flow 方案图 / 设备健康与维修决策工作台原型建议 / POC 验证范围与指标建议"
+        }
+      ]
+    }
+  },
+  "slide-7": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "业务价值与验证假设"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "提前识别高风险设备并减少突发故障和死机投诉"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "缩短故障定位与维修建议生成时间，提升一线工程师处理效率"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "推动维修经验结构化沉淀，降低对资深专家的依赖"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "让备件准备和派修动作更有优先级依据，降低服务成本"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "高风险设备提前识别率达到 70% 以上"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "故障定位时间缩短 40%"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "维修建议首轮采纳率达到 60%"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "非计划性报修下降 15%"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "1. 异常识别与风险评分是否具备业务可解释性"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "2. 诊断建议与维修手册、历史案例的匹配质量"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "3. 维修建议对备件准备和派修效率的帮助程度"
+        }
+      ]
+    }
+  },
+  "slide-8": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "原型与 MVP 设计"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "原型名称：设备健康与维修决策工作台；目标用户：售后服务负责人、维修工程师"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "系统形态：设备健康运营与维修决策工作台；目标：为售后与设备运营团队提供统一的异常预警、故障诊断和维修处置入口"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "MVP 交付：客户演示型前端壳子；核心任务：快速识别高风险设备并获得可执行的诊断与维修建议；技术栈：Next.js + Tailwind CSS"
+        }
+      ]
+    }
+  },
+  "slide-9": {
+    "shape-0": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 23.0,
+          "bold": true,
+          "color": "C62828",
+          "text": "POC 与下一步"
+        }
+      ]
+    },
+    "shape-1": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 14.0,
+          "color": "555555",
+          "text": "试点范围：先验证设备健康评分、故障诊断建议和工单触发三段闭环，以一个高频故障型号为试点。"
+        }
+      ]
+    },
+    "shape-2": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "售后服务负责人"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "设备运营团队"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "维修主管"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "IT / 数据平台团队"
+        }
+      ]
+    },
+    "shape-3": {
+      "paragraphs": [
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "1. 确认试点设备型号、故障类型和可用历史数据样本"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "2. 整理日志、功耗、温感和维修工单的字段口径"
+        },
+        {
+          "font_name": "Arial",
+          "font_size": 13.0,
+          "color": "555555",
+          "text": "3. 两到三周内完成工作台原型和首轮效果验证"
+        }
+      ]
+    }
+  }
+}

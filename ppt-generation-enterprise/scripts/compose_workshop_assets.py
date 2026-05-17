@@ -2,6 +2,8 @@ import argparse
 import json
 from pathlib import Path
 
+from card_catalog import enrich_source_with_recognized_cards
+
 
 def load_json(path: str) -> dict:
     return json.loads(Path(path).read_text(encoding="utf-8"))
@@ -156,6 +158,7 @@ def merge_cards(live_cards: dict, recommended_cards: dict) -> dict:
 
 
 def compose_payload(source: dict, base_dir: Path) -> dict:
+    source = enrich_source_with_recognized_cards(source)
     workshop = source.get("workshop", {}) if isinstance(source.get("workshop"), dict) else {}
     live_input = source.get("event_input", {}) if isinstance(source.get("event_input"), dict) else {}
     detected_cards = source.get("detected_cards", {}) if isinstance(source.get("detected_cards"), dict) else {}

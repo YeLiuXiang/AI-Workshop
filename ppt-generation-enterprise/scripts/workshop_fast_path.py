@@ -1,3 +1,6 @@
+from card_catalog import enrich_source_with_recognized_cards
+
+
 def ensure_text(value: object, fallback: str = "") -> str:
     if isinstance(value, str) and value.strip():
         return value.strip()
@@ -86,11 +89,13 @@ def build_generic_mapping(prototype_name: str) -> list[dict]:
 
 
 def normalize_fast_payload(source: dict) -> dict:
+    source = enrich_source_with_recognized_cards(source)
     workshop = ensure_dict(source.get("workshop"))
     event_input = ensure_dict(source.get("event_input"))
     detected_cards = ensure_dict(source.get("detected_cards"))
     mvp_spec = ensure_dict(source.get("mvp_spec"))
     current_process = ensure_list(source.get("current_process"))
+    existing_product_mapping = source.get("product_mapping") if isinstance(source.get("product_mapping"), list) else []
 
     customer = ensure_text(workshop.get("customer"), "待补充：客户名称")
     industry = ensure_text(workshop.get("industry"), ensure_text(event_input.get("customer_type"), "待补充：行业名称"))
@@ -162,7 +167,7 @@ def normalize_fast_payload(source: dict) -> dict:
             "mock_scope": mock_scope,
             "value_statement": f"让{target_role}先在{prototype_name}里看到 AI 对问题识别、建议生成和协同闭环的价值。",
         },
-        "product_mapping": build_generic_mapping(prototype_name),
+        "product_mapping": existing_product_mapping or build_generic_mapping(prototype_name),
         "business_value": {
             "outcomes": dedupe([
                 expected_value,

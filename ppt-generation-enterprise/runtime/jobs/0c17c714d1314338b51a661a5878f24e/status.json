@@ -1,0 +1,13 @@
+{
+  "job_id": "0c17c714d1314338b51a661a5878f24e",
+  "status": "failed",
+  "mode": "python-fast",
+  "created_at": "2026-05-17T06:58:32.939357+00:00",
+  "updated_at": "2026-05-17T06:58:34.088765+00:00",
+  "request_path": "F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\runtime\\jobs\\0c17c714d1314338b51a661a5878f24e\\request.json",
+  "scenario_path": null,
+  "case_dir": null,
+  "artifacts": [],
+  "error": "Unable to determine output case directory from generator stdout",
+  "logs": {}
+}

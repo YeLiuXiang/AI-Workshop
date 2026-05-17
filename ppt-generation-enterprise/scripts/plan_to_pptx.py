@@ -1,5 +1,8 @@
 import argparse
 import json
+import os
+import random
+from io import BytesIO
 from pathlib import Path
 
 from pptx import Presentation
@@ -8,8 +11,25 @@ from pptx.enum.shapes import MSO_AUTO_SHAPE_TYPE
 from pptx.enum.text import PP_ALIGN, MSO_VERTICAL_ANCHOR
 from pptx.util import Inches, Pt
 
+try:
+    from PIL import Image
+except ImportError:
+    Image = None
+
 
 EMU_PER_INCH = 914400
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_ACCENT_IMAGE_DIR = Path(
+    os.getenv(
+        "PPT_ACCENT_IMAGE_DIR",
+        str(
+            PROJECT_ROOT / "AI picture"
+            if (PROJECT_ROOT / "AI picture").exists()
+            else PROJECT_ROOT / "assets" / "accent-images"
+        ),
+    )
+)
+SUPPORTED_IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
 
 
 def load_json(path: str) -> dict:
@@ -201,6 +221,17 @@ def split_labeled_items(value: str) -> tuple[str, list[str]]:
     return label.strip(), items
 
 
+def split_title_body(value: str) -> tuple[str, str]:
+    text = value.strip()
+    if "：" in text:
+        title, body = text.split("：", 1)
+        return title.strip(), body.strip()
+    if ":" in text:
+        title, body = text.split(":", 1)
+        return title.strip(), body.strip()
+    return text, ""
+
+
 def sanitize_cover_lines(lines: list[str]) -> list[str]:
     sanitized = []
     for line in lines:
@@ -270,9 +301,30 @@ def build_cover_highlight(slide_data: dict) -> str:
     return str(slide_data.get("subtitle", "")).strip()
 
 
+def build_cover_workshop_label(slide_data: dict) -> str:
+    fields = slide_data.get("fields", {}) if isinstance(slide_data.get("fields"), dict) else {}
+    workshop_line = str(fields.get("workshop_line", "")).strip()
+    if not workshop_line:
+        workshop_line = str(slide_data.get("eyebrow", "")).strip()
+    label = strip_label_prefix(workshop_line) if workshop_line else ""
+    return label.replace("AI Discovery Card Workshop", "AI Discovery Workshop")
+
+
 def draw_arrow(slide, left: float, top: float, width: float, height: float, color: RGBColor) -> None:
     arrow = slide.shapes.add_shape(
         MSO_AUTO_SHAPE_TYPE.RIGHT_ARROW,
+        inches(left),
+        inches(top),
+        inches(width),
+        inches(height),
+    )
+    apply_fill(arrow, color)
+    apply_line(arrow, None)
+
+
+def draw_down_arrow(slide, left: float, top: float, width: float, height: float, color: RGBColor) -> None:
+    arrow = slide.shapes.add_shape(
+        MSO_AUTO_SHAPE_TYPE.DOWN_ARROW,
         inches(left),
         inches(top),
         inches(width),
@@ -343,6 +395,96 @@ def theme_tokens(theme: dict) -> dict:
     }
 
 
+def get_accent_image_spec(slide_data: dict) -> dict | None:
+    fields = slide_data.get("fields", {}) if isinstance(slide_data.get("fields"), dict) else {}
+    spec = fields.get("accent_image")
+    if not isinstance(spec, dict) or not spec.get("enabled"):
+        return None
+    return spec
+
+
+def list_accent_image_candidates(image_dir: Path) -> list[Path]:
+    if not image_dir.exists() or not image_dir.is_dir():
+        return []
+    return [
+        path
+        for path in image_dir.iterdir()
+        if path.is_file() and path.suffix.lower() in SUPPORTED_IMAGE_EXTENSIONS
+    ]
+
+
+def crop_image_to_buffer(image_path: Path, width: float, height: float):
+    if Image is None:
+        return None
+    try:
+        with Image.open(image_path) as image:
+            image_width, image_height = image.size
+            if image_width <= 0 or image_height <= 0:
+                return None
+
+            box_aspect = width / height
+            image_aspect = image_width / image_height
+            if image_aspect > box_aspect:
+                crop_width = int(image_height * box_aspect)
+                crop_left = max((image_width - crop_width) // 2, 0)
+                crop_box = (crop_left, 0, crop_left + crop_width, image_height)
+            else:
+                crop_height = int(image_width / box_aspect)
+                crop_top = max((image_height - crop_height) // 2, 0)
+                crop_box = (0, crop_top, image_width, crop_top + crop_height)
+
+            cropped = image.crop(crop_box).convert("RGB")
+            buffer = BytesIO()
+            cropped.save(buffer, format="PNG")
+            buffer.seek(0)
+            return buffer
+    except Exception:
+        return None
+
+
+def add_cropped_picture(slide, image_path: Path, left: float, top: float, width: float, height: float) -> bool:
+    if Image is None:
+        slide.shapes.add_picture(str(image_path), inches(left), inches(top), width=inches(width))
+        return True
+
+    buffer = crop_image_to_buffer(image_path, width, height)
+    if buffer is None:
+        return False
+    slide.shapes.add_picture(
+        buffer,
+        inches(left),
+        inches(top),
+        width=inches(width),
+        height=inches(height),
+    )
+    return True
+
+
+def choose_accent_image(image_dir: Path) -> Path | None:
+    candidates = list_accent_image_candidates(image_dir)
+    if not candidates:
+        return None
+    return random.choice(candidates)
+
+
+def add_accent_image(slide, slide_data: dict, tokens: dict) -> None:
+    spec = get_accent_image_spec(slide_data)
+    if not spec:
+        return
+
+    image_dir = Path(str(spec.get("directory") or DEFAULT_ACCENT_IMAGE_DIR))
+    image_path = choose_accent_image(image_dir)
+    if image_path is None:
+        return
+
+    left = float(spec.get("left", 9.9))
+    top = float(spec.get("top", 2.0))
+    width = float(spec.get("width", 2.1))
+    height = float(spec.get("height", 4.6))
+
+    add_cropped_picture(slide, image_path, left, top, width, height)
+
+
 def set_slide_background(slide, color: RGBColor) -> None:
     background = slide.background.fill
     background.solid()
@@ -379,14 +521,28 @@ def add_header(slide, title: str, tokens: dict, subtitle: str = "") -> None:
 def render_cover(slide, slide_data: dict, tokens: dict) -> None:
     set_slide_background(slide, tokens["background"])
 
-    left_band = slide.shapes.add_shape(
-        MSO_AUTO_SHAPE_TYPE.RECTANGLE,
-        inches(0),
-        inches(0),
-        inches(2.7),
-        inches(7.5),
-    )
-    apply_fill(left_band, tokens["primary"])
+    cover_image = choose_accent_image(DEFAULT_ACCENT_IMAGE_DIR)
+    if cover_image is not None:
+        add_cropped_picture(slide, cover_image, 0, 0, 2.7, 7.5)
+        image_overlay = slide.shapes.add_shape(
+            MSO_AUTO_SHAPE_TYPE.RECTANGLE,
+            inches(0),
+            inches(0),
+            inches(2.7),
+            inches(7.5),
+        )
+        apply_fill(image_overlay, tokens["primary"])
+        image_overlay.fill.transparency = 0.28
+        image_overlay.line.fill.background()
+    else:
+        left_band = slide.shapes.add_shape(
+            MSO_AUTO_SHAPE_TYPE.RECTANGLE,
+            inches(0),
+            inches(0),
+            inches(2.7),
+            inches(7.5),
+        )
+        apply_fill(left_band, tokens["primary"])
 
     top_accent = slide.shapes.add_shape(
         MSO_AUTO_SHAPE_TYPE.ROUNDED_RECTANGLE,
@@ -398,22 +554,26 @@ def render_cover(slide, slide_data: dict, tokens: dict) -> None:
     apply_fill(top_accent, tokens["panel_alt"])
     apply_line(top_accent, None)
 
-    eyebrow = add_textbox(slide, 0.5, 0.7, 2.3, 0.3)
-    set_frame_text(
-        eyebrow.text_frame,
-        [slide_data.get("eyebrow", "AI DISCOVERY WORKSHOP")],
-        tokens["accent_font"],
-        11,
-        RGBColor(255, 255, 255),
-        bold=True,
-        align=PP_ALIGN.LEFT,
-        space_after=0,
-    )
-
-    footer = add_textbox(slide, 0.5, 6.65, 2.2, 0.35)
-    set_frame_text(footer.text_frame, [slide_data.get("footer", "")], tokens["body_font"], 10, RGBColor(255, 255, 255), space_after=0)
-
     content_box(slide, 3.0, 0.88, 8.6, 5.2, tokens["panel"], tokens["panel_radius"], tokens["panel_border"])
+
+    workshop_label = build_cover_workshop_label(slide_data)
+    if workshop_label:
+        content_box(slide, 9.18, 0.98, 2.02, 0.42, tokens["background"], 0.06, tokens["panel_border"])
+        add_panel_text(
+            slide,
+            9.34,
+            1.08,
+            1.7,
+            0.16,
+            [workshop_label],
+            tokens["accent_font"],
+            8.6,
+            tokens["primary"],
+            bold=True,
+            align=PP_ALIGN.CENTER,
+            vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
+            space_after=0,
+        )
 
     metadata = build_cover_metadata(slide_data)
     if metadata:
@@ -483,11 +643,10 @@ def render_cover(slide, slide_data: dict, tokens: dict) -> None:
         )
 
     metadata_specs = [
-        (3.38, 4.52, 3.78, "客户与行业"),
-        (7.34, 4.52, 2.28, "小组与日期"),
-        (9.8, 4.52, 1.12, "Workshop"),
+        (3.38, 4.52, 4.2, "客户与行业"),
+        (7.78, 4.52, 2.88, "小组与日期"),
     ]
-    for index, badge_text in enumerate(build_cover_badges(slide_data)):
+    for index, badge_text in enumerate(build_cover_badges(slide_data)[:2]):
         left, top, width, label = metadata_specs[index]
         content_box(slide, left, top, width, 0.72, tokens["panel_alt"], tokens["panel_radius"], tokens["panel_border"])
         add_panel_text(
@@ -509,10 +668,10 @@ def render_cover(slide, slide_data: dict, tokens: dict) -> None:
             left + 0.18,
             top + 0.27,
             width - 0.36,
-            0.22,
+            0.26,
             [badge_text],
             tokens["body_font"],
-            10.5,
+            10.0,
             tokens["text"],
             align=PP_ALIGN.LEFT,
             vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
@@ -562,12 +721,32 @@ def render_opportunity(slide, slide_data: dict, tokens: dict) -> None:
     set_slide_background(slide, tokens["background"])
     add_header(slide, slide_data.get("title", ""), tokens, slide_data.get("subtitle", ""))
     fields = slide_data.get("fields", {})
+    accent_spec = get_accent_image_spec(slide_data)
 
     sections = [
         ("机会判断", strip_label_prefix(fields.get("opportunity_line", "")), tokens["panel"]),
         ("为什么是现在", strip_label_prefix(fields.get("why_now_line", "")), tokens["panel_alt"]),
         ("价值支撑", strip_label_prefix(fields.get("proof_line", "")), tokens["panel"]),
     ]
+    if accent_spec:
+        for index, (title, body, fill_color) in enumerate(sections):
+            left, top, width, height = 0.9, 1.95 + index * 1.6, 8.65, 1.35
+            content_box(slide, left, top, width, height, fill_color, tokens["panel_radius"], tokens["panel_border"])
+            add_section_title(slide, left + 0.22, top + 0.18, width - 0.44, title, tokens)
+            add_body_text(
+                slide,
+                left + 0.22,
+                top + 0.52,
+                width - 0.44,
+                0.55,
+                [body],
+                tokens,
+                font_size=13.4,
+                vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
+            )
+        add_accent_image(slide, slide_data, tokens)
+        return
+
     boxes = [
         (0.9, 1.95, 3.6, 4.8),
         (4.87, 1.95, 3.6, 4.8),
@@ -678,21 +857,66 @@ def render_flow(slide, slide_data: dict, tokens: dict) -> None:
         space_after=0,
     )
 
-    content_box(slide, 0.9, 2.95, 11.45, 2.95, tokens["panel"], tokens["panel_radius"], tokens["panel_border"])
-    add_section_title(slide, 1.2, 3.18, 10.85, "闭环流程", tokens)
-    add_body_text(slide, 1.15, 3.62, 10.95, 1.95, fields.get("flow_lines", []), tokens, 14.5, space_after=8)
+    flow_lines = fields.get("flow_lines", [])
+    content_box(slide, 0.9, 3.05, 11.45, 2.95, tokens["panel_alt"], tokens["panel_radius"], tokens["panel_border"])
+    add_section_title(slide, 1.2, 3.25, 2.0, "核心流程", tokens)
 
-    content_box(slide, 0.9, 6.1, 11.45, 0.65, tokens["secondary"], tokens["panel_radius"], None)
-    add_section_title(slide, 1.2, 6.2, 1.35, "闭环结果", tokens, RGBColor(255, 255, 255))
+    count = max(min(len(flow_lines), 5), 1)
+    start_left = 1.15
+    step_top = 3.72
+    step_height = 1.68
+    gap = 0.12
+    arrow_width = 0.24
+    total_width = 10.95
+    step_width = (total_width - (count - 1) * (gap + arrow_width)) / count
+
+    for index, line in enumerate(flow_lines[:5]):
+        left = start_left + index * (step_width + gap + arrow_width)
+        fill = tokens["panel"] if index % 2 == 0 else tokens["background"]
+        content_box(slide, left, step_top, step_width, step_height, fill, tokens["panel_radius"], tokens["panel_border"])
+        content_box(slide, left + 0.14, step_top + 0.12, 0.54, 0.34, tokens["secondary"], 0.05, None)
+        add_panel_text(
+            slide,
+            left + 0.21,
+            step_top + 0.18,
+            0.4,
+            0.1,
+            [f"0{index + 1}" if index < 9 else str(index + 1)],
+            tokens["accent_font"],
+            9.5,
+            RGBColor(255, 255, 255),
+            bold=True,
+            align=PP_ALIGN.CENTER,
+            vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
+            space_after=0,
+        )
+        add_body_text(
+            slide,
+            left + 0.16,
+            step_top + 0.58,
+            step_width - 0.28,
+            0.92,
+            [line],
+            tokens,
+            font_size=10.2,
+            vertical_anchor=MSO_VERTICAL_ANCHOR.TOP,
+            space_after=0,
+        )
+        if index < count - 1:
+            arrow_left = left + step_width + gap
+            draw_arrow(slide, arrow_left, step_top + 0.53, arrow_width, 0.22, tokens["secondary"])
+
+    content_box(slide, 0.9, 6.12, 11.45, 0.72, tokens["secondary"], tokens["panel_radius"], None)
+    add_section_title(slide, 1.2, 6.28, 1.6, "闭环结果", tokens, RGBColor(255, 255, 255))
     add_body_text(
         slide,
-        2.3,
-        6.19,
-        8.9,
-        0.28,
+        2.45,
+        6.25,
+        8.95,
+        0.22,
         [strip_label_prefix(fields.get("closure_line", ""))],
         tokens,
-        font_size=14.2,
+        font_size=13.6,
         color=RGBColor(255, 255, 255),
         bold=True,
         vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
@@ -700,11 +924,163 @@ def render_flow(slide, slide_data: dict, tokens: dict) -> None:
     )
 
 
+def render_architecture(slide, slide_data: dict, tokens: dict) -> None:
+    set_slide_background(slide, tokens["background"])
+    add_header(slide, slide_data.get("title", ""), tokens)
+    fields = slide_data.get("fields", {})
+    layer_lines = fields.get("layer_lines", [])
+    platform_line = strip_label_prefix(fields.get("platform_line", ""))
+    closure_line = fields.get("closure_line", "")
+
+    content_box(slide, 0.9, 1.86, 11.45, 0.82, tokens["primary"], tokens["panel_radius"], None)
+    add_body_text(
+        slide,
+        1.2,
+        2.06,
+        10.9,
+        0.3,
+        [closure_line or fields.get("architecture_title", "方案架构")],
+        tokens,
+        font_size=14.8,
+        color=RGBColor(255, 255, 255),
+        bold=True,
+        vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
+        space_after=0,
+    )
+
+    content_box(slide, 0.9, 2.95, 11.45, 3.75, tokens["panel_alt"], tokens["panel_radius"], tokens["panel_border"])
+    add_section_title(slide, 1.18, 3.16, 6.8, fields.get("architecture_title", "方案架构"), tokens)
+
+    lane_colors = [tokens["primary"], tokens["secondary"], tokens["primary"], tokens["secondary"]]
+    lane_fills = [tokens["background"], tokens["panel"], tokens["background"], tokens["panel"]]
+    lane_tops = [3.55, 4.53, 5.51, 6.49]
+    max_layers = min(len(layer_lines), 4)
+    for index, line in enumerate(layer_lines[:4]):
+        title, body = split_title_body(line)
+        body_text = body or title
+        top = lane_tops[index]
+
+        bullet = slide.shapes.add_shape(
+            MSO_AUTO_SHAPE_TYPE.OVAL,
+            inches(1.18),
+            inches(top + 0.12),
+            inches(0.42),
+            inches(0.42),
+        )
+        apply_fill(bullet, lane_colors[index])
+        apply_line(bullet, None)
+        add_panel_text(
+            slide,
+            1.24,
+            top + 0.195,
+            0.3,
+            0.08,
+            [str(index + 1)],
+            tokens["accent_font"],
+            9.2,
+            RGBColor(255, 255, 255),
+            bold=True,
+            align=PP_ALIGN.CENTER,
+            vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
+            space_after=0,
+        )
+
+        content_box(slide, 1.72, top, 2.2, 0.64, lane_colors[index], tokens["panel_radius"], None)
+        add_panel_text(
+            slide,
+            1.94,
+            top + 0.17,
+            1.75,
+            0.14,
+            [title],
+            tokens["body_font"],
+            11.8,
+            RGBColor(255, 255, 255),
+            bold=True,
+            align=PP_ALIGN.CENTER,
+            vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
+            space_after=0,
+        )
+
+        content_box(slide, 4.12, top, 6.98, 0.64, lane_fills[index], tokens["panel_radius"], tokens["panel_border"])
+        add_body_text(
+            slide,
+            4.38,
+            top + 0.12,
+            6.48,
+            0.3,
+            [body_text],
+            tokens,
+            font_size=12.0,
+            vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
+            space_after=0,
+        )
+
+        if index < max_layers - 1:
+            draw_down_arrow(slide, 6.43, top + 0.63, 0.3, 0.18, tokens["secondary"])
+
+    content_box(slide, 0.9, 6.95, 11.45, 0.9, tokens["panel"], tokens["panel_radius"], tokens["panel_border"])
+    add_section_title(slide, 1.18, 7.17, 1.6, "产品栈", tokens)
+    chips = [item.strip() for item in platform_line.replace("优先产品栈：", "").split("/") if item.strip()] or [platform_line or "待补充"]
+    chip_left = 2.18
+    chip_top = 7.14
+    chip_gap = 0.18
+    chip_width = 2.25
+    for index, item in enumerate(chips[:4]):
+        left = chip_left + index * (chip_width + chip_gap)
+        content_box(slide, left, chip_top, chip_width, 0.42, tokens["panel_alt"] if index % 2 else tokens["background"], 0.08, tokens["panel_border"])
+        add_panel_text(
+            slide,
+            left + 0.1,
+            chip_top + 0.11,
+            chip_width - 0.2,
+            0.12,
+            [item],
+            tokens["body_font"],
+            9.8,
+            tokens["text"],
+            align=PP_ALIGN.CENTER,
+            vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
+            space_after=0,
+        )
+
+
 def render_prototype(slide, slide_data: dict, tokens: dict) -> None:
     set_slide_background(slide, tokens["background"])
     add_header(slide, slide_data.get("title", ""), tokens)
     fields = slide_data.get("fields", {})
     top_labels = fields.get("top_labels") or ["原型名称", "系统形态", "价值落点"]
+    accent_spec = get_accent_image_spec(slide_data)
+
+    if accent_spec:
+        content_box(slide, 0.9, 1.95, 8.65, 1.85, tokens["panel_alt"], tokens["panel_radius"], tokens["panel_border"])
+        add_section_title(slide, 1.2, 2.16, 7.9, "原型摘要", tokens)
+        add_body_text(
+            slide,
+            1.2,
+            2.58,
+            7.95,
+            0.98,
+            [
+                strip_label_prefix(fields.get("prototype_name_line", "")),
+                strip_label_prefix(fields.get("prototype_surface_line", "")),
+                strip_label_prefix(fields.get("prototype_value_line", "")),
+            ],
+            tokens,
+            font_size=12.2,
+            space_after=6,
+        )
+
+        content_box(slide, 0.9, 4.12, 4.18, 2.55, tokens["panel"], tokens["panel_radius"], tokens["panel_border"])
+        add_section_title(slide, 1.15, 4.37, 3.6, fields.get("flow_title", "核心流程"), tokens)
+        add_body_text(slide, 1.15, 4.8, 3.6, 1.55, fields.get("prototype_flow_lines", []), tokens, 12.9, space_after=6)
+
+        content_box(slide, 5.37, 4.12, 4.18, 2.55, tokens["panel_alt"], tokens["panel_radius"], tokens["panel_border"])
+        add_section_title(slide, 5.62, 4.37, 3.6, fields.get("scope_title", "工作台范围"), tokens)
+        add_body_text(slide, 5.62, 4.8, 3.6, 1.55, fields.get("prototype_scope_lines", []), tokens, 12.9, space_after=6)
+
+        add_accent_image(slide, slide_data, tokens)
+        return
 
     top_sections = [
         (top_labels[0], strip_label_prefix(fields.get("prototype_name_line", "")), tokens["panel"]),
@@ -779,6 +1155,7 @@ def render_next_steps(slide, slide_data: dict, tokens: dict) -> None:
     set_slide_background(slide, tokens["background"])
     add_header(slide, slide_data.get("title", ""), tokens)
     fields = slide_data.get("fields", {})
+    accent_spec = get_accent_image_spec(slide_data)
 
     content_box(slide, 0.9, 1.9, 11.45, 0.8, tokens["primary"], tokens["panel_radius"], None)
     add_section_title(slide, 1.2, 2.06, 1.35, fields.get("scope_title", "POC 范围"), tokens, RGBColor(255, 255, 255))
@@ -796,6 +1173,18 @@ def render_next_steps(slide, slide_data: dict, tokens: dict) -> None:
         vertical_anchor=MSO_VERTICAL_ANCHOR.MIDDLE,
         space_after=0,
     )
+
+    if accent_spec:
+        content_box(slide, 0.9, 3.0, 4.25, 3.7, tokens["panel"], tokens["panel_radius"], tokens["panel_border"])
+        add_section_title(slide, 1.2, 3.25, 3.65, fields.get("stakeholder_title", "关键角色"), tokens)
+        add_body_text(slide, 1.2, 3.8, 3.65, 2.35, fields.get("stakeholder_lines", []), tokens, 13.5, space_after=8)
+
+        content_box(slide, 5.4, 3.0, 4.25, 3.7, tokens["panel_alt"], tokens["panel_radius"], tokens["panel_border"])
+        add_section_title(slide, 5.7, 3.25, 3.65, fields.get("next_action_title", "后续动作"), tokens)
+        add_body_text(slide, 5.7, 3.8, 3.65, 2.35, fields.get("next_action_lines", []), tokens, 13.5, space_after=8)
+
+        add_accent_image(slide, slide_data, tokens)
+        return
 
     content_box(slide, 0.9, 3.0, 5.45, 3.7, tokens["panel"], tokens["panel_radius"], tokens["panel_border"])
     add_section_title(slide, 1.2, 3.25, 4.85, fields.get("stakeholder_title", "关键角色"), tokens)
@@ -822,6 +1211,9 @@ def render_slide(slide, slide_data: dict, tokens: dict) -> None:
         return
     if layout_key == "ai-flow-steps":
         render_flow(slide, slide_data, tokens)
+        return
+    if layout_key == "architecture-diagram":
+        render_architecture(slide, slide_data, tokens)
         return
     if layout_key == "prototype-concept":
         render_prototype(slide, slide_data, tokens)
