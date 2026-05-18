@@ -1,5 +1,6 @@
 import argparse
 import json
+import re
 from pathlib import Path
 
 from workshop_to_mvp_docs import normalize_mvp_spec
@@ -33,17 +34,48 @@ def ensure_list(value: object) -> list[str]:
     return []
 
 
-def numbered_lines(items: list[str], placeholder: str, limit: int | None = None) -> list[str]:
+def normalize_text(value: str) -> str:
+    return re.sub(r"\s+", " ", value.replace("\r", " ").replace("\n", " ")).strip(" ，；;。")
+
+
+def compact_text(value: str, limit: int = 28, clause_limit: int = 2) -> str:
+    text = normalize_text(value)
+    if len(text) <= limit:
+        return text
+
+    for splitter, joiner in ((r"[；;。!?！？]", "；"), (r"[，,、]", "，")):
+        parts = [part.strip(" ，；;。") for part in re.split(splitter, text) if part.strip(" ，；;。")]
+        if len(parts) <= 1:
+            continue
+        candidate = joiner.join(parts[:clause_limit])
+        if len(candidate) <= limit:
+            return candidate
+        text = candidate
+
+    return text[: limit - 1].rstrip("，； ") + "…"
+
+
+def compact_items(items: list[str], item_limit: int = 18, max_items: int | None = None) -> list[str]:
+    selected = items[:max_items] if max_items else items
+    return [compact_text(item, item_limit) for item in selected if item]
+
+
+def numbered_lines(
+    items: list[str],
+    placeholder: str,
+    limit: int | None = None,
+    item_limit: int = 18,
+) -> list[str]:
     if not items:
         return [f"1. 待补充：{placeholder}"]
-    selected = items[:limit] if limit else items
+    selected = compact_items(items, item_limit=item_limit, max_items=limit)
     return [f"{index}. {item}" for index, item in enumerate(selected, start=1)]
 
 
-def join_cards(items: list[str], placeholder: str) -> str:
+def join_cards(items: list[str], placeholder: str, item_limit: int = 14, max_items: int = 4) -> str:
     if not items:
         return f"待补充：{placeholder}"
-    return " / ".join(items)
+    return " / ".join(compact_items(items, item_limit=item_limit, max_items=max_items))
 
 
 def format_mapping_rows(rows: object) -> list[str]:
@@ -57,10 +89,16 @@ def format_mapping_rows(rows: object) -> list[str]:
         capability = ensure_text(row.get("capability") or row.get("card"), "能力卡")
         products_value = row.get("products")
         if isinstance(products_value, list):
-            products = ", ".join([str(item).strip() for item in products_value if str(item).strip()])
+            products = "、".join(
+                compact_items(
+                    [str(item).strip() for item in products_value if str(item).strip()],
+                    item_limit=12,
+                    max_items=1,
+                )
+            )
         else:
-            products = ensure_text(products_value, "产品")
-        delivery = ensure_text(row.get("delivery") or row.get("deliverable"), "交付形式")
+            products = compact_text(ensure_text(products_value, "产品"), 14)
+        delivery = compact_text(ensure_text(row.get("delivery") or row.get("deliverable"), "交付形式"), 18)
         formatted.append(f"{capability} -> {products} | 交付：{delivery}")
 
     return formatted or ["待补充：能力卡 -> 产品映射 -> 交付形式"]
@@ -87,19 +125,19 @@ def summarize_platforms(rows: object) -> str:
 
     if not deduplicated:
         return "优先产品栈：待补充"
-    return f"优先产品栈：{' / '.join(deduplicated[:4])}"
+    return f"优先产品栈：{' / '.join(compact_items(deduplicated, item_limit=16, max_items=3))}"
 
 
 def combine_scope_lines(scope: object, validation_points: list[str]) -> str:
-    scope_text = ensure_text(scope, "POC 范围")
+    scope_text = compact_text(ensure_text(scope, "POC 范围"), 24)
     if not validation_points:
         return f"POC 聚焦：{scope_text}"
-    return f"POC 聚焦：{scope_text}；优先验证 {validation_points[0]}"
+    return f"POC 聚焦：{scope_text}；优先验证 {compact_text(validation_points[0], 18)}"
 
 
-def first_or_placeholder(items: list[str], placeholder: str) -> str:
+def first_or_placeholder(items: list[str], placeholder: str, limit: int = 20) -> str:
     if items:
-        return items[0]
+        return compact_text(items[0], limit)
     return f"待补充：{placeholder}"
 
 
@@ -112,10 +150,7 @@ def dedupe_items(items: list[str]) -> list[str]:
 
 
 def shorten_text(value: str, limit: int = 28) -> str:
-    text = value.strip()
-    if len(text) <= limit:
-        return text
-    return text[: limit - 1].rstrip() + "…"
+    return compact_text(value, limit)
 
 
 def build_architecture_blocks(
@@ -151,12 +186,12 @@ def build_architecture_support_lines(product_mapping: list[dict], mapping_lines:
         if not isinstance(row, dict):
             continue
         capability = ensure_text(row.get("capability"), "能力")
-        delivery = ensure_text(row.get("delivery") or row.get("deliverable"), "交付")
+        delivery = compact_text(ensure_text(row.get("delivery") or row.get("deliverable"), "交付"), 18)
         support_lines.append(f"{capability}：{delivery}")
     if not support_lines:
         support_lines = mapping_lines[:3]
     if flow_steps:
-        support_lines.append(f"关键动作：{'；'.join(flow_steps[:2])}")
+        support_lines.append(f"关键动作：{'；'.join(compact_items(flow_steps, item_limit=14, max_items=2))}")
     return support_lines[:4]
 
 
@@ -285,7 +320,7 @@ def build_workshop_plan(payload: dict, template: str, theme: str, aspect_ratio: 
     architecture_support_lines = build_architecture_support_lines(product_mapping, mapping_lines, flow_steps)
     architecture_chips = build_architecture_chips(product_mapping)
     deliverable_line = f"现场交付物：{join_cards(value_deliverables, '现场交付物')}"
-    cover_value_line = prototype_value_statement or opportunity_statement or flow_narrative
+    cover_value_line = compact_text(prototype_value_statement or opportunity_statement or flow_narrative, 44)
     cover_title = scenario_name
     cover_subtitle = "AI Discovery Workshop 商机与原型方案"
 
@@ -327,14 +362,14 @@ def build_workshop_plan(payload: dict, template: str, theme: str, aspect_ratio: 
             "as-is-pain-map",
             "as-is-pain-map",
             [
-                f"现状流程：{'；'.join(numbered_lines(current_process, '现状流程', limit=4))}",
-                f"关键痛点：{'；'.join(numbered_lines(pain_points, '关键痛点', limit=3))}",
-                f"优先切口：{first_or_placeholder(pain_points, '优先改造环节')}",
+                f"现状流程：{'；'.join(numbered_lines(current_process, '现状流程', limit=4, item_limit=18))}",
+                f"关键痛点：{'；'.join(numbered_lines(pain_points, '关键痛点', limit=3, item_limit=18))}",
+                f"优先切口：{first_or_placeholder(pain_points, '优先改造环节', limit=18)}",
             ],
             fields={
-                "process_lines": numbered_lines(current_process, "现状流程", limit=4),
-                "pain_lines": numbered_lines(pain_points, "关键痛点", limit=3),
-                "focus_line": f"优先切口：{first_or_placeholder(pain_points, '优先改造环节')}",
+                "process_lines": numbered_lines(current_process, "现状流程", limit=4, item_limit=18),
+                "pain_lines": numbered_lines(pain_points, "关键痛点", limit=3, item_limit=18),
+                "focus_line": f"优先切口：{first_or_placeholder(pain_points, '优先改造环节', limit=18)}",
             },
         ),
         make_slide(
@@ -343,14 +378,14 @@ def build_workshop_plan(payload: dict, template: str, theme: str, aspect_ratio: 
             "opportunity-summary",
             "opportunity-summary",
             [
-                f"机会判断：{opportunity_statement}",
-                f"为什么是现在：{opportunity_why_now}",
-                f"价值支撑：{first_or_placeholder(opportunity_supporting_points, '价值支撑点')}",
+                f"机会判断：{compact_text(opportunity_statement, 28)}",
+                f"为什么是现在：{compact_text(opportunity_why_now, 28)}",
+                f"价值支撑：{first_or_placeholder(opportunity_supporting_points, '价值支撑点', limit=18)}",
             ],
             fields={
-                "opportunity_line": f"机会判断：{opportunity_statement}",
-                "why_now_line": f"为什么是现在：{opportunity_why_now}",
-                "proof_line": f"价值支撑：{first_or_placeholder(opportunity_supporting_points, '价值支撑点')}",
+                "opportunity_line": f"机会判断：{compact_text(opportunity_statement, 28)}",
+                "why_now_line": f"为什么是现在：{compact_text(opportunity_why_now, 28)}",
+                "proof_line": f"价值支撑：{first_or_placeholder(opportunity_supporting_points, '价值支撑点', limit=18)}",
                 "accent_image": {"enabled": True, "left": 10.0, "top": 2.0, "width": 2.1, "height": 4.7},
             },
         ),
@@ -360,14 +395,14 @@ def build_workshop_plan(payload: dict, template: str, theme: str, aspect_ratio: 
             "capability-selection",
             "capability-selection",
             [
-                f"业务场景 / 输入感知：{join_cards(business_cards + input_cards, '业务场景卡与输入感知卡')}",
-                f"理解分析：{join_cards(understanding_cards, '理解分析卡')}",
-                f"生成交互 / 执行闭环：{join_cards(generation_cards + execution_cards, '生成交互卡与执行闭环卡')}",
+                f"业务场景 / 输入感知：{join_cards(business_cards + input_cards, '业务场景卡与输入感知卡', item_limit=12, max_items=3)}",
+                f"理解分析：{join_cards(understanding_cards, '理解分析卡', item_limit=12, max_items=3)}",
+                f"生成交互 / 执行闭环：{join_cards(generation_cards + execution_cards, '生成交互卡与执行闭环卡', item_limit=12, max_items=3)}",
             ],
             fields={
-                "perception_line": f"业务场景 / 输入感知：{join_cards(business_cards + input_cards, '业务场景卡与输入感知卡')}",
-                "analysis_line": f"理解分析：{join_cards(understanding_cards, '理解分析卡')}",
-                "action_line": f"生成交互 / 执行闭环：{join_cards(generation_cards + execution_cards, '生成交互卡与执行闭环卡')}",
+                "perception_line": f"业务场景 / 输入感知：{join_cards(business_cards + input_cards, '业务场景卡与输入感知卡', item_limit=12, max_items=3)}",
+                "analysis_line": f"理解分析：{join_cards(understanding_cards, '理解分析卡', item_limit=12, max_items=3)}",
+                "action_line": f"生成交互 / 执行闭环：{join_cards(generation_cards + execution_cards, '生成交互卡与执行闭环卡', item_limit=12, max_items=3)}",
             },
         ),
         make_slide(
@@ -376,15 +411,15 @@ def build_workshop_plan(payload: dict, template: str, theme: str, aspect_ratio: 
             "ai-flow-steps",
             "ai-flow-steps",
             [
-                f"业务触发：{flow_trigger}",
-                f"核心流程：{'；'.join(numbered_lines(flow_steps, 'AI Flow 步骤', limit=5))}",
-                f"业务闭环：{flow_closure}",
+                f"业务触发：{compact_text(flow_trigger, 24)}",
+                f"核心流程：{'；'.join(numbered_lines(flow_steps, 'AI Flow 步骤', limit=5, item_limit=18))}",
+                f"业务闭环：{compact_text(flow_closure, 34)}",
             ],
             speaker_notes=[flow_narrative],
             fields={
-                "trigger_line": f"业务触发：{flow_trigger}",
-                "flow_lines": numbered_lines(flow_steps, "AI Flow 步骤", limit=5),
-                "closure_line": f"业务闭环：{flow_closure}",
+                "trigger_line": f"业务触发：{compact_text(flow_trigger, 24)}",
+                "flow_lines": numbered_lines(flow_steps, "AI Flow 步骤", limit=5, item_limit=18),
+                "closure_line": f"业务闭环：{compact_text(flow_closure, 34)}",
             },
         ),
         make_slide(
@@ -393,18 +428,18 @@ def build_workshop_plan(payload: dict, template: str, theme: str, aspect_ratio: 
             "architecture-diagram",
             "architecture-diagram",
             [
-                f"架构主线：{flow_narrative}",
+                f"架构主线：{compact_text(flow_narrative, 30)}",
                 f"架构分层：{join_cards(mvp_spec['architecture_layers'], '架构分层')}",
                 platform_line,
             ],
             fields={
                 "architecture_title": scenario_name,
-                "layer_lines": numbered_lines(mvp_spec["architecture_layers"], "架构分层", limit=4),
+                "layer_lines": numbered_lines(mvp_spec["architecture_layers"], "架构分层", limit=4, item_limit=16),
                 "architecture_blocks": architecture_blocks,
                 "support_lines": architecture_support_lines,
                 "platform_chips": architecture_chips,
                 "platform_line": platform_line,
-                "closure_line": f"闭环目标：{flow_closure}",
+                "closure_line": f"闭环目标：{compact_text(flow_closure, 34)}",
             },
         ),
         make_slide(
@@ -429,14 +464,14 @@ def build_workshop_plan(payload: dict, template: str, theme: str, aspect_ratio: 
             "business-value",
             "business-value",
             [
-                f"预期价值：{join_cards(value_outcomes, '业务价值')}",
-                f"关键指标：{join_cards(value_kpis, '量化指标')}",
+                f"预期价值：{join_cards(value_outcomes, '业务价值', item_limit=16, max_items=3)}",
+                f"关键指标：{join_cards(value_kpis, '量化指标', item_limit=16, max_items=3)}",
                 combine_scope_lines(poc_scope, poc_validation),
             ],
             fields={
-                "value_lines": value_outcomes or ["待补充：业务价值"],
-                "kpi_lines": value_kpis or ["待补充：量化指标"],
-                "poc_lines": numbered_lines(poc_validation, "POC 验证点", limit=3),
+                "value_lines": compact_items(value_outcomes, item_limit=18) or ["待补充：业务价值"],
+                "kpi_lines": compact_items(value_kpis, item_limit=18) or ["待补充：量化指标"],
+                "poc_lines": numbered_lines(poc_validation, "POC 验证点", limit=3, item_limit=18),
             },
         ),
         make_slide(
@@ -446,18 +481,18 @@ def build_workshop_plan(payload: dict, template: str, theme: str, aspect_ratio: 
             "prototype-concept",
             [
                 f"原型名称：{prototype_name}",
-                f"系统形态：{prototype_surface}；目标：{prototype_goal}",
-                f"MVP 交付：{mvp_spec['prototype_mode']}；核心任务：{mvp_spec['core_task']}",
+                f"系统形态：{compact_text(prototype_surface, 18)}；目标：{compact_text(prototype_goal, 20)}",
+                f"MVP 交付：{compact_text(mvp_spec['prototype_mode'], 14)}；核心任务：{compact_text(mvp_spec['core_task'], 20)}",
             ],
             fields={
                 "top_labels": ["原型名称", "系统形态", "MVP 交付"],
                 "prototype_name_line": f"原型名称：{prototype_name}；目标用户：{mvp_spec['primary_user']}",
-                "prototype_surface_line": f"系统形态：{prototype_surface}；目标：{prototype_goal}",
-                "prototype_value_line": f"MVP 交付：{mvp_spec['prototype_mode']}；核心任务：{mvp_spec['core_task']}；技术栈：{mvp_spec['tech_stack']}",
+                "prototype_surface_line": f"系统形态：{compact_text(prototype_surface, 18)}；目标：{compact_text(prototype_goal, 20)}",
+                "prototype_value_line": f"MVP 交付：{compact_text(mvp_spec['prototype_mode'], 14)}；核心任务：{compact_text(mvp_spec['core_task'], 16)}；技术栈：{compact_text(mvp_spec['tech_stack'], 14)}",
                 "flow_title": "MVP 页面范围",
                 "scope_title": "快速开发路径",
-                "prototype_flow_lines": numbered_lines(dedupe_items(mvp_spec["screens"] + prototype_mock_scope + prototype_user_flow), "MVP 页面", limit=4),
-                "prototype_scope_lines": numbered_lines(dedupe_items(mvp_spec["next_build_steps"] + [prototype_value_statement]), "快速开发路径", limit=4),
+                "prototype_flow_lines": numbered_lines(dedupe_items(mvp_spec["screens"] + prototype_mock_scope + prototype_user_flow), "MVP 页面", limit=4, item_limit=18),
+                "prototype_scope_lines": numbered_lines(dedupe_items(mvp_spec["next_build_steps"] + [prototype_value_statement]), "快速开发路径", limit=4, item_limit=18),
                 "accent_image": {"enabled": True, "left": 9.8, "top": 2.0, "width": 2.3, "height": 4.7},
             },
         ),
@@ -467,14 +502,14 @@ def build_workshop_plan(payload: dict, template: str, theme: str, aspect_ratio: 
             "poc-next-step",
             "poc-next-step",
             [
-                f"试点范围：{poc_scope}",
-                f"关键角色：{join_cards(poc_stakeholders, '关键角色')}",
-                f"后续动作：{join_cards(poc_next_actions, '后续动作')}",
+                f"试点范围：{compact_text(poc_scope, 24)}",
+                f"关键角色：{join_cards(poc_stakeholders, '关键角色', item_limit=12, max_items=3)}",
+                f"后续动作：{join_cards(poc_next_actions, '后续动作', item_limit=16, max_items=3)}",
             ],
             fields={
-                "scope_line": f"试点范围：{poc_scope}",
-                "stakeholder_lines": poc_stakeholders or ["待补充：关键角色"],
-                "next_action_lines": numbered_lines(poc_next_actions, "后续动作", limit=3),
+                "scope_line": f"试点范围：{compact_text(poc_scope, 24)}",
+                "stakeholder_lines": compact_items(poc_stakeholders, item_limit=14) or ["待补充：关键角色"],
+                "next_action_lines": numbered_lines(poc_next_actions, "后续动作", limit=3, item_limit=16),
                 "accent_image": {"enabled": True, "left": 9.95, "top": 3.0, "width": 2.15, "height": 3.7},
             },
         ),

@@ -1,0 +1,46 @@
+{
+  "workshop": {
+    "title": "AI Discovery Card Workshop",
+    "customer": "售后服务诊断与派工工作台",
+    "group_name": "第二小组",
+    "industry": "消费电子 IoT",
+    "date": "2026-05-18"
+  },
+  "event_input": {
+    "scene_name": "售后服务诊断与派工工作台",
+    "customer_type": "消费电子 IoT",
+    "scenario_summary": "围绕设备售后服务场景，连接工单、故障描述、历史处理记录和备件信息，帮助一线人员更快完成诊断与派工。",
+    "target_role": "售后运营经理",
+    "current_pain_point": "客服和工程师需要在多个系统里查设备状态、维修记录和知识库，诊断效率低且经验依赖强。",
+    "expected_value": "先做出一版售后服务工作台，验证问题识别、维修建议和派工协同的效率提升。",
+    "prototype_preference": "售后服务诊断与派工工作台"
+  },
+  "mvp_spec": {
+    "prototype_mode": "前端壳子优先",
+    "primary_user": "售后运营经理",
+    "core_task": "先做出一版售后服务工作台，验证问题识别、维修建议和派工协同的效率提升。",
+    "screens": [],
+    "modules": [],
+    "key_actions": [],
+    "sample_data": [],
+    "style_keywords": [
+      "企业级",
+      "卡片式布局"
+    ],
+    "out_of_scope": [],
+    "tech_stack_preference": "Next.js + Tailwind CSS"
+  },
+  "current_process": [],
+  "detected_cards": {},
+  "recognized_cards": [],
+  "card_photo_paths": [],
+  "product_mapping": [],
+  "options": {
+    "mode": "codex-cli",
+    "template": "enterprise-forum",
+    "theme": "eden-enterprise",
+    "aspect_ratio": "16:9",
+    "generate_prototype": false,
+    "timeout_seconds": 900
+  }
+}

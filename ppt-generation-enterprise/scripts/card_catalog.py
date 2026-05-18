@@ -1,4 +1,5 @@
 import csv
+import difflib
 import unicodedata
 from copy import deepcopy
 from functools import lru_cache
@@ -60,8 +61,15 @@ def parse_products(value: object) -> list[str]:
 
 
 def resolve_default_csv_path() -> Path:
-    repo_root = Path(__file__).resolve().parents[2]
-    return repo_root / "AI Discovery Card Workshop_卡牌数据.csv"
+    csv_name = "AI Discovery Card Workshop_卡牌数据.csv"
+    candidates = [
+        Path(__file__).resolve().parents[2] / csv_name,
+        Path(__file__).resolve().parents[1] / csv_name,
+    ]
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    return candidates[0]
 
 
 @lru_cache(maxsize=4)
@@ -114,6 +122,15 @@ def match_card(title: str, csv_path: str | None = None) -> dict | None:
             candidates.append(card)
     if candidates:
         return sorted(candidates, key=lambda item: len(item["title"]))[0]
+
+    fuzzy_candidates = []
+    for card in load_card_catalog(csv_path):
+        ratio = difflib.SequenceMatcher(None, title, card["title"]).ratio()
+        if ratio >= 0.8:
+            fuzzy_candidates.append((ratio, card))
+    if fuzzy_candidates:
+        fuzzy_candidates.sort(key=lambda item: (-item[0], len(item[1]["title"])))
+        return fuzzy_candidates[0][1]
     return None
 
 
@@ -218,8 +235,13 @@ def enrich_source_with_recognized_cards(source: dict, csv_path: str | None = Non
     enriched = deepcopy(source)
     matched_cards = []
     unmatched = []
+    catalog_missing = False
     for card in recognized:
-        matched = match_card(card.get("title", ""), csv_path)
+        try:
+            matched = match_card(card.get("title", ""), csv_path)
+        except FileNotFoundError:
+            catalog_missing = True
+            break
         if not matched:
             unmatched.append(card.get("title", ""))
             continue
@@ -237,6 +259,11 @@ def enrich_source_with_recognized_cards(source: dict, csv_path: str | None = Non
                 "products": matched["products"],
             }
         )
+
+    if catalog_missing:
+        if not ensure_list(enriched.get("current_process")):
+            enriched["current_process"] = build_process_from_cards(recognized)
+        return enriched
 
     enriched["recognized_cards"] = matched_cards
     if unmatched:

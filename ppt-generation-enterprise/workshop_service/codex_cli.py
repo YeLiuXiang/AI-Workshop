@@ -54,6 +54,10 @@ class CodexCliRunner:
         if image_paths:
             command.extend(["-i", *[str(path) for path in image_paths]])
 
+        # `-i/--image` accepts a variadic list, so we must terminate option parsing
+        # before the prompt or Codex may treat the prompt as another image path and
+        # fall back to reading stdin.
+        command.append("--")
         command.append(prompt)
 
         completed = subprocess.run(
