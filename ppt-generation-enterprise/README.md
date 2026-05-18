@@ -408,6 +408,7 @@ Shortcut scripts:
 ```
 
 For Ubuntu VM deployment, start from [deploy/workshop-service.service.example](</f:/VsCodeProject/AI-Workshop/ppt-generation-enterprise/deploy/workshop-service.service.example>) and only replace the working directory, Python path, and Linux user.
+For a step-by-step Linux rollout, use [deploy/ubuntu-migration.md](</f:/VsCodeProject/AI-Workshop/ppt-generation-enterprise/deploy/ubuntu-migration.md>) together with [deploy/nginx.workshop.conf.example](</f:/VsCodeProject/AI-Workshop/ppt-generation-enterprise/deploy/nginx.workshop.conf.example>).
 
 Then open the built-in frontend at the service root:
 
@@ -445,4 +446,6 @@ Recommended environment variables:
 - `CODEX_SANDBOX`
 - `CODEX_APPROVAL_POLICY`
 - `CODEX_USE_EPHEMERAL`
+- `CODEX_SKIP_GIT_REPO_CHECK`
+- `CODEX_FALLBACK_MODE`
 - `PPT_ACCENT_IMAGE_DIR`

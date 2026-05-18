@@ -67,17 +67,36 @@ class WorkshopPipeline:
             logs["codex_stdout"] = codex_result.stdout
             logs["codex_stderr"] = codex_result.stderr
             logs["codex_command"] = " ".join(codex_result.command)
-            if codex_result.returncode != 0:
-                raise RuntimeError(
-                    f"Codex CLI failed with exit code {codex_result.returncode}"
-                )
+            self._write_log_files(job_dir, logs)
+
+            codex_failed = codex_result.returncode != 0
             normalized_output = codex_result.stdout.strip()
-            if not normalized_output:
-                raise RuntimeError("Codex CLI finished without returning normalized scenario JSON")
-            json.loads(normalized_output)
-            scenario_path.write_text(normalized_output + "\n", encoding="utf-8")
-            input_path = scenario_path
-            fast_mode = False
+            if not codex_failed and not normalized_output:
+                codex_failed = True
+                logs["codex_error"] = "Codex CLI finished without returning JSON output"
+            if not codex_failed and normalized_output:
+                try:
+                    json.loads(normalized_output)
+                except json.JSONDecodeError as exc:
+                    codex_failed = True
+                    logs["codex_error"] = f"Codex CLI returned invalid JSON: {exc}"
+
+            if codex_failed:
+                fallback_mode = (self.settings.codex_fallback_mode or "").strip()
+                if not fallback_mode:
+                    raise RuntimeError(
+                        logs.get("codex_error")
+                        or f"Codex CLI failed with exit code {codex_result.returncode}"
+                    )
+                if progress_callback:
+                    progress_callback("artifact-generation", "Copilot 整理失败，切换到稳定生成模式")
+                logs["codex_fallback_mode"] = fallback_mode
+                input_path = request_path
+                fast_mode = fallback_mode == JobMode.python_fast.value
+            else:
+                scenario_path.write_text(normalized_output + "\n", encoding="utf-8")
+                input_path = scenario_path
+                fast_mode = False
         else:
             input_path = request_path
             fast_mode = mode == JobMode.python_fast
@@ -93,6 +112,7 @@ class WorkshopPipeline:
         logs["generator_stdout"] = generator_result.stdout
         logs["generator_stderr"] = generator_result.stderr
         logs["generator_command"] = " ".join(generator_result.args)
+        self._write_log_files(job_dir, logs)
         if generator_result.returncode != 0:
             raise RuntimeError(
                 f"Workshop generator failed with exit code {generator_result.returncode}"
@@ -236,6 +256,15 @@ class WorkshopPipeline:
             if path.exists():
                 return json.loads(path.read_text(encoding="utf-8"))
         return None
+
+    def _write_log_files(self, job_dir: Path, logs: dict[str, str]) -> None:
+        logs_dir = job_dir / "logs"
+        logs_dir.mkdir(parents=True, exist_ok=True)
+        for key, value in logs.items():
+            if value is None:
+                continue
+            target = logs_dir / f"{key}.log"
+            target.write_text(str(value), encoding="utf-8")
 
     def generate_prototype(self, case_dir: Path, scenario_path: Path | None = None) -> list[ArtifactRecord]:
         scenario_payload = self._load_scenario_payload(case_dir, scenario_path)

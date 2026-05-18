@@ -1,0 +1,18 @@
+{
+  "job_id": "4ec0605a1f944a99838745acc26a8bb9",
+  "status": "failed",
+  "mode": "codex-cli",
+  "stage": "failed",
+  "stage_label": "任务失败",
+  "created_at": "2026-05-18T07:40:08.840012+00:00",
+  "updated_at": "2026-05-18T07:40:08.983154+00:00",
+  "request_path": "F:\\VsCodeProject\\AI-Workshop\\ppt-generation-enterprise\\runtime\\jobs\\4ec0605a1f944a99838745acc26a8bb9\\request.json",
+  "scenario_path": null,
+  "case_dir": null,
+  "artifacts": [],
+  "prototype_status": "not_requested",
+  "prototype_label": "尚未生成",
+  "prototype_error": null,
+  "error": "[WinError 2] 系统找不到指定的文件。",
+  "logs": {}
+}

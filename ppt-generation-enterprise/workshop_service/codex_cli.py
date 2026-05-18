@@ -47,6 +47,8 @@ class CodexCliRunner:
             command.append("--ephemeral")
         if self.settings.codex_ignore_user_config:
             command.append("--ignore-user-config")
+        if self.settings.codex_skip_git_repo_check:
+            command.append("--skip-git-repo-check")
         if self.settings.codex_model:
             command.extend(["--model", self.settings.codex_model])
         if image_paths:
@@ -60,6 +62,7 @@ class CodexCliRunner:
             text=True,
             encoding="utf-8",
             errors="replace",
+            stdin=subprocess.DEVNULL,
             timeout=timeout_seconds,
             cwd=workdir,
             env={
